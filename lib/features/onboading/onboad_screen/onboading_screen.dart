@@ -28,8 +28,6 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     super.dispose();
   }
 
-  int pageChange = 0;
-
   @override
   Widget build(BuildContext context) {
     // final headlineSmall = Theme.of(context).textTheme.headlineSmall;
@@ -42,10 +40,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             Expanded(
               child: PageView.builder(
                 onPageChanged: (index) {
-                  pageChange = index;
-                  setState(() {
-                    
-                  });
+                  ref.read(onboadingProvider.notifier).indexChange(index);
                 },
                 itemCount: ref
                     .read(onboadingProvider.notifier)
@@ -73,7 +68,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(3, (index) {
-                    bool isSelected = index == pageChange;
+                    bool isSelected = index ==ref
+                      .read(onboadingProvider.notifier).index;
 
                     return AnimatedContainer(
                       duration: Duration(milliseconds: 300),
@@ -82,15 +78,17 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       height: 4.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color:isSelected ? AppColor.secondaryColor: AppColor.primaryColor,
-                       //shape: BoxShape.circle,
+                        color: isSelected
+                            ? AppColor.secondaryColor
+                            : AppColor.primaryColor,
+                        //shape: BoxShape.circle,
                       ),
                     );
                   }),
                 ),
               ),
             ),
-            SizedBox(height:30,)
+            SizedBox(height: 30),
           ],
         ),
       ),

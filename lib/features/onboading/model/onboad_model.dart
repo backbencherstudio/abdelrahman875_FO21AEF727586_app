@@ -1,6 +1,8 @@
+
+import 'package:abdelrahman875_fo21aef727586/features/onboading/model/onboad_value_model.dart';
+
 class OnboadModel {
-  String title;
-  String subTitle;
-  String img;
-  OnboadModel({required this.title, required this.subTitle, required this.img});
+  int ?index;
+  OnboadContentModel? onboardContent;
+  OnboadModel({this.index,this.onboardContent});
 }
