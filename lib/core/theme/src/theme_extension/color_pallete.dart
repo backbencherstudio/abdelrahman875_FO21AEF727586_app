@@ -3,6 +3,8 @@ import 'dart:ui';
 class AppColor {
   static const Color splashColor = Color(0xFF181818);
   static const Color primaryColor = Color(0xFF181818);
+  static const Color boxColor = Color(0xFF21252C);
+  static const Color textColor = Color(0xFF7A848C);
   static const Color backgroundColor = Color(0xFFF5F3FF);
   static const Color notifyRed = Color(0xFFF44336);
   static const Color primaryTextColor = Color(0xFF1D1F2C);
