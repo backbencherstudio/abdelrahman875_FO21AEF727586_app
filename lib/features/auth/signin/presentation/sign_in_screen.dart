@@ -2,6 +2,9 @@ import 'package:abdelrahman875_fo21aef727586/core/constants/images_constants.dar
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../core/routes/route_name.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -147,7 +150,9 @@ class _SignInState extends State<SignIn> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.push(RouteName.inscriptionScreen);
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColor.boxColor,
                       padding: EdgeInsets.symmetric(vertical: 14.h),

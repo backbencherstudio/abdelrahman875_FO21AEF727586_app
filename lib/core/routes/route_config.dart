@@ -4,17 +4,22 @@ import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/paren
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/Inscription/Inscription.dart';
+
+import '../../features/Inscription/Transporteur_Vehicule.dart';
+import '../../features/Inscription/commande.dart';
+import '../../features/Inscription/inscription_doc.dart';
+import '../../features/Inscription_Donneur/Donneur_screen.dart';
+import '../../features/Inscription_Donneur/inscription_doc.dart';
 import '../../features/auth/signin/presentation/sign_in_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.signIn,
+    initialLocation: RouteName.donneur,
 
     routes: [
-     
-      
       GoRoute(
         name: RouteName.splashScreen,
         path: RouteName.splashScreen,
@@ -29,14 +34,56 @@ class RouteConfig {
           return const MaterialPage(child: SignIn());
         },
       ),
-       GoRoute(
+      GoRoute(
+        name: RouteName.command,
+        path: RouteName.command,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Command());
+        },
+      ),
+      GoRoute(
+        name: RouteName.inscriptionDoc,
+        path: RouteName.inscriptionDoc,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: InscriptionDoc());
+        },
+      ),
+      GoRoute(
+        name: RouteName.inscriptionDoc_two,
+        path: RouteName.inscriptionDoc_two,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: InscriptionDoc_two());
+        },
+      ),
+      GoRoute(
+        name: RouteName.trans_Vehicule,
+        path: RouteName.trans_Vehicule,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Trans_Vehicule());
+        },
+      ),
+      GoRoute(
+        name: RouteName.inscriptionScreen,
+        path: RouteName.inscriptionScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Inscription());
+        },
+      ),
+      GoRoute(
+        name: RouteName.donneur,
+        path: RouteName.donneur,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Donneur());
+        },
+      ),
+      GoRoute(
         name: RouteName.onboardingScreen,
         path: RouteName.onboardingScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: OnboardingScreen());
         },
       ),
-       GoRoute(
+      GoRoute(
         name: RouteName.parentsScreen,
         path: RouteName.parentsScreen,
         pageBuilder: (context, state) {
@@ -48,7 +95,6 @@ class RouteConfig {
           );
         },
       ),
-     
     ],
   );
 }

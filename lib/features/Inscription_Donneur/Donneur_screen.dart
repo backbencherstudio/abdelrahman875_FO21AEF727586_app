@@ -5,14 +5,14 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/routes/route_name.dart';
 
-class Inscription extends StatefulWidget {
-  const Inscription({super.key});
+class Donneur extends StatefulWidget {
+  const Donneur({super.key});
 
   @override
-  State<Inscription> createState() => _InscriptionState();
+  State<Donneur> createState() => _InscriptionState();
 }
 
-class _InscriptionState extends State<Inscription> {
+class _InscriptionState extends State<Donneur> {
   final _formKey = GlobalKey<FormState>();
   bool _obscurePassword = true;
 
@@ -69,19 +69,19 @@ class _InscriptionState extends State<Inscription> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 32),
+                const SizedBox(height: 50),
                 const Center(
                   child: Text(
                     'Inscription',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,
-                    color: AppColor.textColor1),
+                        color: AppColor.textColor1),
 
                   ),
                 ),
                 const SizedBox(height: 4),
-                 Center(
+                Center(
                   child: Text(
-                    ' Transporteur',
+                    ' Donneur d’ordre',
 
                     style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold,
                       color:AppColor.textColor2,
@@ -92,9 +92,9 @@ class _InscriptionState extends State<Inscription> {
                 const SizedBox(height: 20),
 
                 // Nom
-                 Text('Nom', style: TextStyle(fontSize: 16,
-                     color: AppColor.textColor1),
-                    ),
+                Text('Nom', style: TextStyle(fontSize: 16,
+                    color: AppColor.textColor1),
+                ),
                 const SizedBox(height: 12),
                 customTextField('Hinek', TextInputType.text),
                 const SizedBox(height: 16),
@@ -186,7 +186,7 @@ class _InscriptionState extends State<Inscription> {
                     height: 56,
                     child: ElevatedButton(
                       onPressed: () {
-                        context.push(RouteName.trans_Vehicule);
+                        context.push(RouteName.inscriptionDoc_two);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,

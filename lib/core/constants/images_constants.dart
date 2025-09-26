@@ -5,6 +5,11 @@ class ImagesConstants {
   static const String googleLogo = "$base/googl.png";
   static const String apleLogo = "$base/applelogo.png";
   static const String eyeLogo = "$base/eye.png";
+  static const String france = "$base/france.png";
+  static const String help = "$base/Help.png";
+  static const String upload = "$base/upload.png";
+  static const String dropdown = "$base/dropdown.png";
+  static const String accueil = "$base/Accueil.png";
 
 
 
