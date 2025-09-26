@@ -48,6 +48,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     .length,
                 controller: _pageController,
                 itemBuilder: (context, index) {
+                  
                   final item = ref
                       .read(onboadingProvider.notifier)
                       .onboadDataList;
@@ -57,6 +58,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     imgUrl: item[index].img,
                     pageController: _pageController,
                   );
+                
                 },
               ),
             ),
@@ -68,8 +70,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(3, (index) {
-                    bool isSelected = index ==ref
-                      .read(onboadingProvider.notifier).index;
+                    final onboadState = ref.watch(onboadingProvider);
+                    bool isSelected = index == onboadState.index;
 
                     return AnimatedContainer(
                       duration: Duration(milliseconds: 300),

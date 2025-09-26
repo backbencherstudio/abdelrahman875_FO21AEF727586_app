@@ -32,8 +32,8 @@ class OnboadRiverpod extends StateNotifier<OnboadModel> {
       title: 'Optimisez votre\nlogistique',
     ),
   ];
-  int index = 0;
-void indexChange(int value) {
-    index= value;
+
+  void indexChange(int value) {
+    state = state.copyWith(index: value); // ✅ update state
   }
 }
