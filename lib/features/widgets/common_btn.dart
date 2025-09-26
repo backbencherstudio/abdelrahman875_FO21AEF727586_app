@@ -19,12 +19,12 @@ class CommonBtn extends StatelessWidget {
         alignment: Alignment.center,
         height: 56.h,
         width: 335.w,
-        decoration: BoxDecoration(color: AppColor.primaryColor,
+        decoration: BoxDecoration(color: AppColors.primaryColor,
         borderRadius: BorderRadius.circular(8.0.r)
         ),
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Text(title,style:theme!.copyWith(fontWeight: FontWeight.w600,color: AppColor.white) ,),
+          child: Text(title,style:theme!.copyWith(fontWeight: FontWeight.w600,color: AppColors.whiteColor) ,),
         ),
       ),
     );

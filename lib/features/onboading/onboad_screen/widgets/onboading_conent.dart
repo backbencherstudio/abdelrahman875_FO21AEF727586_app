@@ -31,7 +31,7 @@ class onboardContent extends StatelessWidget {
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
             fontWeight: FontWeight.w600,
-            color: AppColor.primaryColor,
+            color: AppColors.primaryColor,
             fontSize: 24
           ),
         ),
