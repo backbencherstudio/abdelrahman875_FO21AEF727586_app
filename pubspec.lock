@@ -457,7 +457,7 @@ packages:
     source: hosted
     version: "2.2.0"
   riverpod:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: riverpod
       sha256: "135723ec44dfba141bc4696224048a408336e794228a0117439e7ad0a8be6d05"
@@ -557,6 +557,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  smart_stepper:
+    dependency: "direct main"
+    description:
+      name: smart_stepper
+      sha256: "04aaf91b8067332bb66908d91e78e0189b4396722064d05f7c01bbd620c4835f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.7"
   source_map_stack_trace:
     dependency: transitive
     description:

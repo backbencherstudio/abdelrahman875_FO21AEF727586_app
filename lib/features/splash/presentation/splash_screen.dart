@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/constants/images_constants.dart';
+import '../../../core/constants/images.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Future.delayed(Duration(seconds: 3), () {
      // context.go(RouteName.onboardingScreen);
-      context.go(RouteName.parentsScreen);
+      context.go(RouteName.onboardingScreen);
     });
     super.initState();
   }
@@ -27,12 +27,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.splashColor,
+      backgroundColor: AppColors.splashColor,
       body: Center(
         child: SizedBox(
           height: 108.h,
           width: 230.w,
-          child: Image.asset(ImagesConstants.splashImg, fit: BoxFit.cover),
+          child: Image.asset(AppImages.splashImg, fit: BoxFit.cover),
         ),
       ),
     );

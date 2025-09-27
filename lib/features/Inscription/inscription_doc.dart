@@ -222,7 +222,7 @@ class _InscriptionDocState extends State<InscriptionDoc> {
                             style: Theme.of(context).textTheme.titleMedium
                                 ?.copyWith(
                                   fontSize: 16.sp,
-                                  color: AppColor.box_Color,
+                                  color: AppColors.box_Color,
                                 ),
                           ),
                         ),

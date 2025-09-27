@@ -6,6 +6,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/Command/presentation/command_5.dart';
 import '../../features/Command/presentation/votre_command.dart';
+import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
+import '../../features/home/presentation/home_veiw.dart';
 import '../../features/Inscription/Inscription.dart';
 
 import '../../features/Inscription/Transporteur_Vehicule.dart';
@@ -13,13 +15,13 @@ import '../../features/Inscription/commande.dart';
 import '../../features/Inscription/inscription_doc.dart';
 import '../../features/Inscription_Donneur/Donneur_screen.dart';
 import '../../features/Inscription_Donneur/inscription_doc.dart';
-import '../../features/auth/signin/presentation/sign_in_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.command5,
+
+    initialLocation: RouteName.splashScreen,
 
     routes: [
       GoRoute(
@@ -29,13 +31,13 @@ class RouteConfig {
           return const MaterialPage(child: SplashScreen());
         },
       ),
-      GoRoute(
-        name: RouteName.signIn,
-        path: RouteName.signIn,
-        pageBuilder: (context, state) {
-          return const MaterialPage(child: SignIn());
-        },
-      ),
+      // GoRoute(
+      //   name: RouteName.signIn,
+      //   path: RouteName.signIn,
+      //   pageBuilder: (context, state) {
+      //     return const MaterialPage(child: SignIn());
+      //   },
+      // ),
       GoRoute(
         name: RouteName.votreCommand,
         path: RouteName.votreCommand,
@@ -99,6 +101,25 @@ class RouteConfig {
           return const MaterialPage(child: OnboardingScreen());
         },
       ),
+
+      GoRoute(
+        name: RouteName.creerUneCommandeScreen,
+        path: RouteName.creerUneCommandeScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: CreerUneCommandeScreen());
+        },
+      ),
+
+
+      GoRoute(
+        name: RouteName.homeView,
+        path: RouteName.homeView,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: HomeView());
+        },
+      ),
+     
+
       GoRoute(
         name: RouteName.parentsScreen,
         path: RouteName.parentsScreen,

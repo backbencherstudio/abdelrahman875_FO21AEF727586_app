@@ -44,7 +44,7 @@ class _InscriptionState extends State<Donneur> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: AppColor.boxColor2,
+          color: AppColors.boxColor2,
           width: 1.2,
         ),
       ),
@@ -74,7 +74,7 @@ class _InscriptionState extends State<Donneur> {
                   child: Text(
                     'Inscription',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,
-                        color: AppColor.textColor1),
+                        color: AppColors.textColor1),
 
                   ),
                 ),
@@ -84,7 +84,7 @@ class _InscriptionState extends State<Donneur> {
                     ' Donneur d’ordre',
 
                     style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold,
-                      color:AppColor.textColor2,
+                      color:AppColors.textColor2,
 
                     ),
                   ),
@@ -93,7 +93,7 @@ class _InscriptionState extends State<Donneur> {
 
                 // Nom
                 Text('Nom', style: TextStyle(fontSize: 16,
-                    color: AppColor.textColor1),
+                    color: AppColors.textColor1),
                 ),
                 const SizedBox(height: 12),
                 customTextField('Hinek', TextInputType.text),

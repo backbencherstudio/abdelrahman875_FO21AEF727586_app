@@ -49,7 +49,7 @@ class _InscriptionState extends State<Trans_Vehicule> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: AppColor.boxColor2,
+          color: AppColors.boxColor2,
           width: 1.2,
         ),
       ),
@@ -79,7 +79,7 @@ class _InscriptionState extends State<Trans_Vehicule> {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: AppColor.textColor1,
+                    color: AppColors.textColor1,
                   ),
                 ),
               ),
@@ -91,7 +91,7 @@ class _InscriptionState extends State<Trans_Vehicule> {
                   style: TextStyle(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
-                    color: AppColor.textColor2,
+                    color: AppColors.textColor2,
                   ),
                 ),
               ),
@@ -100,7 +100,7 @@ class _InscriptionState extends State<Trans_Vehicule> {
               // Nom
               Text(
                 'Type de véhicule',
-                style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500, color: AppColor.textColor1),
+                style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500, color: AppColors.textColor1),
               ),
               const SizedBox(height: 12),
               customTextField('Hinek', TextInputType.text),

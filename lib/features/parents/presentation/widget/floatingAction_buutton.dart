@@ -1,8 +1,9 @@
-import 'package:abdelrahman875_fo21aef727586/core/constants/icons_constants.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../../../core/constants/icons.dart';
 
 
 class FloatingHomeButton extends StatelessWidget {
@@ -29,7 +30,7 @@ class FloatingHomeButton extends StatelessWidget {
           height: 52.w,
           padding: const EdgeInsets.all(6),
           decoration: BoxDecoration(
-            color: AppColor.onboadCon,
+            color: AppColors.onboadCon,
             shape: BoxShape.circle,
          //  border: Border.all(color: Color(0xFFFFFFFF), width: 8),
             boxShadow: [
@@ -46,7 +47,7 @@ class FloatingHomeButton extends StatelessWidget {
               width: 24,
               height: 24,
               fit: BoxFit.cover,
-              color: AppColor.backgroundColor,
+              color: AppColors.backgroundColor,
             ),
           ),
         ),

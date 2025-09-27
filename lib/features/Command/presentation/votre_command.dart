@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/constants/images_constants.dart';
-import '../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../../core/constants/images.dart';
 import '../../widgets/common_btn.dart';
 
 class votreCommand extends StatefulWidget {
@@ -25,7 +24,7 @@ class _votreCommandState extends State<votreCommand> {
           SizedBox(height: 98.h), // Top spacing
           Center(
             child: Image.asset(
-              ImagesConstants.capture,
+              AppImages.capture,
               width: 132.w,
               height: 132.h,
               errorBuilder: (context, error, stackTrace) =>

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../core/constants/images_constants.dart';
+import '../../core/constants/images.dart';
 import '../../core/theme/src/theme_extension/color_pallete.dart';
 
 class Command extends StatelessWidget {
@@ -10,14 +10,14 @@ class Command extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor:AppColor.white,
+      backgroundColor:AppColors.whiteColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 98.h), // Top spacing
           Center(
             child: Image.asset(
-              ImagesConstants.accueil,
+              AppImages.accueil,
               width: 132.w,
               height: 132.h,
               errorBuilder: (context, error, stackTrace) =>
@@ -52,7 +52,7 @@ class Command extends StatelessWidget {
                 // context.push(RouteName.inscriptionScreen);
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColor.boxColor,
+                backgroundColor: AppColors.boxColor,
                 padding: EdgeInsets.symmetric(vertical: 16.h),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18.r),

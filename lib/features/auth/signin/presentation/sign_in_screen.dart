@@ -1,9 +1,9 @@
-import 'package:abdelrahman875_fo21aef727586/core/constants/images_constants.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/constants/images.dart';
 import '../../../../core/routes/route_name.dart';
 
 class SignIn extends StatefulWidget {
@@ -138,7 +138,7 @@ class _SignInState extends State<SignIn> {
                     child: Text(
                       "Mot de passe oublié ?",
                       style: TextStyle(
-                        color: AppColor.boxColor,
+                        color: AppColors.boxColor,
                         fontSize: 14.sp,
                       ),
                     ),
@@ -154,7 +154,7 @@ class _SignInState extends State<SignIn> {
                       context.push(RouteName.inscriptionScreen);
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.boxColor,
+                      backgroundColor: AppColors.boxColor,
                       padding: EdgeInsets.symmetric(vertical: 14.h),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.r),
@@ -219,14 +219,14 @@ class _SignInState extends State<SignIn> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     _socialButtonWithImage(
-                      imagePath: ImagesConstants.googleLogo,
+                      imagePath: AppImages.googleLogo,
                       onTap: () {
                         print("Google Sign-In");
                       },
                     ),
                     SizedBox(width: 14.w), // spacing between buttons
                     _socialButtonWithImage(
-                      imagePath: ImagesConstants.apleLogo,
+                      imagePath: AppImages.apleLogo,
                       onTap: () {
                         print("Apple Sign-In");
                       },

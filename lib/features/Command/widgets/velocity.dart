@@ -25,12 +25,12 @@ class _velocityState extends State<velocity> {
       width: 327.w,
       height: 78.h,
       padding: const EdgeInsets.all(10),
-      color: AppColor.primaryColor,
+      color: AppColors.primaryColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
-            icon: const Icon(Icons.remove, color: AppColor.secondaryColor),
+            icon: const Icon(Icons.remove, color: AppColors.secondaryColor),
             onPressed: () {
               int currentValue = int.tryParse(_controller.text) ?? 67;
               if (currentValue > 0) {
@@ -44,7 +44,7 @@ class _velocityState extends State<velocity> {
               shape: const CircleBorder(), // Circular shape
               padding: const EdgeInsets.all(10),
               side: BorderSide(
-                color: AppColor.secondaryColor,
+                color: AppColors.secondaryColor,
                 width: 2,
               ), // Border
             ),
@@ -52,7 +52,7 @@ class _velocityState extends State<velocity> {
           // SizedBox(height: 10),
           Text(
             "67",
-            style: style.headlineLarge?.copyWith(color: AppColor.textColor3)
+            style: style.headlineLarge?.copyWith(color: AppColors.textColor3)
           ),
           // SizedBox(
           //   width: 80.w,
@@ -65,7 +65,7 @@ class _velocityState extends State<velocity> {
           // ),
           // SizedBox(height: 10),
           IconButton(
-            icon: const Icon(Icons.add, color: AppColor.secondaryColor),
+            icon: const Icon(Icons.add, color: AppColors.secondaryColor),
             onPressed: () {
               int currentValue = int.tryParse(_controller.text) ?? 67;
               setState(() {
@@ -77,7 +77,7 @@ class _velocityState extends State<velocity> {
               shape: const CircleBorder(), // Circular shape
               padding: const EdgeInsets.all(10),
               side: BorderSide(
-                color: AppColor.secondaryColor,
+                color: AppColors.secondaryColor,
                 width: 2,
               ), // Border
             ),
