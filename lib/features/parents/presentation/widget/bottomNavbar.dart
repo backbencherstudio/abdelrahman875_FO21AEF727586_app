@@ -73,7 +73,7 @@ class BottomNavBar extends StatelessWidget {
                     defaultColor: const Color(0xff777980),
                   ),
                   CustomBottomNavItem(
-                    iconPath: AppIcons.settingSvg,
+                    iconPath: AppIcons.settingIcon,
                     label: "setting",
                     onTap: () => parentReadProvider.onSelectedIndex(4),
                     isActive: parentProvider.selectedIndex == 4,

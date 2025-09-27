@@ -4,6 +4,7 @@ import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/paren
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
 import '../../features/home/presentation/home_veiw.dart';
 import '../../features/Inscription/Inscription.dart';
 
@@ -12,13 +13,12 @@ import '../../features/Inscription/commande.dart';
 import '../../features/Inscription/inscription_doc.dart';
 import '../../features/Inscription_Donneur/Donneur_screen.dart';
 import '../../features/Inscription_Donneur/inscription_doc.dart';
-import '../../features/auth/signin/presentation/sign_in_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.creerUneCommandeScreen,
 
 
     routes: [
@@ -83,6 +83,14 @@ class RouteConfig {
         path: RouteName.onboardingScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: OnboardingScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.creerUneCommandeScreen,
+        path: RouteName.creerUneCommandeScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: CreerUneCommandeScreen());
         },
       ),
 
