@@ -6,6 +6,8 @@ class RouteName {
   static const String inscriptionDoc = "/InscriptionDoc";
   static const String command = "/Cmmand";
   static const String donneur = "/Donneur";
+  static const String command5 = "/Command5";
+  static const String votreCommand = "/VotreCommand";
   static const String inscriptionDoc_two = "/InscriptionDoc_two";
 
   static const String onboardingScreen = "/";//parentsScreen

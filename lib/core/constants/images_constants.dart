@@ -10,6 +10,7 @@ class ImagesConstants {
   static const String upload = "$base/upload.png";
   static const String dropdown = "$base/dropdown.png";
   static const String accueil = "$base/Accueil.png";
+  static const String capture = "$base/capture.png";
 
 
 

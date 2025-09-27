@@ -4,6 +4,8 @@ import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/paren
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/Command/presentation/command_5.dart';
+import '../../features/Command/presentation/votre_command.dart';
 import '../../features/Inscription/Inscription.dart';
 
 import '../../features/Inscription/Transporteur_Vehicule.dart';
@@ -17,7 +19,7 @@ import '../../features/splash/presentation/splash_screen.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.donneur,
+    initialLocation: RouteName.command5,
 
     routes: [
       GoRoute(
@@ -32,6 +34,13 @@ class RouteConfig {
         path: RouteName.signIn,
         pageBuilder: (context, state) {
           return const MaterialPage(child: SignIn());
+        },
+      ),
+      GoRoute(
+        name: RouteName.votreCommand,
+        path: RouteName.votreCommand,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: votreCommand());
         },
       ),
       GoRoute(
@@ -74,6 +83,13 @@ class RouteConfig {
         path: RouteName.donneur,
         pageBuilder: (context, state) {
           return const MaterialPage(child: Donneur());
+        },
+      ),
+      GoRoute(
+        name: RouteName.command5,
+        path: RouteName.command5,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Command5());
         },
       ),
       GoRoute(
