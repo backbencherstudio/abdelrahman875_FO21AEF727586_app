@@ -8,7 +8,11 @@ class AppTheme {
   AppTheme._();
   static ThemeData lightTheme = ThemeData(
     inputDecorationTheme: AppInputDecorationTheme.lightInputDecorationTheme,
-    scaffoldBackgroundColor: AppColors.backgroundColor,
+
+
+
+    scaffoldBackgroundColor: AppColors.whiteColor,
+
     textTheme: AppTextTheme.lightTextTheme,
   );
   static ThemeData darkTheme = ThemeData();

@@ -2,8 +2,10 @@
 
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
+import 'package:abdelrahman875_fo21aef727586/features/onboading/riverpod/onboad_riverpod.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/common_btn.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,6 +13,7 @@ class onboardContent extends StatelessWidget {
   final String title;
   final String subTitle;
   final String imgUrl;
+
   final PageController pageController;
 
   const onboardContent({
@@ -50,18 +53,22 @@ class onboardContent extends StatelessWidget {
           ),
         ),
         Spacer(),
-        CommonBtn(
-          title: "Suivant",
-          onPressed: () {
-            if (pageController == 2) {  // replace `isLastPage` logic with your check
-              context.go(RouteName.signInScreen); // or .push(...) based on your UX needs
-            } else {
-              // Advance to the next page
-              pageController.nextPage(
-                curve: Curves.bounceIn,
-                duration: Duration(milliseconds: 1000),
-              );
-            }
+
+        Consumer(
+          builder: (context, ref, child) {
+            return CommonBtn(
+              title: "Suivant",
+              onPressed: () {
+                pageController.nextPage(
+                  curve: Curves.ease,
+                  duration: Duration(milliseconds: 500),
+                );
+                final onboadState = ref.watch(onboadingProvider);
+                if (onboadState.index == 2) {
+                  context.go(RouteName.espacesScreen);
+                }
+              },
+            );
           },
         ),
 
