@@ -46,7 +46,7 @@ class FloatingHomeButton extends StatelessWidget {
               width: 24,
               height: 24,
               fit: BoxFit.cover,
-              color: AppColor.backgroundColor,
+              color: AppColor.white,
             ),
           ),
         ),

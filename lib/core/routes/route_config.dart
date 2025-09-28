@@ -1,5 +1,6 @@
 import 'package:abdelrahman875_fo21aef727586/core/routes/build_page_with_transition.dart';
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
+import 'package:abdelrahman875_fo21aef727586/features/espaces/espaces_screen.dart';
 import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/parents_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -37,6 +38,18 @@ class RouteConfig {
             context: context,
             state: state,
             child: ParentsScreen(),
+          );
+        },
+      ),
+       GoRoute(
+        name: RouteName.espacesScreen,
+        path: RouteName.espacesScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: EspacesScreen(),
           );
         },
       ),
