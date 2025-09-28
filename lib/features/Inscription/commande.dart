@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import '../../core/constants/images.dart';
+import '../../core/routes/route_name.dart';
 import '../../core/theme/src/theme_extension/color_pallete.dart';
 
 class Command extends StatelessWidget {
@@ -49,7 +51,7 @@ class Command extends StatelessWidget {
 
 
               onPressed: () {
-                // context.push(RouteName.inscriptionScreen);
+                context.push(RouteName.parentsScreen);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.boxColor,

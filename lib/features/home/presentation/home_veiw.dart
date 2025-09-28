@@ -31,6 +31,7 @@ class _HomeViewState extends State<HomeView> {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Créer  une mission',
@@ -92,7 +93,7 @@ class _HomeViewState extends State<HomeView> {
 
                       SizedBox(height: 18.h),
                       Column(
-                        children: List.generate(2, (index) {
+                        children: List.generate(6, (index) {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 12.h),
                             child: CustomListTile(

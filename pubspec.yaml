@@ -21,8 +21,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   google_fonts: ^6.3.1
   shared_preferences: ^2.5.3
-  smart_stepper: ^0.0.7
-
+  flutter_stepindicator: ^0.1.7
   flutter_svg: ^2.2.1
 
 dev_dependencies:

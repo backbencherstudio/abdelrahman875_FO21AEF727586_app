@@ -14,6 +14,7 @@ class AppIcons{
   static const String squireBoxIcon = "$iconPath/squire.svg";
   static const String boxShapeSvg = "$iconPath/box_shape.svg";
   static const String forwardSvg = "$iconPath/forward.svg";
+  static const String alimentsSvg = "$iconPath/aliments.png";
   static const String shipPng = "$iconPath/ship.png";
   static const String carShipPng = "$iconPath/car_ship.png";
 

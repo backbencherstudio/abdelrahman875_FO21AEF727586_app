@@ -34,6 +34,6 @@ class OnboadRiverpod extends StateNotifier<OnboadModel> {
   ];
 
   void indexChange(int value) {
-    state = state.copyWith(index: value); // ✅ update state
+    state = state.copyWith(index: value); //  update state
   }
 }

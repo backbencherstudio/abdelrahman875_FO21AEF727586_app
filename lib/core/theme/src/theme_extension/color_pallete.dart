@@ -53,5 +53,6 @@ static const Color transparentColor = Color(0x00000000);
 static const Color borderColor = Color(0xffABABAB);
 static const Color borderColor2 = Color(0xff086E86);
 static const Color borderColor3 = Color(0xffDADADA);
+static const Color borderColor4 = Color(0xffCFD5DB);
 
 }

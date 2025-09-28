@@ -53,13 +53,18 @@ class onboardContent extends StatelessWidget {
         CommonBtn(
           title: "Suivant",
           onPressed: () {
-           
-            pageController.nextPage(
-              curve: Curves.bounceIn,
-              duration: Duration(milliseconds: 200),
-            );
+            if (pageController == 2) {  // replace `isLastPage` logic with your check
+              context.go(RouteName.signInScreen); // or .push(...) based on your UX needs
+            } else {
+              // Advance to the next page
+              pageController.nextPage(
+                curve: Curves.bounceIn,
+                duration: Duration(milliseconds: 1000),
+              );
+            }
           },
         ),
+
         Spacer(),
       ],
     );
