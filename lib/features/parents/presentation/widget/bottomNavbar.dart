@@ -1,10 +1,14 @@
+
 // ignore_for_file: file_names
-import 'package:abdelrahman875_fo21aef727586/core/constants/icons_constants.dart';
+
+
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/parents_screen_provider.dart';
 import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/widget/customNavbarItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../../core/constants/icons.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
@@ -49,7 +53,7 @@ class BottomNavBar extends StatelessWidget {
                           parentReadProvider.onSelectedIndex(0);
                         },
                         isActive: parentProvider.selectedIndex == 0,
-                       activeColor: AppColor.secondaryColor,
+                       activeColor: AppColors.secondaryColor,
                     defaultColor: const Color(0xff777980),
                       );
                     },
@@ -59,7 +63,7 @@ class BottomNavBar extends StatelessWidget {
                     label: "Commandes",
                     onTap: () => parentReadProvider.onSelectedIndex(1),
                     isActive: parentProvider.selectedIndex == 1,
-                   activeColor: AppColor.secondaryColor,
+                   activeColor: AppColors.secondaryColor,
                     defaultColor: const Color(0xff777980),
                   ),
                
@@ -69,7 +73,7 @@ class BottomNavBar extends StatelessWidget {
                     label: "suivi",
                     onTap: () => parentReadProvider.onSelectedIndex(3),
                     isActive: parentProvider.selectedIndex == 3,
-                   activeColor: AppColor.secondaryColor,
+                   activeColor: AppColors.secondaryColor,
                     defaultColor: const Color(0xff777980),
                   ),
                   CustomBottomNavItem(
@@ -77,7 +81,7 @@ class BottomNavBar extends StatelessWidget {
                     label: "setting",
                     onTap: () => parentReadProvider.onSelectedIndex(4),
                     isActive: parentProvider.selectedIndex == 4,
-                   activeColor: AppColor.secondaryColor,
+                   activeColor: AppColors.secondaryColor,
                     defaultColor: const Color(0xff777980),
                   ),
                 ],

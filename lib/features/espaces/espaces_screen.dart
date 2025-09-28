@@ -8,7 +8,7 @@ class EspacesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.primaryTextColor,
+      backgroundColor: AppColors.primaryTextColor,
       body: SafeArea(child: Column(
         children: [
           Padding(
@@ -16,7 +16,7 @@ class EspacesScreen extends StatelessWidget {
             child: Text("data",style: Theme.of(context).textTheme.bodySmall!.copyWith(
               fontWeight: FontWeight.w600,
               fontSize: 24.h,
-              color: AppColor.whiteTextColor
+              color: AppColors.whiteTextColor
             )),
           )
 

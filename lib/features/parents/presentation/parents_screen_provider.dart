@@ -1,3 +1,4 @@
+import 'package:abdelrahman875_fo21aef727586/features/home/presentation/home_veiw.dart';
 import 'package:abdelrahman875_fo21aef727586/features/parents/model/parent_screen_riverpod_model.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,7 @@ class ParentsScreenProvider extends StateNotifier<ParentScreenRiverPodModel> {
 
   /// variable name
   final List<Widget> _pageList = const [
-    Scaffold(body: Center(child: Text("home"))),
+    HomeView(),
     Scaffold(body: Center(child: Text("commandes"))),
     Scaffold(body: Center(child: Text("scanner"))),
     Scaffold(body: Center(child: Text("Suivi"))),

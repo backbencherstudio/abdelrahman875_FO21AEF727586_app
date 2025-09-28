@@ -1,4 +1,4 @@
-import 'package:abdelrahman875_fo21aef727586/core/constants/images_constants.dart';
+import 'package:abdelrahman875_fo21aef727586/core/constants/images.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/onboading/riverpod/onboad_riverpod.dart';
 import 'package:abdelrahman875_fo21aef727586/features/onboading/onboad_screen/widgets/onboading_conent.dart';
@@ -81,8 +81,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         color: isSelected
-                            ? AppColor.secondaryColor
-                            : AppColor.primaryColor,
+                            ? AppColors.secondaryColor
+                            : AppColors.primaryColor,
                         //shape: BoxShape.circle,
                       ),
                     );
