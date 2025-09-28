@@ -1,17 +1,11 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/images.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
-import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/custom_list_tile.dart';
-import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/custom_progress_container.dart';
-import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/custom_title_header.dart';
-import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/grid_section.dart';
 import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/header_section.dart';
-import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/image_box_section.dart';
 import 'package:abdelrahman875_fo21aef727586/features/mission_screen/presentation/widgets/custom_subtitle.dart';
 import 'package:abdelrahman875_fo21aef727586/features/mission_screen/presentation/widgets/location_search_section.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../core/constants/icons.dart';
 
