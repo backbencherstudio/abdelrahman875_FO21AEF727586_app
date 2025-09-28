@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/routes/route_name.dart';
+import '../widgets/primery_button.dart';
 
 class InscriptionDoc extends StatefulWidget {
   const InscriptionDoc({super.key});
@@ -264,27 +265,14 @@ class _InscriptionDocState extends State<InscriptionDoc> {
                       ),
                       SizedBox(height: 14.h),
                       // Add Button
-                      Align(
-                        alignment: Alignment.center,
-                        child: ElevatedButton(
-                          onPressed: onFileUpload,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF000000),
-                            padding: EdgeInsets.symmetric(vertical: 12.h),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.r),
-                            ),
-                            minimumSize: Size(180.w, 35.h),
-                          ),
-                          child: Text(
-                            'Ajouter',
-                            style: Theme.of(context).textTheme.labelLarge
-                                ?.copyWith(
-                                  fontSize: 16.sp, // Changed to 16
-                                  color: Colors.white,
-                                ),
-                          ),
-                        ),
+                      PrimaryButton(
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(vertical: 12.h),
+                        containerColor: AppColors.blackColor,
+                        title: ' Créer mon compte',
+                        onTap: () {
+                          context.push(RouteName.trans_Vehicule);
+                        },
                       ),
                     ],
                   ),

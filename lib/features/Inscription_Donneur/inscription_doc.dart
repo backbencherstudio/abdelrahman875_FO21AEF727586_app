@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/routes/route_name.dart';
+import '../widgets/primery_button.dart';
 
 class InscriptionDoc_two extends StatefulWidget {
   const InscriptionDoc_two({super.key});
@@ -150,22 +151,17 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
               ),
               SizedBox(height: 16.h),
               // Submit Button
-              ElevatedButton(
-                onPressed: () {
+              PrimaryButton(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 12.h),
+                containerColor: AppColors.blackColor,
+                title: ' Créer mon compte',
+                onTap: () {
                   context.push(RouteName.command);
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF000000),
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.r),
-                  ),
-                ),
-                child: Text(
-                  'Créer mon compte',
-                  style: Theme.of(context).textTheme.labelLarge,
-                ),
               ),
+
+              const SizedBox(height: 20),
             ],
           );
         },

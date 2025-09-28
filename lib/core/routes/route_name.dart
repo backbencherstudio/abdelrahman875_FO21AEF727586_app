@@ -9,6 +9,11 @@ class RouteName {
   static const String command = "/Cmmand";
   static const String donneur = "/Donneur";
   static const String command5 = "/Command5";
+  static const String preuveScreen = "/preuveScreen";
+  static const String conditionScreen = "/condition_screen";
+  static const String missionScreen_One = "/missionScreen_One";
+  static const String mis_accepteScreen = "/mis_accepteScreen";
+  static const String commandScreen = "/CommandScreen";
   static const String votreCommand = "/VotreCommand";
   static const String inscriptionDoc_two = "/InscriptionDoc_two";
    static const String parentsScreen = '/parentsScreen';
