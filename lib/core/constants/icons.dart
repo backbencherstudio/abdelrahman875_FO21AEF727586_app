@@ -19,5 +19,9 @@ class AppIcons{
   static const String carShipPng = "$iconPath/car_ship.png";
   static const String verification = "$iconPath/verification.svg";
   static const String camion = "$iconPath/camion.svg";
+  static const String plusPng = "$iconPath/plus.png";
+  static const String blackboxPng = "$iconPath/blackbox.png";
+  static const String calenderPng = "$iconPath/calender.png";
+  static const String mapPinPng = "$iconPath/mappin.png";
 
 }
