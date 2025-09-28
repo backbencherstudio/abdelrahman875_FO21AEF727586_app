@@ -53,6 +53,7 @@ class onboardContent extends StatelessWidget {
           ),
         ),
         Spacer(),
+
         Consumer(
           builder: (context, ref, child) {
             return CommonBtn(
@@ -70,6 +71,7 @@ class onboardContent extends StatelessWidget {
             );
           },
         ),
+
         Spacer(),
       ],
     );

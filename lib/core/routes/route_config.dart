@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/Command/presentation/command_5.dart';
 import '../../features/Command/presentation/votre_command.dart';
+import '../../features/auth/signin/presentation/sign_in_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
 import '../../features/home/presentation/home_veiw.dart';
 import '../../features/Inscription/Inscription.dart';
@@ -22,7 +23,7 @@ import '../../features/splash/presentation/splash_screen.dart';
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.creerUneCommandeScreen,
 
     routes: [
       GoRoute(
@@ -32,13 +33,13 @@ class RouteConfig {
           return const MaterialPage(child: SplashScreen());
         },
       ),
-      // GoRoute(
-      //   name: RouteName.signIn,
-      //   path: RouteName.signIn,
-      //   pageBuilder: (context, state) {
-      //     return const MaterialPage(child: SignIn());
-      //   },
-      // ),
+      GoRoute(
+        name: RouteName.signInScreen,
+        path: RouteName.signInScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: SignInScreen());
+        },
+      ),
       GoRoute(
         name: RouteName.votreCommand,
         path: RouteName.votreCommand,
