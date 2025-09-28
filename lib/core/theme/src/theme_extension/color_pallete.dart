@@ -37,6 +37,8 @@ static const Color grayText2 = Color(0xff4B4B4B);
 static const Color grayText3 = Color(0xff232938);
   static const Color grayText4 = Color(0xffABABAB);
 static const Color greenText = Color(0xff5EB111);
+static const Color greenText2 = Color(0xff488014);
+static const Color greenText3 = Color(0xff3E7807);
 
 
 
@@ -49,6 +51,8 @@ static const Color containerColor4 = Color(0xff030303);
 static const Color containerColor5 = Color(0xffECC32E);
 static const Color containerColor6 = Color(0xffE0F2F6);
 static const Color containerColor7 = Color(0xff1B5664);
+static const Color containerColor8 = Color(0xffFEFEFE);
+static const Color containerColor9 = Color(0xff8E0D0D);
 static const Color transparentColor = Color(0x00000000);
 
 

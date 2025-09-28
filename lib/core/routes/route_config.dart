@@ -18,13 +18,14 @@ import '../../features/Inscription/commande.dart';
 import '../../features/Inscription/inscription_doc.dart';
 import '../../features/Inscription_Donneur/Donneur_screen.dart';
 import '../../features/Inscription_Donneur/inscription_doc.dart';
+import '../../features/mission_screen/presentation/mission_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.creerUneCommandeScreen,
+    initialLocation: RouteName.missionScreen,
 
     routes: [
       GoRoute(
@@ -132,6 +133,19 @@ class RouteConfig {
             context: context,
             state: state,
             child: ParentsScreen(),
+          );
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.missionScreen,
+        path: RouteName.missionScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: MissionScreen(),
           );
         },
       ),
