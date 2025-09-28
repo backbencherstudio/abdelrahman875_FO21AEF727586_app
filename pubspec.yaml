@@ -24,6 +24,9 @@ dependencies:
   smart_stepper: ^0.0.7
 
   flutter_svg: ^2.2.1
+  qr: ^3.0.2
+  qr_flutter: ^4.1.0
+  qr_code_scanner_plus: ^2.0.12
 
 dev_dependencies:
   flutter_test:
