@@ -19,5 +19,5 @@ class RouteName {
   static const String missionScreen = "/MissionScreen";
 
    static const String creerUneCommandeScreen = '/CreerUneCommandeScreen';
-
+   static const String qrScannerScreen = '/qrScannerScreen';
 }
