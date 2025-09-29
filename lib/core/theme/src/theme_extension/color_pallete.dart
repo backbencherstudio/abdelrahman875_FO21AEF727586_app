@@ -53,6 +53,7 @@ static const Color containerColor6 = Color(0xffE0F2F6);
 static const Color containerColor7 = Color(0xff1B5664);
 static const Color containerColor8 = Color(0xffFEFEFE);
 static const Color containerColor9 = Color(0xff8E0D0D);
+static const Color containerColor10 = Color(0xff63CAE1);
 static const Color transparentColor = Color(0x00000000);
 
 

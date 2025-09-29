@@ -15,10 +15,10 @@ class GridItem {
 
 // Dummy data
 final List<GridItem> gridItems = [
-  GridItem(title: 'Envoyer', imagePath: AppIcons.locationSearchingSvg),
-  GridItem(title: 'Commandes', imagePath: AppIcons.locationSearchingSvg),
-  GridItem(title: 'Statistiques', imagePath: AppIcons.locationSearchingSvg),
-  GridItem(title: 'Documents', imagePath: AppIcons.locationSearchingSvg),
+  GridItem(title: 'Envoyer', imagePath: AppIcons.boxPng),
+  GridItem(title: 'Commandes', imagePath: AppIcons.carPng),
+  GridItem(title: 'Statistiques', imagePath: AppIcons.growthPng),
+  GridItem(title: 'Documents', imagePath: AppIcons.notePng),
 ];
 
 class GridSection extends StatelessWidget {
@@ -54,7 +54,7 @@ class GridSection extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30.r),
                 child: Padding(
                   padding: EdgeInsets.all(14.r),
-                  child: SvgPicture.asset(
+                  child: Image.asset(
                     item.imagePath,
                     height: 40.h,
                     width: 40.w,

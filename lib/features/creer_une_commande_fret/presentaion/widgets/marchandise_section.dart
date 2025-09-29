@@ -5,10 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../../widgets/primery_button.dart';
 import '../../riverpod/select_container_provider.dart';
+import '../../riverpod/selected_index_provider.dart';
 import 'input_label.dart';
 
 class MarchandiseSection extends StatelessWidget {
-   MarchandiseSection({super.key});
+  MarchandiseSection({super.key});
 
   final List<Map<String, dynamic>> items = [
     {
@@ -27,8 +28,6 @@ class MarchandiseSection extends StatelessWidget {
       'label': 'Produits surgelés',
     },
   ];
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +73,8 @@ class MarchandiseSection extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         if (!isAddNew) {
-                          ref.read(selectedContainerProvider.notifier).state = index;
+                          ref.read(selectedContainerProvider.notifier).state =
+                              index;
                         } else {
                           // handle add new
                         }
@@ -93,29 +93,39 @@ class MarchandiseSection extends StatelessWidget {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 8.w,
+                                vertical: 10.h,
+                              ),
                               child: isAddNew
                                   ? Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
-                                    child: Icon(Icons.add, size: 42.h, color: AppColors.borderColor3),
-                                  )
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 8.w,
+                                        vertical: 10.h,
+                                      ),
+                                      child: Icon(
+                                        Icons.add,
+                                        size: 42.h,
+                                        color: AppColors.borderColor3,
+                                      ),
+                                    )
                                   : Column(
-                                children: [
-                                  Image.asset(
-                                    items[index]['icon'],
-                                    height: 42.h,
-                                    width: 42.w,
-                                  ),
-                                  SizedBox(height: 8.h),
-                                  Text(
-                                    items[index]['temp'],
-                                    style: style.bodySmall?.copyWith(
-                                      color: AppColors.blackText,
-                                      fontWeight: FontWeight.w400,
+                                      children: [
+                                        Image.asset(
+                                          items[index]['icon'],
+                                          height: 42.h,
+                                          width: 42.w,
+                                        ),
+                                        SizedBox(height: 8.h),
+                                        Text(
+                                          items[index]['temp'],
+                                          style: style.bodySmall?.copyWith(
+                                            color: AppColors.blackText,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
                             ),
                           ),
                           SizedBox(height: 8.h),
@@ -212,7 +222,11 @@ class MarchandiseSection extends StatelessWidget {
                     color: AppColors.grayText4,
                     fontWeight: FontWeight.w400,
                   ),
-                  suffixIcon: Icon(Icons.keyboard_arrow_down_sharp,size: 24.r,color: AppColors.grayText4,)
+                  suffixIcon: Icon(
+                    Icons.keyboard_arrow_down_sharp,
+                    size: 24.r,
+                    color: AppColors.grayText4,
+                  ),
                 ),
               ),
             ),
@@ -251,12 +265,23 @@ class MarchandiseSection extends StatelessWidget {
         ),
 
         SizedBox(height: 40.h),
-        PrimaryButton(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 12.h),
-          containerColor: AppColors.blackColor,
-          title: 'Suivant',
-          onTap: () {},
+        Consumer(
+          builder: (context, ref, _) {
+            final index = ref.watch(selectedIndexProvider);
+            return PrimaryButton(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 12.h),
+              containerColor: AppColors.blackColor,
+              title: 'Suivant',
+              onTap: () {
+                if (index == 1) {
+                  ref.read(selectedIndexProvider.notifier).state = 2;
+                } else {
+                  ref.read(selectedIndexProvider.notifier).state = 1;
+                }
+              },
+            );
+          },
         ),
 
         SizedBox(height: 60.h),

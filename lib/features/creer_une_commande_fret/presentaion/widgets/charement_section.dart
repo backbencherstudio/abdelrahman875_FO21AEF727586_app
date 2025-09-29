@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../../widgets/primery_button.dart';
+import '../../riverpod/selected_index_provider.dart';
 import 'input_label.dart';
 
 class Chargement extends StatelessWidget {
@@ -176,12 +178,19 @@ class Chargement extends StatelessWidget {
           ),
         ),
         SizedBox(height: 40.h),
-        PrimaryButton(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 12.h),
-          containerColor: AppColors.blackColor,
-          title: 'Suivant',
-          onTap: () {},
+        Consumer(
+          builder: (context,ref,_) {
+            final index = ref.watch(selectedIndexProvider);
+            return PrimaryButton(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 12.h),
+              containerColor: AppColors.blackColor,
+              title: 'Suivant',
+              onTap: () {
+                ref.read(selectedIndexProvider.notifier).state = index + 1;
+              },
+            );
+          }
         ),
 
         SizedBox(height: 60.h),

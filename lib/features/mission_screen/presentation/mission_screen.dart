@@ -52,6 +52,61 @@ class _MissionScreenState extends State<MissionScreen> {
                       SizedBox(height: 18.h),
 
                       LocationSearchSection(),
+                      SizedBox(height: 18.h),
+
+                      Row(
+                        children: [
+                          Container(
+                            width: 95.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.r),
+                              color: AppColors.containerColor10.withOpacity(
+                                0.3,
+                              ),
+                              border: Border.all(color: AppColors.transparentColor),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 16.w,
+                                vertical: 8.h,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Filter',
+                                  style: style.bodyLarge?.copyWith(
+                                    color: AppColors.containerColor7,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 12.w),
+                          Container(
+                            width: 95.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.r),
+                              color: AppColors.transparentColor,
+                              border: Border.all(color: AppColors.containerColor7),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 16.w,
+                                vertical: 8.h,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Nearby',
+                                  style: style.bodyLarge?.copyWith(
+                                    color: AppColors.containerColor7,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
 
                       SizedBox(height: 18.h),
                       Column(
@@ -209,5 +264,3 @@ class _MissionScreenState extends State<MissionScreen> {
     );
   }
 }
-
-

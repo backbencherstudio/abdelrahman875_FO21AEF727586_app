@@ -34,30 +34,33 @@ class LocationSearchSection extends StatelessWidget {
           ),
         ),
 
-        prefixIcon: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: SvgPicture.asset(
-                AppIcons.locationSearchingSvg,
-                height: 24.h,
-                width: 24.w,
-                fit: BoxFit.cover,
+        prefixIcon: Padding(
+          padding: EdgeInsets.all(8),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 8),
+                child: SvgPicture.asset(
+                  AppIcons.locationSearchingSvg,
+                  height: 24.h,
+                  width: 24.w,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            SizedBox(width: 12.w),
-            Text(
-              '|',
-              style: style.bodyLarge?.copyWith(
-                color: AppColors.grayText3,
-                fontWeight: FontWeight
-                    .w500, // Added font weight for better visibility
+              SizedBox(width: 12.w),
+              Text(
+                '|',
+                style: style.bodyLarge?.copyWith(
+                  color: AppColors.grayText3,
+                  fontWeight: FontWeight
+                      .w500, // Added font weight for better visibility
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-        hintText: '#130310011',
+        hintText: 'Lyon',
       ),
     );
   }

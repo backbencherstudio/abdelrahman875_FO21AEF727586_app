@@ -11,7 +11,7 @@ class ProgressContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.containerColor2,
+        color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(8.r),
       ),
       child: Column(
@@ -21,6 +21,7 @@ class ProgressContainer extends StatelessWidget {
             subtitle: 'Sur la route',
             dot: '.',
             date: '24 Juin 2025',
+            showBorder: true,
           ),
 
           // SizedBox(height: 8.h),

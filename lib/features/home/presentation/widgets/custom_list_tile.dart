@@ -13,7 +13,7 @@ class CustomListTile extends StatelessWidget {
     required this.date,
     this.color,
     this.dot,
-    this.textStyle,
+    this.textStyle, this.showBorder,
   });
 
   final String title;
@@ -22,64 +22,77 @@ class CustomListTile extends StatelessWidget {
   final Color? color;
   final TextStyle? textStyle;
   final String? dot;
+  final bool? showBorder;
 
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
-    return ListTile(
-      leading: Container(
-        decoration: BoxDecoration(
-          color: color ?? AppColors.containerColor5.withOpacity(0.2),
-          shape: BoxShape.circle,
+    return Container(
+      decoration: BoxDecoration(
+          border:showBorder==true? Border.all(color: AppColors.transparentColor): Border.all(
+            color: AppColors.borderColor3,
+          ),
+          borderRadius: BorderRadius.circular(12.r),
+          color: AppColors.whiteColor
+      ),
+      child: ListTile(
+        leading: Container(
+          decoration: BoxDecoration(
+            color: color ?? AppColors.containerColor5.withOpacity(0.2),
+            shape: BoxShape.circle,
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(12.r),
+            child: SvgPicture.asset(
+              AppIcons.boxShapeSvg,
+              height: 20.h,
+              width: 20.w,
+            ),
+          ),
         ),
-        child: Padding(
-          padding: EdgeInsets.all(12.r),
-          child: SvgPicture.asset(
-            AppIcons.boxShapeSvg,
-            height: 20.h,
-            width: 20.w,
+        title: Text(
+          title,
+          style: style.bodyLarge?.copyWith(
+                color: AppColors.textColor1,
+                fontWeight: FontWeight.w500,
+              ),
+        ),
+        subtitle: Padding(
+          padding:  EdgeInsets.only(top: 8.0),
+          child: Row(
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                subtitle,
+                style: textStyle ?? style.bodySmall?.copyWith(
+                  color: AppColors.greenText,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              SizedBox(width: 8.w),
+              Text(
+                dot ?? '',
+                style: style.bodySmall?.copyWith(
+                  color: AppColors.grayText4,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              SizedBox(width: 8.w),
+              Text(
+                date,
+                style: style.bodySmall?.copyWith(
+                  color: AppColors.grayText4,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
           ),
         ),
-      ),
-      title: Text(
-        title,
-        style: style.bodyLarge?.copyWith(
-              color: AppColors.textColor1,
-              fontWeight: FontWeight.w500,
-            ),
-      ),
-      subtitle: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text(
-            subtitle,
-            style: textStyle ?? style.bodySmall?.copyWith(
-              color: AppColors.greenText,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          SizedBox(width: 8.w),
-          Text(
-            dot ?? '',
-            style: style.bodySmall?.copyWith(
-              color: AppColors.grayText4,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          SizedBox(width: 8.w),
-          Text(
-            date,
-            style: style.bodySmall?.copyWith(
-              color: AppColors.grayText4,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ],
-      ),
-      trailing: SvgPicture.asset(
-        AppIcons.forwardSvg,
-        height: 24.h,
-        width: 24.w,
+        trailing: SvgPicture.asset(
+          AppIcons.forwardSvg,
+          height: 24.h,
+          width: 24.w,
+        ),
       ),
     );
   }

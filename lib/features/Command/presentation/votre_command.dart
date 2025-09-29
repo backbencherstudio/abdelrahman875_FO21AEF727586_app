@@ -1,8 +1,12 @@
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/images.dart';
+import '../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../widgets/common_btn.dart';
+import '../../widgets/primery_button.dart';
 
 class votreCommand extends StatefulWidget {
   const votreCommand({super.key});
@@ -18,7 +22,6 @@ class _votreCommandState extends State<votreCommand> {
     return Scaffold(
       backgroundColor: Color(0xffffffff),
       body: Column(
-        
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 98.h), // Top spacing
@@ -54,7 +57,19 @@ class _votreCommandState extends State<votreCommand> {
           ),
           SizedBox(height: 90.h),
 
-          CommonBtn(title: 'Accueil', onPressed: () {  },),
+          PrimaryButton(
+            title: 'Accueil',
+            width: 240.w,
+            padding: EdgeInsets.all(16.r),
+            textStyle: style.bodyLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: AppColors.whiteColor,
+            ),
+            containerColor: AppColors.blackColor,
+            onTap: () {
+              context.push(RouteName.missionScreen);
+            },
+          ),
           SizedBox(height: 200.h),
         ],
       ),
