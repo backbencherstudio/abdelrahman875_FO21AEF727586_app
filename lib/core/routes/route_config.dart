@@ -27,7 +27,7 @@ import '../../features/splash/presentation/splash_screen.dart';
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.profileSettingScreen,
+    initialLocation: RouteName.parentsScreen,
 
     routes: [
       GoRoute(
