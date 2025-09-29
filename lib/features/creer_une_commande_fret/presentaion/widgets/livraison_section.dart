@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/routes/route_name.dart';
 import '../../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../../widgets/primery_button.dart';
+import '../../riverpod/selected_index_provider.dart';
 import 'input_label.dart';
 
 class LivraisonSection extends StatelessWidget {
@@ -210,12 +214,23 @@ class LivraisonSection extends StatelessWidget {
           ),
         ),
         SizedBox(height: 40.h),
-        PrimaryButton(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 12.h),
-          containerColor: AppColors.blackColor,
-          title: 'Suivant',
-          onTap: () {},
+        Consumer(
+          builder: (context,ref,_) {
+            final index = ref.watch(selectedIndexProvider);
+            return PrimaryButton(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 12.h),
+              containerColor: AppColors.blackColor,
+              title: 'Suivant',
+              onTap: () {
+                if(index <= 3){
+                  final a = ref.read(selectedIndexProvider.notifier).state = index + 1;
+                  debugPrint(a.toString());
+                }
+                context.push(RouteName.command5);
+              },
+            );
+          }
         ),
 
         SizedBox(height: 60.h),

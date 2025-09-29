@@ -10,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../widgets/primery_button.dart';
 import '../riverpod/selected_index_provider.dart';
+import '../riverpod/toggle_freight_express_provider.dart';
 
 class CreerUneCommandeScreen extends StatefulWidget {
   const CreerUneCommandeScreen({super.key});
@@ -34,10 +35,15 @@ class _CreerUneCommandeScreenState extends State<CreerUneCommandeScreen> {
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.r),
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: AppColors.blackText,
-                  size: 24.r,
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: AppColors.blackText,
+                    size: 24.r,
+                  ),
                 ),
               ),
 
@@ -65,29 +71,64 @@ class _CreerUneCommandeScreenState extends State<CreerUneCommandeScreen> {
 
                       SizedBox(height: 12.h),
 
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          CustomCircularContainer(
-                            title: 'Fret',
-                            image: Image.asset(
-                              AppIcons.shipPng,
-                              height: 50,
-                              width: 50,
-                            ),
-                          ),
-                          SizedBox(width: 100.w),
-                          CustomCircularContainer(
-                            title: 'Express',
-                            color: AppColors.whiteColor,
-                            borderColor: AppColors.borderColor3,
-                            image: Image.asset(
-                              AppIcons.carShipPng,
-                              height: 50,
-                              width: 50,
-                            ),
-                          ),
-                        ],
+                      Consumer(
+                        builder: (context, ref, _) {
+                          final selectedIndex = ref.watch(
+                            selectedFreightExpressProvider,
+                          );
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomCircularContainer(
+                                title: 'Fret',
+                                image: Image.asset(
+                                  AppIcons.shipPng,
+                                  height: 50,
+                                  width: 50,
+                                ),
+                                color: selectedIndex == 0
+                                    ? AppColors.containerColor6
+                                    : AppColors.whiteColor,
+                                borderColor: selectedIndex == 0
+                                    ? AppColors.borderColor2.withAlpha(100)
+                                    : AppColors.borderColor3,
+                                onTap: () {
+                                  ref
+                                          .read(
+                                            selectedFreightExpressProvider
+                                                .notifier,
+                                          )
+                                          .state =
+                                      0;
+                                },
+                              ),
+                              SizedBox(width: 100.w),
+                              CustomCircularContainer(
+                                title: 'Express',
+                                image: Image.asset(
+                                  AppIcons.carShipPng,
+                                  height: 50,
+                                  width: 50,
+                                ),
+                                color: selectedIndex == 1
+                                    ? AppColors.containerColor6
+                                    : AppColors.whiteColor,
+                                borderColor: selectedIndex == 1
+                                    ? AppColors.borderColor2.withAlpha(100)
+                                    : AppColors.borderColor3,
+                                onTap: () {
+                                  ref
+                                          .read(
+                                            selectedFreightExpressProvider
+                                                .notifier,
+                                          )
+                                          .state =
+                                      1;
+                                },
+                              ),
+                            ],
+                          );
+                        },
                       ),
 
                       SizedBox(height: 40.h),
@@ -130,27 +171,18 @@ class _CreerUneCommandeScreenState extends State<CreerUneCommandeScreen> {
                         },
                       ),
                       SizedBox(height: 24.h),
-                 // Consumer(builder: (_,ref,_){
-
-                 // {
-                 //   return
-                 // }),
-                      Consumer(builder: (_,ref,_){
-                        final index =   ref
-                              .watch(
-                            selectedIndexProvider
-
-                          );
-                        if(index==0) {
-                          return Chargement();
-                        }
-                        else if(index==1){
-                          return  MarchandiseSection();
-                        }else{
-                          return LivraisonSection();
-                        }
-                      }),
-
+                      Consumer(
+                        builder: (_, ref, _) {
+                          final index = ref.watch(selectedIndexProvider);
+                          if (index == 0) {
+                            return Chargement();
+                          } else if (index == 1) {
+                            return MarchandiseSection();
+                          } else {
+                            return LivraisonSection();
+                          }
+                        },
+                      ),
                     ],
                   ),
                 ),
