@@ -8,7 +8,10 @@ import '../../features/Command/presentation/command_5.dart';
 import '../../features/Command/presentation/command_vaid_screen.dart';
 import '../../features/Command/presentation/votre_command.dart';
 import '../../features/Mission_accept/presentation/Condition_affret.dart';
+import '../../features/Mission_accept/presentation/after_preuveScreen.dart';
+import '../../features/Mission_accept/presentation/aftercommanScreen.dart';
 import '../../features/Mission_accept/presentation/mis_acceptScreen.dart';
+import '../../features/Mission_accept/presentation/mis_termin.dart';
 import '../../features/Mission_accept/presentation/mission_accept_screen.dart';
 import '../../features/Mission_accept/presentation/preuve_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
@@ -26,7 +29,7 @@ import '../../features/splash/presentation/splash_screen.dart';
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.conditionScreen,
+    initialLocation: RouteName.afterScreen,
 
     routes: [
       GoRoute(
@@ -48,6 +51,27 @@ class RouteConfig {
         path: RouteName.votreCommand,
         pageBuilder: (context, state) {
           return const MaterialPage(child: votreCommand());
+        },
+      ),
+      GoRoute(
+        name: RouteName.afterCommand,
+        path: RouteName.afterCommand,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AfterCommand());
+        },
+      ),
+      GoRoute(
+        name: RouteName.afterScreen,
+        path: RouteName.afterScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: afterScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.mis_termineeScreen,
+        path: RouteName.mis_termineeScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: mis_termineeScreen());
         },
       ),
       GoRoute(

@@ -54,16 +54,7 @@ class _velocityState extends State<velocity> {
             "67",
             style: style.headlineLarge?.copyWith(color: AppColors.textColor3)
           ),
-          // SizedBox(
-          //   width: 80.w,
-          //   child: TextField(
-          //     controller: _controller,
-          //     textAlign: TextAlign.center,
-          //
-          //     keyboardType: TextInputType.number,
-          //   ),
-          // ),
-          // SizedBox(height: 10),
+
           IconButton(
             icon: const Icon(Icons.add, color: AppColors.secondaryColor),
             onPressed: () {

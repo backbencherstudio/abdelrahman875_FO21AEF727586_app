@@ -12,6 +12,7 @@ class AppImages {
   static const String accueil = "$base/Accueil.png";
   static const String capture = "$base/capture.png";
   static const String gift = "$base/gift.png";
+  static const String download = "$base/Downloading.png";
 
   static const String condition = "$base/condition.png";
 

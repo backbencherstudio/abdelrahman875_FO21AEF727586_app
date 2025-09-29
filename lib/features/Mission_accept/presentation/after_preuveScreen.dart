@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/images.dart';
+import '../../../core/routes/route_name.dart';
 import '../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../creer_une_commande_fret/presentaion/widgets/input_label.dart';
 import '../../widgets/primery_button.dart';
 
-class preuveScreen extends StatefulWidget {
-  const preuveScreen({super.key});
+class afterScreen extends StatelessWidget {
+  const afterScreen({super.key});
 
-  @override
-  State<preuveScreen> createState() => _preuveScreenState();
-}
-
-class _preuveScreenState extends State<preuveScreen> {
   @override
   Widget build(BuildContext context) {
-    final style = Theme.of(context).textTheme;
+    final style =Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       body: SafeArea(
@@ -47,7 +44,7 @@ class _preuveScreenState extends State<preuveScreen> {
               ),
               SizedBox(height: 45.h),
 
-              InputLabel(title: 'SIGNATURE  EXPEDITEUR  '),
+              InputLabel(title: 'SIGNATURE  DESTINATAIRE   '),
               SizedBox(height: 12.h),
               TextFormField(
                 textInputAction: TextInputAction.next,
@@ -55,7 +52,7 @@ class _preuveScreenState extends State<preuveScreen> {
               ),
               SizedBox(height: 45.h),
 
-              InputLabel(title: 'SIGNATURE  TRANSPORTEUR '),
+              InputLabel(title: 'SIGNATURE  TRANSPORTEUR'),
               SizedBox(height: 12.h),
               TextFormField(
                 textInputAction: TextInputAction.next,
@@ -64,14 +61,7 @@ class _preuveScreenState extends State<preuveScreen> {
 
               SizedBox(height: 20.h),
 
-              InputLabel(title: 'Remarque au chargement '),
-              SizedBox(height: 12.h),
-              TextFormField(
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.text,
-              ),
-
-              InputLabel(title: 'Adresse de livraison  : '),
+              InputLabel(title: 'Remarque à la livraison '),
               SizedBox(height: 12.h),
               TextFormField(
                 textInputAction: TextInputAction.next,
@@ -79,6 +69,7 @@ class _preuveScreenState extends State<preuveScreen> {
               ),
 
 
+              SizedBox(height: 36.h),
 
               Center(
                 child: PrimaryButton(
@@ -88,7 +79,7 @@ class _preuveScreenState extends State<preuveScreen> {
                   containerColor: AppColors.blackColor,
                   title: 'Livraison Terminée ',
                   onTap: () {
-                    // context.push(RouteName.trans_Vehicule);
+                    context.push(RouteName.afterCommand);
                   },
                 ),
               ),
