@@ -29,5 +29,18 @@ class AppIcons{
   static const String blackboxPng = "$iconPath/blackbox.png";
   static const String calenderPng = "$iconPath/calender.png";
   static const String mapPinPng = "$iconPath/mappin.png";
+  static const String capturePng = "$iconPath/capture.png";
+
+
+  static const String gmailLogoPng = "$iconPath/GmailLogo.png";
+  static const String increasePng = "$iconPath/Increase.png";
+  static const String logoutPng = "$iconPath/logout.png";
+  static const String notificationPng = "$iconPath/notification4x.png";
+  static const String padlockPng = "$iconPath/Padlock.png";
+  static const String paperPng = "$iconPath/Paper.png";
+  static const String pastePng = "$iconPath/Paste.png";
+  static const String starHalfEmptyPng = "$iconPath/StarHalfEmpty.png";
+  static const String termsandConditionsPng = "$iconPath/TermsandConditions.png";
+  static const String testResultsPng = "$iconPath/TestResults.png";
 
 }

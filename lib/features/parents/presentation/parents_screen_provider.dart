@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/legacy.dart';
 
+import '../../setting_screen/presentation/profile_setting_screen.dart';
+import '../../track_home_demandes/presentation/track_home_demandes_screen.dart';
+
 class ParentsScreenProvider extends StateNotifier<ParentScreenRiverPodModel> {
   ParentsScreenProvider() : super(ParentScreenRiverPodModel());
 
@@ -12,8 +15,8 @@ class ParentsScreenProvider extends StateNotifier<ParentScreenRiverPodModel> {
     HomeView(),
     Scaffold(body: Center(child: Text("commandes"))),
     Scaffold(body: Center(child: Text("scanner"))),
-    Scaffold(body: Center(child: Text("Suivi"))),
-    Scaffold(body: Center(child: Text("settings"))),
+    TrackHomeDemandesScreen(),
+    ProfileSettingScreen(),
   ];
 
   /// variable name
