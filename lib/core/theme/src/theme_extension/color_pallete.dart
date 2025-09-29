@@ -11,6 +11,7 @@ class AppColors {
   static const Color textColor = Color(0xFF7A848C);
   static const Color textColor2 = Color(0xFF585B5E);
   static const Color textColor3 = Color(0xFFbf3749);
+  static const Color textColor4 = Color(0xFF76889A);
 
   // static const Color primaryColor = Color(0xFF000000);
   static const Color secondaryColor = Color(0xFF086E86);
@@ -63,5 +64,6 @@ static const Color borderColor = Color(0xffABABAB);
 static const Color borderColor2 = Color(0xff086E86);
 static const Color borderColor3 = Color(0xffDADADA);
 static const Color borderColor4 = Color(0xffCFD5DB);
+static const Color borderColor5 = Color(0xffF1F2F6);
 
 }

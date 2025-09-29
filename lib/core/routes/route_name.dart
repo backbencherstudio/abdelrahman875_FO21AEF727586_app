@@ -20,4 +20,5 @@ class RouteName {
 
    static const String creerUneCommandeScreen = '/CreerUneCommandeScreen';
    static const String qrScannerScreen = '/qrScannerScreen';
+   static const String detailsCommandeScreen = '/DetailsCommandeScreen';
 }
