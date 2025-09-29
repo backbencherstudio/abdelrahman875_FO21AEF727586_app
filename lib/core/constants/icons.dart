@@ -29,5 +29,6 @@ class AppIcons{
   static const String blackboxPng = "$iconPath/blackbox.png";
   static const String calenderPng = "$iconPath/calender.png";
   static const String mapPinPng = "$iconPath/mappin.png";
+  static const String capturePng = "$iconPath/capture.png";
 
 }

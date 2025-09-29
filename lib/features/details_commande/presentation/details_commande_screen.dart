@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../models/step_data_model.dart';
 
 class DetailsCommandeScreen extends StatefulWidget {
   const DetailsCommandeScreen({super.key});
@@ -44,7 +45,7 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Package Tracking',
+                        'Suivi du colis',
                         style: style.headlineSmall?.copyWith(
                           color: AppColors.textColor1,
                           fontWeight: FontWeight.w600,
@@ -55,14 +56,14 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Any problem with the\ndelivery?',
+                            'Un problème sur la livraison ?',
                             style: style.bodyMedium?.copyWith(
                               color: AppColors.grayText,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           PrimaryButton(
-                            title: 'Report',
+                            title: 'Signaler',
                             width: 90.w,
                             padding: EdgeInsets.symmetric(
                               horizontal: 12.w,
@@ -79,7 +80,7 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                         children: [
                           Expanded(
                             child: Text(
-                              'Order Number:',
+                              'Numéro de commande :',
                               style: style.bodyMedium?.copyWith(
                                 color: AppColors.textColor1,
                                 fontWeight: FontWeight.w400,
@@ -115,7 +116,7 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'From',
+                                  'De',
                                   style: style.bodyMedium?.copyWith(
                                     color: AppColors.blackText,
                                     fontWeight: FontWeight.w600,
@@ -137,7 +138,7 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'To',
+                                'Destination',
                                 style: style.bodyMedium?.copyWith(
                                   color: AppColors.blackText,
                                   fontWeight: FontWeight.w600,
@@ -156,16 +157,82 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                       ),
                       CustomDivider(),
                       CustomRowTracking(
-                        title: 'Sender :',
+                        title: 'Expéditeur :',
                         subtitle: 'Jonathan Leon - H&M',
                       ),
                       CustomDivider(),
 
-                      CustomRowTracking(title: 'Carrier :', subtitle: 'UPS'),
+                      CustomRowTracking(title: 'Transporteur :', subtitle: 'UPS'),
                       CustomDivider(),
 
-                      CustomRowTracking(title: 'Delivery date :', subtitle: '20 Sept 2025'),
+                      CustomRowTracking(title: 'Date de livraison :', subtitle: '20 Sept 2025'),
                       CustomDivider(),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: trackingSteps.length,
+                        itemBuilder: (context, index) {
+                          final step = trackingSteps[index];
+                          return Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                children: [
+                                  // Icon
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 4),
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: step.isCompleted
+                                          ? (step.isCurrent ? Colors.green : Colors.black)
+                                          : Colors.white,
+                                      border: Border.all(
+                                        color: step.isCompleted ? Colors.green : Colors.grey,
+                                        width: 2,
+                                      ),
+                                    ),
+                                    width: 24,
+                                    height: 24,
+                                    child: step.isCurrent
+                                        ? Icon(Icons.check, color: Colors.white, size: 16)
+                                        : step.isCompleted
+                                        ? Icon(Icons.check, color: Colors.white, size: 16)
+                                        : null,
+                                  ),
+                                  // Vertical Line, only draw if not last
+                                  if (index != trackingSteps.length - 1)
+                                    Container(
+                                      width: 2,
+                                      height: 40,
+                                      color: Colors.grey,
+                                    ),
+                                ],
+                              ),
+                              SizedBox(width: 10),
+                              // Date, Title & Description
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(step.date, style: TextStyle(color: Colors.grey)),
+                                    Text(
+                                      step.title,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: step.isCurrent ? Colors.green : Colors.black,
+                                      ),
+                                    ),
+                                    Text(
+                                      step.description,
+                                      style: TextStyle(color: Colors.grey[700]),
+                                    ),
+                                    SizedBox(height: 10),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),

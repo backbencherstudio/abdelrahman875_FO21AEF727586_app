@@ -21,12 +21,13 @@ import '../../features/Inscription_Donneur/Donneur_screen.dart';
 import '../../features/Inscription_Donneur/inscription_doc.dart';
 import '../../features/mission_screen/presentation/mission_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
+import '../../features/setting_screen/presentation/profile_setting_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.detailsCommandeScreen,
+    initialLocation: RouteName.profileSettingScreen,
 
     routes: [
       GoRoute(
@@ -76,6 +77,14 @@ class RouteConfig {
         path: RouteName.trans_Vehicule,
         pageBuilder: (context, state) {
           return const MaterialPage(child: Trans_Vehicule());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.profileSettingScreen,
+        path: RouteName.profileSettingScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ProfileSettingScreen());
         },
       ),
       GoRoute(
