@@ -12,9 +12,9 @@ class ParentsScreenProvider extends StateNotifier<ParentScreenRiverPodModel> {
 
   /// variable name
   final List<Widget> _pageList = const [
-    HomeView(),
     Scaffold(body: Center(child: Text("commandes"))),
     Scaffold(body: Center(child: Text("scanner"))),
+     HomeView(),
     TrackHomeDemandesScreen(),
     ProfileSettingScreen(),
   ];
