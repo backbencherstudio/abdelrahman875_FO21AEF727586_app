@@ -23,6 +23,7 @@ import '../../features/mission_screen/presentation/mission_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
 import '../../features/setting_screen/presentation/profile_setting_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
+import '../../features/track_home_demandes/presentation/track_home_demandes_screen.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
@@ -63,6 +64,14 @@ class RouteConfig {
         path: RouteName.inscriptionDoc,
         pageBuilder: (context, state) {
           return const MaterialPage(child: InscriptionDoc());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.trackHomeDemandesScreen,
+        path: RouteName.trackHomeDemandesScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: TrackHomeDemandesScreen());
         },
       ),
       GoRoute(
