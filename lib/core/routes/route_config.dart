@@ -10,6 +10,7 @@ import '../../features/Command/presentation/command_5.dart';
 import '../../features/Command/presentation/votre_command.dart';
 import '../../features/auth/signin/presentation/sign_in_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
+import '../../features/details_commande/presentation/details_commande_screen.dart';
 import '../../features/home/presentation/home_veiw.dart';
 import '../../features/Inscription/Inscription.dart';
 
@@ -25,7 +26,7 @@ import '../../features/splash/presentation/splash_screen.dart';
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.missionScreen,
+    initialLocation: RouteName.detailsCommandeScreen,
 
     routes: [
       GoRoute(
@@ -96,6 +97,13 @@ class RouteConfig {
         path: RouteName.command5,
         pageBuilder: (context, state) {
           return const MaterialPage(child: Command5());
+        },
+      ),
+      GoRoute(
+        name: RouteName.detailsCommandeScreen,
+        path: RouteName.detailsCommandeScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: DetailsCommandeScreen());
         },
       ),
       GoRoute(
