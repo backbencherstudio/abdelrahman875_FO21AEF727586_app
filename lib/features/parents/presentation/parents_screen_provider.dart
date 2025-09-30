@@ -1,5 +1,8 @@
+import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
+import 'package:abdelrahman875_fo21aef727586/features/details_commande/presentation/details_commande_screen.dart';
 import 'package:abdelrahman875_fo21aef727586/features/home/presentation/home_veiw.dart';
 import 'package:abdelrahman875_fo21aef727586/features/parents/model/parent_screen_riverpod_model.dart';
+import 'package:abdelrahman875_fo21aef727586/features/qr_code/qr_code_scaner_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/legacy.dart';
@@ -12,13 +15,12 @@ class ParentsScreenProvider extends StateNotifier<ParentScreenRiverPodModel> {
 
   /// variable name
   final List<Widget> _pageList = const [
-    Scaffold(body: Center(child: Text("commandes"))),
-    Scaffold(body: Center(child: Text("scanner"))),
-     HomeView(),
-    TrackHomeDemandesScreen(),
+    HomeView(),
+    CreerUneCommandeScreen(),
+    QrScannerScreen(),
+    DetailsCommandeScreen(),
     ProfileSettingScreen(),
   ];
-
   /// variable name
   List<Widget> get pageList => _pageList;
 

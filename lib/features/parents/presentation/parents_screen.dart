@@ -25,9 +25,9 @@ class ParentsScreen extends StatelessWidget {
             isKeyboardOpen: MediaQuery.of(context).viewInsets.bottom > 0,
             onTap: () {
               debugPrint("\nits tapped\n");
-              parentScreenProvider.onSelectedIndex(0);
+              parentScreenProvider.onSelectedIndex(2);
             },
-            isSelected: selectedIndex == 0,
+            isSelected: selectedIndex == 2,
           );
         },
       ),

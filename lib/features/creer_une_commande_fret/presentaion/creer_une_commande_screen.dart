@@ -143,6 +143,7 @@ class _CreerUneCommandeScreenState extends State<CreerUneCommandeScreen> {
                               return Row(
                                 children: [
                                   PrimaryButton(
+                                    padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 6.h),
                                     title: titles[index],
                                     onTap: () =>
                                         ref
@@ -156,7 +157,7 @@ class _CreerUneCommandeScreenState extends State<CreerUneCommandeScreen> {
                                         ? AppColors.containerColor7
                                         : AppColors.transparentColor,
                                     textStyle: style.bodyMedium?.copyWith(
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w600,
                                       color: isSelected
                                           ? AppColors.whiteColor
                                           : AppColors.grayText4,
