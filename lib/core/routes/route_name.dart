@@ -14,6 +14,14 @@ class RouteName {
   static const String command = "/Cmmand";
   static const String donneur = "/Donneur";
   static const String command5 = "/Command5";
+  static const String afterScreen = "/afterScreen";
+  static const String afterCommand = "/AfterCommand";
+  static const String mis_termineeScreen = "/mis_termineeScreen";
+  static const String preuveScreen = "/preuveScreen";
+  static const String conditionScreen = "/condition_screen";
+  static const String missionScreen_One = "/missionScreen_One";
+  static const String mis_accepteScreen = "/mis_accepteScreen";
+  static const String commandScreen = "/CommandScreen";
   static const String votreCommand = "/VotreCommand";
   static const String inscriptionDoc_two = "/InscriptionDoc_two";
   static const String missionScreen = "/MissionScreen";
@@ -23,4 +31,5 @@ class RouteName {
    static const String detailsCommandeScreen = '/DetailsCommandeScreen';
    static const String profileSettingScreen = '/ProfileSettingScreen';
    static const String trackHomeDemandesScreen = '/TrackHomeDemandesScreen';
+   static const String paiementScreen = '/PaiementScreen';
 }

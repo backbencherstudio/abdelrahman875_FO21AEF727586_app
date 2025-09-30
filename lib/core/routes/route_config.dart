@@ -7,8 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/Command/presentation/command_5.dart';
+import '../../features/Command/presentation/command_vaid_screen.dart';
 import '../../features/Command/presentation/votre_command.dart';
 import '../../features/auth/signin/presentation/sign_in_screen.dart';
+import '../../features/Mission_accept/presentation/Condition_affret.dart';
+import '../../features/Mission_accept/presentation/after_preuveScreen.dart';
+import '../../features/Mission_accept/presentation/aftercommanScreen.dart';
+import '../../features/Mission_accept/presentation/mis_acceptScreen.dart';
+import '../../features/Mission_accept/presentation/mis_termin.dart';
+import '../../features/Mission_accept/presentation/mission_accept_screen.dart';
+import '../../features/Mission_accept/presentation/preuve_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
 import '../../features/home/presentation/home_veiw.dart';
@@ -21,6 +29,7 @@ import '../../features/Inscription_Donneur/Donneur_screen.dart';
 import '../../features/Inscription_Donneur/inscription_doc.dart';
 import '../../features/mission_screen/presentation/mission_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
+import '../../features/paiement_screen/presentation/paiement_screen.dart';
 import '../../features/setting_screen/presentation/profile_setting_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
 import '../../features/track_home_demandes/presentation/track_home_demandes_screen.dart';
@@ -28,7 +37,8 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.parentsScreen,
+    initialLocation: RouteName.paiementScreen,
+
 
     routes: [
       GoRoute(
@@ -53,10 +63,75 @@ class RouteConfig {
         },
       ),
       GoRoute(
+        name: RouteName.afterCommand,
+        path: RouteName.afterCommand,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AfterCommand());
+        },
+      ),
+      GoRoute(
+        name: RouteName.afterScreen,
+        path: RouteName.afterScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: afterScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.mis_termineeScreen,
+        path: RouteName.mis_termineeScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: mis_termineeScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.preuveScreen,
+        path: RouteName.preuveScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: preuveScreen());
+        },
+      ),
+      GoRoute(
         name: RouteName.command,
         path: RouteName.command,
         pageBuilder: (context, state) {
           return const MaterialPage(child: Command());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.paiementScreen,
+        path: RouteName.paiementScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: PaiementScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.conditionScreen,
+        path: RouteName.conditionScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: conditionScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.missionScreen_One,
+        path: RouteName.missionScreen_One,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: missionScreen_One());
+        },
+      ),
+      GoRoute(
+        name: RouteName.mis_accepteScreen,
+        path: RouteName.mis_accepteScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: mis_accepteScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.commandScreen,
+        path: RouteName.commandScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: CommandScreen());
         },
       ),
       GoRoute(

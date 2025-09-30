@@ -30,6 +30,11 @@ class AppIcons{
   static const String calenderPng = "$iconPath/calender.png";
   static const String mapPinPng = "$iconPath/mappin.png";
   static const String capturePng = "$iconPath/capture.png";
+  static const String truckPng = "$iconPath/Truck.png";
+  static const String boitePng = "$iconPath/boite.png";
+  static const String mastercardPng = "$iconPath/mastercard.png";
+  static const String plusIconPng = "$iconPath/PlusIcon.png";
+  static const String plusIconSvg = "$iconPath/Plus.svg";
 
 
   static const String gmailLogoPng = "$iconPath/GmailLogo.png";

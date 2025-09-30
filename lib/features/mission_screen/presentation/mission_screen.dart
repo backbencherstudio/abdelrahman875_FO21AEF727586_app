@@ -3,6 +3,7 @@ import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/colo
 import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/header_section.dart';
 import 'package:abdelrahman875_fo21aef727586/features/mission_screen/presentation/widgets/custom_subtitle.dart';
 import 'package:abdelrahman875_fo21aef727586/features/mission_screen/presentation/widgets/location_search_section.dart';
+import 'package:abdelrahman875_fo21aef727586/features/mission_screen/presentation/widgets/on_accept_dialog.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -60,10 +61,10 @@ class _MissionScreenState extends State<MissionScreen> {
                             width: 95.w,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12.r),
-                              color: AppColors.containerColor10.withOpacity(
-                                0.3,
+                              color: AppColors.containerColor10.withAlpha(30),
+                              border: Border.all(
+                                color: AppColors.transparentColor,
                               ),
-                              border: Border.all(color: AppColors.transparentColor),
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
@@ -87,7 +88,9 @@ class _MissionScreenState extends State<MissionScreen> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12.r),
                               color: AppColors.transparentColor,
-                              border: Border.all(color: AppColors.containerColor7),
+                              border: Border.all(
+                                color: AppColors.containerColor7,
+                              ),
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
@@ -226,7 +229,9 @@ class _MissionScreenState extends State<MissionScreen> {
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                             borderRadius: 12.r,
-                                            onTap: () {},
+                                            onTap: () {
+                                              onAcceptTap(context);
+                                            },
                                           ),
                                         ),
                                         SizedBox(width: 12.w),
@@ -240,7 +245,7 @@ class _MissionScreenState extends State<MissionScreen> {
                                                 ),
                                             borderRadius: 12.r,
                                             containerColor: AppColors.greenText3
-                                                .withOpacity(0.3),
+                                                .withAlpha(30),
                                             onTap: () {},
                                           ),
                                         ),
