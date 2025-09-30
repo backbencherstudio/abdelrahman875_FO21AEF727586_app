@@ -1,7 +1,7 @@
 class ParentScreenRiverPodModel {
   int selectedIndex;
 
-  ParentScreenRiverPodModel({this.selectedIndex = 2});
+  ParentScreenRiverPodModel({this.selectedIndex = 0});
 
   ParentScreenRiverPodModel copyWith({int? selectedIndex}) {
     return ParentScreenRiverPodModel(
