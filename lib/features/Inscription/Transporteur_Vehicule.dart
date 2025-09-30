@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/routes/route_name.dart';
+import '../creer_une_commande_fret/presentaion/widgets/input_label.dart';
+import '../widgets/primery_button.dart';
 import 'inscription_doc.dart';
 
 
@@ -21,19 +23,6 @@ class _InscriptionState extends State<Trans_Vehicule> {
   final _formKey = GlobalKey<FormState>();
   bool _obscurePassword = true;
 
-  InputDecoration customInputDecoration(String hint) {
-    return InputDecoration(
-      hintText: hint,
-      filled: false,
-      border: InputBorder.none,
-      enabledBorder: InputBorder.none,
-      focusedBorder: InputBorder.none,
-      errorBorder: InputBorder.none,
-      disabledBorder: InputBorder.none,
-      contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
-    );
-  }
-
   // Reusable TextFormField with single container border
   Widget customTextField(
       String hint,
@@ -45,24 +34,13 @@ class _InscriptionState extends State<Trans_Vehicule> {
       width: double.infinity, // Make container fill parent width
       height: 56.h,
       padding: const EdgeInsets.symmetric(horizontal: 12), // Inner padding
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: AppColors.boxColor2,
-          width: 1.2,
-        ),
-      ),
-      child: TextFormField(
-        obscureText: obscure,
-        keyboardType: type,
-        decoration: customInputDecoration(hint).copyWith(suffixIcon: suffixIcon),
-      ),
+
+      child: TextFormField(obscureText: obscure, keyboardType: type),
     );
   }
-
   @override
   Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: Colors.white, // Full background white
       body: SingleChildScrollView(
@@ -96,109 +74,170 @@ class _InscriptionState extends State<Trans_Vehicule> {
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Nom
-              Text(
-                'Type de véhicule',
-                style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500, color: AppColors.textColor1),
-              ),
-              const SizedBox(height: 12),
-              customTextField('Hinek', TextInputType.text),
-              const SizedBox(height: 16),
-
-              // Prénom
-              const Text('Marque / Modèle', style: TextStyle(fontSize: 16)),
-              const SizedBox(height: 12),
-              customTextField('Eric', TextInputType.text),
-              const SizedBox(height: 16),
-
-              // Date de naissance
-              const Text(
-                'Plaque d’immatriculation ',
-                style: TextStyle(fontSize: 16),
-              ),
-              const SizedBox(height: 12),
-              customTextField('ww-767-fr', TextInputType.datetime),
-              const SizedBox(height: 16),
-
-              // Année de mise en circulation
-              const Text(
-                'Année de mise en circulation',
-                style: TextStyle(fontSize: 16),
-              ),
-              const SizedBox(height: 12),
-              customTextField('01/01/1977', TextInputType.text),
-              const SizedBox(height: 16),
-
-              // Dimensions utiles de chargement
-              const Text(
-                'Dimensions utiles de chargement',
-                style: TextStyle(fontSize: 16),
-              ),
-              const SizedBox(height: 12),
-              customTextField('Longueur', TextInputType.text),
-
-              const SizedBox(height: 12),
-              customTextField('Largeur', TextInputType.text),
-              const SizedBox(height: 12),
-              customTextField('Hauteur', TextInputType.text),
-
-              const SizedBox(height: 16),
-
-              // Volume utile (en m³)
-              const Text(
-                'Volume utile (en m³)',
-                style: TextStyle(fontSize: 16),
-              ),
-              const SizedBox(height: 12),
-              customTextField('m³', TextInputType.text),
-
-              const SizedBox(height: 16),
-
-              // E-mail
-              const Text('Capacité de charge', style: TextStyle(fontSize: 16)),
-              const SizedBox(height: 12),
-              customTextField('en kg ou tonnes', TextInputType.emailAddress),
-              const SizedBox(height: 16),
-
-              // Mot de passe with eye icon
-              const Text(
-                'Nombre de palettes acceptées',
-                style: TextStyle(fontSize: 16),
-              ),
-              const SizedBox(height: 12),
-              customTextField('1', TextInputType.emailAddress),
-
-              const SizedBox(height: 101),
-
-              // Submit Button
-              Center(
-                child: SizedBox(
-                  width: 335,
-                  height: 56,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      context.push(RouteName.inscriptionDoc);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          12,
-                        ), // Optional: rounded corners
-                      ),
-                    ),
-                    child: const Text(
-                      'Suivant',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16, // Optional: custom text size
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+// Type de véhicule
+              InputLabel(title: 'Type de véhicule'),
+              SizedBox(height: 12.h),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: 'Hinek',
+                  hintStyle: style.bodyLarge?.copyWith(
+                    color: AppColors.grayText4,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
+              SizedBox(height: 16.h),
+
+// Marque / Modèle
+              InputLabel(title: 'Marque / Modèle'),
+              SizedBox(height: 12.h),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: 'Eric',
+                  hintStyle: style.bodyLarge?.copyWith(
+                    color: AppColors.grayText4,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.h),
+
+// Plaque d’immatriculation
+              InputLabel(title: 'Plaque d’immatriculation'),
+              SizedBox(height: 12.h),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: 'ww-767-fr',
+                  hintStyle: style.bodyLarge?.copyWith(
+                    color: AppColors.grayText4,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.h),
+
+// Année de mise en circulation
+              InputLabel(title: 'Année de mise en circulation'),
+              SizedBox(height: 12.h),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: '01/01/1977',
+                  hintStyle: style.bodyLarge?.copyWith(
+                    color: AppColors.grayText4,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.h),
+
+// Dimensions utiles de chargement
+              InputLabel(title: 'Dimensions utiles de chargement (Longueur)'),
+              SizedBox(height: 12.h),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: 'Longueur',
+                  hintStyle: style.bodyLarge?.copyWith(
+                    color: AppColors.grayText4,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(height: 12.h),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: 'Largeur',
+                  hintStyle: style.bodyLarge?.copyWith(
+                    color: AppColors.grayText4,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(height: 12.h),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: 'Hauteur',
+                  hintStyle: style.bodyLarge?.copyWith(
+                    color: AppColors.grayText4,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.h),
+
+// Volume utile (en m³)
+              InputLabel(title: 'Volume utile (en m³)'),
+              SizedBox(height: 12.h),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: 'm³',
+                  hintStyle: style.bodyLarge?.copyWith(
+                    color: AppColors.grayText4,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.h),
+
+// Capacité de charge
+              InputLabel(title: 'Capacité de charge'),
+              SizedBox(height: 12.h),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: 'en kg ou tonnes',
+                  hintStyle: style.bodyLarge?.copyWith(
+                    color: AppColors.grayText4,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.h),
+
+// Nombre de palettes acceptées
+              InputLabel(title: 'Nombre de palettes acceptées'),
+              SizedBox(height: 12.h),
+              TextFormField(
+                textInputAction: TextInputAction.done,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  hintText: '1',
+                  hintStyle: style.bodyLarge?.copyWith(
+                    color: AppColors.grayText4,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(height: 101.h),
+
+              const SizedBox(height: 101),
+
+              PrimaryButton(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 12.h),
+                containerColor: AppColors.blackColor,
+                title: 'Suivant',
+                onTap: () {
+                  context.push(RouteName.inscriptionDoc);
+                },
+              ),
+
 
               const SizedBox(height: 20),
             ],

@@ -43,36 +43,50 @@ void onAcceptTap(BuildContext context) {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              
+
               SizedBox(height: 8.h),
-              
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   PrimaryButton(
-                      width: 115.w,
-                      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-                      borderRadius: 12,
-                      containerColor: AppColors.greenText2,
-                      textStyle: style.bodyMedium?.copyWith(
-                        color: AppColors.whiteColor,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      title: 'Accepter', onTap: (){}),
+                    width: 115.w,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 12.h,
+                    ),
+                    borderRadius: 12,
+                    containerColor: AppColors.greenText2,
+                    textStyle: style.bodyMedium?.copyWith(
+                      color: AppColors.whiteColor,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    title: 'Accepter',
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
 
                   PrimaryButton(
-                      width: 115.w,
-                      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-                      borderRadius: 12,
-                      border: Border.all(color: AppColors.containerColor9),
-                      containerColor: AppColors.transparentColor,
-                      textStyle: style.bodyMedium?.copyWith(
-                        color: AppColors.containerColor9,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      title: 'Annuler', onTap: (){}),
+                    width: 115.w,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 12.h,
+                    ),
+                    borderRadius: 12,
+                    border: Border.all(color: AppColors.containerColor9),
+                    containerColor: AppColors.transparentColor,
+                    textStyle: style.bodyMedium?.copyWith(
+                      color: AppColors.containerColor9,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    title: 'Annuler',
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
