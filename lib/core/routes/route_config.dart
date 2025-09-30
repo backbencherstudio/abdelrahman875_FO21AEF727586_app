@@ -29,6 +29,7 @@ import '../../features/Inscription_Donneur/Donneur_screen.dart';
 import '../../features/Inscription_Donneur/inscription_doc.dart';
 import '../../features/mission_screen/presentation/mission_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
+import '../../features/paiement_screen/presentation/paiement_screen.dart';
 import '../../features/setting_screen/presentation/profile_setting_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
 import '../../features/track_home_demandes/presentation/track_home_demandes_screen.dart';
@@ -36,7 +37,7 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.missionScreen,
+    initialLocation: RouteName.paiementScreen,
 
 
     routes: [
@@ -94,6 +95,14 @@ class RouteConfig {
         path: RouteName.command,
         pageBuilder: (context, state) {
           return const MaterialPage(child: Command());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.paiementScreen,
+        path: RouteName.paiementScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: PaiementScreen());
         },
       ),
       GoRoute(

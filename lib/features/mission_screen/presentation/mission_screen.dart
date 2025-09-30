@@ -61,10 +61,10 @@ class _MissionScreenState extends State<MissionScreen> {
                             width: 95.w,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12.r),
-                              color: AppColors.containerColor10.withOpacity(
-                                0.3,
+                              color: AppColors.containerColor10.withAlpha(30),
+                              border: Border.all(
+                                color: AppColors.transparentColor,
                               ),
-                              border: Border.all(color: AppColors.transparentColor),
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
@@ -88,7 +88,9 @@ class _MissionScreenState extends State<MissionScreen> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12.r),
                               color: AppColors.transparentColor,
-                              border: Border.all(color: AppColors.containerColor7),
+                              border: Border.all(
+                                color: AppColors.containerColor7,
+                              ),
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
@@ -243,7 +245,7 @@ class _MissionScreenState extends State<MissionScreen> {
                                                 ),
                                             borderRadius: 12.r,
                                             containerColor: AppColors.greenText3
-                                                .withOpacity(0.3),
+                                                .withAlpha(30),
                                             onTap: () {},
                                           ),
                                         ),
