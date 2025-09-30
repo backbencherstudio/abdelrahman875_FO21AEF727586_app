@@ -11,6 +11,7 @@ class PrimaryButton extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final TextStyle? textStyle;
   final Color? containerColor;
+  final Border? border;
   const PrimaryButton({
     super.key,
     this.borderRadius,
@@ -20,6 +21,7 @@ class PrimaryButton extends StatelessWidget {
     this.padding,
     this.textStyle,
     this.containerColor,
+    this.border,
   });
 
   @override
@@ -33,6 +35,7 @@ class PrimaryButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           color: containerColor ?? AppColors.containerColor7,
+          border: border ?? Border.all(color: AppColors.transparentColor)
         ),
         child: Center(
           child: Text(
