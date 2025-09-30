@@ -1,9 +1,11 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:rating_and_feedback_collector/rating_and_feedback_collector.dart';
 
 import '../../riverpod/ratting_provider.dart';
@@ -80,7 +82,7 @@ void onAcceptTap(BuildContext context) {
                         ),
                         title: 'Accepter',
                         onTap: () {
-                          Navigator.pop(context);
+                          context.push(RouteName.trackHomeDemandesScreen);
                         },
                       ),
                       PrimaryButton(

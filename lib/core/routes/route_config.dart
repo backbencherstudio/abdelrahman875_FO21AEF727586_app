@@ -37,7 +37,7 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.paiementScreen,
+    initialLocation: RouteName.splashScreen,
 
 
     routes: [

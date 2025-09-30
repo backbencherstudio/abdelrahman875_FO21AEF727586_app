@@ -1,8 +1,10 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/features/details_commande/presentation/widgets/custom_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import '../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../widgets/primery_button.dart';
 import '../models/tracking_step_model.dart';
@@ -417,7 +419,9 @@ class _PaiementScreenState extends State<PaiementScreen> {
                           width: double.infinity,
                           padding: EdgeInsets.all(16.r),
                           containerColor: AppColors.blackColor,
-                          title: 'Payer', onTap: (){}),
+                          title: 'Payer', onTap: (){
+                            context.push(RouteName.commandScreen);
+                      }),
 
                       SizedBox(height: 20.h),
                     ],

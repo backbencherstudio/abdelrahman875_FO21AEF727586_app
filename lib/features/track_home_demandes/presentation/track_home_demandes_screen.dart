@@ -1,3 +1,4 @@
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/custom_list_tile.dart';
 import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/custom_progress_container.dart';
@@ -8,6 +9,7 @@ import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/icons.dart';
 import '../../../core/constants/images.dart';
@@ -117,127 +119,132 @@ class _TrackHomeDemandesScreenState extends State<TrackHomeDemandesScreen> {
                         children: List.generate(2, (index) {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 12.h),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12.r),
-                                color: AppColors.containerColor8,
-                                border: Border.all(
-                                  color: AppColors.borderColor3,
+                            child: GestureDetector(
+                              onTap: () {
+                                context.push(RouteName.paiementScreen);
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12.r),
+                                  color: AppColors.containerColor8,
+                                  border: Border.all(
+                                    color: AppColors.borderColor3,
+                                  ),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 26.w,
-                                  vertical: 12.h,
-                                ),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Image.asset(
-                                              AppIcons.profileImg,
-                                              height: 36.h,
-                                              width: 36.w,
-                                              fit: BoxFit.cover,
-                                            ),
-                                            SizedBox(width: 12.w),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Nouvelle propositions reçues !',
-                                                  style: style.bodyMedium
-                                                      ?.copyWith(
-                                                        color:
-                                                            AppColors.grayText,
-                                                      ),
-                                                ),
-                                                SizedBox(height: 4.h),
-                                                Row(
-                                                  children: [
-                                                    Text(
-                                                      '#HWDSF77',
-                                                      style: style.titleSmall
-                                                          ?.copyWith(
-                                                            color:
-                                                                AppColors.blackText,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                    ),
-                                                    
-                                                    SizedBox(width: 16.w),
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius.circular(12.r),
-                                                        color: AppColors.containerColor11.withAlpha(50),
-                                                      ),
-                                                      child: Padding(
-                                                        padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),
-                                                        child: Text('En attente',style: style.bodyLarge?.copyWith(
-                                                          color: AppColors.greenText3,
-                                                          fontWeight: FontWeight.w600,
-                                                        ),),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(width: 8.w),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(
-                                              100.r,
-                                            ),
-                                            color: AppColors.containerColor9,
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(4.0),
-                                            child: Stack(
-                                              children: [
-                                                Icon(
-                                                  Icons.close,
-                                                  size: 16.r,
-                                                  color: AppColors.whiteColor,
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                          child: Column(
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 26.w,
+                                    vertical: 12.h,
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
                                             children: [
-                                              CustomSubTitle(),
-                                              SizedBox(height: 8.h),
-                                              CustomSubTitle(),
-                                              SizedBox(height: 8.h),
-                                              CustomSubTitle(),
+                                              Image.asset(
+                                                AppIcons.profileImg,
+                                                height: 36.h,
+                                                width: 36.w,
+                                                fit: BoxFit.cover,
+                                              ),
+                                              SizedBox(width: 12.w),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Nouvelle propositions reçues !',
+                                                    style: style.bodyMedium
+                                                        ?.copyWith(
+                                                          color:
+                                                              AppColors.grayText,
+                                                        ),
+                                                  ),
+                                                  SizedBox(height: 4.h),
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '#HWDSF77',
+                                                        style: style.titleSmall
+                                                            ?.copyWith(
+                                                              color:
+                                                                  AppColors.blackText,
+                                                              fontWeight:
+                                                                  FontWeight.w600,
+                                                            ),
+                                                      ),
+
+                                                      SizedBox(width: 16.w),
+                                                      Container(
+                                                        decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.circular(12.r),
+                                                          color: AppColors.containerColor11.withAlpha(50),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),
+                                                          child: Text('En attente',style: style.bodyLarge?.copyWith(
+                                                            color: AppColors.greenText3,
+                                                            fontWeight: FontWeight.w600,
+                                                          ),),
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
                                             ],
                                           ),
-                                        ),
+                                          SizedBox(width: 8.w),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(
+                                                100.r,
+                                              ),
+                                              color: AppColors.containerColor9,
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(4.0),
+                                              child: Stack(
+                                                children: [
+                                                  Icon(
+                                                    Icons.close,
+                                                    size: 16.r,
+                                                    color: AppColors.whiteColor,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Expanded(
+                                            child: Column(
+                                              children: [
+                                                CustomSubTitle(),
+                                                SizedBox(height: 8.h),
+                                                CustomSubTitle(),
+                                                SizedBox(height: 8.h),
+                                                CustomSubTitle(),
+                                              ],
+                                            ),
+                                          ),
 
-                                        Image.asset(
-                                          AppImages.worldPng,
-                                          width: 135.w,
-                                          height: 115.h,
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 12.h),
-                                  ],
+                                          Image.asset(
+                                            AppImages.worldPng,
+                                            width: 135.w,
+                                            height: 115.h,
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 12.h),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
