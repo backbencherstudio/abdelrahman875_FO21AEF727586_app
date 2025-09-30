@@ -175,9 +175,16 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                           return Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Container(
+                                width: 60,
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  step.date,
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ),
                               Column(
                                 children: [
-                                  // Icon
                                   Container(
                                     margin: EdgeInsets.symmetric(vertical: 4),
                                     decoration: BoxDecoration(
@@ -198,7 +205,6 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                                         ? Icon(Icons.check, color: Colors.white, size: 16)
                                         : null,
                                   ),
-                                  // Vertical Line, only draw if not last
                                   if (index != trackingSteps.length - 1)
                                     Container(
                                       width: 2,
@@ -208,12 +214,11 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                                 ],
                               ),
                               SizedBox(width: 10),
-                              // Date, Title & Description
+
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(step.date, style: TextStyle(color: Colors.grey)),
                                     Text(
                                       step.title,
                                       style: TextStyle(
@@ -232,7 +237,8 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                             ],
                           );
                         },
-                      ),
+                      )
+
                     ],
                   ),
                 ),
