@@ -162,10 +162,16 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                       ),
                       CustomDivider(),
 
-                      CustomRowTracking(title: 'Transporteur :', subtitle: 'UPS'),
+                      CustomRowTracking(
+                        title: 'Transporteur :',
+                        subtitle: 'UPS',
+                      ),
                       CustomDivider(),
 
-                      CustomRowTracking(title: 'Date de livraison :', subtitle: '20 Sept 2025'),
+                      CustomRowTracking(
+                        title: 'Date de livraison :',
+                        subtitle: '20 Sept 2025',
+                      ),
                       CustomDivider(),
                       ListView.builder(
                         shrinkWrap: true,
@@ -190,19 +196,31 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: step.isCompleted
-                                          ? (step.isCurrent ? Colors.green : Colors.black)
+                                          ? (step.isCurrent
+                                                ? Colors.green
+                                                : Colors.black)
                                           : Colors.white,
                                       border: Border.all(
-                                        color: step.isCompleted ? Colors.green : Colors.grey,
+                                        color: step.isCompleted
+                                            ? Colors.green
+                                            : Colors.grey,
                                         width: 2,
                                       ),
                                     ),
                                     width: 24,
                                     height: 24,
                                     child: step.isCurrent
-                                        ? Icon(Icons.check, color: Colors.white, size: 16)
+                                        ? Icon(
+                                            Icons.check,
+                                            color: Colors.white,
+                                            size: 16,
+                                          )
                                         : step.isCompleted
-                                        ? Icon(Icons.check, color: Colors.white, size: 16)
+                                        ? Icon(
+                                            Icons.check,
+                                            color: Colors.white,
+                                            size: 16,
+                                          )
                                         : null,
                                   ),
                                   if (index != trackingSteps.length - 1)
@@ -223,7 +241,9 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                                       step.title,
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        color: step.isCurrent ? Colors.green : Colors.black,
+                                        color: step.isCurrent
+                                            ? Colors.green
+                                            : Colors.black,
                                       ),
                                     ),
                                     Text(
@@ -237,8 +257,7 @@ class _DetailsCommandeScreenState extends State<DetailsCommandeScreen> {
                             ],
                           );
                         },
-                      )
-
+                      ),
                     ],
                   ),
                 ),
