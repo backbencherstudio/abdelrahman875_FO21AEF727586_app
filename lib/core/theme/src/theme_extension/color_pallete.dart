@@ -11,15 +11,20 @@ class AppColors {
   static const Color textColor = Color(0xFF7A848C);
   static const Color textColor2 = Color(0xFF585B5E);
   static const Color textColor3 = Color(0xFFbf3749);
+  static const Color textColor4 = Color(0xFF76889A);
 
   // static const Color primaryColor = Color(0xFF000000);
   static const Color secondaryColor = Color(0xFF086E86);
   static const Color onboadCon = Color(0xFF2490A9);
-  static const Color backgroundColor = Color(0xFFF5F3FF);
+  //static const Color backgroundColor = Color(0xFFF5F3FF);
   static const Color notifyRed = Color(0xFFF44336);
   static const Color primaryTextColor = Color(0xFF1D1F2C);
   static const Color bodyTextColor = Color(0xFF777980);
+  static const Color white = Color(0xFFFFFFFF);//#EFF1F4
+  static const Color whiteTextColor = Color(0xFFEFF1F4);
+
   static const Color whiteColor = Color(0xFFFFFFFF);
+
   static const Color lightGreen = Color(0xffF4F8ED);
   static const Color surfaceColor = Color(0xffF5F5F5);
 
@@ -34,6 +39,8 @@ static const Color grayText5 = Color(0xff818385);
 static const Color grayText3 = Color(0xff232938);
   static const Color grayText4 = Color(0xffABABAB);
 static const Color greenText = Color(0xff5EB111);
+static const Color greenText2 = Color(0xff488014);
+static const Color greenText3 = Color(0xff3E7807);
 
 
 
@@ -46,6 +53,10 @@ static const Color containerColor4 = Color(0xff030303);
 static const Color containerColor5 = Color(0xffECC32E);
 static const Color containerColor6 = Color(0xffE0F2F6);
 static const Color containerColor7 = Color(0xff1B5664);
+static const Color containerColor8 = Color(0xffFEFEFE);
+static const Color containerColor9 = Color(0xff8E0D0D);
+static const Color containerColor10 = Color(0xff63CAE1);
+static const Color containerColor11 = Color(0xff498E09);
 static const Color transparentColor = Color(0x00000000);
 
 
@@ -54,5 +65,7 @@ static const Color transparentColor = Color(0x00000000);
 static const Color borderColor = Color(0xffABABAB);
 static const Color borderColor2 = Color(0xff086E86);
 static const Color borderColor3 = Color(0xffDADADA);
+static const Color borderColor4 = Color(0xffCFD5DB);
+static const Color borderColor5 = Color(0xffF1F2F6);
 
 }

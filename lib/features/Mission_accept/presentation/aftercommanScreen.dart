@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rating_and_feedback_collector/rating_and_feedback_collector.dart';
-
 import '../../../core/constants/images.dart';
 import '../../../core/routes/route_name.dart';
 import '../../../core/theme/src/theme_extension/color_pallete.dart';

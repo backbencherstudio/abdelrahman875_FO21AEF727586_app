@@ -1,12 +1,15 @@
 import 'package:abdelrahman875_fo21aef727586/core/routes/build_page_with_transition.dart';
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
+import 'package:abdelrahman875_fo21aef727586/features/espaces/espaces_screen.dart';
 import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/parents_screen.dart';
+import 'package:abdelrahman875_fo21aef727586/features/qr_code/qr_code_scaner_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/Command/presentation/command_5.dart';
 import '../../features/Command/presentation/command_vaid_screen.dart';
 import '../../features/Command/presentation/votre_command.dart';
+import '../../features/auth/signin/presentation/sign_in_screen.dart';
 import '../../features/Mission_accept/presentation/Condition_affret.dart';
 import '../../features/Mission_accept/presentation/after_preuveScreen.dart';
 import '../../features/Mission_accept/presentation/aftercommanScreen.dart';
@@ -15,6 +18,7 @@ import '../../features/Mission_accept/presentation/mis_termin.dart';
 import '../../features/Mission_accept/presentation/mission_accept_screen.dart';
 import '../../features/Mission_accept/presentation/preuve_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
+import '../../features/details_commande/presentation/details_commande_screen.dart';
 import '../../features/home/presentation/home_veiw.dart';
 import '../../features/Inscription/Inscription.dart';
 
@@ -23,13 +27,18 @@ import '../../features/Inscription/commande.dart';
 import '../../features/Inscription/inscription_doc.dart';
 import '../../features/Inscription_Donneur/Donneur_screen.dart';
 import '../../features/Inscription_Donneur/inscription_doc.dart';
+import '../../features/mission_screen/presentation/mission_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
+import '../../features/paiement_screen/presentation/paiement_screen.dart';
+import '../../features/setting_screen/presentation/profile_setting_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
+import '../../features/track_home_demandes/presentation/track_home_demandes_screen.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.command5,
+
+    initialLocation: RouteName.splashScreen,
 
 
     routes: [
@@ -40,13 +49,13 @@ class RouteConfig {
           return const MaterialPage(child: SplashScreen());
         },
       ),
-      // GoRoute(
-      //   name: RouteName.signIn,
-      //   path: RouteName.signIn,
-      //   pageBuilder: (context, state) {
-      //     return const MaterialPage(child: SignIn());
-      //   },
-      // ),
+      GoRoute(
+        name: RouteName.signInScreen,
+        path: RouteName.signInScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: SignInScreen());
+        },
+      ),
       GoRoute(
         name: RouteName.votreCommand,
         path: RouteName.votreCommand,
@@ -89,6 +98,14 @@ class RouteConfig {
           return const MaterialPage(child: Command());
         },
       ),
+
+      GoRoute(
+        name: RouteName.paiementScreen,
+        path: RouteName.paiementScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: PaiementScreen());
+        },
+      ),
       GoRoute(
         name: RouteName.conditionScreen,
         path: RouteName.conditionScreen,
@@ -125,6 +142,14 @@ class RouteConfig {
           return const MaterialPage(child: InscriptionDoc());
         },
       ),
+
+      GoRoute(
+        name: RouteName.trackHomeDemandesScreen,
+        path: RouteName.trackHomeDemandesScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: TrackHomeDemandesScreen());
+        },
+      ),
       GoRoute(
         name: RouteName.inscriptionDoc_two,
         path: RouteName.inscriptionDoc_two,
@@ -137,6 +162,14 @@ class RouteConfig {
         path: RouteName.trans_Vehicule,
         pageBuilder: (context, state) {
           return const MaterialPage(child: Trans_Vehicule());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.profileSettingScreen,
+        path: RouteName.profileSettingScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ProfileSettingScreen());
         },
       ),
       GoRoute(
@@ -158,6 +191,13 @@ class RouteConfig {
         path: RouteName.command5,
         pageBuilder: (context, state) {
           return const MaterialPage(child: Command5());
+        },
+      ),
+      GoRoute(
+        name: RouteName.detailsCommandeScreen,
+        path: RouteName.detailsCommandeScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: DetailsCommandeScreen());
         },
       ),
       GoRoute(
@@ -198,6 +238,45 @@ class RouteConfig {
           );
         },
       ),
+
+      GoRoute(
+        name: RouteName.missionScreen,
+        path: RouteName.missionScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: MissionScreen(),
+          );
+        },
+      ),
+       GoRoute(
+        name: RouteName.espacesScreen,
+        path: RouteName.espacesScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: EspacesScreen(),
+          );
+        },
+      ),
+       GoRoute(
+        name: RouteName.qrScannerScreen,
+        path: RouteName.qrScannerScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: QrScannerScreen(),
+          );
+        },
+      ),
+     
+
     ],
   );
 }

@@ -7,6 +7,9 @@ import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/
 import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/image_box_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../core/constants/icons.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -31,6 +34,7 @@ class _HomeViewState extends State<HomeView> {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Créer  une mission',
@@ -41,36 +45,58 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       SizedBox(height: 18.h),
 
-                      //     TextFormField(
-                      //       decoration: InputDecoration(
-                      //       prefixIcon  : Row(
-                      //           mainAxisSize: MainAxisSize.min, // Makes sure the row shrinks to fit the content
-                      //           children: [
-                      //             SvgPicture.asset(
-                      //               AppIcons.locationSearchingSvg,
-                      //               height: 24.h,
-                      //               width: 24.w,
-                      //               fit: BoxFit.cover,
-                      //             ),
-                      //             SizedBox(width: 12.w),
-                      //             Text(
-                      //               '|',
-                      //               style: style.headlineLarge?.copyWith(
-                      //                 color: AppColors.grayText3,
-                      //                 fontWeight: FontWeight.w500, // Added font weight for better visibility
-                      //               ),
-                      //             ),
-                      //           ],
-                      //         ),
-                      //         hintText: '#130310011',
-                      // suffixIcon: SvgPicture.asset(
-                      //           AppIcons.qrCodeScannerSvg,
-                      //           height: 24.h,
-                      //           width: 24.w,
-                      //           fit: BoxFit.cover,
-                      //         ),
-                      //       ),
-                      //     )
+                      TextFormField(
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: AppColors.whiteColor,
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: AppColors.borderColor3,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: AppColors.borderColor3,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: AppColors.borderColor3,
+                            ),
+                          ),
+
+                          prefixIcon: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 12.w,top: 12.h,bottom: 12.h),
+                                child: SvgPicture.asset(
+                                  AppIcons.locationSearchingSvg,
+                                  height: 24.h,
+                                  width: 24.w,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              SizedBox(width: 12.w),
+                              Text(
+                                '|',
+                                style: style.bodyLarge?.copyWith(
+                                  color: AppColors.grayText3,
+                                  fontWeight: FontWeight
+                                      .w500, // Added font weight for better visibility
+                                ),
+                              ),
+                            ],
+                          ),
+                          hintText: '#130310011',
+                          suffixIcon: Padding(
+                            padding: EdgeInsets.only(right: 12.w,top: 12.h,bottom: 12.h),
+                            child: SvgPicture.asset(AppIcons.qrCodeScannerSvg,height: 24.h,width: 24.w,),
+                          ),
+                        ),
+                      ),
+
+
                       GridSection(),
                       SizedBox(height: 18.h),
                       ImageBoxSection(),
@@ -92,7 +118,7 @@ class _HomeViewState extends State<HomeView> {
 
                       SizedBox(height: 18.h),
                       Column(
-                        children: List.generate(2, (index) {
+                        children: List.generate(6, (index) {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 12.h),
                             child: CustomListTile(

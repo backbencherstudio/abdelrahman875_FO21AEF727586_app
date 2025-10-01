@@ -34,9 +34,9 @@ class PrimaryButton extends StatelessWidget {
         padding:
             padding ?? EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
         decoration: BoxDecoration(
-          border:border,
           borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           color: containerColor ?? AppColors.containerColor7,
+          border: border ?? Border.all(color: AppColors.transparentColor)
         ),
         child: Center(
           child: Text(

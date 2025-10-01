@@ -51,7 +51,7 @@ class _velocityState extends State<velocity> {
           ),
           // SizedBox(height: 10),
           Text(
-            "67",
+            "67€",
             style: style.headlineLarge?.copyWith(color: AppColors.textColor3)
           ),
 

@@ -1,8 +1,13 @@
 class RouteName {
   static const String splashScreen = "/SplashScreen";
-  static const String onboardingScreen = "/OnboardingScreen";
+
+  static const String onboardingScreen = "/";
+   static const String parentsScreen = '/parentsScreen';
+   static const String espacesScreen = '/espacesScreen';
+
+
   static const String homeView = "/HomeView";
-  static const String signIn = "/SignIn";
+  static const String signInScreen = "/SignInScreen";
   static const String inscriptionScreen = "/Inscription";
   static const String trans_Vehicule = "/Trans_Vehicule";
   static const String inscriptionDoc = "/InscriptionDoc";
@@ -19,6 +24,12 @@ class RouteName {
   static const String commandScreen = "/CommandScreen";
   static const String votreCommand = "/VotreCommand";
   static const String inscriptionDoc_two = "/InscriptionDoc_two";
-   static const String parentsScreen = '/parentsScreen';
+  static const String missionScreen = "/MissionScreen";
+
    static const String creerUneCommandeScreen = '/CreerUneCommandeScreen';
+   static const String qrScannerScreen = '/qrScannerScreen';
+   static const String detailsCommandeScreen = '/DetailsCommandeScreen';
+   static const String profileSettingScreen = '/ProfileSettingScreen';
+   static const String trackHomeDemandesScreen = '/TrackHomeDemandesScreen';
+   static const String paiementScreen = '/PaiementScreen';
 }
