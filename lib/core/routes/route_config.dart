@@ -29,7 +29,8 @@ import '../../features/splash/presentation/splash_screen.dart';
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.afterScreen,
+    initialLocation: RouteName.command5,
+
 
     routes: [
       GoRoute(

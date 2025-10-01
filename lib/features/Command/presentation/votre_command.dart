@@ -38,24 +38,29 @@ class _votreCommandState extends State<votreCommand> {
             style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
           ),
 
-          SizedBox(height: 55.h),
+          SizedBox(height: 50.h),
+
+
 
           // Subtitle
           Text(
-            "Nous recherchons le meilleur \n "
-            "transporteur pour vous.",
+            "Nous recherchons le meilleur \n transporteur pour vous.",
+            textAlign: TextAlign.center,
 
             style: TextStyle(fontSize: 16.sp, color: Colors.grey[700]),
           ),
+          SizedBox(height: 20.h),
+
           Text(
             "Vous recevrez une notification dès que \n nous trouverons un transporteur. ",
+            textAlign: TextAlign.center,
 
             style: TextStyle(fontSize: 16.sp, color: Colors.grey[700]),
           ),
-          SizedBox(height: 90.h),
+          SizedBox(height: 85.h),
 
           CommonBtn(title: 'Accueil', onPressed: () {  },),
-          SizedBox(height: 200.h),
+          SizedBox(height: 100.h),
         ],
       ),
     );
