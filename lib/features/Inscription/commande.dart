@@ -1,3 +1,4 @@
+import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -10,7 +11,7 @@ class Command extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+final style = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor:AppColors.whiteColor,
       body: Column(
@@ -43,30 +44,19 @@ class Command extends StatelessWidget {
           ),
           SizedBox(height: 90.h),
 
-          SizedBox(
 
-            width:239.h,
-            height: 56.h,
-            child: ElevatedButton(
-
-
-              onPressed: () {
-                context.push(RouteName.parentsScreen);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.boxColor,
-                padding: EdgeInsets.symmetric(vertical: 16.h),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.r),
-                ),
+          PrimaryButton(title: 'Accueil',
+              width:239.h,
+              padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
+              containerColor: AppColors.blackColor,
+              textStyle: style.bodyMedium?.copyWith(
+                color: AppColors.whiteColor,
+                fontWeight: FontWeight.w600,
               ),
-              child: Text(
-                "Accueil",
-                style: TextStyle(color: Colors.white, fontSize: 16.sp),
-              ),
-            ),
+              onTap: (){
+            context.push(RouteName.parentsScreen);
+          }),
 
-          ),
           SizedBox(height: 200.h,)
 
         ],

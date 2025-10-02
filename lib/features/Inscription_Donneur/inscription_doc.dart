@@ -16,6 +16,7 @@ class InscriptionDoc_two extends StatefulWidget {
 class _InscriptionDocState extends State<InscriptionDoc_two> {
   @override
   Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme;
     return Scaffold(
       body: Builder(
         builder: (context) {
@@ -153,9 +154,13 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
               // Submit Button
               PrimaryButton(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 12.h),
+                padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.h),
                 containerColor: AppColors.blackColor,
-                title: ' Créer mon compte',
+                title: 'Créer mon compte',
+                textStyle: style.bodyMedium?.copyWith(
+                    color: AppColors.whiteColor,
+                    fontWeight: FontWeight.w600
+                ),
                 onTap: () {
                   context.push(RouteName.command);
                 },
