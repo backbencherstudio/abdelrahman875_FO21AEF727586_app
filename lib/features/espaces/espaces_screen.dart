@@ -1,4 +1,4 @@
-import 'package:abdelrahman875_fo21aef727586/features/espaces/riverpod/select_cart_provider.dart';
+import 'package:abdelrahman875_fo21aef727586/features/espaces/riverpod/user_select_provider.dart';
 import 'package:abdelrahman875_fo21aef727586/features/espaces/widgets/common_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +15,7 @@ class EspacesScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedIndex = ref.watch(selectedCartProvider);
+    final selectedIndex = ref.watch(userSelectProvider);
 
     return Scaffold(
       backgroundColor: AppColors.primaryTextColor,
@@ -58,7 +58,7 @@ class EspacesScreen extends ConsumerWidget {
                   /// Option 1
                   GestureDetector(
                     onTap: () {
-                      ref.read(selectedCartProvider.notifier).state = 0;
+                      ref.read(userSelectProvider.notifier).state = 0;
                     },
                     child: CommonCartStack(
                       title: "Donneur d’ordre",
@@ -72,7 +72,7 @@ class EspacesScreen extends ConsumerWidget {
                   /// Option 2
                   GestureDetector(
                     onTap: () {
-                      ref.read(selectedCartProvider.notifier).state = 1;
+                      ref.read(userSelectProvider.notifier).state = 1;
                     },
                     child: CommonCartStack(
                       title: "Transporteur",
@@ -91,7 +91,14 @@ class EspacesScreen extends ConsumerWidget {
                     ),
                     child: PrimaryButton(
                       onTap: () {
-                        context.push(RouteName.signInScreen);
+                        final selectedIndex = ref.read(userSelectProvider);
+                        if (selectedIndex == 0) {
+                          context.push(RouteName.donneur);
+                        } else if (selectedIndex == 1) {
+                          context.push(RouteName.inscriptionScreen);
+                        } else {
+                          context.push(RouteName.signInScreen);
+                        }
                       },
                       title: "S’inscrire",
                       padding: const EdgeInsets.all(16),

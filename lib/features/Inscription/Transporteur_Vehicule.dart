@@ -230,7 +230,7 @@ class _InscriptionState extends State<Trans_Vehicule> {
 
               PrimaryButton(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 12.h),
+                padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
                 containerColor: AppColors.blackColor,
                 title: 'Suivant',
                 onTap: () {

@@ -16,6 +16,7 @@ class InscriptionDoc extends StatefulWidget {
 class _InscriptionDocState extends State<InscriptionDoc> {
   @override
   Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme;
     return Scaffold(
       body: Builder(
         builder: (context) {
@@ -125,21 +126,19 @@ class _InscriptionDocState extends State<InscriptionDoc> {
               ),
               SizedBox(height: 30.h),
               // Submit Button
-              ElevatedButton(
-                onPressed: () {
+
+              PrimaryButton(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.h),
+                containerColor: AppColors.blackColor,
+                title: 'Créer mon compte',
+                textStyle: style.bodyMedium?.copyWith(
+                    color: AppColors.whiteColor,
+                    fontWeight: FontWeight.w600
+                ),
+                onTap: () {
                   context.push(RouteName.command);
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF000000),
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.r),
-                  ),
-                ),
-                child: Text(
-                  'Créer mon compte',
-                  style: Theme.of(context).textTheme.labelLarge,
-                ),
               ),
             ],
           );
@@ -158,6 +157,7 @@ class _InscriptionDocState extends State<InscriptionDoc> {
     bool isOpen = false;
     return StatefulBuilder(
       builder: (context, setState) {
+        final style = Theme.of(context).textTheme;
         return Padding(
           padding: EdgeInsets.symmetric(vertical: 6.h), // Reduced extra spacing
           child: Column(
@@ -267,8 +267,12 @@ class _InscriptionDocState extends State<InscriptionDoc> {
                       // Add Button
                       PrimaryButton(
                         width: double.infinity,
-                        padding: EdgeInsets.symmetric(vertical: 12.h),
+                        padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
                         containerColor: AppColors.blackColor,
+                        textStyle: style.bodyMedium?.copyWith(
+                          color: AppColors.whiteColor,
+                          fontWeight: FontWeight.w600
+                        ),
                         title: ' Créer mon compte',
                         onTap: () {
                           context.push(RouteName.trans_Vehicule);
