@@ -66,7 +66,7 @@ class GridSection extends StatelessWidget {
             SizedBox(height: 8.h),
             Text(
               item.title,
-              style: style.labelMedium?.copyWith(
+              style: style.labelSmall?.copyWith(
                 color: AppColors.blackText,
                 fontWeight: FontWeight.w600,
               ),

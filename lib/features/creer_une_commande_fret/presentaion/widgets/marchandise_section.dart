@@ -151,7 +151,7 @@ class MarchandiseSection extends StatelessWidget {
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
             hintText: 'Autre',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),
@@ -170,7 +170,7 @@ class MarchandiseSection extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   hintText: 'Longueur ( mètres )',
-                  hintStyle: style.bodyLarge?.copyWith(
+                  hintStyle: style.bodyMedium?.copyWith(
                     color: AppColors.grayText4,
                     fontWeight: FontWeight.w400,
                   ),
@@ -184,7 +184,7 @@ class MarchandiseSection extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   hintText: 'Largueur ( mètres )',
-                  hintStyle: style.bodyLarge?.copyWith(
+                  hintStyle: style.bodyMedium?.copyWith(
                     color: AppColors.grayText4,
                     fontWeight: FontWeight.w400,
                   ),
@@ -204,7 +204,7 @@ class MarchandiseSection extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   hintText: 'Hauteur ( mètres )',
-                  hintStyle: style.bodyLarge?.copyWith(
+                  hintStyle: style.bodyMedium?.copyWith(
                     color: AppColors.grayText4,
                     fontWeight: FontWeight.w400,
                   ),
@@ -218,7 +218,7 @@ class MarchandiseSection extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   hintText: 'Metrage',
-                  hintStyle: style.bodyLarge?.copyWith(
+                  hintStyle: style.bodyMedium?.copyWith(
                     color: AppColors.grayText4,
                     fontWeight: FontWeight.w400,
                   ),
@@ -240,7 +240,7 @@ class MarchandiseSection extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: 'Valume ( m3 )',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),
@@ -257,7 +257,7 @@ class MarchandiseSection extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: '7 Kg',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),

@@ -25,7 +25,7 @@ class Chargement extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: 'Lyon',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),
@@ -42,7 +42,7 @@ class Chargement extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: '12 rue des Lilas',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),
@@ -59,7 +59,7 @@ class Chargement extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: 'Lyon',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),
@@ -76,7 +76,7 @@ class Chargement extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: '69000',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),
@@ -93,7 +93,7 @@ class Chargement extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: '+33 6 59 97 12 13',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),
@@ -110,7 +110,7 @@ class Chargement extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: '12 septembre 2025',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),
@@ -132,7 +132,7 @@ class Chargement extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: '13h20',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),
@@ -154,7 +154,7 @@ class Chargement extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: 'Ne pas jeter le colis.',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),
@@ -171,7 +171,7 @@ class Chargement extends StatelessWidget {
             filled: true,
             fillColor: AppColors.boxColor2.withAlpha(15),
             hintText: 'UPS',
-            hintStyle: style.bodyLarge?.copyWith(
+            hintStyle: style.bodyMedium?.copyWith(
               color: AppColors.grayText4,
               fontWeight: FontWeight.w400,
             ),

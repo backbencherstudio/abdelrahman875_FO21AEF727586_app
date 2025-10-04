@@ -273,7 +273,7 @@ class _InscriptionDocState extends State<InscriptionDoc> {
                           color: AppColors.whiteColor,
                           fontWeight: FontWeight.w600
                         ),
-                        title: ' Créer mon compte',
+                        title: 'Créer mon compte',
                         onTap: () {
                           context.push(RouteName.trans_Vehicule);
                         },
