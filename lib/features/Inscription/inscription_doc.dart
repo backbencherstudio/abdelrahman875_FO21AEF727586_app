@@ -1,169 +1,219 @@
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+
 
 import '../../core/routes/route_name.dart';
 import '../widgets/primery_button.dart';
 
-class InscriptionDoc extends StatefulWidget {
+class InscriptionDoc extends ConsumerStatefulWidget {
   const InscriptionDoc({super.key});
 
   @override
-  State<InscriptionDoc> createState() => _InscriptionDocState();
+  ConsumerState<InscriptionDoc> createState() => _InscriptionDocState();
 }
 
-class _InscriptionDocState extends State<InscriptionDoc> {
+class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
+
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
     return Scaffold(
-      body: Builder(
-        builder: (context) {
-          return ListView(
-            padding: EdgeInsets.all(16.w),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
             children: [
-              SizedBox(height: 30.h),
-              Text(
-                'Téléversez les \n documents',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18.sp,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.grayText.withAlpha(70),
+                        shape: BoxShape.circle,
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          context.pop();
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_rounded,
+                          color: AppColors.whiteColor,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        'Téléversez les\ndocuments',
+                        textAlign: TextAlign.center,
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.sp,
+                        ),
+                        semanticsLabel: 'Téléversez les documents',
+                      ),
+                    ),
+                    SizedBox(width: 38.w),
+                  ],
                 ),
-                semanticsLabel: 'Téléversez les documents',
               ),
+              // Text(
+              //   'Téléversez les \n documents',
+              //   textAlign: TextAlign.center,
+              //   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+              //     fontWeight: FontWeight.bold,
+              //     fontSize: 18.sp,
+              //   ),
+              //   semanticsLabel: 'Téléversez les documents',
+              // ),
               SizedBox(height: 16.h),
               Text(
-                'Sélectionnez vos documents pour renforcer la sécurité et améliorer votre expérience.',
+                'Sélectionner vos documents pour renforcer la sécurité et améliorer votre expérience.',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Colors.black54,
-                  fontSize: 18.sp,
                 ),
-                semanticsLabel:
-                    'Sélectionnez vos documents pour une expérience sécurisée.',
               ),
               SizedBox(height: 30.h),
-              // KBIS Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'KBIS (<9 mois)',
-                subtitle: 'Sélectionner un fichier.',
-                items: const [
-                  'Sélectionner un fichier',
-                  'Format: PDF, JPG, PNG',
-                ],
-                onFileUpload: () {
-                  print('Uploading KBIS file');
-                },
-              ),
-              SizedBox(height: 16.h),
-              // RIB Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'RIB',
-                subtitle: 'Déposer votre relevé d’identité bancaire',
-                items: const [
-                  'Déposer votre relevé d’identité bancaire',
-                  'Format: PDF, JPG, PNG',
-                ],
-                onFileUpload: () {
-                  print('Uploading RIB file');
-                },
-              ),
-              SizedBox(height: 30.h),
-              // Carte d’identité Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'Carte d’identité',
-                subtitle: 'Déposer votre carte d’identité',
-                items: const [
-                  'Déposer votre carte d’identité',
-                  'Format: PDF, JPG, PNG',
-                ],
-                onFileUpload: () {
-                  print('Uploading ID card');
-                },
-              ),
-              SizedBox(height: 30.h),
-              // Attestation Urssaf Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'Attestation Urssaf',
-                subtitle: 'Déposer votre attestation.',
-                items: const [
-                  'Déposer votre attestation',
-                  'Format: PDF, JPG, PNG',
-                ],
-                onFileUpload: () {
-                  print('Uploading Urssaf attestation');
-                },
-              ),
-              SizedBox(height: 30.h),
-              // Licence Transport Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'Licence Transport',
-                subtitle: 'Déposer votre licence.',
-                items: const ['Déposer votre licence', 'Format: PDF, JPG, PNG'],
-                onFileUpload: () {
-                  print('Uploading transport license');
-                },
-              ),
-              SizedBox(height: 30.h),
-              // Mandat SEPA signé Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'Mandat SEPA signé',
-                subtitle: 'Déposer votre mandat SEPA.',
-                items: const [
-                  'Déposer votre mandat SEPA',
-                  'Format: PDF, JPG, PNG',
-                ],
-                onFileUpload: () {
-                  print('Uploading SEPA mandate');
-                },
-              ),
-              SizedBox(height: 30.h),
-              // Submit Button
 
-              PrimaryButton(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.h),
-                containerColor: AppColors.blackColor,
-                title: 'Créer mon compte',
-                textStyle: style.bodyMedium?.copyWith(
-                    color: AppColors.whiteColor,
-                    fontWeight: FontWeight.w600
+
+              Expanded(
+                child: Builder(
+                  builder: (context) {
+                    return ListView(
+                      children: [
+                        // KBIS Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'KBIS (<9 mois)',
+                          subtitle: 'Sélectionner un fichier.',
+                          items: const [
+                            'Sélectionner un fichier',
+                            'Format: PDF, JPG, PNG',
+                          ],
+                          onFileUpload: () {
+                            print('Uploading KBIS file');
+                          },
+                        ),
+                        SizedBox(height: 8.h),
+                        // RIB Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'RIB',
+                          subtitle: 'Déposer votre relevé d’identité bancaire',
+                          items: const [
+                            'Déposer votre relevé d’identité bancaire',
+                            'Format: PDF, JPG, PNG',
+                          ],
+                          onFileUpload: () {
+                            print('Uploading RIB file');
+                          },
+                        ),
+                        SizedBox(height: 8.h),
+                        // Carte d’identité Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'Carte d’identité',
+                          subtitle: 'Déposer votre carte d’identité',
+                          items: const [
+                            'Déposer votre carte d’identité',
+                            'Format: PDF, JPG, PNG',
+                          ],
+                          onFileUpload: () {
+                            print('Uploading ID card');
+                          },
+                        ),
+                        SizedBox(height: 8.h),
+                        // Attestation Urssaf Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'Attestation Urssaf',
+                          subtitle: 'Déposer votre attestation.',
+                          items: const [
+                            'Déposer votre attestation',
+                            'Format: PDF, JPG, PNG',
+                          ],
+                          onFileUpload: () {
+                            print('Uploading Urssaf attestation');
+                          },
+                        ),
+                        SizedBox(height: 8.h),
+                        // Licence Transport Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'Licence Transport',
+                          subtitle: 'Déposer votre licence.',
+                          items: const ['Déposer votre licence', 'Format: PDF, JPG, PNG'],
+                          onFileUpload: () {
+                            print('Uploading transport license');
+                          },
+                        ),
+                        SizedBox(height: 8.h),
+                        // Mandat SEPA signé Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'Mandat SEPA signé',
+                          subtitle: 'Déposer votre mandat SEPA.',
+                          items: const [
+                            'Déposer votre mandat SEPA',
+                            'Format: PDF, JPG, PNG',
+                          ],
+                          onFileUpload: () {
+                            print('Uploading SEPA mandate');
+                          },
+                        ),
+                        SizedBox(height: 8.h),
+                        // Submit Button
+
+                        PrimaryButton(
+                          width: double.infinity,
+                          padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.h),
+                          containerColor: AppColors.blackColor,
+                          title: 'Créer mon compte',
+                          textStyle: style.bodyMedium?.copyWith(
+                              color: AppColors.whiteColor,
+                              fontWeight: FontWeight.w600
+                          ),
+                          onTap: () {
+                            context.push(RouteName.command);
+                          },
+                        ),
+                      ],
+                    );
+                  },
                 ),
-                onTap: () {
-                  context.push(RouteName.command);
-                },
               ),
             ],
-          );
-        },
+          ),
+        ),
       ),
     );
   }
 
   Widget _buildDropdownRow(
-    BuildContext context, {
-    required String title,
-    required String subtitle,
-    required List<String> items,
-    required VoidCallback onFileUpload,
-  }) {
+      BuildContext context, {
+        required String title,
+        required String subtitle,
+        required List<String> items,
+        required VoidCallback onFileUpload,
+      }) {
     bool isOpen = false;
     return StatefulBuilder(
       builder: (context, setState) {
         final style = Theme.of(context).textTheme;
         return Padding(
-          padding: EdgeInsets.symmetric(vertical: 6.h), // Reduced extra spacing
+          padding: EdgeInsets.symmetric(vertical: 6.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header Row
+              // ===== HEADER ROW =====
               InkWell(
                 onTap: () {
                   setState(() {
@@ -171,39 +221,35 @@ class _InscriptionDocState extends State<InscriptionDoc> {
                   });
                 },
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10.w,
-                    vertical: 10.h,
-                  ), // Reduced padding
+                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Row for Icon, Title, and Dropdown Icon
+                      // Title Row
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          // Left Icon
                           Image.asset(
                             'assets/images/Help.png',
                             width: 32.w,
                             height: 32.h,
                             errorBuilder: (context, error, stackTrace) =>
-                                const Icon(Icons.help_outline, size: 32),
+                            const Icon(Icons.help_outline, size: 32),
                           ),
                           SizedBox(width: 10.w),
-                          // Title
                           Expanded(
                             child: Text(
                               title,
-                              style: Theme.of(context).textTheme.titleMedium
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium
                                   ?.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 16.sp, // Changed to 16
-                                  ),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16.sp,
+                              ),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                          // Right dropdown arrow
                           Icon(
                             isOpen
                                 ? Icons.keyboard_arrow_up
@@ -213,70 +259,75 @@ class _InscriptionDocState extends State<InscriptionDoc> {
                           ),
                         ],
                       ),
-                      // Subtitle (always visible)
-                      if (subtitle.isNotEmpty)
+
+                      // Subtitle only when closed
+                      if (!isOpen && subtitle.isNotEmpty)
                         Padding(
                           padding: EdgeInsets.only(left: 42.w, top: 3.h),
-                          // Adjusted spacing
                           child: Text(
                             subtitle,
-                            style: Theme.of(context).textTheme.titleMedium
-                                ?.copyWith(
-                                  fontSize: 16.sp,
-                                  color: AppColors.box_Color,
-                                ),
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontSize: 16.sp,
+                              color: AppColors.box_Color,
+                            ),
                           ),
                         ),
                     ],
                   ),
                 ),
               ),
-              // Expanded Content
+
+              // ===== EXPANDED CONTENT =====
               if (isOpen)
                 Padding(
-                  padding: EdgeInsets.only(
-                    left: 10.w,
-                    right: 10.w,
-                    bottom: 10.h,
-                  ),
+                  padding: EdgeInsets.only(left: 10.w, right: 10.w, bottom: 10.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // Upload Icon
-                      const Icon(
-                        Icons.cloud_upload,
-                        size: 50,
-                        color: Colors.blue,
+                      const Icon(Icons.cloud_upload, size: 50, color: Colors.blue),
+                      SizedBox(height: 6.h),
+
+                      // Subtitle inside dropdown as title
+                      Text(
+                        subtitle,
+                        style: style.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15.sp,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 6.h),
-                      // Items Text
-                      ...items.map(
-                        (e) => Padding(
+
+                      // Other items
+                      ...items.skip(1).map(
+                            (e) => Padding(
                           padding: EdgeInsets.symmetric(vertical: 3.h),
                           child: Text(
                             e,
-                            style: Theme.of(
-                              context,
-                            ).textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
-                            // Changed to 16
+                            style: style.bodyMedium?.copyWith(fontSize: 16.sp),
                             textAlign: TextAlign.start,
                           ),
                         ),
                       ),
+
                       SizedBox(height: 14.h),
-                      // Add Button
-                      PrimaryButton(
-                        width: double.infinity,
-                        padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
-                        containerColor: AppColors.blackColor,
-                        textStyle: style.bodyMedium?.copyWith(
-                          color: AppColors.whiteColor,
-                          fontWeight: FontWeight.w600
+
+                      // Upload Button
+                      Center(
+                        child: PrimaryButton(
+                          title: 'Ajouter',
+                          width: 180.w,
+                          padding: EdgeInsets.symmetric(
+                            vertical: 12.h,
+                            horizontal: 16.w,
+                          ),
+                          containerColor: AppColors.blackColor,
+                          textStyle: style.bodyMedium?.copyWith(
+                            color: AppColors.whiteColor,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          onTap: onFileUpload,
                         ),
-                        title: 'Créer mon compte',
-                        onTap: () {
-                          context.push(RouteName.trans_Vehicule);
-                        },
                       ),
                     ],
                   ),
@@ -286,5 +337,4 @@ class _InscriptionDocState extends State<InscriptionDoc> {
         );
       },
     );
-  }
-}
+  }}

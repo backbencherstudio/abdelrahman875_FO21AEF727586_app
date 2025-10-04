@@ -133,7 +133,7 @@ class _TrackHomeDemandesScreenState extends State<TrackHomeDemandesScreen> {
                                 ),
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: 26.w,
+                                    horizontal: 16.w,
                                     vertical: 12.h,
                                   ),
                                   child: Column(
@@ -168,7 +168,7 @@ class _TrackHomeDemandesScreenState extends State<TrackHomeDemandesScreen> {
                                                     children: [
                                                       Text(
                                                         '#HWDSF77',
-                                                        style: style.titleSmall
+                                                        style: style.bodyLarge
                                                             ?.copyWith(
                                                               color:
                                                                   AppColors.blackText,
@@ -226,23 +226,23 @@ class _TrackHomeDemandesScreenState extends State<TrackHomeDemandesScreen> {
                                           Expanded(
                                             child: Column(
                                               children: [
-                                                CustomSubTitle(),
-                                                SizedBox(height: 8.h),
-                                                CustomSubTitle(),
-                                                SizedBox(height: 8.h),
-                                                CustomSubTitle(),
+                                                CustomSubTitle(imagePath:AppIcons.blackboxPng, info: 'DPD Express - Fourgon 12m³',),
+                                                SizedBox(height: 6.h),
+                                                CustomSubTitle(imagePath:AppIcons.blackboxPng, info: '2 septembre 2025',),
+                                                SizedBox(height: 6.h),
+                                                CustomSubTitle(imagePath: AppIcons.blackboxPng, info: 'Lyon - Paris',),
                                               ],
                                             ),
                                           ),
 
                                           Image.asset(
                                             AppImages.worldPng,
-                                            width: 135.w,
+                                            width: 115.w,
                                             height: 115.h,
                                           ),
                                         ],
                                       ),
-                                      SizedBox(height: 12.h),
+                                      // SizedBox(height: 12.h),
                                     ],
                                   ),
                                 ),

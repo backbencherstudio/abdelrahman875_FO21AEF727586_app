@@ -27,6 +27,8 @@ import '../../features/Inscription/commande.dart';
 import '../../features/Inscription/inscription_doc.dart';
 import '../../features/Inscription_Donneur/Donneur_screen.dart';
 import '../../features/Inscription_Donneur/inscription_doc.dart';
+import '../../features/home_transporteur/presentation/home_transpoteur_screen.dart';
+import '../../features/home_transporteur/presentation/transporteur_missions.dart';
 import '../../features/mission_screen/presentation/mission_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
 import '../../features/paiement_screen/presentation/paiement_screen.dart';
@@ -222,6 +224,22 @@ class RouteConfig {
         path: RouteName.homeView,
         pageBuilder: (context, state) {
           return const MaterialPage(child: HomeView());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.homeTransporteur,
+        path: RouteName.homeTransporteur,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: HomeTransporteur());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.transporteurMissionScreen,
+        path: RouteName.transporteurMissionScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: TransporteurMissionScreen());
         },
       ),
      
