@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/images.dart';
 import '../../../core/theme/src/theme_extension/color_pallete.dart';
-import '../../widgets/common_btn.dart';
 import '../../widgets/primery_button.dart';
 
 class votreCommand extends StatefulWidget {
@@ -20,11 +19,11 @@ class _votreCommandState extends State<votreCommand> {
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
     return Scaffold(
-      backgroundColor: Color(0xffffffff),
+      backgroundColor: AppColors.whiteColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 98.h), // Top spacing
+          SizedBox(height: 98.h),
           Center(
             child: Image.asset(
               AppImages.capture,
@@ -38,24 +37,33 @@ class _votreCommandState extends State<votreCommand> {
           Text(
             "Votre commande \n #CMD456782 est validée !",
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+            style: style.headlineSmall?.copyWith(
+              color: AppColors.textColor1,
+              fontWeight: FontWeight.w600,
+            ),
           ),
 
-          SizedBox(height: 55.h),
+          SizedBox(height: 40.h),
+
+
 
           // Subtitle
           Text(
-            "Nous recherchons le meilleur \n "
-            "transporteur pour vous.",
+            "Nous recherchons le meilleur \n transporteur pour vous.",
+            textAlign: TextAlign.center,
 
             style: TextStyle(fontSize: 16.sp, color: Colors.grey[700]),
           ),
+          SizedBox(height: 20.h),
+
           Text(
             "Vous recevrez une notification dès que \n nous trouverons un transporteur. ",
+            textAlign: TextAlign.center,
 
             style: TextStyle(fontSize: 16.sp, color: Colors.grey[700]),
           ),
-          SizedBox(height: 90.h),
+          SizedBox(height: 85.h),
+
 
           PrimaryButton(
             title: 'Accueil',
@@ -70,7 +78,7 @@ class _votreCommandState extends State<votreCommand> {
               context.push(RouteName.missionScreen);
             },
           ),
-          SizedBox(height: 200.h),
+          Spacer()
         ],
       ),
     );
