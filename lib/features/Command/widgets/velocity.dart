@@ -1,26 +1,17 @@
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../riverpod/velocity_provider.dart';
 
-class velocity extends StatefulWidget {
-  const velocity({super.key});
-
-  @override
-  State<velocity> createState() => _velocityState();
-}
-
-class _velocityState extends State<velocity> {
-  final TextEditingController _controller = TextEditingController(text: "67");
+class Velocity extends ConsumerWidget {
+  const Velocity({super.key});
 
   @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  Widget build(BuildContext context, WidgetRef ref) {
+    final style = Theme.of(context).textTheme;
+    final velocity = ref.watch(velocityProvider); // watch state
 
-  @override
-  Widget build(BuildContext context) {
-    final style =Theme.of(context).textTheme;
     return Container(
       width: 327.w,
       height: 78.h,
@@ -29,48 +20,45 @@ class _velocityState extends State<velocity> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          // Decrease button
           IconButton(
             icon: const Icon(Icons.remove, color: AppColors.secondaryColor),
             onPressed: () {
-              int currentValue = int.tryParse(_controller.text) ?? 67;
-              if (currentValue > 0) {
-                setState(() {
-                  _controller.text = (currentValue - 1).toString();
-                });
+              if (velocity > 0) {
+                ref.read(velocityProvider.notifier).state = velocity - 1;
               }
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black, // Button background
-              shape: const CircleBorder(), // Circular shape
+              backgroundColor: Colors.black,
+              shape: const CircleBorder(),
               padding: const EdgeInsets.all(10),
-              side: BorderSide(
+              side: const BorderSide(
                 color: AppColors.secondaryColor,
                 width: 2,
-              ), // Border
+              ),
             ),
           ),
-          // SizedBox(height: 10),
+
+          // Show dynamic velocity
           Text(
-            "67€",
-            style: style.headlineLarge?.copyWith(color: AppColors.textColor3)
+            "$velocity€", // <-- updated with provider
+            style: style.headlineLarge?.copyWith(color: AppColors.textColor3),
           ),
 
+          // Increase button
           IconButton(
             icon: const Icon(Icons.add, color: AppColors.secondaryColor),
             onPressed: () {
-              int currentValue = int.tryParse(_controller.text) ?? 67;
-              setState(() {
-                _controller.text = (currentValue + 1).toString();
-              });
+              ref.read(velocityProvider.notifier).state = velocity + 1;
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black, // Button background
-              shape: const CircleBorder(), // Circular shape
+              backgroundColor: Colors.black,
+              shape: const CircleBorder(),
               padding: const EdgeInsets.all(10),
-              side: BorderSide(
+              side: const BorderSide(
                 color: AppColors.secondaryColor,
                 width: 2,
-              ), // Border
+              ),
             ),
           ),
         ],

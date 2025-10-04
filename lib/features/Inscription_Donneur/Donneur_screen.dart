@@ -18,14 +18,13 @@ class _InscriptionState extends State<Donneur> {
   final _formKey = GlobalKey<FormState>();
   bool _obscurePassword = true;
 
-
-// Reusable TextFormField with single container border
+  // Reusable TextFormField with single container border
   Widget customTextField(
-      String hint,
-      TextInputType type, {
-        bool obscure = false,
-        Widget? suffixIcon,
-      }) {
+    String hint,
+    TextInputType type, {
+    bool obscure = false,
+    Widget? suffixIcon,
+  }) {
     return Container(
       width: double.infinity, // Make container fill parent width
       height: 56.h,
@@ -33,237 +32,241 @@ class _InscriptionState extends State<Donneur> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: AppColors.boxColor2,
-          width: 1.2,
-        ),
+        border: Border.all(color: AppColors.boxColor2, width: 1.2),
       ),
-      child: TextFormField(
-        obscureText: obscure,
-        keyboardType: type,
-
-      ),
+      child: TextFormField(obscureText: obscure, keyboardType: type),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: Colors.white, // Full background white
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 50),
-                const Center(
-                  child: Text(
-                    'Inscription',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,
-                        color: AppColors.textColor1),
+      body: Form(
+        key: _formKey,
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 50),
+              const Center(
+                child: Text(
+                  'Inscription',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.textColor1,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 4),
+              Center(
+                child: Text(
+                  ' Donneur d’ordre',
 
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.textColor2,
                   ),
                 ),
-                const SizedBox(height: 4),
-                Center(
-                  child: Text(
-                    ' Donneur d’ordre',
+              ),
+              const SizedBox(height: 20),
 
-                    style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold,
-                      color:AppColors.textColor2,
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal:16.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InputLabel(title: 'Nom'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: 'Hinek',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
 
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
+                        InputLabel(title: 'Prénom'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: 'Eric',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        InputLabel(title: 'Date de naissance'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: '01/01/1977',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        InputLabel(title: 'Raison sociale'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: '12345678912312',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        InputLabel(title: 'Vos secteurs'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: 'Distribution',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        InputLabel(title: 'Numéro de téléphone'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: '+33 7 21 19 12',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        InputLabel(title: 'Pays'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: 'France',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        InputLabel(title: 'Adresse'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: '12 rue des Lilas, Sannois 95110',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        InputLabel(title: 'Nombre d\'utilisateurs associés'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: '3 utilisateurs',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        InputLabel(title: 'E-mail'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: 'abcd@gmail.com',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        InputLabel(title: 'Mot de passe'),
+                        SizedBox(height: 12.h),
+                        TextFormField(
+                          textInputAction: TextInputAction.next,
+                          keyboardType:
+                              TextInputType.visiblePassword, // Correct placement
+                          obscureText: _obscurePassword, // Correct property
+                          decoration: InputDecoration(
+                            hintText: '12345678',
+                            hintStyle: style.bodyLarge?.copyWith(
+                              color: AppColors.grayText4,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscurePassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _obscurePassword = !_obscurePassword;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        PrimaryButton(
+                          width: double.infinity,
+                          padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
+                          containerColor: AppColors.blackColor,
+                          title: ' Suivant',
+                          onTap: () {
+                            context.push(RouteName.inscriptionDoc_two);
+                          },
+                        ),
 
-                InputLabel(title: 'Nom'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: 'Hinek',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
+                        const SizedBox(height: 20),
+                      ],
                     ),
                   ),
                 ),
-                SizedBox(height: 16.h),
-
-                InputLabel(title: 'Prénom'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: 'Eric',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                InputLabel(title: 'Date de naissance'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: '01/01/1977',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                InputLabel(title: 'Raison sociale'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: '12345678912312',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                InputLabel(title: 'Vos secteurs'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: 'Distribution',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                InputLabel(title: 'Numéro de téléphone'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: '+33 7 21 19 12',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                InputLabel(title: 'Pays'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: 'France',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                InputLabel(title: 'Adresse'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: '12 rue des Lilas, Sannois 95110',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                InputLabel(title: 'Nombre d\'utilisateurs associés'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: '3 utilisateurs',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                InputLabel(title: 'E-mail'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: 'abcd@gmail.com',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                InputLabel(title: 'Mot de passe'),
-                SizedBox(height: 12.h),
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType:
-                  TextInputType.visiblePassword, // Correct placement
-                  obscureText: _obscurePassword, // Correct property
-                  decoration: InputDecoration(
-                    hintText: '12345678',
-                    hintStyle: style.bodyLarge?.copyWith(
-                      color: AppColors.grayText4,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscurePassword
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _obscurePassword = !_obscurePassword;
-                        });
-                      },
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                PrimaryButton(
-                  width: double.infinity,
-                  padding: EdgeInsets.symmetric(vertical: 12.h),
-                  containerColor: AppColors.blackColor,
-                  title: ' Suivant',
-                  onTap: () {
-                    context.push(RouteName.inscriptionDoc_two);
-                  },
-                ),
-
-                const SizedBox(height: 20),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
