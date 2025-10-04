@@ -68,17 +68,14 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Text(
-                'Sélectionnez vos documents pour renforcer la sécurité et améliorer votre expérience.',
+                'Sélectionner vos documents pour renforcer la sécurité et améliorer votre expérience.',
                 style: Theme
                     .of(context)
                     .textTheme
                     .bodyMedium
                     ?.copyWith(
                   color: Colors.black54,
-                  fontSize: 16.sp,
                 ),
-                semanticsLabel:
-                'Sélectionnez vos documents pour une expérience sécurisée.',
               ),
             ),
             SizedBox(height: 16.h),
@@ -101,7 +98,7 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
                           print('Uploading KBIS file');
                         },
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 8.h),
                       // RIB Dropdown
                       _buildDropdownRow(
                         context,
@@ -115,7 +112,7 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
                           print('Uploading RIB file');
                         },
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 8.h),
                       // Carte d’identité Dropdown
                       _buildDropdownRow(
                         context,
@@ -129,7 +126,7 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
                           print('Uploading ID card');
                         },
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 8.h),
                       // Attestation Urssaf Dropdown
                       _buildDropdownRow(
                         context,
@@ -143,7 +140,7 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
                           print('Uploading Urssaf attestation');
                         },
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 8.h),
                       // Licence Transport Dropdown
                       _buildDropdownRow(
                         context,
@@ -157,7 +154,7 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
                           print('Uploading transport license');
                         },
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 8.h),
                       // Mandat SEPA signé Dropdown
                       _buildDropdownRow(
                         context,
@@ -171,7 +168,7 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
                           print('Uploading SEPA mandate');
                         },
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 8.h),
                       _buildDropdownRow(
                         context,
                         title: 'Attestation RC PRO',
@@ -184,7 +181,7 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
                           print('Uploading SEPA mandate');
                         },
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 8.h),
                       _buildDropdownRow(
                         context,
                         title: 'Logo Société ',
@@ -197,7 +194,7 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
                           print('Uploading SEPA mandate');
                         },
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 8.h),
                       // Submit Button
                       PrimaryButton(
                         width: double.infinity,

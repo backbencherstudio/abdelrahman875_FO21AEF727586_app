@@ -40,7 +40,7 @@ class RouteConfig {
   GoRouter goRouter = GoRouter(
 
 
-    initialLocation: RouteName.transporteurMissionScreen,
+    initialLocation: RouteName.splashScreen,
 
 
     routes: [

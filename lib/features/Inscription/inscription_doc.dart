@@ -26,24 +26,60 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Column(
             children: [
-              Text(
-                'Téléversez les \n documents',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18.sp,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.grayText.withAlpha(70),
+                        shape: BoxShape.circle,
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          context.pop();
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_rounded,
+                          color: AppColors.whiteColor,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        'Téléversez les\ndocuments',
+                        textAlign: TextAlign.center,
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.sp,
+                        ),
+                        semanticsLabel: 'Téléversez les documents',
+                      ),
+                    ),
+                    SizedBox(width: 38.w),
+                  ],
                 ),
-                semanticsLabel: 'Téléversez les documents',
               ),
+              // Text(
+              //   'Téléversez les \n documents',
+              //   textAlign: TextAlign.center,
+              //   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+              //     fontWeight: FontWeight.bold,
+              //     fontSize: 18.sp,
+              //   ),
+              //   semanticsLabel: 'Téléversez les documents',
+              // ),
               SizedBox(height: 16.h),
               Text(
-                'Sélectionnez vos documents pour renforcer la sécurité et améliorer votre expérience.',
+                'Sélectionner vos documents pour renforcer la sécurité et améliorer votre expérience.',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Colors.black54,
-                  fontSize: 18.sp,
                 ),
-                semanticsLabel:
-                'Sélectionnez vos documents pour une expérience sécurisée.',
               ),
               SizedBox(height: 30.h),
 
@@ -66,7 +102,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             print('Uploading KBIS file');
                           },
                         ),
-                        SizedBox(height: 16.h),
+                        SizedBox(height: 8.h),
                         // RIB Dropdown
                         _buildDropdownRow(
                           context,
@@ -80,7 +116,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             print('Uploading RIB file');
                           },
                         ),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 8.h),
                         // Carte d’identité Dropdown
                         _buildDropdownRow(
                           context,
@@ -94,7 +130,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             print('Uploading ID card');
                           },
                         ),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 8.h),
                         // Attestation Urssaf Dropdown
                         _buildDropdownRow(
                           context,
@@ -108,7 +144,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             print('Uploading Urssaf attestation');
                           },
                         ),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 8.h),
                         // Licence Transport Dropdown
                         _buildDropdownRow(
                           context,
@@ -119,7 +155,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             print('Uploading transport license');
                           },
                         ),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 8.h),
                         // Mandat SEPA signé Dropdown
                         _buildDropdownRow(
                           context,
@@ -133,7 +169,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             print('Uploading SEPA mandate');
                           },
                         ),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 8.h),
                         // Submit Button
 
                         PrimaryButton(
