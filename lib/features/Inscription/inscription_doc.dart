@@ -1,19 +1,22 @@
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+
 
 import '../../core/routes/route_name.dart';
 import '../widgets/primery_button.dart';
 
-class InscriptionDoc extends StatefulWidget {
+class InscriptionDoc extends ConsumerStatefulWidget {
   const InscriptionDoc({super.key});
 
   @override
-  State<InscriptionDoc> createState() => _InscriptionDocState();
+  ConsumerState<InscriptionDoc> createState() => _InscriptionDocState();
 }
 
-class _InscriptionDocState extends State<InscriptionDoc> {
+class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
+
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -159,22 +162,22 @@ class _InscriptionDocState extends State<InscriptionDoc> {
   }
 
   Widget _buildDropdownRow(
-    BuildContext context, {
-    required String title,
-    required String subtitle,
-    required List<String> items,
-    required VoidCallback onFileUpload,
-  }) {
+      BuildContext context, {
+        required String title,
+        required String subtitle,
+        required List<String> items,
+        required VoidCallback onFileUpload,
+      }) {
     bool isOpen = false;
     return StatefulBuilder(
       builder: (context, setState) {
         final style = Theme.of(context).textTheme;
         return Padding(
-          padding: EdgeInsets.symmetric(vertical: 6.h), // Reduced extra spacing
+          padding: EdgeInsets.symmetric(vertical: 6.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header Row
+              // ===== HEADER ROW =====
               InkWell(
                 onTap: () {
                   setState(() {
@@ -182,39 +185,35 @@ class _InscriptionDocState extends State<InscriptionDoc> {
                   });
                 },
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10.w,
-                    vertical: 10.h,
-                  ), // Reduced padding
+                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Row for Icon, Title, and Dropdown Icon
+                      // Title Row
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          // Left Icon
                           Image.asset(
                             'assets/images/Help.png',
                             width: 32.w,
                             height: 32.h,
                             errorBuilder: (context, error, stackTrace) =>
-                                const Icon(Icons.help_outline, size: 32),
+                            const Icon(Icons.help_outline, size: 32),
                           ),
                           SizedBox(width: 10.w),
-                          // Title
                           Expanded(
                             child: Text(
                               title,
-                              style: Theme.of(context).textTheme.titleMedium
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium
                                   ?.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 16.sp, // Changed to 16
-                                  ),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16.sp,
+                              ),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                          // Right dropdown arrow
                           Icon(
                             isOpen
                                 ? Icons.keyboard_arrow_up
@@ -224,70 +223,75 @@ class _InscriptionDocState extends State<InscriptionDoc> {
                           ),
                         ],
                       ),
-                      // Subtitle (always visible)
-                      if (subtitle.isNotEmpty)
+
+                      // Subtitle only when closed
+                      if (!isOpen && subtitle.isNotEmpty)
                         Padding(
                           padding: EdgeInsets.only(left: 42.w, top: 3.h),
-                          // Adjusted spacing
                           child: Text(
                             subtitle,
-                            style: Theme.of(context).textTheme.titleMedium
-                                ?.copyWith(
-                                  fontSize: 16.sp,
-                                  color: AppColors.box_Color,
-                                ),
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontSize: 16.sp,
+                              color: AppColors.box_Color,
+                            ),
                           ),
                         ),
                     ],
                   ),
                 ),
               ),
-              // Expanded Content
+
+              // ===== EXPANDED CONTENT =====
               if (isOpen)
                 Padding(
-                  padding: EdgeInsets.only(
-                    left: 10.w,
-                    right: 10.w,
-                    bottom: 10.h,
-                  ),
+                  padding: EdgeInsets.only(left: 10.w, right: 10.w, bottom: 10.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // Upload Icon
-                      const Icon(
-                        Icons.cloud_upload,
-                        size: 50,
-                        color: Colors.blue,
+                      const Icon(Icons.cloud_upload, size: 50, color: Colors.blue),
+                      SizedBox(height: 6.h),
+
+                      // Subtitle inside dropdown as title
+                      Text(
+                        subtitle,
+                        style: style.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15.sp,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 6.h),
-                      // Items Text
-                      ...items.map(
-                        (e) => Padding(
+
+                      // Other items
+                      ...items.skip(1).map(
+                            (e) => Padding(
                           padding: EdgeInsets.symmetric(vertical: 3.h),
                           child: Text(
                             e,
-                            style: Theme.of(
-                              context,
-                            ).textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
-                            // Changed to 16
+                            style: style.bodyMedium?.copyWith(fontSize: 16.sp),
                             textAlign: TextAlign.start,
                           ),
                         ),
                       ),
+
                       SizedBox(height: 14.h),
-                      // Add Button
-                      PrimaryButton(
-                        width: double.infinity,
-                        padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
-                        containerColor: AppColors.blackColor,
-                        textStyle: style.bodyMedium?.copyWith(
-                          color: AppColors.whiteColor,
-                          fontWeight: FontWeight.w600
+
+                      // Upload Button
+                      Center(
+                        child: PrimaryButton(
+                          title: 'Ajouter',
+                          width: 180.w,
+                          padding: EdgeInsets.symmetric(
+                            vertical: 12.h,
+                            horizontal: 16.w,
+                          ),
+                          containerColor: AppColors.blackColor,
+                          textStyle: style.bodyMedium?.copyWith(
+                            color: AppColors.whiteColor,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          onTap: onFileUpload,
                         ),
-                        title: 'Créer mon compte',
-                        onTap: () {
-                          context.push(RouteName.trans_Vehicule);
-                        },
                       ),
                     ],
                   ),
@@ -297,5 +301,4 @@ class _InscriptionDocState extends State<InscriptionDoc> {
         );
       },
     );
-  }
-}
+  }}
