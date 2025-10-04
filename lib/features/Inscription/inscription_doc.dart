@@ -18,12 +18,11 @@ class _InscriptionDocState extends State<InscriptionDoc> {
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
     return Scaffold(
-      body: Builder(
-        builder: (context) {
-          return ListView(
-            padding: EdgeInsets.all(16.w),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
             children: [
-              SizedBox(height: 30.h),
               Text(
                 'Téléversez les \n documents',
                 textAlign: TextAlign.center,
@@ -41,108 +40,120 @@ class _InscriptionDocState extends State<InscriptionDoc> {
                   fontSize: 18.sp,
                 ),
                 semanticsLabel:
-                    'Sélectionnez vos documents pour une expérience sécurisée.',
+                'Sélectionnez vos documents pour une expérience sécurisée.',
               ),
               SizedBox(height: 30.h),
-              // KBIS Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'KBIS (<9 mois)',
-                subtitle: 'Sélectionner un fichier.',
-                items: const [
-                  'Sélectionner un fichier',
-                  'Format: PDF, JPG, PNG',
-                ],
-                onFileUpload: () {
-                  print('Uploading KBIS file');
-                },
-              ),
-              SizedBox(height: 16.h),
-              // RIB Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'RIB',
-                subtitle: 'Déposer votre relevé d’identité bancaire',
-                items: const [
-                  'Déposer votre relevé d’identité bancaire',
-                  'Format: PDF, JPG, PNG',
-                ],
-                onFileUpload: () {
-                  print('Uploading RIB file');
-                },
-              ),
-              SizedBox(height: 30.h),
-              // Carte d’identité Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'Carte d’identité',
-                subtitle: 'Déposer votre carte d’identité',
-                items: const [
-                  'Déposer votre carte d’identité',
-                  'Format: PDF, JPG, PNG',
-                ],
-                onFileUpload: () {
-                  print('Uploading ID card');
-                },
-              ),
-              SizedBox(height: 30.h),
-              // Attestation Urssaf Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'Attestation Urssaf',
-                subtitle: 'Déposer votre attestation.',
-                items: const [
-                  'Déposer votre attestation',
-                  'Format: PDF, JPG, PNG',
-                ],
-                onFileUpload: () {
-                  print('Uploading Urssaf attestation');
-                },
-              ),
-              SizedBox(height: 30.h),
-              // Licence Transport Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'Licence Transport',
-                subtitle: 'Déposer votre licence.',
-                items: const ['Déposer votre licence', 'Format: PDF, JPG, PNG'],
-                onFileUpload: () {
-                  print('Uploading transport license');
-                },
-              ),
-              SizedBox(height: 30.h),
-              // Mandat SEPA signé Dropdown
-              _buildDropdownRow(
-                context,
-                title: 'Mandat SEPA signé',
-                subtitle: 'Déposer votre mandat SEPA.',
-                items: const [
-                  'Déposer votre mandat SEPA',
-                  'Format: PDF, JPG, PNG',
-                ],
-                onFileUpload: () {
-                  print('Uploading SEPA mandate');
-                },
-              ),
-              SizedBox(height: 30.h),
-              // Submit Button
 
-              PrimaryButton(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.h),
-                containerColor: AppColors.blackColor,
-                title: 'Créer mon compte',
-                textStyle: style.bodyMedium?.copyWith(
-                    color: AppColors.whiteColor,
-                    fontWeight: FontWeight.w600
+
+              Expanded(
+                child: Builder(
+                  builder: (context) {
+                    return ListView(
+                      children: [
+                        // KBIS Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'KBIS (<9 mois)',
+                          subtitle: 'Sélectionner un fichier.',
+                          items: const [
+                            'Sélectionner un fichier',
+                            'Format: PDF, JPG, PNG',
+                          ],
+                          onFileUpload: () {
+                            print('Uploading KBIS file');
+                          },
+                        ),
+                        SizedBox(height: 16.h),
+                        // RIB Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'RIB',
+                          subtitle: 'Déposer votre relevé d’identité bancaire',
+                          items: const [
+                            'Déposer votre relevé d’identité bancaire',
+                            'Format: PDF, JPG, PNG',
+                          ],
+                          onFileUpload: () {
+                            print('Uploading RIB file');
+                          },
+                        ),
+                        SizedBox(height: 30.h),
+                        // Carte d’identité Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'Carte d’identité',
+                          subtitle: 'Déposer votre carte d’identité',
+                          items: const [
+                            'Déposer votre carte d’identité',
+                            'Format: PDF, JPG, PNG',
+                          ],
+                          onFileUpload: () {
+                            print('Uploading ID card');
+                          },
+                        ),
+                        SizedBox(height: 30.h),
+                        // Attestation Urssaf Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'Attestation Urssaf',
+                          subtitle: 'Déposer votre attestation.',
+                          items: const [
+                            'Déposer votre attestation',
+                            'Format: PDF, JPG, PNG',
+                          ],
+                          onFileUpload: () {
+                            print('Uploading Urssaf attestation');
+                          },
+                        ),
+                        SizedBox(height: 30.h),
+                        // Licence Transport Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'Licence Transport',
+                          subtitle: 'Déposer votre licence.',
+                          items: const ['Déposer votre licence', 'Format: PDF, JPG, PNG'],
+                          onFileUpload: () {
+                            print('Uploading transport license');
+                          },
+                        ),
+                        SizedBox(height: 30.h),
+                        // Mandat SEPA signé Dropdown
+                        _buildDropdownRow(
+                          context,
+                          title: 'Mandat SEPA signé',
+                          subtitle: 'Déposer votre mandat SEPA.',
+                          items: const [
+                            'Déposer votre mandat SEPA',
+                            'Format: PDF, JPG, PNG',
+                          ],
+                          onFileUpload: () {
+                            print('Uploading SEPA mandate');
+                          },
+                        ),
+                        SizedBox(height: 30.h),
+                        // Submit Button
+
+                        PrimaryButton(
+                          width: double.infinity,
+                          padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.h),
+                          containerColor: AppColors.blackColor,
+                          title: 'Créer mon compte',
+                          textStyle: style.bodyMedium?.copyWith(
+                              color: AppColors.whiteColor,
+                              fontWeight: FontWeight.w600
+                          ),
+                          onTap: () {
+                            context.push(RouteName.command);
+                          },
+                        ),
+                      ],
+                    );
+                  },
                 ),
-                onTap: () {
-                  context.push(RouteName.command);
-                },
               ),
             ],
-          );
-        },
+          ),
+        ),
       ),
     );
   }

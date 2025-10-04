@@ -218,6 +218,7 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
     bool isOpen = false;
     return StatefulBuilder(
       builder: (context, setState) {
+        final style = Theme.of(context).textTheme;
         return Padding(
           padding: EdgeInsets.symmetric(vertical: 6.h), // Reduced extra spacing
           child: Column(
@@ -294,13 +295,11 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
               // Expanded Content
               if (isOpen)
                 Padding(
-                  padding: EdgeInsets.only(
-                    left: 10.w,
-                    right: 10.w,
-                    bottom: 10.h,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       // Upload Icon
                       const Icon(
@@ -325,28 +324,44 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
                       ),
                       SizedBox(height: 14.h),
                       // Add Button
-                      Align(
-                        alignment: Alignment.center,
-                        child: ElevatedButton(
-                          onPressed: onFileUpload,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF000000),
-                            padding: EdgeInsets.symmetric(vertical: 12.h),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.r),
+
+
+                      Center(
+                        child: PrimaryButton(title: 'Ajouter',
+                            width: 180.w,
+                            padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
+                            containerColor: AppColors.blackColor,
+                            textStyle: style.bodyMedium?.copyWith(
+                                color: AppColors.whiteColor,
+                                fontWeight: FontWeight.w600
                             ),
-                            minimumSize: Size(180.w, 35.h),
-                          ),
-                          child: Text(
-                            'Ajouter',
-                            style: Theme.of(context).textTheme.labelLarge
-                                ?.copyWith(
-                              fontSize: 16.sp, // Changed to 16
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
+                            onTap: (){}),
+                      )
+
+
+
+                      // Align(
+                      //   alignment: Alignment.center,
+                      //   child: ElevatedButton(
+                      //     onPressed: onFileUpload,
+                      //     style: ElevatedButton.styleFrom(
+                      //       backgroundColor: const Color(0xFF000000),
+                      //       padding: EdgeInsets.symmetric(vertical: 12.h),
+                      //       shape: RoundedRectangleBorder(
+                      //         borderRadius: BorderRadius.circular(15.r),
+                      //       ),
+                      //       minimumSize: Size(180.w, 35.h),
+                      //     ),
+                      //     child: Text(
+                      //       '',
+                      //       style: Theme.of(context).textTheme.labelLarge
+                      //           ?.copyWith(
+                      //         fontSize: 16.sp, // Changed to 16
+                      //         color: Colors.white,
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
