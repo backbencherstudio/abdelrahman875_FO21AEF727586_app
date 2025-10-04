@@ -38,7 +38,7 @@ class RouteConfig {
   GoRouter goRouter = GoRouter(
 
 
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.command5,
 
 
     routes: [
