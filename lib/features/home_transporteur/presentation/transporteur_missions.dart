@@ -10,14 +10,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/constants/icons.dart';
 
-class MissionScreen extends StatefulWidget {
-  const MissionScreen({super.key});
+class TransporteurMissionScreen extends StatefulWidget {
+  const TransporteurMissionScreen({super.key});
 
   @override
-  State<MissionScreen> createState() => _MissionScreenState();
+  State<TransporteurMissionScreen> createState() => _TransporteurMissionScreenState();
 }
 
-class _MissionScreenState extends State<MissionScreen> {
+class _TransporteurMissionScreenState extends State<TransporteurMissionScreen> {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -36,7 +36,7 @@ class _MissionScreenState extends State<MissionScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Trouver un Transporteur',
+                        'Missions',
                         style: style.headlineSmall?.copyWith(
                           color: AppColors.grayText2,
                           fontWeight: FontWeight.w600,
@@ -44,7 +44,7 @@ class _MissionScreenState extends State<MissionScreen> {
                       ),
                       SizedBox(height: 18.h),
                       Text(
-                        'Des transporteurs prêts à prendre en charge vos colis, en toute sécurité.',
+                        'Des missions faites pour vous.',
                         style: style.bodyLarge?.copyWith(
                           color: AppColors.grayText,
                           fontWeight: FontWeight.w400,
@@ -133,47 +133,19 @@ class _MissionScreenState extends State<MissionScreen> {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Row(
-                                          children: [
-                                            Image.asset(
-                                              AppIcons.profileImg,
-                                              height: 36.h,
-                                              width: 36.w,
-                                              fit: BoxFit.cover,
-                                            ),
-                                            SizedBox(width: 12.w),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Nouvelle demande',
-                                                  style: style.titleSmall
-                                                      ?.copyWith(
-                                                    color:
-                                                    AppColors.grayText,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                                SizedBox(height: 4.h),
-                                                Text(
-                                                  '#HWDSF78',
-                                                  style: style.bodyMedium
-                                                      ?.copyWith(
+                                        Text(
+                                          '1 sept 2025 - CM98043',
+                                          style: style.bodyMedium
+                                              ?.copyWith(
 
 
-                                                    color:
-                                                    AppColors.blackText,
-                                                    fontWeight:
-                                                    FontWeight.w600,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
+                                            color:
+                                            AppColors.blackText,
+                                            fontWeight:
+                                            FontWeight.w600,
+                                          ),
                                         ),
                                         SizedBox(width: 8.w),
                                         Container(
@@ -208,12 +180,14 @@ class _MissionScreenState extends State<MissionScreen> {
                                               CustomSubTitle(imagePath: AppIcons.blackboxPng, info: '2 septembre 2025',),
                                               SizedBox(height: 8.h),
                                               CustomSubTitle(imagePath: AppIcons.blackboxPng, info: 'Lyon - Paris',),
+                                              SizedBox(height: 8.h),
+                                              CustomSubTitle(imagePath: AppIcons.blackboxPng, info: 'Lyon - Paris',),
                                             ],
                                           ),
                                         ),
 
                                         Image.asset(
-                                          AppImages.worldPng,
+                                          AppImages.boxPng,
                                           width: 115.w,
                                           height: 115.h,
                                         ),
@@ -226,12 +200,12 @@ class _MissionScreenState extends State<MissionScreen> {
                                           child: PrimaryButton(
                                             title: 'Accepter',
                                             containerColor:
-                                                AppColors.greenText2,
+                                            AppColors.greenText2,
                                             textStyle: style.bodyLarge
                                                 ?.copyWith(
-                                                  color: AppColors.whiteColor,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                              color: AppColors.whiteColor,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                             borderRadius: 12.r,
                                             onTap: () {
                                               onAcceptTap(context);
@@ -241,15 +215,15 @@ class _MissionScreenState extends State<MissionScreen> {
                                         SizedBox(width: 12.w),
                                         Expanded(
                                           child: PrimaryButton(
-                                            title: 'Voir plus',
+                                            title: 'Refuser',
                                             textStyle: style.bodyLarge
                                                 ?.copyWith(
-                                                  color: AppColors.greenText3,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                              color: AppColors.containerColor9,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                             borderRadius: 12.r,
-                                            containerColor: AppColors.greenText3
-                                                .withAlpha(30),
+                                            containerColor: AppColors.transparentColor,
+                                            border: Border.all(color: AppColors.containerColor9),
                                             onTap: () {},
                                           ),
                                         ),

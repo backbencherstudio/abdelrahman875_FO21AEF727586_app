@@ -32,4 +32,9 @@ class RouteName {
    static const String profileSettingScreen = '/ProfileSettingScreen';
    static const String trackHomeDemandesScreen = '/TrackHomeDemandesScreen';
    static const String paiementScreen = '/PaiementScreen';
+
+
+   static const String homeTransporteur = '/HomeTransporteur';
+   static const String transporteurMissionScreen = '/TransporteurMissionScreen';
+
 }

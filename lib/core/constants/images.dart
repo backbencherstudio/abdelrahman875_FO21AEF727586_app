@@ -23,6 +23,7 @@ class AppImages {
   static const String onboadingImg_3 = "$base/Layer_3.png";
   static const String shippingPng = "$base/shipping.png";
   static const String worldPng = "$base/world.png";
+  static const String boxPng = "$base/box.png";
 
 
   
