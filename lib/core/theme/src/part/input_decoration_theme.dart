@@ -8,14 +8,14 @@ class AppInputDecorationTheme {
   static TextTheme style = GoogleFonts.interTextTheme();
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
     filled: true,
-    fillColor: AppColors.boxColor2.withAlpha(15),
+    fillColor: AppColors.containerColor12,
     hintStyle: style.bodyLarge?.copyWith(
-      color: AppColors.grayText4,
+      color: AppColors.grayText6,
       fontWeight: FontWeight.w400,
     ),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8.r),
-      borderSide: BorderSide(color: AppColors.transparentColor),
+      // borderSide: BorderSide(color: AppColors.blackColor),
     ),
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8.r),

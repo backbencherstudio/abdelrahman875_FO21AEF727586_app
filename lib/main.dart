@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp.router(
           title: 'Posse',
           debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme,
+         theme: AppTheme.lightTheme,
           //darkTheme: AppTheme.darkTheme,
           routerConfig: RouteConfig().goRouter,
         );

@@ -8,9 +8,6 @@ class AppTheme {
   AppTheme._();
   static ThemeData lightTheme = ThemeData(
     inputDecorationTheme: AppInputDecorationTheme.lightInputDecorationTheme,
-
-
-
     scaffoldBackgroundColor: AppColors.whiteColor,
 
     textTheme: AppTextTheme.lightTextTheme,
