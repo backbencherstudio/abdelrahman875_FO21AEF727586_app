@@ -36,6 +36,11 @@ static const Color blackColor = Color(0xff000000);
 static const Color grayText = Color(0xff736F6F);
 static const Color grayText2 = Color(0xff4B4B4B);
 static const Color grayText5 = Color(0xff818385);
+static const Color grayText6 = Color(0xffBABFC5);
+static const Color grayText7 = Color(0xff8C8383);
+
+
+
 static const Color grayText3 = Color(0xff232938);
   static const Color grayText4 = Color(0xffABABAB);
 static const Color greenText = Color(0xff5EB111);
@@ -57,6 +62,7 @@ static const Color containerColor8 = Color(0xffFEFEFE);
 static const Color containerColor9 = Color(0xff8E0D0D);
 static const Color containerColor10 = Color(0xff63CAE1);
 static const Color containerColor11 = Color(0xff498E09);
+static const Color containerColor12 = Color(0xffEFEFEF);
 static const Color transparentColor = Color(0x00000000);
 
 
@@ -67,5 +73,6 @@ static const Color borderColor2 = Color(0xff086E86);
 static const Color borderColor3 = Color(0xffDADADA);
 static const Color borderColor4 = Color(0xffCFD5DB);
 static const Color borderColor5 = Color(0xffF1F2F6);
+static const Color borderColor6 = Color(0xffE6E6E6);
 
 }

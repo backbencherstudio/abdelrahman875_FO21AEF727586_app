@@ -10,8 +10,8 @@ class InputLabel extends StatelessWidget {
     return Text(
       title,
       style: style.bodyLarge?.copyWith(
-        color: AppColors.blackText,
-        fontWeight: FontWeight.w400,
+        color: AppColors.boxColor,
+        fontWeight: FontWeight.w500,
       ),
     );
   }
