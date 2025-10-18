@@ -4,6 +4,7 @@ import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/auth/signin/presentation/widgets/icon_button_container.dart';
 import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/presentaion/widgets/input_label.dart';
+import 'package:abdelrahman875_fo21aef727586/features/espaces/riverpod/already_have_account_provider.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -29,10 +30,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-
   @override
   Widget build(BuildContext context) {
     final selectedIndex = ref.watch(userSelectProvider);
+    final haveAccount = ref.watch(alreadyHaveAccountProvider);
     final style = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -46,8 +47,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
-                    onTap: (){
-                      if (context.canPop()){
+                    onTap: () {
+                      if (context.canPop()) {
+                        ref.read(alreadyHaveAccountProvider.notifier).state = 0;
                         context.pop();
                       }
                     },
@@ -76,7 +78,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                         ),
                         SizedBox(height: 25.h),
                         Text(
-                          selectedIndex == 0 ? 'S’inscrire' : 'Se connecter',
+                          haveAccount == 0 ? 'S’inscrire' : 'Se connecter',
                           style: style.headlineSmall?.copyWith(
                             color: AppColors.blackColor,
                             fontWeight: FontWeight.w500,
@@ -87,9 +89,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   ),
                   SizedBox(height: 20.h),
                   Divider(thickness: 1, color: AppColors.borderColor6),
-                  if (selectedIndex == 1)  SizedBox(height: 20.h),
+                  if (haveAccount == 1) SizedBox(height: 20.h),
 
-                  selectedIndex == 0
+                  haveAccount == 0
                       ? Container()
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +119,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                             ),
                           ],
                         ),
-                 SizedBox(height: 20.h),
+                  SizedBox(height: 20.h),
                   // Email Field
                   InputLabel(title: 'Email '),
                   SizedBox(height: 8.h),
@@ -125,11 +127,14 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
-                    decoration: InputDecoration(hintText: 'randome123@gmail.com'),
-                    validator: (value){
-                      if(EmailValidator.validate(emailController.text) && emailController.text.isNotEmpty){
+                    decoration: InputDecoration(
+                      hintText: 'randome123@gmail.com',
+                    ),
+                    validator: (value) {
+                      if (EmailValidator.validate(emailController.text) &&
+                          emailController.text.isNotEmpty) {
                         return null;
-                      }else{
+                      } else {
                         return 'Adresse e-mail incorrect';
                       }
                     },
@@ -146,29 +151,28 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     decoration: InputDecoration(
                       hintText: 'aweue!2',
                       suffixIcon: IconButton(
-                        onPressed: () {
-
-                        },
-                        icon: _obscurePassword ? Icon(
-                          Icons.visibility_off_outlined,
-                          size: 24.r,
-                          color: AppColors.borderColor4,
-                        ) : Icon(Icons.remove_red_eye_outlined),
+                        onPressed: () {},
+                        icon: _obscurePassword
+                            ? Icon(
+                                Icons.visibility_off_outlined,
+                                size: 24.r,
+                                color: AppColors.borderColor4,
+                              )
+                            : Icon(Icons.remove_red_eye_outlined),
                       ),
                     ),
-                    validator: (value){
-                      if(value!.length < 6){
+                    validator: (value) {
+                      if (value!.length < 6) {
                         return 'Mot de passe trop court';
-                      }else{
+                      } else {
                         return null;
                       }
                     },
                   ),
-              if (selectedIndex == 1)
-                SizedBox(height: 10.h),
+                  if (haveAccount == 1) SizedBox(height: 10.h),
 
                   // Forgot password
-                  selectedIndex == 0
+                  haveAccount == 0
                       ? Container()
                       : Align(
                           alignment: Alignment.centerRight,
@@ -183,47 +187,51 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                             ),
                           ),
                         ),
-               // if (selectedIndex == 0)
-                 SizedBox(height: 20.h),
+                  // if (selectedIndex == 0)
+                  SizedBox(height: 20.h),
 
                   // Sign In Button
                   PrimaryButton(
                     width: double.infinity,
                     padding: EdgeInsets.symmetric(vertical: 16.h),
                     containerColor: AppColors.boxColor,
-                    title: selectedIndex == 0 ? 'S’inscrire' : 'Se connecter',
+                    title: haveAccount == 0 ? 'S’inscrire' : 'Se connecter',
                     onTap: () {
-                     if (formKey.currentState!.validate()){
-                       log(emailController.text);
-                       log(passwordController.text);
-                      if(selectedIndex == 0){
-                        context.push(RouteName.donneur);
-                      }else {
-                        context.push(RouteName.inscriptionScreen);
+                      if (formKey.currentState!.validate()) {
+                        log(emailController.text);
+                        log(passwordController.text);
+                        if (selectedIndex == 0) {
+                          context.push(RouteName.donneur);
+                        } else {
+                          context.push(RouteName.inscriptionScreen);
+                        }
                       }
-                     }
                     },
                   ),
                   SizedBox(height: 24.h),
 
-                  if(selectedIndex == 0) Row(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Checkbox(value: false, onChanged: (value){}),
-                      // SizedBox(width: 4.w,),
-                      Text('J’accepte les conditions générales d’utilisation',style: style.bodySmall?.copyWith(
-                        color: AppColors.grayText7,
-                        fontWeight: FontWeight.w600,
-                      ),)
-                    ],
-                  ),
+                  if (haveAccount == 0)
+                    Row(
+                      // crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Checkbox(value: false, onChanged: (value) {}),
+                        // SizedBox(width: 4.w,),
+                        Text(
+                          'J’accepte les conditions générales d’utilisation',
+                          style: style.bodySmall?.copyWith(
+                            color: AppColors.grayText7,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Vous n’avez pas de compte?',
+                     haveAccount== 0 ? 'Vous avez déjà compte ?' :  'Vous n’avez pas de compte?',
                         style: style.bodyMedium?.copyWith(
                           color: AppColors.boxColor2,
                           fontWeight: FontWeight.w400,
@@ -231,11 +239,12 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       ),
                       SizedBox(width: 4.w),
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
+                          ref.read(alreadyHaveAccountProvider.notifier).state = 0;
                           context.push(RouteName.espacesScreen);
                         },
                         child: Text(
-                          'Créer un compte',
+                        haveAccount==0? ' Se connecter' : 'Créer un compte',
                           style: style.bodyMedium?.copyWith(
                             color: AppColors.blackColor,
                             fontWeight: FontWeight.w600,
@@ -255,7 +264,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 8.w),
                         child: Text(
-                          "Se connecter avec",
+                       haveAccount == 0? 'S’inscrire avec':   "Se connecter avec",
                           style: style.bodyMedium?.copyWith(
                             color: AppColors.textColor,
                             fontWeight: FontWeight.w400,
@@ -269,28 +278,26 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   ),
                   SizedBox(height: 20.h),
 
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButtonContainer(
-                    iconPath: AppImages.googlePng,
-                    label: 'Google',
-                    onTap: () {
-                      // Your tap logic here
-                    },
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      IconButtonContainer(
+                        iconPath: AppImages.googlePng,
+                        label: 'Google',
+                        onTap: () {
+                          // Your tap logic here
+                        },
+                      ),
+                      SizedBox(width: 10.w),
+                      IconButtonContainer(
+                        iconPath: AppImages.appleLogo,
+                        label: 'Apple',
+                        onTap: () {
+                          // Your tap logic here
+                        },
+                      ),
+                    ],
                   ),
-                  SizedBox(width: 10.w),
-                  IconButtonContainer(
-                    iconPath: AppImages.appleLogo,
-                    label: 'Apple',
-                    onTap: () {
-                      // Your tap logic here
-                    },
-                  )
-
-                ],
-              )
-
                 ],
               ),
             ),
