@@ -1,3 +1,4 @@
+import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/Inscription_Donneur/riverpod/televersez.dart';
 import 'package:flutter/material.dart';
@@ -8,14 +9,14 @@ import 'package:go_router/go_router.dart';
 import '../../core/routes/route_name.dart';
 import '../widgets/primery_button.dart';
 
-class InscriptionDoc_two extends StatefulWidget {
-  const InscriptionDoc_two({super.key});
+class InscriptionDocTwo extends StatefulWidget {
+  const InscriptionDocTwo({super.key});
 
   @override
-  State<InscriptionDoc_two> createState() => _InscriptionDocState();
+  State<InscriptionDocTwo> createState() => _InscriptionDocState();
 }
 
-class _InscriptionDocState extends State<InscriptionDoc_two> {
+class _InscriptionDocState extends State<InscriptionDocTwo> {
   @override
   Widget build(BuildContext context) {
     final style = Theme
@@ -26,23 +27,23 @@ class _InscriptionDocState extends State<InscriptionDoc_two> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.grayText.withAlpha(70),
-                      shape: BoxShape.circle,
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        context.pop();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_rounded,
-                        color: AppColors.whiteColor,
+                  GestureDetector(
+                    onTap: (){
+                      context.pop();
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.grayText.withAlpha(70),
+                        shape: BoxShape.circle,
                       ),
+                      child: Padding(
+                        padding: EdgeInsets.all(8.r),
+                        child: Image.asset(AppIcons.whiteArrowBackPng,width: 24.w,height: 24,),
+                      )
                     ),
                   ),
                   Expanded(

@@ -123,12 +123,14 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   SizedBox(height: 8.h),
                   TextFormField(
                     controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
                     decoration: InputDecoration(hintText: 'randome123@gmail.com'),
                     validator: (value){
                       if(EmailValidator.validate(emailController.text) && emailController.text.isNotEmpty){
                         return null;
                       }else{
-                        return 'Email non valide';
+                        return 'Adresse e-mail incorrect';
                       }
                     },
                   ),
@@ -140,6 +142,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   TextFormField(
                     obscureText: _obscurePassword,
                     controller: passwordController,
+                    textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
                       hintText: 'aweue!2',
                       suffixIcon: IconButton(
@@ -193,19 +196,25 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                      if (formKey.currentState!.validate()){
                        log(emailController.text);
                        log(passwordController.text);
-                       context.push(RouteName.donneur);
+                      if(selectedIndex == 0){
+                        context.push(RouteName.donneur);
+                      }else {
+                        context.push(RouteName.inscriptionScreen);
+                      }
                      }
                     },
                   ),
                   SizedBox(height: 24.h),
 
                   if(selectedIndex == 0) Row(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Checkbox(value: false, onChanged: (value){}),
                       // SizedBox(width: 4.w,),
                       Text('J’accepte les conditions générales d’utilisation',style: style.bodySmall?.copyWith(
                         color: AppColors.grayText7,
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w600,
                       ),)
                     ],
                   ),

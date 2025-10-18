@@ -37,6 +37,9 @@ class AppIcons{
   static const String plusIconSvg = "$iconPath/Plus.svg";
   static const String arrowBackSvg = "$iconPath/arrow_back.svg";
   static const String carSvg = "$iconPath/carIcon.svg";
+  static const String francePng = "$iconPath/france.png";
+  static const String whiteArrowBackPng = "$iconPath/whiteArrowBack.png";
+  static const String trackPng = "$iconPath/track.png";
 
 
   static const String gmailLogoPng = "$iconPath/GmailLogo.png";

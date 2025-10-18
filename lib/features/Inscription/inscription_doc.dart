@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 
+import '../../core/constants/icons.dart';
 import '../../core/routes/route_name.dart';
 import '../widgets/primery_button.dart';
 
@@ -31,19 +32,19 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.grayText.withAlpha(70),
-                        shape: BoxShape.circle,
-                      ),
-                      child: IconButton(
-                        onPressed: () {
-                          context.pop();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_rounded,
-                          color: AppColors.whiteColor,
-                        ),
+                    GestureDetector(
+                      onTap: (){
+                        context.pop();
+                      },
+                      child: Container(
+                          decoration: BoxDecoration(
+                            color: AppColors.grayText.withAlpha(70),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(8.r),
+                            child: Image.asset(AppIcons.whiteArrowBackPng,width: 24.w,height: 24,),
+                          )
                       ),
                     ),
                     Expanded(
@@ -65,15 +66,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                   ],
                 ),
               ),
-              // Text(
-              //   'Téléversez les \n documents',
-              //   textAlign: TextAlign.center,
-              //   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-              //     fontWeight: FontWeight.bold,
-              //     fontSize: 18.sp,
-              //   ),
-              //   semanticsLabel: 'Téléversez les documents',
-              // ),
+
               SizedBox(height: 16.h),
               Text(
                 'Sélectionner vos documents pour renforcer la sécurité et améliorer votre expérience.',

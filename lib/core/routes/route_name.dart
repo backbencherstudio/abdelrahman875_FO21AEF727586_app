@@ -9,7 +9,7 @@ class RouteName {
   static const String homeView = "/HomeView";
   static const String signInScreen = "/SignInScreen";
   static const String inscriptionScreen = "/Inscription";
-  static const String trans_Vehicule = "/Trans_Vehicule";
+  static const String transVehicule = "/Trans_Vehicule";
   static const String inscriptionDoc = "/InscriptionDoc";
   static const String command = "/Cmmand";
   static const String donneur = "/Donneur";
@@ -23,7 +23,7 @@ class RouteName {
   static const String mis_accepteScreen = "/mis_accepteScreen";
   static const String commandScreen = "/CommandScreen";
   static const String votreCommand = "/VotreCommand";
-  static const String inscriptionDoc_two = "/InscriptionDocTwo";
+  static const String inscriptionDocTwo = "/InscriptionDocTwo";
   static const String missionScreen = "/MissionScreen";
 
    static const String creerUneCommandeScreen = '/CreerUneCommandeScreen';

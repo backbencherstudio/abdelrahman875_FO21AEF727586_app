@@ -5,7 +5,6 @@ class AppImages {
   static const String googlePng = "$base/Google.png";
   static const String appleLogo = "$base/Apple.png";
   static const String eyeLogo = "$base/eye.png";
-  static const String france = "$base/france.png";
   static const String help = "$base/Help.png";
   static const String upload = "$base/upload.png";
   static const String dropdown = "$base/dropdown.png";

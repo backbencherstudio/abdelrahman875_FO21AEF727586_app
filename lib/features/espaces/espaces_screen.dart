@@ -1,5 +1,6 @@
 import 'package:abdelrahman875_fo21aef727586/features/espaces/riverpod/user_select_provider.dart';
 import 'package:abdelrahman875_fo21aef727586/features/espaces/widgets/common_cart.dart';
+import 'package:abdelrahman875_fo21aef727586/features/espaces/widgets/select_type_dialog.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -124,7 +125,12 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                             // } else {
                             //   context.push(RouteName.signInScreen);
                             // }
-                            context.push(RouteName.signInScreen);
+                            // context.push(RouteName.signInScreen);
+                            if(selectedIndex == 0 || selectedIndex == 1){
+                              context.push(RouteName.signInScreen);
+                            }else {
+                              showSelectUserTypeDialog(context);
+                            }
                           },
                           title: "S’inscrire",
                           padding: const EdgeInsets.all(16),

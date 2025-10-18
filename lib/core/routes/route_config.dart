@@ -20,7 +20,7 @@ import '../../features/Mission_accept/presentation/preuve_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
 import '../../features/home/presentation/home_veiw.dart';
-import '../../features/Inscription/Inscription.dart';
+import '../../features/Inscription/inscription_transporteur.dart';
 
 import '../../features/Inscription/Transporteur_Vehicule.dart';
 import '../../features/Inscription/commande.dart';
@@ -153,17 +153,17 @@ class RouteConfig {
         },
       ),
       GoRoute(
-        name: RouteName.inscriptionDoc_two,
-        path: RouteName.inscriptionDoc_two,
+        name: RouteName.inscriptionDocTwo,
+        path: RouteName.inscriptionDocTwo,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: InscriptionDoc_two());
+          return const MaterialPage(child: InscriptionDocTwo());
         },
       ),
       GoRoute(
-        name: RouteName.trans_Vehicule,
-        path: RouteName.trans_Vehicule,
+        name: RouteName.transVehicule,
+        path: RouteName.transVehicule,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: Trans_Vehicule());
+          return const MaterialPage(child: TransVehicule());
         },
       ),
 
@@ -178,7 +178,7 @@ class RouteConfig {
         name: RouteName.inscriptionScreen,
         path: RouteName.inscriptionScreen,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: Inscription());
+          return const MaterialPage(child: InscriptionTransporteur());
         },
       ),
       GoRoute(
