@@ -71,14 +71,14 @@ class Utils {
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.dark(
-              primary: AppColors.primaryColor, // header background color
-              onPrimary: Colors.white, // header text color
-              onSurface: AppColors.grayText, // body text color
+            colorScheme: const ColorScheme.dark(
+              primary: AppColors.whiteColor, // header background
+              onPrimary: AppColors.blackColor, // header text color
+              onSurface: AppColors.whiteColor, // body text color
             ),
             textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(
-                foregroundColor: AppColors.grayText, // button text color
+                foregroundColor: AppColors.whiteColor, // button text color
               ),
             ),
           ),
@@ -88,10 +88,7 @@ class Utils {
     );
 
     if (pickedDate != null) {
-      // Format the picked date as dd-MM-yyyy
-      controller.text = "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
-      // Optional: log ISO 8601 formatted UTC date
-      print(pickedDate.toUtc().toIso8601String());
+      controller.text = "${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
     }
   }
 

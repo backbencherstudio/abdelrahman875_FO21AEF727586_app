@@ -123,6 +123,8 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   SizedBox(height: 8.h),
                   TextFormField(
                     controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
                     decoration: InputDecoration(hintText: 'randome123@gmail.com'),
                     validator: (value){
                       if(EmailValidator.validate(emailController.text) && emailController.text.isNotEmpty){
@@ -140,6 +142,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   TextFormField(
                     obscureText: _obscurePassword,
                     controller: passwordController,
+                    textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
                       hintText: 'aweue!2',
                       suffixIcon: IconButton(
