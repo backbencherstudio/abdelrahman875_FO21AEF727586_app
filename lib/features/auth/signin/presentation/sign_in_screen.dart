@@ -128,7 +128,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       if(EmailValidator.validate(emailController.text) && emailController.text.isNotEmpty){
                         return null;
                       }else{
-                        return 'Email non valide';
+                        return 'Adresse e-mail incorrect';
                       }
                     },
                   ),
@@ -193,19 +193,25 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                      if (formKey.currentState!.validate()){
                        log(emailController.text);
                        log(passwordController.text);
-                       context.push(RouteName.donneur);
+                      if(selectedIndex == 0){
+                        context.push(RouteName.donneur);
+                      }else {
+                        context.push(RouteName.inscriptionScreen);
+                      }
                      }
                     },
                   ),
                   SizedBox(height: 24.h),
 
                   if(selectedIndex == 0) Row(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Checkbox(value: false, onChanged: (value){}),
                       // SizedBox(width: 4.w,),
                       Text('J’accepte les conditions générales d’utilisation',style: style.bodySmall?.copyWith(
                         color: AppColors.grayText7,
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w600,
                       ),)
                     ],
                   ),

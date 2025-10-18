@@ -1,3 +1,4 @@
+import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -161,6 +162,7 @@ class _InscriptionState extends State<Inscription> {
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
+                          suffixIcon: Image.asset(AppIcons.francePng,height: 20.h,width: 20.w),
                           hintText: '+33 7 21 19 12',
                           hintStyle: style.bodyLarge?.copyWith(
                             color: AppColors.grayText4,
@@ -175,6 +177,7 @@ class _InscriptionState extends State<Inscription> {
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
+                          suffixIcon: Image.asset(AppIcons.francePng,height: 20.h,width: 20.w),
                           hintText: 'France',
                           hintStyle: style.bodyLarge?.copyWith(
                             color: AppColors.grayText4,
@@ -207,48 +210,6 @@ class _InscriptionState extends State<Inscription> {
                           hintStyle: style.bodyLarge?.copyWith(
                             color: AppColors.grayText4,
                             fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 16.h),
-                      InputLabel(title: 'E-mail'),
-                      SizedBox(height: 12.h),
-                      TextFormField(
-                        textInputAction: TextInputAction.next,
-                        keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
-                          hintText: 'abcd@gmail.com',
-                          hintStyle: style.bodyLarge?.copyWith(
-                            color: AppColors.grayText4,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 16.h),
-                      InputLabel(title: 'Mot de passe'),
-                      SizedBox(height: 12.h),
-                      TextFormField(
-                        textInputAction: TextInputAction.next,
-                        keyboardType:
-                        TextInputType.visiblePassword, // Correct placement
-                        obscureText: _obscurePassword, // Correct property
-                        decoration: InputDecoration(
-                          hintText: '12345678',
-                          hintStyle: style.bodyLarge?.copyWith(
-                            color: AppColors.grayText4,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              _obscurePassword
-                                  ? Icons.visibility_off
-                                  : Icons.visibility,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                _obscurePassword = !_obscurePassword;
-                              });
-                            },
                           ),
                         ),
                       ),

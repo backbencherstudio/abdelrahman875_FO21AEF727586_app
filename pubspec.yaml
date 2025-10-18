@@ -28,6 +28,9 @@ dependencies:
   qr_code_scanner_plus: ^2.0.12
   rating_and_feedback_collector: ^0.0.3
   email_validator: ^3.0.0
+  fluttertoast: ^9.0.0
+  connectivity_plus: ^7.0.0
+  image_picker: ^1.2.0
 
 dev_dependencies:
   flutter_test:
