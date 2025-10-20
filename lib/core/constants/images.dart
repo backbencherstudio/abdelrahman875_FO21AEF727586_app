@@ -18,8 +18,8 @@ class AppImages {
 
 
   static const String onboadingImg_1 = "$base/car.png";
-  static const String onboadingImg_2 = "$base/illustration.png";
-  static const String onboadingImg_3 = "$base/Layer_3.png";
+  static const String onboadingImg_2 = "$base/Layer_3.png";
+  static const String onboadingImg_3 = "$base/group.png";
   static const String shippingPng = "$base/shipping.png";
   static const String worldPng = "$base/world.png";
   static const String boxPng = "$base/box.png";//path245.png

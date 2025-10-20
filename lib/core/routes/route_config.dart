@@ -37,7 +37,7 @@ import '../../features/splash/presentation/splash_screen.dart';
 import '../../features/track_home_demandes/presentation/track_home_demandes_screen.dart';
 
 class RouteConfig {
-  GoRouter goRouter = GoRouter(
+static  GoRouter goRouter = GoRouter(
 
 
     initialLocation: RouteName.splashScreen,
