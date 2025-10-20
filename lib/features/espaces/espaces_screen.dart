@@ -1,3 +1,4 @@
+import 'package:abdelrahman875_fo21aef727586/features/espaces/riverpod/already_have_account_provider.dart';
 import 'package:abdelrahman875_fo21aef727586/features/espaces/riverpod/user_select_provider.dart';
 import 'package:abdelrahman875_fo21aef727586/features/espaces/widgets/common_cart.dart';
 import 'package:abdelrahman875_fo21aef727586/features/espaces/widgets/select_type_dialog.dart';
@@ -24,6 +25,7 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
   @override
   Widget build(BuildContext context) {
     final selectedIndex = ref.watch(userSelectProvider);
+    // final haveAccount = ref.watch(alreadyHaveAccountProvider);
     final style = Theme.of(context).textTheme;
     return Scaffold(
       body: SingleChildScrollView(
@@ -69,6 +71,7 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                     ),
                   ),
                   child: Column(
+
                     children: [
                       // SizedBox(height: 54.h),
                       Text(
@@ -89,7 +92,7 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                         child: CommonCartStack(
                           title: "Donneur d’ordre",
                           subTitle:
-                              "Je cherche un transporteur pour mes livraisons.",
+                              "Je cherche un transporteur pour\nmes livraisons.",
                           iconPth: AppIcons.verification,
                           isSelected: selectedIndex == 0,
                         ),
@@ -160,7 +163,7 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                                   ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  ref.read(userSelectProvider.notifier).state = 1;
+                                  ref.read(alreadyHaveAccountProvider.notifier).state = 1;
                                   context.push(RouteName.signInScreen);
                                 },
                             ),

@@ -52,5 +52,6 @@ class AppIcons{
   static const String starHalfEmptyPng = "$iconPath/StarHalfEmpty.png";
   static const String termsandConditionsPng = "$iconPath/TermsandConditions.png";
   static const String testResultsPng = "$iconPath/TestResults.png";
+  static const String splashCar = "$iconPath/splashCar.svg";
 
 }

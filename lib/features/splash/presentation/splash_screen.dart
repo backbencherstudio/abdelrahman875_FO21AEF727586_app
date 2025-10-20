@@ -1,11 +1,13 @@
-// ignore_for_file: use_build_context_synchronously
 
-import 'package:abdelrahman875_fo21aef727586/core/constants/images.dart';
-import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
-import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+
+
+import '../../../core/constants/images.dart';
+import '../../../core/routes/route_name.dart';
+import '../../../core/theme/src/theme_extension/color_pallete.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -99,7 +101,7 @@ class _SplashScreenState extends State<SplashScreen>
             child: Center(
               child: Text(
                 'DeliverApp',
-                style: TextStyle(color: AppColors.white, fontSize: 16.sp),
+                style: TextStyle(color: AppColors.white, fontSize: 24.sp, fontWeight: FontWeight.w600),
               ),
             ),
           ),
