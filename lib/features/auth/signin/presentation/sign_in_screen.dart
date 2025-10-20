@@ -215,7 +215,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       // crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Checkbox(value: false, onChanged: (value) {}),
+                        Checkbox(value: false, onChanged: (value) {},),
                         // SizedBox(width: 4.w,),
                         Text(
                           'J’accepte les conditions générales d’utilisation',
@@ -246,6 +246,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                         child: Text(
                         haveAccount==0? ' Se connecter' : 'Créer un compte',
                           style: style.bodyMedium?.copyWith(
+                            fontSize: 13.sp,
                             color: AppColors.blackColor,
                             fontWeight: FontWeight.w600,
                           ),

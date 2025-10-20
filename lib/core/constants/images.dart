@@ -23,6 +23,7 @@ class AppImages {
   static const String shippingPng = "$base/shipping.png";
   static const String worldPng = "$base/world.png";
   static const String boxPng = "$base/box.png";
+  static const String path245 = "$base/path245.png";
 
 
   
