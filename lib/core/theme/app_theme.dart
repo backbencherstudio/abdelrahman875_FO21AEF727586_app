@@ -4,13 +4,28 @@ import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/text
 import 'package:flutter/material.dart';
 
 
+
+
 class AppTheme {
   AppTheme._();
-  static ThemeData lightTheme = ThemeData(
-    inputDecorationTheme: AppInputDecorationTheme.lightInputDecorationTheme,
-    scaffoldBackgroundColor: AppColors.whiteColor,
 
-    textTheme: AppTextTheme.lightTextTheme,
-  );
-  static ThemeData darkTheme = ThemeData();
+  static ThemeData lightTheme(BuildContext context) {
+    return ThemeData(
+      scaffoldBackgroundColor: AppColors.whiteColor,
+      inputDecorationTheme: AppInputDecorationTheme.lightInputDecorationTheme,
+      textTheme: AppTextTheme.lightTextTheme(context),
+      colorScheme: const ColorScheme.light(),
+      useMaterial3: true,
+    );
+  }
+
+  static ThemeData darkTheme(BuildContext context) {
+    return ThemeData(
+      scaffoldBackgroundColor: AppColors.blackColor,
+      inputDecorationTheme: AppInputDecorationTheme.darkInputDecorationTheme,
+      textTheme: AppTextTheme.darkTextTheme(context),
+      colorScheme: const ColorScheme.dark(),
+      useMaterial3: true,
+    );
+  }
 }

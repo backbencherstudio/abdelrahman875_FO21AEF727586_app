@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../core/utils/utils.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String title;
@@ -31,12 +32,13 @@ class PrimaryButton extends StatelessWidget {
       child: Container(
         width: width ?? 112.w,
 
-        padding:
-            padding ?? EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+        padding: padding ?? EdgeInsets.all(Utils.isTablet(context) ? 20 : 16.h),
+
+        // padding ?? EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           color: containerColor ?? AppColors.containerColor7,
-          border: border ?? Border.all(color: AppColors.transparentColor)
+          border: border ?? Border.all(color: AppColors.transparentColor),
         ),
         child: Center(
           child: Text(

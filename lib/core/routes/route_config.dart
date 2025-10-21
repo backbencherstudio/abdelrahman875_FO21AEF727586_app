@@ -40,7 +40,7 @@ class RouteConfig {
 static  GoRouter goRouter = GoRouter(
 
 
-    initialLocation: RouteName.command,
+    initialLocation: RouteName.splashScreen,
 
 
     routes: [

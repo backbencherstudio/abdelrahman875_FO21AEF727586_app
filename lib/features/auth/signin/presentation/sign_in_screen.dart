@@ -15,7 +15,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/images.dart';
 import '../../../../core/routes/route_name.dart';
+import '../../../../core/utils/utils.dart';
 import '../../../espaces/riverpod/user_select_provider.dart';
+import '../riverpod/sign_in_provider.dart';
 
 class SignInScreen extends ConsumerStatefulWidget {
   const SignInScreen({super.key});
@@ -34,6 +36,8 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   Widget build(BuildContext context) {
     final selectedIndex = ref.watch(userSelectProvider);
     final haveAccount = ref.watch(alreadyHaveAccountProvider);
+    final obscureText = ref.watch(obscureTextProvider);
+    final checkBox = ref.watch(checkBoxProvider);
     final style = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -46,6 +50,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 20.h),
                   GestureDetector(
                     onTap: () {
                       if (context.canPop()) {
@@ -55,8 +60,8 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     },
                     child: SvgPicture.asset(
                       AppIcons.arrowBackSvg,
-                      height: 24.h,
-                      width: 24.w,
+                      height: Utils.isTablet(context) ? 30.h : 24.h,
+                      width: Utils.isTablet(context) ? 30.w : 24.w,
                     ),
                   ),
                   SizedBox(height: 10.h),
@@ -65,18 +70,18 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       children: [
                         SvgPicture.asset(
                           AppIcons.carSvg,
-                          height: 35.h,
-                          width: 75.w,
+                          height: Utils.isTablet(context) ? 45.h : 35.h,
+                          width: Utils.isTablet(context) ? 85.h : 75.w,
                         ),
+                        SizedBox(height: 10.h),
                         Text(
                           "DeliverApp",
-                          style: TextStyle(
-                            fontSize: 25.sp,
-                            fontWeight: FontWeight.w700,
+                          style: style.headlineLarge?.copyWith(
                             color: AppColors.blackColor,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
-                        SizedBox(height: 25.h),
+                        SizedBox(height: 10.h),
                         Text(
                           haveAccount == 0 ? 'S’inscrire' : 'Se connecter',
                           style: style.headlineSmall?.copyWith(
@@ -96,26 +101,32 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            PrimaryButton(
-                              title: 'Donneur d’ordre',
-                              width: 162.w,
-                              containerColor: AppColors.blackColor,
-                              textStyle: style.bodyLarge?.copyWith(
-                                color: AppColors.whiteColor,
-                                fontWeight: FontWeight.w500,
+                            Expanded(
+                              child: PrimaryButton(
+                                title: 'Donneur d’ordre',
+                                // width: 162.w,
+                                containerColor: AppColors.blackColor,
+                                padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 8.h),
+                                textStyle: style.bodyLarge?.copyWith(
+                                  color: AppColors.whiteColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                onTap: () {},
                               ),
-                              onTap: () {},
                             ),
                             SizedBox(width: 10.w),
-                            PrimaryButton(
-                              title: 'Transporteur',
-                              width: 162.w,
-                              containerColor: AppColors.whiteColor,
-                              textStyle: style.bodyLarge?.copyWith(
-                                color: AppColors.blackColor,
-                                fontWeight: FontWeight.w500,
+                            Expanded(
+                              child: PrimaryButton(
+                                title: 'Transporteur',
+                                // width: 162.w,
+                                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                                containerColor: AppColors.whiteColor,
+                                textStyle: style.bodyLarge?.copyWith(
+                                  color: AppColors.blackColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                onTap: () {},
                               ),
-                              onTap: () {},
                             ),
                           ],
                         ),
@@ -142,33 +153,34 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
 
                   SizedBox(height: 16.h),
 
-                  InputLabel(title: 'Mot de passe '),
+                  InputLabel(title: 'Mot de passe'),
                   SizedBox(height: 8.h),
                   TextFormField(
-                    obscureText: _obscurePassword,
+                    obscureText: obscureText,
                     controller: passwordController,
-                    textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
                       hintText: 'aweue!2',
                       suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: _obscurePassword
-                            ? Icon(
-                                Icons.visibility_off_outlined,
-                                size: 24.r,
-                                color: AppColors.borderColor4,
-                              )
-                            : Icon(Icons.remove_red_eye_outlined),
+                        onPressed: () {
+                          ref.read(obscureTextProvider.notifier).state =
+                          !ref.read(obscureTextProvider);
+                        },
+                        icon: Icon(
+                          obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                          size: Utils.isTablet(context) ? 34.h : 24.h,
+                          color: AppColors.grayText,
+                        ),
                       ),
                     ),
                     validator: (value) {
-                      if (value!.length < 6) {
-                        return 'Mot de passe trop court';
-                      } else {
+                      if (value!.isNotEmpty && value.length >= 8) {
                         return null;
+                      } else {
+                        return 'Mot de passe incorrect';
                       }
                     },
                   ),
+
                   if (haveAccount == 1) SizedBox(height: 10.h),
 
                   // Forgot password
@@ -180,10 +192,15 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                             onPressed: () {},
                             child: Text(
                               "Mot de passe oublié ?",
-                              style: TextStyle(
+                              style: style.bodyMedium?.copyWith(
                                 color: AppColors.boxColor,
-                                fontSize: 14.sp,
-                              ),
+                                fontWeight: FontWeight.w500,
+                              )
+
+                              // TextStyle(
+                              //   color: AppColors.boxColor,
+                              //   fontSize: 14.sp,
+                              // ),
                             ),
                           ),
                         ),
@@ -213,9 +230,14 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   if (haveAccount == 0)
                     Row(
                       // crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Checkbox(value: false, onChanged: (value) {},),
+                        Checkbox(
+                          value: ref.watch(checkBoxProvider),
+                          onChanged: (value) {
+                            ref.read(checkBoxProvider.notifier).state = value ?? false;
+                          },
+                        ),
                         // SizedBox(width: 4.w,),
                         Text(
                           'J’accepte les conditions générales d’utilisation',
@@ -231,22 +253,26 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                     haveAccount== 0 ? 'Vous avez déjà compte ?' :  'Vous n’avez pas de compte?',
+                        haveAccount == 0
+                            ? 'Vous avez déjà compte ?'
+                            : 'Vous n’avez pas de compte?',
                         style: style.bodyMedium?.copyWith(
                           color: AppColors.boxColor2,
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(width: 4.w),
                       GestureDetector(
                         onTap: () {
-                          ref.read(alreadyHaveAccountProvider.notifier).state = 0;
+                          ref.read(alreadyHaveAccountProvider.notifier).state =
+                              0;
                           context.push(RouteName.espacesScreen);
                         },
                         child: Text(
-                        haveAccount==0? ' Se connecter' : 'Créer un compte',
+                          haveAccount == 0
+                              ? ' Se connecter'
+                              : 'Créer un compte',
                           style: style.bodyMedium?.copyWith(
-                            fontSize: 13.sp,
                             color: AppColors.blackColor,
                             fontWeight: FontWeight.w600,
                           ),
@@ -265,7 +291,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 8.w),
                         child: Text(
-                       haveAccount == 0? 'S’inscrire avec':   "Se connecter avec",
+                          haveAccount == 0
+                              ? 'S’inscrire avec'
+                              : "Se connecter avec",
                           style: style.bodyMedium?.copyWith(
                             color: AppColors.textColor,
                             fontWeight: FontWeight.w400,
@@ -281,6 +309,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
 
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButtonContainer(
                         iconPath: AppImages.googlePng,

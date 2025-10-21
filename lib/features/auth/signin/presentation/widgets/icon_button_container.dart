@@ -6,14 +6,14 @@ import '../../../../../core/theme/src/theme_extension/color_pallete.dart';
 class IconButtonContainer extends StatelessWidget {
   final String iconPath;
   final String label;
-  final double width;
+  // final double width;
   final VoidCallback? onTap;
 
   const IconButtonContainer({
     Key? key,
     required this.iconPath,
     required this.label,
-    this.width = 160,
+    // this.width = 160,
     this.onTap,
   }) : super(key: key);
 
@@ -24,7 +24,7 @@ class IconButtonContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: width.w,
+        width: 160.w,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10.r),

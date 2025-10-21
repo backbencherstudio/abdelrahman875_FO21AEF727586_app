@@ -16,19 +16,19 @@ class OnboadRiverpod extends StateNotifier<OnboadModel> {
     OnboadContentModel(
       img: AppImages.onboadingImg_1,
       subTitle:
-          "Collaborez avec des transporteurs adaptés à vos besoins logistiques.",
+          "Collaborez avec des transporteurs\nadaptés à vos besoins logistiques.",
       title: 'Trouvez le bon\ntransporteur ',
     ),
     OnboadContentModel(
       img: AppImages.onboadingImg_2,
       subTitle:
-          "Créez des missions de distribution et suivez leur avancement en temps réel.",
+          "Créez des missions de distribution et\nsuivez leur avancement en temps réel.",
       title: 'Gérez vos expéditions\nfacilement',
     ),
     OnboadContentModel(
       img: AppImages.onboadingImg_3,
       subTitle:
-          "Suivez vos performances logistiques\ndepuis votre tableau de bord..",
+          "Suivez vos performances logistiques\ndepuis votre tableau de bord.",
       title: 'Optimisez votre\nlogistique',
     ),
   ];

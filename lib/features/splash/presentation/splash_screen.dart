@@ -1,4 +1,5 @@
 
+import 'package:abdelrahman875_fo21aef727586/core/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -67,6 +68,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final style = Theme.of(context).textTheme;
 
     return Scaffold(
       backgroundColor: AppColors.splashColor,
@@ -75,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen>
           AnimatedBuilder(
             animation: _animation,
             builder: (context, child) {
-              final double imageWidth = 70.w;
+              final double imageWidth =  70.w;
               final double startPosition = -imageWidth; // Off-screen left
               final double endPosition = screenWidth; // Off-screen right
 
@@ -90,8 +92,8 @@ class _SplashScreenState extends State<SplashScreen>
             },
             child: Image.asset(
               AppImages.path245,
-              height: 60.h,
-              width: 60.h,
+              height:Utils.isTablet(context)? 130.h: 60.h,
+              width:Utils.isTablet(context)? 130.w: 60.w,
             ),
           ),
           Positioned(
@@ -100,8 +102,12 @@ class _SplashScreenState extends State<SplashScreen>
             right: 0,
             child: Center(
               child: Text(
+                textAlign: TextAlign.center,
                 'DeliverApp',
-                style: TextStyle(color: AppColors.white, fontSize: 24.sp, fontWeight: FontWeight.w600),
+                style: style.headlineSmall!.copyWith(
+                  color: AppColors.white,
+                  fontWeight: FontWeight.w600,
+                )
               ),
             ),
           ),

@@ -18,28 +18,30 @@ class CommonCartStack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 17, right: 17, top: 17),
-      child: Container(
-      //  alignment: Alignment.center,
-        height: 95.h,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            width: 1,
-            color: isSelected ? AppColors.blackColor : AppColors.borderColor,
-          ),
-          color: isSelected ? AppColors.blackColor : Colors.white,
+    return Container(
+    //  alignment: Alignment.center,
+      height: 110.h,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          width: 1,
+          color: isSelected ? AppColors.blackColor : AppColors.borderColor,
         ),
+        color: isSelected ? AppColors.blackColor : Colors.white,
+      ),
 
+      child: Padding(
+        padding: EdgeInsets.all(10.h),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Container(
-                width: 50,
-                height: 50,
+                width: 50.w,
+                height: 50.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   gradient: LinearGradient(
@@ -51,8 +53,8 @@ class CommonCartStack extends StatelessWidget {
                 child: Center(
                   child: Image.asset(
                     iconPth,
-                    width: 25,
-                    height: 25,
+                    width: 25.w,
+                    height: 25.h,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -65,20 +67,19 @@ class CommonCartStack extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     fontWeight: FontWeight.w500,
-                    fontSize: 17.sp,
+                    // fontSize: 17.sp,
                     color: isSelected
                         ? AppColors.whiteColor
                         : AppColors.blackColor,
                   ),
                 ),
-                SizedBox(height: 6.h),
+                SizedBox(height: 4.h),
                 Text(
                   subTitle,
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 13.sp,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    fontWeight: FontWeight.w400,
                     color: isSelected
                         ? AppColors.whiteColor
                         : AppColors.textColor,
