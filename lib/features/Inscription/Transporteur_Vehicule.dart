@@ -62,15 +62,15 @@ class _InscriptionState extends State<TransVehicule> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    SizedBox(height: 16.h),
                     Text(
                       'Inscription',
-                      style: TextStyle(
-                        fontSize: 28.sp,
-                        fontWeight: FontWeight.w600,
+                      style: style.headlineSmall?.copyWith(
                         color: AppColors.textColor1,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4.h),
                     Text(
                       'Transporteur',
                       style: style.titleMedium?.copyWith(
@@ -81,7 +81,7 @@ class _InscriptionState extends State<TransVehicule> {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Expanded(
                 child: SingleChildScrollView(
                   child: Form(
@@ -92,10 +92,10 @@ class _InscriptionState extends State<TransVehicule> {
                         Container(
                           decoration: BoxDecoration(
                             color: AppColors.containerColor13,
-                            borderRadius: BorderRadius.circular(4),
+                            borderRadius: BorderRadius.circular(4.r),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                            padding: EdgeInsets.all(4.h),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -340,7 +340,7 @@ class _InscriptionState extends State<TransVehicule> {
 
                         PrimaryButton(
                           width: double.infinity,
-                          padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
+                          // padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
                           containerColor: AppColors.blackColor,
                           title: 'Suivant',
                           onTap: () {
@@ -359,7 +359,6 @@ class _InscriptionState extends State<TransVehicule> {
                            }
                           },
                         ),
-
 
                         const SizedBox(height: 20),
                       ],

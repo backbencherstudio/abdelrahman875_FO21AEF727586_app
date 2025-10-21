@@ -22,21 +22,21 @@ void main() async{
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const double deviceWidth = 390.0;
-  static const double deviceHeight = 840.0;
 
-  /// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    double width = size.width;
+    double height = size.height;
     return ScreenUtilInit(
-      designSize: const Size(deviceWidth, deviceHeight),
+      designSize: width >600?Size(800,1280) : Size( 390, 840),
       minTextAdapt: true,
       ensureScreenSize: true,
       builder: (context, child) {
         return MaterialApp.router(
           title: 'Posse',
           debugShowCheckedModeBanner: false,
-         theme: AppTheme.lightTheme,
+         theme: AppTheme.lightTheme(context),
           //darkTheme: AppTheme.darkTheme,
           routerConfig: RouteConfig.goRouter,
         );

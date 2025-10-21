@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-
 import '../../core/constants/icons.dart';
 import '../../core/routes/route_name.dart';
 import '../widgets/primery_button.dart';
@@ -17,7 +16,6 @@ class InscriptionDoc extends ConsumerStatefulWidget {
 }
 
 class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
-
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -27,55 +25,53 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    GestureDetector(
-                      onTap: (){
-                        context.pop();
-                      },
-                      child: Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.grayText.withAlpha(70),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.all(8.r),
-                            child: Image.asset(AppIcons.whiteArrowBackPng,width: 24.w,height: 24,),
-                          )
+              SizedBox(height: 16.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      context.pop();
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.grayText.withAlpha(70),
+                        shape: BoxShape.circle,
                       ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        'Téléversez les\ndocuments',
-                        textAlign: TextAlign.center,
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.sp,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.r),
+                        child: Image.asset(
+                          AppIcons.whiteArrowBackPng,
+                          width: 24.w,
+                          height: 24,
                         ),
-                        semanticsLabel: 'Téléversez les documents',
                       ),
                     ),
-                    SizedBox(width: 38.w),
-                  ],
-                ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      'Téléversez les\ndocuments',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.headlineSmall
+                          ?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.sp,
+                          ),
+                      semanticsLabel: 'Téléversez les documents',
+                    ),
+                  ),
+                  SizedBox(width: 38.w),
+                ],
               ),
 
               SizedBox(height: 16.h),
               Text(
                 'Sélectionner vos documents pour renforcer la sécurité et améliorer votre expérience.',
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Colors.black54,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium?.copyWith(color: Colors.black54),
               ),
               SizedBox(height: 30.h),
-
 
               Expanded(
                 child: Builder(
@@ -143,7 +139,10 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                           context,
                           title: 'Licence Transport',
                           subtitle: 'Déposer votre licence.',
-                          items: const ['Déposer votre licence', 'Format: PDF, JPG, PNG'],
+                          items: const [
+                            'Déposer votre licence',
+                            'Format: PDF, JPG, PNG',
+                          ],
                           onFileUpload: () {
                             print('Uploading transport license');
                           },
@@ -163,16 +162,16 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                           },
                         ),
                         SizedBox(height: 8.h),
-                        // Submit Button
 
+                        // Submit Button
                         PrimaryButton(
                           width: double.infinity,
-                          padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.h),
+                          // padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.h),
                           containerColor: AppColors.blackColor,
                           title: 'Créer mon compte',
                           textStyle: style.bodyMedium?.copyWith(
-                              color: AppColors.whiteColor,
-                              fontWeight: FontWeight.w600
+                            color: AppColors.whiteColor,
+                            fontWeight: FontWeight.w600,
                           ),
                           onTap: () {
                             context.push(RouteName.command);
@@ -191,12 +190,12 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
   }
 
   Widget _buildDropdownRow(
-      BuildContext context, {
-        required String title,
-        required String subtitle,
-        required List<String> items,
-        required VoidCallback onFileUpload,
-      }) {
+    BuildContext context, {
+    required String title,
+    required String subtitle,
+    required List<String> items,
+    required VoidCallback onFileUpload,
+  }) {
     bool isOpen = false;
     return StatefulBuilder(
       builder: (context, setState) {
@@ -214,7 +213,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                   });
                 },
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                  padding: EdgeInsets.symmetric(vertical: 10.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -227,19 +226,17 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             width: 32.w,
                             height: 32.h,
                             errorBuilder: (context, error, stackTrace) =>
-                            const Icon(Icons.help_outline, size: 32),
+                                const Icon(Icons.help_outline, size: 32),
                           ),
                           SizedBox(width: 10.w),
                           Expanded(
                             child: Text(
                               title,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
+                              style: Theme.of(context).textTheme.titleMedium
                                   ?.copyWith(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16.sp,
-                              ),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16.sp,
+                                  ),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
@@ -259,10 +256,11 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                           padding: EdgeInsets.only(left: 42.w, top: 3.h),
                           child: Text(
                             subtitle,
-                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontSize: 16.sp,
-                              color: AppColors.box_Color,
-                            ),
+                            style: Theme.of(context).textTheme.titleMedium
+                                ?.copyWith(
+                                  fontSize: 16.sp,
+                                  color: AppColors.box_Color,
+                                ),
                           ),
                         ),
                     ],
@@ -273,11 +271,19 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
               // ===== EXPANDED CONTENT =====
               if (isOpen)
                 Padding(
-                  padding: EdgeInsets.only(left: 10.w, right: 10.w, bottom: 10.h),
+                  padding: EdgeInsets.only(
+                    left: 10.w,
+                    right: 10.w,
+                    bottom: 10.h,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Icon(Icons.cloud_upload, size: 50, color: Colors.blue),
+                      const Icon(
+                        Icons.cloud_upload,
+                        size: 50,
+                        color: Colors.blue,
+                      ),
                       SizedBox(height: 6.h),
 
                       // Subtitle inside dropdown as title
@@ -292,16 +298,20 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                       SizedBox(height: 6.h),
 
                       // Other items
-                      ...items.skip(1).map(
+                      ...items
+                          .skip(1)
+                          .map(
                             (e) => Padding(
-                          padding: EdgeInsets.symmetric(vertical: 3.h),
-                          child: Text(
-                            e,
-                            style: style.bodyMedium?.copyWith(fontSize: 16.sp),
-                            textAlign: TextAlign.start,
+                              padding: EdgeInsets.symmetric(vertical: 3.h),
+                              child: Text(
+                                e,
+                                style: style.bodyMedium?.copyWith(
+                                  fontSize: 16.sp,
+                                ),
+                                textAlign: TextAlign.start,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
 
                       SizedBox(height: 14.h),
 
@@ -330,4 +340,5 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
         );
       },
     );
-  }}
+  }
+}

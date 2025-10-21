@@ -15,7 +15,8 @@ class InscriptionTransporteur extends StatefulWidget {
   const InscriptionTransporteur({super.key});
 
   @override
-  State<InscriptionTransporteur> createState() => _InscriptionTransporteurState();
+  State<InscriptionTransporteur> createState() =>
+      _InscriptionTransporteurState();
 }
 
 class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
@@ -57,38 +58,35 @@ class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-             Center(
-               child: Column(
-                 mainAxisAlignment: MainAxisAlignment.center,
-                 children: [
-                   // SizedBox(height: 20.h),
-                   Text(
-                     'Inscription',
-                     style: TextStyle(
-                       fontSize: 24,
-                       fontWeight: FontWeight.bold,
-                       color: AppColors.textColor1,
-                     ),
-                   ),
-                   const SizedBox(height: 4),
-                   Text(
-                     'Transporteur',
-
-                     style: TextStyle(
-                       fontSize: 20.sp,
-                       fontWeight: FontWeight.bold,
-                       color: AppColors.textColor2,
-                     ),
-                   ),
-                   const SizedBox(height: 20),
-                 ],
-               ),
-             ),
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 16.h),
+                    Text(
+                      'Inscription',
+                      style: style.headlineSmall?.copyWith(
+                        color: AppColors.textColor1,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    SizedBox(height: 4.h),
+                    Text(
+                      'Transporteur',
+                      style: style.titleMedium?.copyWith(
+                        color: AppColors.textColor2,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(height: 20.h),
+                  ],
+                ),
+              ),
 
               Expanded(
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal:16.w),
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
                     child: Form(
                       key: _formKey,
                       child: Column(
@@ -107,8 +105,8 @@ class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
-                            validator: (value){
-                              if(value!.isEmpty){
+                            validator: (value) {
+                              if (value!.isEmpty) {
                                 return 'Veuillez entrer votre nom';
                               }
                               return null;
@@ -129,8 +127,8 @@ class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
-                            validator: (value){
-                              if(value!.isEmpty){
+                            validator: (value) {
+                              if (value!.isEmpty) {
                                 return 'Veuillez entrer votre prénom';
                               }
                               return null;
@@ -142,8 +140,11 @@ class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
                           TextFormField(
                             controller: _dateTEController,
                             readOnly: true,
-                            onTap: () async{
-                              await Utils.selectDate(context, _dateTEController);
+                            onTap: () async {
+                              await Utils.selectDate(
+                                context,
+                                _dateTEController,
+                              );
                             },
                             textInputAction: TextInputAction.next,
                             keyboardType: TextInputType.text,
@@ -154,8 +155,8 @@ class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
-                            validator: (value){
-                              if(value!.isEmpty){
+                            validator: (value) {
+                              if (value!.isEmpty) {
                                 return 'Veuillez entrer votre date de naissance';
                               }
                               return null;
@@ -175,8 +176,8 @@ class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
-                            validator: (value){
-                              if(value!.isEmpty){
+                            validator: (value) {
+                              if (value!.isEmpty) {
                                 return 'Veuillez entrer votre raison sociale';
                               }
                               return null;
@@ -186,47 +187,51 @@ class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
                           InputLabel(title: 'Vos secteurs'),
                           SizedBox(height: 12.h),
                           TextFormField(
-                              controller: _vosTEController,
-                              textInputAction: TextInputAction.next,
-                              keyboardType: TextInputType.text,
-                              decoration: InputDecoration(
-                                hintText: 'Distribution',
-                                hintStyle: style.bodyLarge?.copyWith(
-                                  color: AppColors.grayText4,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                            controller: _vosTEController,
+                            textInputAction: TextInputAction.next,
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              hintText: 'Distribution',
+                              hintStyle: style.bodyLarge?.copyWith(
+                                color: AppColors.grayText4,
+                                fontWeight: FontWeight.w400,
                               ),
-                              validator: (value){
-                                if(value!.isEmpty){
-                                  return 'Veuillez entrer vos secteurs';
-                                }
-                                return null;
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Veuillez entrer vos secteurs';
                               }
+                              return null;
+                            },
                           ),
                           SizedBox(height: 16.h),
                           InputLabel(title: 'Numéro de téléphone'),
                           SizedBox(height: 12.h),
                           TextFormField(
-                              controller: _numeroTEController,
-                              textInputAction: TextInputAction.next,
-                              keyboardType: TextInputType.phone,
-                              decoration: InputDecoration(
-                                hintText: '+33 7 21 19 12',
-                                prefixIcon: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Image.asset(AppIcons.francePng,height: 14.h,width: 14.w),
-                                ),
-                                hintStyle: style.bodyLarge?.copyWith(
-                                  color: AppColors.grayText4,
-                                  fontWeight: FontWeight.w400,
+                            controller: _numeroTEController,
+                            textInputAction: TextInputAction.next,
+                            keyboardType: TextInputType.phone,
+                            decoration: InputDecoration(
+                              hintText: '+33 7 21 19 12',
+                              prefixIcon: Padding(
+                                padding: EdgeInsets.all(8.h),
+                                child: Image.asset(
+                                  AppIcons.francePng,
+                                  height: Utils.isTablet(context)? 18.h : 14.h,
+                                  width: Utils.isTablet(context)? 18.w :14.w,
                                 ),
                               ),
-                              validator: (value){
-                                if(value!.isEmpty){
-                                  return 'Veuillez entrer votre numéro de téléphone';
-                                }
-                                return null;
+                              hintStyle: style.bodyLarge?.copyWith(
+                                color: AppColors.grayText4,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Veuillez entrer votre numéro de téléphone';
                               }
+                              return null;
+                            },
                           ),
                           SizedBox(height: 16.h),
                           InputLabel(title: 'Pays'),
@@ -238,16 +243,20 @@ class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
                             decoration: InputDecoration(
                               hintText: 'France',
                               prefixIcon: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Image.asset(AppIcons.francePng,height: 14.h,width: 14.w),
+                                padding: EdgeInsets.all(8.h),
+                                child: Image.asset(
+                                  AppIcons.francePng,
+                                  height: Utils.isTablet(context)? 18.h : 14.h,
+                                  width: Utils.isTablet(context)? 18.h : 14.h,
+                                ),
                               ),
                               hintStyle: style.bodyLarge?.copyWith(
                                 color: AppColors.grayText4,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
-                            validator: (value){
-                              if(value!.isEmpty){
+                            validator: (value) {
+                              if (value!.isEmpty) {
                                 return 'Veuillez entrer votre pays';
                               }
                               return null;
@@ -257,48 +266,47 @@ class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
                           InputLabel(title: 'Adresse'),
                           SizedBox(height: 12.h),
                           TextFormField(
-                              controller: _adresseTEController,
-                              textInputAction: TextInputAction.next,
-                              keyboardType: TextInputType.text,
-                              decoration: InputDecoration(
-                                hintText: '12 rue des Lilas, Sannois 95110',
-                                hintStyle: style.bodyLarge?.copyWith(
-                                  color: AppColors.grayText4,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                            controller: _adresseTEController,
+                            textInputAction: TextInputAction.next,
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              hintText: '12 rue des Lilas, Sannois 95110',
+                              hintStyle: style.bodyLarge?.copyWith(
+                                color: AppColors.grayText4,
+                                fontWeight: FontWeight.w400,
                               ),
-                              validator: (value){
-                                if(value!.isEmpty){
-                                  return 'Veuillez entrer votre adresse';
-                                }
-                                return null;
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Veuillez entrer votre adresse';
                               }
+                              return null;
+                            },
                           ),
                           SizedBox(height: 16.h),
                           InputLabel(title: 'Nombre d\'utilisateurs associés'),
                           SizedBox(height: 12.h),
                           TextFormField(
-                              controller: _nombreTEController,
-                              textInputAction: TextInputAction.next,
-                              keyboardType: TextInputType.text,
-                              decoration: InputDecoration(
-                                hintText: '3 utilisateurs',
-                                hintStyle: style.bodyLarge?.copyWith(
-                                  color: AppColors.grayText4,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                            controller: _nombreTEController,
+                            textInputAction: TextInputAction.next,
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              hintText: '3 utilisateurs',
+                              hintStyle: style.bodyLarge?.copyWith(
+                                color: AppColors.grayText4,
+                                fontWeight: FontWeight.w400,
                               ),
-                              validator: (value){
-                                if(value!.isEmpty){
-                                  return 'Veuillez entrer le nombre d\'utilisateurs associés';
-                                }
-                                return null;
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Veuillez entrer le nombre d\'utilisateurs associés';
                               }
+                              return null;
+                            },
                           ),
                           SizedBox(height: 16.h),
                           PrimaryButton(
                             width: double.infinity,
-                            padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
                             containerColor: AppColors.blackColor,
                             title: 'Suivant',
                             onTap: () {
@@ -311,10 +319,9 @@ class _InscriptionTransporteurState extends State<InscriptionTransporteur> {
                               log(_payTEController.text);
                               log(_adresseTEController.text);
                               log(_nombreTEController.text);
-                              if(_formKey.currentState!.validate()){
+                              if (_formKey.currentState!.validate()) {
                                 context.push(RouteName.transVehicule);
                               }
-
                             },
                           ),
 

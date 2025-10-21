@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/utils/utils.dart';
+
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
 
@@ -30,8 +32,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final headlineSmall = Theme.of(context).textTheme.headlineSmall;
-    // final titleSmall = Theme.of(context).textTheme.titleSmall;
+    final style = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -76,10 +77,10 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     return AnimatedContainer(
                       duration: Duration(milliseconds: 300),
                       margin: EdgeInsets.symmetric(horizontal: 4.w),
-                      width: isSelected ? 24.w : 12.w,
-                      height: 4.h,
+                      width: isSelected ? Utils.isTablet(context)? 40.w: 24.w : Utils.isTablet(context)? 20.w: 12.w,
+                      height: Utils.isTablet(context)? 8.h : 4.h,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.r),
                         color: isSelected
                             ? AppColors.secondaryColor
                             : AppColors.primaryColor,
@@ -90,7 +91,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 30.h),
           ],
         ),
       ),

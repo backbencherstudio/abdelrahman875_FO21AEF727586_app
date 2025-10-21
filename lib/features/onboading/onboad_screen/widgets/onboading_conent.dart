@@ -4,10 +4,13 @@ import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/onboading/riverpod/onboad_riverpod.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/common_btn.dart';
+import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../../core/utils/utils.dart';
 
 class onboardContent extends StatelessWidget {
   final String title;
@@ -28,37 +31,36 @@ class onboardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Spacer(),
-        SizedBox(
-           height: 219.h,
-            width: 219.h,
-          child: Stack(
-            children: [
-           Container(
-            height: 186.h,
-            width: 186.h,
-            decoration: BoxDecoration(
-            color: Color(0xFF63CAE1).withOpacity(0.13),
-              shape: BoxShape.circle),
-           ),
-              Positioned(
-                bottom: 60,
-                child: Image.asset(imgUrl, )),
-            
-            ],
-            
+        Align(
+          alignment: Alignment.center,
+          child: SizedBox(
+            height: Utils.isTablet(context) ? 250.h : 219.h,
+            width: Utils.isTablet(context) ? 250.w : 219.w,
+            child: Stack(
+              children: [
+                Container(
+                  height: Utils.isTablet(context) ? 227.h : 186.h,
+                  width: Utils.isTablet(context) ? 227.h : 186.h,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF63CAE1).withOpacity(0.13),
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                Positioned(bottom: 60, child: Image.asset(imgUrl)),
+              ],
+            ),
           ),
         ),
-        Spacer(),
+      Utils.isTablet(context)? SizedBox(height: 24.h): Spacer(),
         Text(
           title,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
             fontWeight: FontWeight.w600,
-
             color: AppColors.primaryColor,
-            fontSize: 24,
           ),
         ),
         SizedBox(height: 16.h),
@@ -66,18 +68,19 @@ class onboardContent extends StatelessWidget {
         Text(
           subTitle,
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-            fontWeight: FontWeight.normal,
-            fontSize: 16,
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.normal),
         ),
-        Spacer(),
-
+        Utils.isTablet(context)? SizedBox(height: 40.h): Spacer(),
         Consumer(
-          builder: (context, ref, child) {
-            return CommonBtn(
-              title: "Suivant",
-              onPressed: () {
+          builder: (context, ref, _) {
+            return PrimaryButton(
+              title: 'Suivant',
+              containerColor: AppColors.blackColor,
+              padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
+              width: Utils.isTablet(context) ? 400.w : 335.w,
+              onTap: () {
                 pageController.nextPage(
                   curve: Curves.ease,
                   duration: Duration(milliseconds: 500),
@@ -91,6 +94,23 @@ class onboardContent extends StatelessWidget {
           },
         ),
 
+        // Consumer(
+        //   builder: (context, ref, child) {
+        //     return CommonBtn(
+        //       title: "Suivant",
+        //       onPressed: () {
+        //         pageController.nextPage(
+        //           curve: Curves.ease,
+        //           duration: Duration(milliseconds: 500),
+        //         );
+        //         final onboadState = ref.watch(onboadingProvider);
+        //         if (onboadState.index == 2) {
+        //           context.go(RouteName.espacesScreen);
+        //         }
+        //       },
+        //     );
+        //   },
+        // ),
         Spacer(),
       ],
     );
