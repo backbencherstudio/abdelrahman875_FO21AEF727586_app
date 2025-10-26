@@ -50,7 +50,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 20.h),
+                  // SizedBox(height: 20.h),
                   GestureDetector(
                     onTap: () {
                       if (context.canPop()) {
@@ -184,12 +184,12 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   if (haveAccount == 1) SizedBox(height: 10.h),
 
                   // Forgot password
-                  haveAccount == 0
-                      ? Container()
-                      : Align(
+                  if (haveAccount == 1) Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.push(RouteName.forgotPasswordScreen);
+                            },
                             child: Text(
                               "Mot de passe oublié ?",
                               style: style.bodyMedium?.copyWith(

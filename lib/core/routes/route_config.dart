@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/Command/presentation/command_5.dart';
 import '../../features/Command/presentation/command_vaid_screen.dart';
 import '../../features/Command/presentation/votre_command.dart';
+import '../../features/auth/reset_password/presentation/forgot_password_screen.dart';
 import '../../features/auth/signin/presentation/sign_in_screen.dart';
 import '../../features/Mission_accept/presentation/Condition_affret.dart';
 import '../../features/Mission_accept/presentation/after_preuveScreen.dart';
@@ -17,6 +18,7 @@ import '../../features/Mission_accept/presentation/mis_acceptScreen.dart';
 import '../../features/Mission_accept/presentation/mis_termin.dart';
 import '../../features/Mission_accept/presentation/mission_accept_screen.dart';
 import '../../features/Mission_accept/presentation/preuve_screen.dart';
+import '../../features/auth/verify_otp/presentation/verify_otp_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
 import '../../features/home/presentation/home_veiw.dart';
@@ -40,7 +42,7 @@ class RouteConfig {
 static  GoRouter goRouter = GoRouter(
 
 
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.verifyOtpScreen,
 
 
     routes: [
@@ -123,6 +125,15 @@ static  GoRouter goRouter = GoRouter(
           return const MaterialPage(child: missionScreen_One());
         },
       ),
+
+      GoRoute(
+        name: RouteName.forgotPasswordScreen,
+        path: RouteName.forgotPasswordScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ForgotPasswordScreen());
+        },
+      ),
+
       GoRoute(
         name: RouteName.mis_accepteScreen,
         path: RouteName.mis_accepteScreen,
@@ -253,6 +264,18 @@ static  GoRouter goRouter = GoRouter(
             context: context,
             state: state,
             child: ParentsScreen(),
+          );
+        },
+      ),
+      GoRoute(
+        name: RouteName.verifyOtpScreen,
+        path: RouteName.verifyOtpScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: VerifyOtpScreen(),
           );
         },
       ),
