@@ -1,22 +1,29 @@
+// ignore_for_file: unused_result
+
+import 'dart:developer';
+import 'dart:io';
+import 'package:path/path.dart' as p;
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
+import 'package:abdelrahman875_fo21aef727586/core/constants/images.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
+import 'package:abdelrahman875_fo21aef727586/features/Inscription_Donneur/riverpod/file_provider_inscription_doc.dart';
 import 'package:abdelrahman875_fo21aef727586/features/Inscription_Donneur/riverpod/televersez.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-
+import 'package:file_picker/file_picker.dart';
 import '../../core/routes/route_name.dart';
 import '../widgets/primery_button.dart';
 
-class InscriptionDocTwo extends StatefulWidget {
+class InscriptionDocTwo extends ConsumerStatefulWidget {
   const InscriptionDocTwo({super.key});
 
   @override
-  State<InscriptionDocTwo> createState() => _InscriptionDocState();
+  ConsumerState<InscriptionDocTwo> createState() => _InscriptionDocState();
 }
 
-class _InscriptionDocState extends State<InscriptionDocTwo> {
+class _InscriptionDocState extends ConsumerState<InscriptionDocTwo> {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -90,8 +97,16 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Sélectionner un fichier',
                           'Format: PDF, JPG, PNG',
                         ],
-                        onFileUpload: () {
-                         // print('Uploading KBIS file');
+                        onFileUpload: () async {
+                          log("Rib");
+                          File? file = await onFileUpload();
+                          if (file != null) {
+                            ref
+                                .read(fileProviderInspectionDoc.notifier)
+                                .addFile(key: 'KBIS (<9 mois)', file: file);
+                            ref.read(fileAutoShowProvide.notifier).state = true;
+                            autoFileShow('KBIS (<9 mois)');
+                          }
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -104,8 +119,16 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Déposer votre relevé d’identité bancaire',
                           'Format: PDF, JPG, PNG',
                         ],
-                        onFileUpload: () {
-                          //print('Uploading RIB file');
+                        onFileUpload: () async {
+                          log("Rib");
+                          File? file = await onFileUpload();
+                          if (file != null) {
+                            ref
+                                .read(fileProviderInspectionDoc.notifier)
+                                .addFile(key: 'RIB', file: file);
+                            ref.read(fileAutoShowProvide.notifier).state = true;
+                            autoFileShow('RIB');
+                          }
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -118,8 +141,15 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Déposer votre carte d’identité',
                           'Format: PDF, JPG, PNG',
                         ],
-                        onFileUpload: () {
-                         // print('Uploading ID card');
+                        onFileUpload: () async {
+                          File? file = await onFileUpload();
+                          if (file != null) {
+                            ref
+                                .read(fileProviderInspectionDoc.notifier)
+                                .addFile(key: 'Carte d’identité', file: file);
+                            ref.read(fileAutoShowProvide.notifier).state = true;
+                            autoFileShow('Carte d’identité');
+                          }
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -132,8 +162,15 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Déposer votre attestation',
                           'Format: PDF, JPG, PNG',
                         ],
-                        onFileUpload: () {
-                          //print('Uploading Urssaf attestation');
+                        onFileUpload: () async {
+                          File? file = await onFileUpload();
+                          if (file != null) {
+                            ref
+                                .read(fileProviderInspectionDoc.notifier)
+                                .addFile(key: 'Attestation Urssaf', file: file);
+                            ref.read(fileAutoShowProvide.notifier).state = true;
+                            autoFileShow('Attestation Urssaf');
+                          }
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -146,8 +183,15 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Déposer votre licence',
                           'Format: PDF, JPG, PNG',
                         ],
-                        onFileUpload: () {
-                         // print('Uploading transport license');
+                        onFileUpload: () async {
+                          File? file = await onFileUpload();
+                          if (file != null) {
+                            ref
+                                .read(fileProviderInspectionDoc.notifier)
+                                .addFile(key: 'Licence Transport', file: file);
+                            ref.read(fileAutoShowProvide.notifier).state = true;
+                            autoFileShow('Licence Transport');
+                          }
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -160,8 +204,15 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Déposer votre mandat SEPA',
                           'Format: PDF, JPG, PNG',
                         ],
-                        onFileUpload: () {
-                         // print('Uploading SEPA mandate');
+                        onFileUpload: () async {
+                          File? file = await onFileUpload();
+                          if (file != null) {
+                            ref
+                                .read(fileProviderInspectionDoc.notifier)
+                                .addFile(key: 'Mandat SEPA signé', file: file);
+                            ref.read(fileAutoShowProvide.notifier).state = true;
+                            autoFileShow('Mandat SEPA signé');
+                          }
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -173,21 +224,35 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Déposer votre Attestation RC Pro',
                           'Format: PDF, JPG, PNG',
                         ],
-                        onFileUpload: () {
-                         // print('Uploading SEPA mandate');
+                        onFileUpload: () async {
+                          File? file = await onFileUpload();
+                          if (file != null) {
+                            ref
+                                .read(fileProviderInspectionDoc.notifier)
+                                .addFile(key: 'Attestation RC PRO', file: file);
+                            ref.read(fileAutoShowProvide.notifier).state = true;
+                            autoFileShow('Attestation RC PRO');
+                          }
                         },
                       ),
                       SizedBox(height: 8.h),
                       _buildDropdownRow(
                         context,
-                        title: 'Logo Société ',
+                        title: 'Logo Société',
                         subtitle: 'Déposer votre logo',
                         items: const [
                           'Déposer votre logo',
                           'Format: PDF, JPG, PNG',
                         ],
-                        onFileUpload: () {
-                         // print('Uploading SEPA mandate');
+                        onFileUpload: () async {
+                          File? file = await onFileUpload();
+                          if (file != null) {
+                            ref
+                                .read(fileProviderInspectionDoc.notifier)
+                                .addFile(key: 'Logo Société', file: file);
+                            ref.read(fileAutoShowProvide.notifier).state = true;
+                            autoFileShow('Logo Société');
+                          }
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -229,9 +294,14 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
     required VoidCallback onFileUpload,
   }) {
     final style = Theme.of(context).textTheme;
+    final fileState = ref.watch(fileProviderInspectionDoc);
+    final fileExists = fileState.files[title]?.path != null;
+
+    final file = fileState.files[title];
+    final fileName = file != null ? p.basename(file.path) : "Aucun fichier";
+
     return Consumer(
       builder: (context, ref, child) {
-        // Watch dropdown state
         final isOpen = ref.watch(
           dropdownStateProvider.select(
             (state) => state.isOpenMap[title] ?? false,
@@ -250,8 +320,8 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'assets/images/Help.png',
-                      width: 32.w,
+                      fileExists ? AppImages.checkCircle : AppImages.question,
+                      width: 32.h,
                       height: 32.h,
                       errorBuilder: (context, error, stackTrace) =>
                           const Icon(Icons.help_outline, size: 32),
@@ -270,6 +340,16 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                     InkWell(
                       onTap: () {
                         ref.read(dropdownStateProvider.notifier).toggle(title);
+                        if (fileExists) {
+                          ref.read(fileAutoShowProvide.notifier).state = true;
+                          Future.delayed(Duration(seconds: 3), () {
+                            ref.read(fileAutoShowProvide.notifier).state =
+                                false;
+                            ref
+                                .read(dropdownStateProvider.notifier)
+                                .toggle(title);
+                          });
+                        }
                       },
                       child: Icon(
                         isOpen
@@ -282,9 +362,46 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                   ],
                 ),
               ),
+              if (fileExists && ref.watch(fileAutoShowProvide) && isOpen)
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8),
+                  child: Card(
+                    // decoration: BoxDecoration(),
+                    // height: 29.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 12),
+                          child: Image.asset(AppIcons.fileIcon),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          child: Text(
+                            fileName,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontSize: 14.sp),
+                          ),
+                        ),
+
+                        IconButton(
+                          icon: Icon(
+                            Icons.delete_outline_sharp,
+                            color: AppColors.containerColor3,
+                          ),
+                          onPressed: () {
+                            ref
+                                .read(fileProviderInspectionDoc.notifier)
+                                .removeFile(title);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
 
               // === Subtitle only when closed ===
-              if (!isOpen && subtitle.isNotEmpty)
+              if (!isOpen && subtitle.isNotEmpty && !fileExists)
                 Padding(
                   padding: EdgeInsets.only(left: 52.w, top: 2.h),
                   child: Text(
@@ -298,7 +415,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                 ),
 
               // === Expanded Dropdown (Visible when open) ===
-              if (isOpen)
+              if (isOpen && !fileExists)
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
@@ -365,5 +482,36 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
         );
       },
     );
+  }
+
+  Future<File?> onFileUpload() async {
+    try {
+      log("Opening file picker...");
+
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['pdf', 'doc', 'docx', 'jpg', 'png'], // optional
+      );
+
+      if (result != null && result.files.single.path != null) {
+        File file = File(result.files.single.path!);
+        log("File selected: ${file.path}");
+        return file;
+      } else {
+        log("File selection canceled.");
+        return null;
+      }
+    } catch (e) {
+      log("Error while picking file: $e");
+    }
+    return null;
+  }
+
+  Future<void> autoFileShow(String title) async {
+    ref.read(fileAutoShowProvide.notifier).state = true;
+    Future.delayed(Duration(seconds: 3), () {
+      ref.read(fileAutoShowProvide.notifier).state = false;
+      ref.read(dropdownStateProvider.notifier).toggle(title);
+    });
   }
 }
