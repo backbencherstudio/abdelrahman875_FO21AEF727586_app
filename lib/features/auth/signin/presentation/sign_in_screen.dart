@@ -232,6 +232,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       } else {
                         context.push(RouteName.inscriptionScreen);
                       }
+
                       if (formKey.currentState!.validate()) {
                         log(emailController.text);
                         log(passwordController.text);

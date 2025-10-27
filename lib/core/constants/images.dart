@@ -12,10 +12,10 @@ class AppImages {
   static const String capture = "$base/capture.png";
   static const String gift = "$base/gift.png";
   static const String download = "$base/Downloading.png";
+  static const String question = "$base/Help.png";
+  static const String checkCircle = "$base/check_circle.png"; 
 
   static const String condition = "$base/condition.png";
-
-
 
   static const String onboadingImg_1 = "$base/car.png";
   static const String onboadingImg_2 = "$base/Layer_3.png";
@@ -27,9 +27,4 @@ class AppImages {
   static const String path245 = "$base/path245.png";
   static const String loader = "$base/loader.png";
   static const String timer = "$base/path421.png";
-
-
-
-  
-
 }
