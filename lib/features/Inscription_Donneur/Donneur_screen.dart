@@ -301,6 +301,7 @@ class _InscriptionState extends State<Donneur> {
                               log(_payTEController.text);
                               log(_adresseTEController.text);
                               log(_nombreTEController.text);
+                               context.push(RouteName.inscriptionDocTwo);
                               if(_formKey.currentState!.validate()){
                                 context.push(RouteName.inscriptionDocTwo);
                               }

@@ -22,6 +22,7 @@ class DropdownStateNotifier extends StateNotifier<DropdownState> {
   }
 }
 
+
 // Provider for the DropdownStateNotifier
 final dropdownStateProvider =
     StateNotifierProvider<DropdownStateNotifier, DropdownState>(

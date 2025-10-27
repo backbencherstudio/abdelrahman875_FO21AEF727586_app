@@ -226,6 +226,11 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     containerColor: AppColors.boxColor,
                     title: haveAccount == 0 ? 'S’inscrire' : 'Se connecter',
                     onTap: () {
+                       if (selectedIndex == 0) {
+                          context.push(RouteName.donneur);
+                        } else {
+                          context.push(RouteName.inscriptionScreen);
+                        }
                       if (formKey.currentState!.validate()) {
                         log(emailController.text);
                         log(passwordController.text);

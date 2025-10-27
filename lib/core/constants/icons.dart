@@ -43,6 +43,7 @@ class AppIcons{
 
 
   static const String gmailLogoPng = "$iconPath/GmailLogo.png";
+  static const String fileIcon = "$iconPath/file_icon.png";
   static const String increasePng = "$iconPath/Increase.png";
   static const String logoutPng = "$iconPath/logout.png";
   static const String notificationPng = "$iconPath/notification4x.png";
