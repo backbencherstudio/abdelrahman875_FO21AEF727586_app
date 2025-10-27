@@ -268,7 +268,7 @@ class _InscriptionState extends State<Donneur> {
                           SizedBox(height: 12.h),
                           TextFormField(
                             controller: _nombreTEController,
-                            textInputAction: TextInputAction.next,
+                            textInputAction: TextInputAction.done,
                             keyboardType: TextInputType.text,
                             decoration: InputDecoration(
                               hintText: '3 utilisateurs',

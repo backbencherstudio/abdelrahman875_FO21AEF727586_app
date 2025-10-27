@@ -66,8 +66,8 @@ class Utils {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2020),
-      lastDate: DateTime(2100),
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2200),
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(

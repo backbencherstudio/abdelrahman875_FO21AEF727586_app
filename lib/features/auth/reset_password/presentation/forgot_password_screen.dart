@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -124,6 +125,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
                       log(_emailController.text);
+                      context.push(RouteName.verifyOtpScreen);
                     }
                   },
                 ),
@@ -153,8 +155,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
 
                 SizedBox(height: 20.h),
-
-
               ],
             ),
           ),

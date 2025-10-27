@@ -39,7 +39,7 @@ class ImageBoxSection extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Faire une Nouvelle\nCommande',
+                      'Programmer une\nnouvelle Livraison',
                       style: style.titleSmall?.copyWith(
                         color: AppColors.whiteColor,
                         fontWeight: FontWeight.w600,

@@ -16,8 +16,8 @@ class GridItem {
 // Dummy data
 final List<GridItem> gridItems = [
   GridItem(title: 'Envoyer', imagePath: AppIcons.boxPng),
-  GridItem(title: 'Commandes', imagePath: AppIcons.carPng),
-  GridItem(title: 'Statistiques', imagePath: AppIcons.growthPng),
+  GridItem(title: 'Suivi', imagePath: AppIcons.routePng),
+  GridItem(title: 'Transporteurs', imagePath: AppIcons.transporteuresPng),
   GridItem(title: 'Documents', imagePath: AppIcons.notePng),
 ];
 
@@ -34,8 +34,8 @@ class GridSection extends StatelessWidget {
       itemCount: gridItems.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
-        crossAxisSpacing: 12.w,
-        mainAxisSpacing: 12.h,
+        crossAxisSpacing: 4.w,
+        mainAxisSpacing: 4.h,
         childAspectRatio: 0.75,
       ),
       itemBuilder: (context, index) {

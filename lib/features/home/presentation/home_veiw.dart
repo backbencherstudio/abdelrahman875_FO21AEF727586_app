@@ -37,7 +37,7 @@ class _HomeViewState extends State<HomeView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Créer  une mission',
+                        'Prêt à expédier ?',
                         style: style.headlineSmall?.copyWith(
                           color: AppColors.grayText2,
                           fontWeight: FontWeight.w600,
@@ -45,63 +45,63 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       SizedBox(height: 18.h),
 
-                      TextFormField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: AppColors.whiteColor,
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: AppColors.borderColor3,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: AppColors.borderColor3,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: AppColors.borderColor3,
-                            ),
-                          ),
-
-                          prefixIcon: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 12.w,top: 12.h,bottom: 12.h),
-                                child: SvgPicture.asset(
-                                  AppIcons.locationSearchingSvg,
-                                  height: 24.h,
-                                  width: 24.w,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              SizedBox(width: 12.w),
-                              Text(
-                                '|',
-                                style: style.bodyLarge?.copyWith(
-                                  color: AppColors.grayText3,
-                                  fontWeight: FontWeight
-                                      .w500, // Added font weight for better visibility
-                                ),
-                              ),
-                            ],
-                          ),
-                          hintText: '#130310011',
-                          suffixIcon: Padding(
-                            padding: EdgeInsets.only(right: 12.w,top: 12.h,bottom: 12.h),
-                            child: SvgPicture.asset(AppIcons.qrCodeScannerSvg,height: 24.h,width: 24.w,),
-                          ),
-                        ),
-                      ),
+                      // TextFormField(
+                      //   decoration: InputDecoration(
+                      //     filled: true,
+                      //     fillColor: AppColors.whiteColor,
+                      //     border: OutlineInputBorder(
+                      //       borderSide: BorderSide(
+                      //         color: AppColors.borderColor3,
+                      //       ),
+                      //     ),
+                      //     focusedBorder: OutlineInputBorder(
+                      //       borderSide: BorderSide(
+                      //         color: AppColors.borderColor3,
+                      //       ),
+                      //     ),
+                      //     enabledBorder: OutlineInputBorder(
+                      //       borderSide: BorderSide(
+                      //         color: AppColors.borderColor3,
+                      //       ),
+                      //     ),
+                      //
+                      //     prefixIcon: Row(
+                      //       mainAxisSize: MainAxisSize.min,
+                      //       children: [
+                      //         Padding(
+                      //           padding: EdgeInsets.only(left: 12.w,top: 12.h,bottom: 12.h),
+                      //           child: SvgPicture.asset(
+                      //             AppIcons.locationSearchingSvg,
+                      //             height: 24.h,
+                      //             width: 24.w,
+                      //             fit: BoxFit.cover,
+                      //           ),
+                      //         ),
+                      //         SizedBox(width: 12.w),
+                      //         Text(
+                      //           '|',
+                      //           style: style.bodyLarge?.copyWith(
+                      //             color: AppColors.grayText3,
+                      //             fontWeight: FontWeight
+                      //                 .w500, // Added font weight for better visibility
+                      //           ),
+                      //         ),
+                      //       ],
+                      //     ),
+                      //     hintText: '#130310011',
+                      //     suffixIcon: Padding(
+                      //       padding: EdgeInsets.only(right: 12.w,top: 12.h,bottom: 12.h),
+                      //       child: SvgPicture.asset(AppIcons.qrCodeScannerSvg,height: 24.h,width: 24.w,),
+                      //     ),
+                      //   ),
+                      // ),
 
 
                       GridSection(),
                       SizedBox(height: 18.h),
                       ImageBoxSection(),
                       SizedBox(height: 18.h),
-                      CustomTitleHeader(title: 'Commandes en cours'),
+                      CustomTitleHeader(title: 'Livraisons en cours'),
                       SizedBox(height: 18.h),
 
                       Column(
@@ -114,7 +114,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
 
                       SizedBox(height: 18.h),
-                      CustomTitleHeader(title: 'Commandes récentes'),
+                      CustomTitleHeader(title: 'Livraisons récentes'),
 
                       SizedBox(height: 18.h),
                       Column(
@@ -125,7 +125,7 @@ class _HomeViewState extends State<HomeView> {
                               title: '#HWDSF776567DS',
                               subtitle: 'En attente',
                               date: '23 juillet 2025',
-                              color: AppColors.whiteColor,
+                              color: AppColors.containerColor1,
                               textStyle: style.bodySmall?.copyWith(
                                 color: AppColors.secondaryColor,
                               ),

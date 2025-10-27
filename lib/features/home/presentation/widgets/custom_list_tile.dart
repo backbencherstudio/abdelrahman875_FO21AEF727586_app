@@ -38,7 +38,7 @@ class CustomListTile extends StatelessWidget {
       child: ListTile(
         leading: Container(
           decoration: BoxDecoration(
-            color: color ?? AppColors.containerColor5.withOpacity(0.2),
+            color: color ?? AppColors.containerColor5.withAlpha(90),
             shape: BoxShape.circle,
           ),
           child: Padding(
