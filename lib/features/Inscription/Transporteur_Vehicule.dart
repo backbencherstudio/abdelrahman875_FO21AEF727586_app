@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:developer';
 
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';

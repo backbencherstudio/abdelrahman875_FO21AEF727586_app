@@ -8,12 +8,12 @@ import '../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../creer_une_commande_fret/presentaion/widgets/input_label.dart';
 import '../../widgets/primery_button.dart';
 
-class afterScreen extends StatelessWidget {
-  const afterScreen({super.key});
+class AfterScreen extends StatelessWidget {
+  const AfterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final style =Theme.of(context).textTheme;
+    final style = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       body: SafeArea(
@@ -39,7 +39,7 @@ class afterScreen extends StatelessWidget {
                   width: 390.w,
                   height: 262.h,
                   errorBuilder: (context, error, stackTrace) =>
-                  const Icon(Icons.help_outline, size: 24),
+                      const Icon(Icons.help_outline, size: 24),
                 ),
               ),
               SizedBox(height: 45.h),
@@ -67,7 +67,6 @@ class afterScreen extends StatelessWidget {
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.text,
               ),
-
 
               SizedBox(height: 36.h),
 

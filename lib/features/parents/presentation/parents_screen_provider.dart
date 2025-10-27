@@ -4,12 +4,8 @@ import 'package:abdelrahman875_fo21aef727586/features/home/presentation/home_vei
 import 'package:abdelrahman875_fo21aef727586/features/parents/model/parent_screen_riverpod_model.dart';
 import 'package:abdelrahman875_fo21aef727586/features/qr_code/qr_code_scaner_screen.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_riverpod/legacy.dart';
-
 import '../../setting_screen/presentation/profile_setting_screen.dart';
-import '../../track_home_demandes/presentation/track_home_demandes_screen.dart';
-
 class ParentsScreenProvider extends StateNotifier<ParentScreenRiverPodModel> {
   ParentsScreenProvider() : super(ParentScreenRiverPodModel());
 

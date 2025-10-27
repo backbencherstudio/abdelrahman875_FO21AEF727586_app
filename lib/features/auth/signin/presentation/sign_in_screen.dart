@@ -27,7 +27,7 @@ class SignInScreen extends ConsumerStatefulWidget {
 }
 
 class _SignInScreenState extends ConsumerState<SignInScreen> {
-  bool _obscurePassword = true;
+ // bool _obscurePassword = true;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
@@ -35,10 +35,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     final selectedIndex = ref.watch(userSelectProvider);
-    final isSelected = selectedIndex == 0;
+   // final isSelected = selectedIndex == 0;
     final haveAccount = ref.watch(alreadyHaveAccountProvider);
     final obscureText = ref.watch(obscureTextProvider);
-    final checkBox = ref.watch(checkBoxProvider);
+   // final checkBox = ref.watch(checkBoxProvider);
     final style = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: Colors.white,

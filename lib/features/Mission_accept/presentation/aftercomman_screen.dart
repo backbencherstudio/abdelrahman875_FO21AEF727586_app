@@ -31,7 +31,7 @@ class _AfterCommandState extends State<AfterCommand> {
               width: 132.w,
               height: 132.h,
               errorBuilder: (context, error, stackTrace) =>
-              const Icon(Icons.help_outline, size: 24),
+                  const Icon(Icons.help_outline, size: 24),
             ),
           ),
           SizedBox(height: 44.h),
@@ -58,8 +58,8 @@ class _AfterCommandState extends State<AfterCommand> {
                   _rating = rating;
                 });
               },
-              // showFeedbackForRatingsLessThan: 4,
 
+              // showFeedbackForRatingsLessThan: 4,
             ),
           ),
 
@@ -70,7 +70,7 @@ class _AfterCommandState extends State<AfterCommand> {
               containerColor: AppColors.blackColor,
               title: 'Suivant',
               onTap: () {
-                context.push(RouteName.mis_termineeScreen);
+                context.push(RouteName.misTermineeScreen);
               },
             ),
           ),

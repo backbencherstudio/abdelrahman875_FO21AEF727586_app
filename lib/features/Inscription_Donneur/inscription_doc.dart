@@ -19,9 +19,7 @@ class InscriptionDocTwo extends StatefulWidget {
 class _InscriptionDocState extends State<InscriptionDocTwo> {
   @override
   Widget build(BuildContext context) {
-    final style = Theme
-        .of(context)
-        .textTheme;
+    final style = Theme.of(context).textTheme;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -32,7 +30,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       context.pop();
                     },
                     child: Container(
@@ -42,22 +40,23 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                       ),
                       child: Padding(
                         padding: EdgeInsets.all(8.r),
-                        child: Image.asset(AppIcons.whiteArrowBackPng,width: 24.w,height: 24,),
-                      )
+                        child: Image.asset(
+                          AppIcons.whiteArrowBackPng,
+                          width: 24.w,
+                          height: 24,
+                        ),
+                      ),
                     ),
                   ),
                   Expanded(
                     child: Text(
                       'Téléversez les\ndocuments',
                       textAlign: TextAlign.center,
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .headlineSmall
+                      style: Theme.of(context).textTheme.headlineSmall
                           ?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.sp,
-                      ),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.sp,
+                          ),
                       semanticsLabel: 'Téléversez les documents',
                     ),
                   ),
@@ -70,13 +69,9 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Text(
                 'Sélectionner vos documents pour renforcer la sécurité et améliorer votre expérience.',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(
-                  color: Colors.black54,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium?.copyWith(color: Colors.black54),
               ),
             ),
             SizedBox(height: 16.h),
@@ -96,7 +91,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Format: PDF, JPG, PNG',
                         ],
                         onFileUpload: () {
-                          print('Uploading KBIS file');
+                         // print('Uploading KBIS file');
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -110,7 +105,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Format: PDF, JPG, PNG',
                         ],
                         onFileUpload: () {
-                          print('Uploading RIB file');
+                          //print('Uploading RIB file');
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -124,7 +119,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Format: PDF, JPG, PNG',
                         ],
                         onFileUpload: () {
-                          print('Uploading ID card');
+                         // print('Uploading ID card');
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -138,7 +133,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Format: PDF, JPG, PNG',
                         ],
                         onFileUpload: () {
-                          print('Uploading Urssaf attestation');
+                          //print('Uploading Urssaf attestation');
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -152,7 +147,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Format: PDF, JPG, PNG',
                         ],
                         onFileUpload: () {
-                          print('Uploading transport license');
+                         // print('Uploading transport license');
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -166,7 +161,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Format: PDF, JPG, PNG',
                         ],
                         onFileUpload: () {
-                          print('Uploading SEPA mandate');
+                         // print('Uploading SEPA mandate');
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -179,7 +174,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Format: PDF, JPG, PNG',
                         ],
                         onFileUpload: () {
-                          print('Uploading SEPA mandate');
+                         // print('Uploading SEPA mandate');
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -192,7 +187,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                           'Format: PDF, JPG, PNG',
                         ],
                         onFileUpload: () {
-                          print('Uploading SEPA mandate');
+                         // print('Uploading SEPA mandate');
                         },
                       ),
                       SizedBox(height: 8.h),
@@ -226,21 +221,21 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
     );
   }
 
-  Widget _buildDropdownRow(BuildContext context, {
+  Widget _buildDropdownRow(
+    BuildContext context, {
     required String title,
     required String subtitle,
     required List<String> items,
     required VoidCallback onFileUpload,
   }) {
-    final style = Theme
-        .of(context)
-        .textTheme;
+    final style = Theme.of(context).textTheme;
     return Consumer(
       builder: (context, ref, child) {
         // Watch dropdown state
         final isOpen = ref.watch(
-          dropdownStateProvider.select((state) =>
-          state.isOpenMap[title] ?? false),
+          dropdownStateProvider.select(
+            (state) => state.isOpenMap[title] ?? false,
+          ),
         );
 
         return Padding(
@@ -259,7 +254,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                       width: 32.w,
                       height: 32.h,
                       errorBuilder: (context, error, stackTrace) =>
-                      const Icon(Icons.help_outline, size: 32),
+                          const Icon(Icons.help_outline, size: 32),
                     ),
                     SizedBox(width: 10.w),
                     Expanded(
@@ -296,7 +291,7 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                     subtitle,
                     style: style.bodyMedium?.copyWith(
                       fontSize: 14.sp,
-                      color: AppColors.box_Color,
+                      color: AppColors.boxColor1,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -310,8 +305,11 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.cloud_upload,
-                          size: 50, color: Colors.blue),
+                      const Icon(
+                        Icons.cloud_upload,
+                        size: 50,
+                        color: Colors.blue,
+                      ),
                       SizedBox(height: 6.h),
 
                       // Subtitle moved inside dropdown as Title
@@ -326,18 +324,20 @@ class _InscriptionDocState extends State<InscriptionDocTwo> {
                       SizedBox(height: 6.h),
 
                       // Other texts
-                      ...items.skip(1).map(
-                            (e) =>
-                            Padding(
+                      ...items
+                          .skip(1)
+                          .map(
+                            (e) => Padding(
                               padding: EdgeInsets.symmetric(vertical: 3.h),
                               child: Text(
                                 e,
-                                style:
-                                style.bodyMedium?.copyWith(fontSize: 14.sp),
+                                style: style.bodyMedium?.copyWith(
+                                  fontSize: 14.sp,
+                                ),
                                 textAlign: TextAlign.start,
                               ),
                             ),
-                      ),
+                          ),
                       SizedBox(height: 14.h),
 
                       // Button

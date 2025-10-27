@@ -88,7 +88,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             'Format: PDF, JPG, PNG',
                           ],
                           onFileUpload: () {
-                            print('Uploading KBIS file');
+                           // print('Uploading KBIS file');
                           },
                         ),
                         SizedBox(height: 8.h),
@@ -102,7 +102,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             'Format: PDF, JPG, PNG',
                           ],
                           onFileUpload: () {
-                            print('Uploading RIB file');
+                           // print('Uploading RIB file');
                           },
                         ),
                         SizedBox(height: 8.h),
@@ -116,7 +116,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             'Format: PDF, JPG, PNG',
                           ],
                           onFileUpload: () {
-                            print('Uploading ID card');
+                            //print('Uploading ID card');
                           },
                         ),
                         SizedBox(height: 8.h),
@@ -130,7 +130,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             'Format: PDF, JPG, PNG',
                           ],
                           onFileUpload: () {
-                            print('Uploading Urssaf attestation');
+                            //print('Uploading Urssaf attestation');
                           },
                         ),
                         SizedBox(height: 8.h),
@@ -144,7 +144,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             'Format: PDF, JPG, PNG',
                           ],
                           onFileUpload: () {
-                            print('Uploading transport license');
+                           // print('Uploading transport license');
                           },
                         ),
                         SizedBox(height: 8.h),
@@ -158,7 +158,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             'Format: PDF, JPG, PNG',
                           ],
                           onFileUpload: () {
-                            print('Uploading SEPA mandate');
+                            //print('Uploading SEPA mandate');
                           },
                         ),
                         SizedBox(height: 8.h),
@@ -259,7 +259,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDoc> {
                             style: Theme.of(context).textTheme.titleMedium
                                 ?.copyWith(
                                   fontSize: 16.sp,
-                                  color: AppColors.box_Color,
+                                  color: AppColors.boxColor1,
                                 ),
                           ),
                         ),

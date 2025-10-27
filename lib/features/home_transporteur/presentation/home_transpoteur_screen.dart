@@ -3,7 +3,6 @@ import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/
 import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/custom_progress_container.dart';
 import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/custom_title_header.dart';
 import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/header_section.dart';
-import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/image_box_section.dart';
 import 'package:abdelrahman875_fo21aef727586/features/home_transporteur/presentation/widgets/transporteur_grid_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
