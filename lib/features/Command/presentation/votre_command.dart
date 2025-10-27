@@ -7,14 +7,14 @@ import '../../../core/constants/images.dart';
 import '../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../widgets/primery_button.dart';
 
-class votreCommand extends StatefulWidget {
-  const votreCommand({super.key});
+class VotreCommand extends StatefulWidget {
+  const VotreCommand({super.key});
 
   @override
-  State<votreCommand> createState() => _votreCommandState();
+  State<VotreCommand> createState() => _VotreCommandState();
 }
 
-class _votreCommandState extends State<votreCommand> {
+class _VotreCommandState extends State<VotreCommand> {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -45,8 +45,6 @@ class _votreCommandState extends State<votreCommand> {
 
           SizedBox(height: 40.h),
 
-
-
           // Subtitle
           Text(
             "Nous recherchons le meilleur \n transporteur pour vous.",
@@ -64,7 +62,6 @@ class _votreCommandState extends State<votreCommand> {
           ),
           SizedBox(height: 85.h),
 
-
           PrimaryButton(
             title: 'Accueil',
             width: 240.w,
@@ -78,7 +75,7 @@ class _votreCommandState extends State<votreCommand> {
               context.push(RouteName.missionScreen);
             },
           ),
-          Spacer()
+          Spacer(),
         ],
       ),
     );

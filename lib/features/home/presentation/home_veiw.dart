@@ -7,9 +7,6 @@ import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/
 import 'package:abdelrahman875_fo21aef727586/features/home/presentation/widgets/image_box_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../../../core/constants/icons.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

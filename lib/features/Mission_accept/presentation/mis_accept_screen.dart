@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/constants/images.dart';
 import '../../widgets/primery_button.dart';
 
-class missionScreen_One extends StatelessWidget {
-  const missionScreen_One({super.key});
+class MissionScreenOne extends StatelessWidget {
+  const MissionScreenOne({super.key});
 
   @override
   Widget build(BuildContext context) {

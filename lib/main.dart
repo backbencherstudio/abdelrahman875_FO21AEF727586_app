@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double width = size.width;
-    double height = size.height;
+   // double height = size.height;
     return ScreenUtilInit(
       designSize: width >600?Size(800,1280) : Size( 390, 840),
       minTextAdapt: true,

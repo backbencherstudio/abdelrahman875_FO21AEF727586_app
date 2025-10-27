@@ -10,12 +10,12 @@ class IconButtonContainer extends StatelessWidget {
   final VoidCallback? onTap;
 
   const IconButtonContainer({
-    Key? key,
+    super.key,
     required this.iconPath,
     required this.label,
     // this.width = 160,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

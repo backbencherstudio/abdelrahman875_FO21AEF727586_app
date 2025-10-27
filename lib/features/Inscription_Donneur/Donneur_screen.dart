@@ -1,5 +1,6 @@
-import 'dart:developer';
+// ignore_for_file: file_names
 
+import 'dart:developer';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/core/utils/utils.dart';
 import 'package:flutter/material.dart';

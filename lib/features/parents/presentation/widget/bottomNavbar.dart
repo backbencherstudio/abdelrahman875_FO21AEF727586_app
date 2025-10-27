@@ -4,7 +4,7 @@
 
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/parents_screen_provider.dart';
-import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/widget/customNavbarItem.dart';
+import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/widget/custom_navbarItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

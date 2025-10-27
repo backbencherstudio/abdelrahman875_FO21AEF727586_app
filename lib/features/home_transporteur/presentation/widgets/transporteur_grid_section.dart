@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../../core/constants/icons.dart';
 import '../../../../core/theme/src/theme_extension/color_pallete.dart';
 

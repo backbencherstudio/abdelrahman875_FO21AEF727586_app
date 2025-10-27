@@ -5,8 +5,8 @@ import '../../../core/constants/images.dart';
 import '../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../widgets/primery_button.dart';
 
-class mis_termineeScreen extends StatelessWidget {
-  const mis_termineeScreen({super.key});
+class MisTermineeScreen extends StatelessWidget {
+  const MisTermineeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class mis_termineeScreen extends StatelessWidget {
               width: 132.w,
               height: 132.h,
               errorBuilder: (context, error, stackTrace) =>
-              const Icon(Icons.help_outline, size: 24),
+                  const Icon(Icons.help_outline, size: 24),
             ),
           ),
           SizedBox(height: 16.h),
@@ -46,7 +46,7 @@ class mis_termineeScreen extends StatelessWidget {
           ),
           SizedBox(height: 102.h),
           PrimaryButton(
-            width:239.w,
+            width: 239.w,
             padding: EdgeInsets.symmetric(vertical: 16.h),
             containerColor: AppColors.blackColor,
             title: 'Télécharger la facture',
@@ -64,7 +64,6 @@ class mis_termineeScreen extends StatelessWidget {
             textStyle: style.bodyLarge?.copyWith(
               color: AppColors.blackText,
               fontWeight: FontWeight.w600,
-
             ),
             title: 'Accueil',
             onTap: () {

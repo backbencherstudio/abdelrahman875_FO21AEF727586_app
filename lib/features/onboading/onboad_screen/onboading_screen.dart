@@ -1,12 +1,10 @@
-import 'package:abdelrahman875_fo21aef727586/core/constants/images.dart';
+
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/onboading/riverpod/onboad_riverpod.dart';
 import 'package:abdelrahman875_fo21aef727586/features/onboading/onboad_screen/widgets/onboading_conent.dart';
-import 'package:abdelrahman875_fo21aef727586/features/widgets/common_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../core/utils/utils.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
@@ -32,7 +30,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final style = Theme.of(context).textTheme;
+   // final style = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(

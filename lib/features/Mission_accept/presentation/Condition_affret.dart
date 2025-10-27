@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,8 +10,8 @@ import '../../../core/routes/route_name.dart';
 import '../../creer_une_commande_fret/presentaion/widgets/input_label.dart';
 import '../../widgets/primery_button.dart';
 
-class conditionScreen extends StatelessWidget {
-  const conditionScreen({super.key});
+class ConditionScreen extends StatelessWidget {
+  const ConditionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

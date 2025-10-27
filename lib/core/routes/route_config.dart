@@ -11,10 +11,10 @@ import '../../features/Command/presentation/command_vaid_screen.dart';
 import '../../features/Command/presentation/votre_command.dart';
 import '../../features/auth/reset_password/presentation/forgot_password_screen.dart';
 import '../../features/auth/signin/presentation/sign_in_screen.dart';
-import '../../features/Mission_accept/presentation/Condition_affret.dart';
-import '../../features/Mission_accept/presentation/after_preuveScreen.dart';
-import '../../features/Mission_accept/presentation/aftercommanScreen.dart';
-import '../../features/Mission_accept/presentation/mis_acceptScreen.dart';
+import '../../features/Mission_accept/presentation/condition_affret.dart';
+import '../../features/Mission_accept/presentation/after_preuve_screen.dart';
+import '../../features/Mission_accept/presentation/aftercomman_screen.dart';
+import '../../features/Mission_accept/presentation/mis_accept_screen.dart';
 import '../../features/Mission_accept/presentation/mis_termin.dart';
 import '../../features/Mission_accept/presentation/mission_accept_screen.dart';
 import '../../features/Mission_accept/presentation/preuve_screen.dart';
@@ -24,10 +24,10 @@ import '../../features/details_commande/presentation/details_commande_screen.dar
 import '../../features/home/presentation/home_veiw.dart';
 import '../../features/Inscription/inscription_transporteur.dart';
 
-import '../../features/Inscription/Transporteur_Vehicule.dart';
+import '../../features/Inscription/transporteur_vehicule.dart';
 import '../../features/Inscription/commande.dart';
 import '../../features/Inscription/inscription_doc.dart';
-import '../../features/Inscription_Donneur/Donneur_screen.dart';
+import '../../features/Inscription_Donneur/donneur_screen.dart';
 import '../../features/Inscription_Donneur/inscription_doc.dart';
 import '../../features/home_transporteur/presentation/home_transpoteur_screen.dart';
 import '../../features/home_transporteur/presentation/transporteur_missions.dart';
@@ -39,11 +39,8 @@ import '../../features/splash/presentation/splash_screen.dart';
 import '../../features/track_home_demandes/presentation/track_home_demandes_screen.dart';
 
 class RouteConfig {
-static  GoRouter goRouter = GoRouter(
-
-
+  static GoRouter goRouter = GoRouter(
     initialLocation: RouteName.splashScreen,
-
 
     routes: [
       GoRoute(
@@ -64,7 +61,7 @@ static  GoRouter goRouter = GoRouter(
         name: RouteName.votreCommand,
         path: RouteName.votreCommand,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: votreCommand());
+          return const MaterialPage(child: VotreCommand());
         },
       ),
       GoRoute(
@@ -78,21 +75,21 @@ static  GoRouter goRouter = GoRouter(
         name: RouteName.afterScreen,
         path: RouteName.afterScreen,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: afterScreen());
+          return const MaterialPage(child: AfterScreen());
         },
       ),
       GoRoute(
-        name: RouteName.mis_termineeScreen,
-        path: RouteName.mis_termineeScreen,
+        name: RouteName.misTermineeScreen,
+        path: RouteName.misTermineeScreen,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: mis_termineeScreen());
+          return const MaterialPage(child: MisTermineeScreen());
         },
       ),
       GoRoute(
         name: RouteName.preuveScreen,
         path: RouteName.preuveScreen,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: preuveScreen());
+          return const MaterialPage(child: PreuveScreen());
         },
       ),
       GoRoute(
@@ -114,15 +111,15 @@ static  GoRouter goRouter = GoRouter(
         name: RouteName.conditionScreen,
         path: RouteName.conditionScreen,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: conditionScreen());
+          return const MaterialPage(child: ConditionScreen());
         },
       ),
 
       GoRoute(
-        name: RouteName.missionScreen_One,
-        path: RouteName.missionScreen_One,
+        name: RouteName.missionScreenOne,
+        path: RouteName.missionScreenOne,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: missionScreen_One());
+          return const MaterialPage(child: MissionScreenOne());
         },
       ),
 
@@ -135,10 +132,10 @@ static  GoRouter goRouter = GoRouter(
       ),
 
       GoRoute(
-        name: RouteName.mis_accepteScreen,
-        path: RouteName.mis_accepteScreen,
+        name: RouteName.misAccepteScreen,
+        path: RouteName.misAccepteScreen,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: mis_accepteScreen());
+          return const MaterialPage(child: MisAccepteScreen());
         },
       ),
       GoRoute(
@@ -229,7 +226,6 @@ static  GoRouter goRouter = GoRouter(
         },
       ),
 
-
       GoRoute(
         name: RouteName.homeView,
         path: RouteName.homeView,
@@ -253,7 +249,6 @@ static  GoRouter goRouter = GoRouter(
           return const MaterialPage(child: TransporteurMissionScreen());
         },
       ),
-     
 
       GoRoute(
         name: RouteName.parentsScreen,
@@ -292,7 +287,7 @@ static  GoRouter goRouter = GoRouter(
           );
         },
       ),
-       GoRoute(
+      GoRoute(
         name: RouteName.espacesScreen,
         path: RouteName.espacesScreen,
         pageBuilder: (context, state) {
@@ -304,7 +299,7 @@ static  GoRouter goRouter = GoRouter(
           );
         },
       ),
-       GoRoute(
+      GoRoute(
         name: RouteName.qrScannerScreen,
         path: RouteName.qrScannerScreen,
         pageBuilder: (context, state) {
@@ -316,8 +311,6 @@ static  GoRouter goRouter = GoRouter(
           );
         },
       ),
-     
-
     ],
   );
 }
