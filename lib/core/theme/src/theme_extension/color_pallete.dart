@@ -22,6 +22,7 @@ class AppColors {
   static const Color bodyTextColor = Color(0xFF777980);
   static const Color white = Color(0xFFFFFFFF);//#EFF1F4
   static const Color whiteTextColor = Color(0xFFEFF1F4);
+  static const Color containerColor1 = Color(0xFFD9F8FF);
 
   static const Color whiteColor = Color(0xFFFFFFFF);
 

@@ -35,6 +35,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     final selectedIndex = ref.watch(userSelectProvider);
+    final isSelected = selectedIndex == 0;
     final haveAccount = ref.watch(alreadyHaveAccountProvider);
     final obscureText = ref.watch(obscureTextProvider);
     final checkBox = ref.watch(checkBoxProvider);
@@ -96,40 +97,51 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   Divider(thickness: 1, color: AppColors.borderColor6),
                   if (haveAccount == 1) SizedBox(height: 20.h),
 
-                  haveAccount == 0
-                      ? Container()
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: PrimaryButton(
-                                title: 'Donneur d’ordre',
-                                // width: 162.w,
-                                containerColor: AppColors.blackColor,
-                                padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 8.h),
-                                textStyle: style.bodyLarge?.copyWith(
-                                  color: AppColors.whiteColor,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                onTap: () {},
-                              ),
-                            ),
-                            SizedBox(width: 10.w),
-                            Expanded(
-                              child: PrimaryButton(
-                                title: 'Transporteur',
-                                // width: 162.w,
-                                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-                                containerColor: AppColors.whiteColor,
-                                textStyle: style.bodyLarge?.copyWith(
-                                  color: AppColors.blackColor,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                onTap: () {},
-                              ),
-                            ),
-                          ],
+                  if (haveAccount == 1) Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: PrimaryButton(
+                          title: 'Donneur d’ordre',
+                          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                          containerColor: selectedIndex == 0
+                              ? AppColors.blackColor
+                              : AppColors.whiteColor,
+                          textStyle: style.bodyLarge?.copyWith(
+                            color: selectedIndex == 0
+                                ? AppColors.whiteColor
+                                : AppColors.blackColor,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          onTap: () {
+                            // Select this one and deselect the other
+                            ref.read(userSelectProvider.notifier).state =
+                            selectedIndex == 0 ? null : 0;
+                          },
                         ),
+                      ),
+                      SizedBox(width: 10.w),
+                      Expanded(
+                        child: PrimaryButton(
+                          title: 'Transporteur',
+                          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                          containerColor: selectedIndex == 1
+                              ? AppColors.blackColor
+                              : AppColors.whiteColor,
+                          textStyle: style.bodyLarge?.copyWith(
+                            color: selectedIndex == 1
+                                ? AppColors.whiteColor
+                                : AppColors.blackColor,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          onTap: () {
+                            ref.read(userSelectProvider.notifier).state =
+                            selectedIndex == 1 ? null : 1;
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                   SizedBox(height: 20.h),
                   // Email Field
                   InputLabel(title: 'Email '),
@@ -264,8 +276,14 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       SizedBox(width: 4.w),
                       GestureDetector(
                         onTap: () {
-                          ref.read(alreadyHaveAccountProvider.notifier).state =
-                              0;
+                          if (haveAccount == 0) {
+                            // User is on Sign Up screen → go to Sign In
+                            ref.read(alreadyHaveAccountProvider.notifier).state = 1;
+                          } else {
+                            // User is on Sign In screen → go to Sign Up
+                            ref.read(alreadyHaveAccountProvider.notifier).state = 0;
+                          }
+
                           context.push(RouteName.espacesScreen);
                         },
                         child: Text(
@@ -278,6 +296,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                           ),
                         ),
                       ),
+
                     ],
                   ),
 

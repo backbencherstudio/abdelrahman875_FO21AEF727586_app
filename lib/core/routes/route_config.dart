@@ -42,7 +42,7 @@ class RouteConfig {
 static  GoRouter goRouter = GoRouter(
 
 
-    initialLocation: RouteName.verifyOtpScreen,
+    initialLocation: RouteName.splashScreen,
 
 
     routes: [
