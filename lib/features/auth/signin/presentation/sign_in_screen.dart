@@ -59,8 +59,8 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                         context.pop();
                       }
                     },
-                    child: SvgPicture.asset(
-                      AppIcons.arrowBackSvg,
+                    child: Image.asset(
+                      AppIcons.arrowBackPng,
                       height: Utils.isTablet(context) ? 30.h : 24.h,
                       width: Utils.isTablet(context) ? 30.w : 24.w,
                     ),
@@ -144,6 +144,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   ),
                   SizedBox(height: 20.h),
                   // Email Field
+
                   InputLabel(title: 'Email '),
                   SizedBox(height: 8.h),
                   TextFormField(
@@ -226,11 +227,12 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     containerColor: AppColors.boxColor,
                     title: haveAccount == 0 ? 'S’inscrire' : 'Se connecter',
                     onTap: () {
-                       if (selectedIndex == 0) {
-                          context.push(RouteName.donneur);
-                        } else {
-                          context.push(RouteName.inscriptionScreen);
-                        }
+                      if (selectedIndex == 0) {
+                        context.push(RouteName.donneur);
+                      } else {
+                        context.push(RouteName.inscriptionScreen);
+                      }
+
                       if (formKey.currentState!.validate()) {
                         log(emailController.text);
                         log(passwordController.text);

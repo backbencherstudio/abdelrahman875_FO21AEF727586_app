@@ -7,6 +7,7 @@ import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/pr
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../widgets/primery_button.dart';
 import '../riverpod/selected_index_provider.dart';
@@ -33,28 +34,46 @@ class _CreerUneCommandeScreenState extends State<CreerUneCommandeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.r),
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.pop(context);
-                  },
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: AppColors.blackText,
-                    size: 24.r,
+              SizedBox(height: 12.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Row(
+                      children: [
+                        Image.asset(AppIcons.arrowBackPng, width: 24.w,),
+                        SizedBox(width: 2.w,),
+                        Text('Retour',style: style.bodyLarge?.copyWith(
+                          color: AppColors.containerColor7,
+                          fontWeight: FontWeight.w600,
+                        ),)
+                      ],
+                    ),
                   ),
-                ),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Text('Annuler',style: style.bodyLarge?.copyWith(
+                      color: AppColors.containerColor7,
+                      fontWeight: FontWeight.w600,
+                    ),),
+                  )
+                ],
               ),
 
-              SizedBox(height: 32.h),
+
+              SizedBox(height: 24.h),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Créer une commande',
+                        'Programmer une livraison',
                         style: style.headlineSmall?.copyWith(
                           color: AppColors.blackText,
                           fontWeight: FontWeight.w600,
@@ -104,7 +123,7 @@ class _CreerUneCommandeScreenState extends State<CreerUneCommandeScreen> {
                               ),
                               SizedBox(width: 100.w),
                               CustomCircularContainer(
-                                title: 'Express',
+                                title: 'Express +30%',
                                 image: Image.asset(
                                   AppIcons.carShipPng,
                                   height: 50,

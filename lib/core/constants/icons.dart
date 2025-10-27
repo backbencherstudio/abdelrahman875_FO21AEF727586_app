@@ -35,7 +35,7 @@ class AppIcons{
   static const String mastercardPng = "$iconPath/mastercard.png";
   static const String plusIconPng = "$iconPath/PlusIcon.png";
   static const String plusIconSvg = "$iconPath/Plus.svg";
-  static const String arrowBackSvg = "$iconPath/arrow_back.svg";
+  static const String arrowBackPng = "$iconPath/arrow_png.png";
   static const String carSvg = "$iconPath/carIcon.svg";
   static const String francePng = "$iconPath/france.png";
   static const String whiteArrowBackPng = "$iconPath/whiteArrowBack.png";
@@ -56,5 +56,6 @@ class AppIcons{
   static const String transporteuresPng = "$iconPath/transporteures.png";
   static const String routePng = "$iconPath/route.png";
   static const String splashCar = "$iconPath/splashCar.svg";
+  static const String coolBoxPng = "$iconPath/path4765.png";
 
 }
