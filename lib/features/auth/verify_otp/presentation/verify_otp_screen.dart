@@ -43,8 +43,8 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                       context.pop();
                     }
                   },
-                  child: SvgPicture.asset(
-                    AppIcons.arrowBackSvg,
+                  child: Image.asset(
+                    AppIcons.arrowBackPng,
                     height: Utils.isTablet(context) ? 30.h : 24.h,
                     width: Utils.isTablet(context) ? 30.w : 24.w,
                   ),
