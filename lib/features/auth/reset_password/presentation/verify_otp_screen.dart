@@ -1,40 +1,34 @@
 import 'dart:developer';
 
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../../core/constants/icons.dart';
 import '../../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../../../core/utils/utils.dart';
-import '../../../creer_une_commande_fret/presentaion/widgets/input_label.dart';
 import '../../../widgets/primery_button.dart';
 
-class ForgotPasswordScreen extends StatefulWidget {
-  const ForgotPasswordScreen({super.key});
+class VerifyOtpScreen extends StatefulWidget {
+  const VerifyOtpScreen({super.key});
 
   @override
-  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
+  State<VerifyOtpScreen> createState() => _VerifyOtpScreenState();
 }
 
-class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  final TextEditingController _emailController = TextEditingController();
+class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
   final _formKey = GlobalKey<FormState>();
-
-  @override
-  void dispose() {
-    super.dispose();
-    _emailController.dispose();
-  }
+  final TextEditingController _otpTEController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
+
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -43,11 +37,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // SizedBox(height: 20.h),
                 GestureDetector(
                   onTap: () {
                     if (context.canPop()) {
-                      // ref.read(alreadyHaveAccountProvider.notifier).state = 0;
                       context.pop();
                     }
                   },
@@ -76,7 +68,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       ),
                       SizedBox(height: 10.h),
                       Text(
-                        'Réinitialiser le mot de passe',
+                        'Vérification',
                         style: style.headlineSmall?.copyWith(
                           color: AppColors.blackColor,
                           fontWeight: FontWeight.w500,
@@ -89,79 +81,87 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 Divider(thickness: 1, color: AppColors.borderColor6),
                 SizedBox(height: 20.h),
 
-                Text(
-                  "Entrez l’e-mail associé à votre compte et nous vous enverrons un e-mail avec des instructions pour réinitialiser votre mot de passe.",
-                  style: style.bodyMedium?.copyWith(
-                    color: AppColors.boxColor2,
-                    fontWeight: FontWeight.w400,
+                Center(
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    "Nous vous avons envoyé un code à\nrandom3321@gmail.com",
+                    style: style.bodyMedium?.copyWith(
+                      color: AppColors.blackColor,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
                 SizedBox(height: 20.h),
 
-                InputLabel(title: 'Email '),
-                SizedBox(height: 8.h),
-                TextFormField(
-                  controller: _emailController,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(hintText: 'randome123@gmail.com'),
+                PinCodeTextField(
+                  appContext: context,
+                  controller: _otpTEController,
+                  length: 6,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  animationType: AnimationType.slide,
+                  backgroundColor: AppColors.whiteColor,
+                  enableActiveFill: true,
+                  showCursor: false,
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Veuillez entrer une adresse e-mail';
-                    } else if (!EmailValidator.validate(value)) {
-                      return 'Adresse e-mail incorrect';
+                    if (value == null || value.length < 6) {
+                      return 'Veuillez entrer un code à 6 chiffres';
                     }
                     return null;
                   },
-                ),
+                  pinTheme: PinTheme(
+                    activeColor: AppColors.greenText,
+                    selectedFillColor: AppColors.whiteColor,
 
+                    inactiveColor: AppColors.grayText,
+                    inactiveFillColor: Colors.white,
+                    errorBorderColor: Colors.red,
+                    shape: PinCodeFieldShape.box,
+                    borderRadius: BorderRadius.circular(5),
+                    fieldHeight: 50,
+                    fieldWidth: 40,
+                    activeFillColor: AppColors.whiteColor,
+                  ),
+                  animationDuration: const Duration(milliseconds: 300),
+                  onCompleted: (v) {
+                    if (_formKey.currentState!.validate()) {
+                      debugPrint("OTP: $v");
+                    }
+                  },
+                ),
                 SizedBox(height: 20.h),
 
                 PrimaryButton(
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 16.h),
                   containerColor: AppColors.boxColor,
-                  title: 'Envoyer',
+                  title: 'Vérifier',
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
-                      log(_emailController.text);
-                      context.push(RouteName.verifyOtpScreen);
+                      log(_otpTEController.text);
+                      context.push(RouteName.newPasswordScreen);
                     }
                   },
                 ),
                 SizedBox(height: 20.h),
 
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Text(
-                    'Vous connaissez votre mot de passe ?',
-                    style: style.bodyMedium?.copyWith(
-                      color: AppColors.boxColor2,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-
-                SizedBox(height: 8.h),
-
-                Align(
-                  alignment: Alignment.topRight,
-                  child: GestureDetector(
-                    onTap: () {
-                      context.pop();
-                    },
-                    child: Text(
-                      'Se connecter',
-                      style: style.bodyMedium?.copyWith(
-                        color: AppColors.blackColor,
+                Center(
+                  child: Column(
+                    children: [
+                      Text('Vous n’avez rien reçu ?',style: style.bodyMedium?.copyWith(
+                        color: AppColors.boxColor2,
                         fontWeight: FontWeight.w400,
-                      ),
-                    ),
+                      ),),
+                      GestureDetector(
+                        onTap: (){},
+                        child: Text('Renvoyer le code',style: style.bodyMedium?.copyWith(
+                          color: AppColors.blackColor,
+                          fontWeight: FontWeight.w400,
+                        ),),
+                      )
+                    ],
                   ),
-                ),
-
-                SizedBox(height: 20.h),
+                )
               ],
             ),
           ),

@@ -35,5 +35,6 @@ class RouteName {
   static const String homeTransporteur = '/HomeTransporteur';
   static const String transporteurMissionScreen = '/TransporteurMissionScreen';
   static const String forgotPasswordScreen = '/ForgotPasswordScreen';
+  static const String newPasswordScreen = '/NewPasswordScreen';
   static const String verifyOtpScreen = '/VerifyOtpScreen';
 }

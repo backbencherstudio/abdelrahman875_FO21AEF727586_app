@@ -10,6 +10,7 @@ import '../../features/Command/presentation/command_5.dart';
 import '../../features/Command/presentation/command_vaid_screen.dart';
 import '../../features/Command/presentation/votre_command.dart';
 import '../../features/auth/reset_password/presentation/forgot_password_screen.dart';
+import '../../features/auth/reset_password/presentation/new_password_screen.dart';
 import '../../features/auth/signin/presentation/sign_in_screen.dart';
 import '../../features/Mission_accept/presentation/condition_affret.dart';
 import '../../features/Mission_accept/presentation/after_preuve_screen.dart';
@@ -18,7 +19,7 @@ import '../../features/Mission_accept/presentation/mis_accept_screen.dart';
 import '../../features/Mission_accept/presentation/mis_termin.dart';
 import '../../features/Mission_accept/presentation/mission_accept_screen.dart';
 import '../../features/Mission_accept/presentation/preuve_screen.dart';
-import '../../features/auth/verify_otp/presentation/verify_otp_screen.dart';
+import '../../features/auth/reset_password/presentation/verify_otp_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
 import '../../features/home/presentation/home_veiw.dart';
@@ -262,6 +263,7 @@ class RouteConfig {
           );
         },
       ),
+
       GoRoute(
         name: RouteName.verifyOtpScreen,
         path: RouteName.verifyOtpScreen,
@@ -274,7 +276,18 @@ class RouteConfig {
           );
         },
       ),
-
+      GoRoute(
+        name: RouteName.newPasswordScreen,
+        path: RouteName.newPasswordScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: NewPasswordScreen(),
+          );
+        },
+      ),
       GoRoute(
         name: RouteName.missionScreen,
         path: RouteName.missionScreen,
