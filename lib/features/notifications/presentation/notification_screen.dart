@@ -17,11 +17,16 @@ class NotificationScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20.h),
-                Icon(
-                  Icons.arrow_back_rounded,
-                  color: AppColors.blackText,
-                  size: 24.h,
+                // SizedBox(height: 20.h),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.arrow_back_rounded,
+                    color: AppColors.blackText,
+                    size: 24.h,
+                  ),
                 ),
                 SizedBox(height: 10.h),
                 Text(
@@ -43,18 +48,6 @@ class NotificationScreen extends StatelessWidget {
                 ),
             
                 SizedBox(height: 10.h),
-            
-                CustomNotificationCard(
-                  timeAgo: 'Il y a 5h',
-                  title: 'Créez votre compte Stripe pour recevoir les paiements',
-                  cardColor: AppColors.containerColor16,
-                  showButton: true,
-                  buttonText: 'Continuer',
-                  onButtonTap: () {
-                    print('Button pressed!');
-                  },
-                ),
-            
                 ...List.generate(10, (index){
                   return CustomNotificationCard(
                     timeAgo: 'Il y a 5h',

@@ -23,6 +23,7 @@ import '../../features/Mission_accept/presentation/preuve_screen.dart';
 import '../../features/auth/reset_password/presentation/verify_otp_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
+import '../../features/documents/presentation/document_screen.dart';
 import '../../features/home/presentation/home_veiw.dart';
 import '../../features/Inscription/inscription_transporteur.dart';
 
@@ -42,7 +43,7 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 
 class RouteConfig {
   static GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.notificationScreen,
+    initialLocation: RouteName.parentsScreen,
 
     routes: [
       GoRoute(
@@ -334,6 +335,19 @@ class RouteConfig {
             context: context,
             state: state,
             child: NotificationScreen(),
+          );
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.documentScreen,
+        path: RouteName.documentScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: DocumentScreen(),
           );
         },
       ),

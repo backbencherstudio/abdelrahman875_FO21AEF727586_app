@@ -27,4 +27,6 @@ class AppImages {
   static const String path245 = "$base/path245.png";
   static const String loader = "$base/loader.png";
   static const String timer = "$base/path421.png";
+  static const String docsPng = "$base/docs.png";
+  static const String mapPinPng = "$base/map_pin.png";
 }
