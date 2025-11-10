@@ -1,6 +1,7 @@
 import 'package:abdelrahman875_fo21aef727586/core/routes/build_page_with_transition.dart';
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/features/espaces/espaces_screen.dart';
+import 'package:abdelrahman875_fo21aef727586/features/notifications/presentation/notification_screen.dart';
 import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/parents_screen.dart';
 import 'package:abdelrahman875_fo21aef727586/features/qr_code/qr_code_scaner_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import '../../features/Command/presentation/command_5.dart';
 import '../../features/Command/presentation/command_vaid_screen.dart';
 import '../../features/Command/presentation/votre_command.dart';
 import '../../features/auth/reset_password/presentation/forgot_password_screen.dart';
+import '../../features/auth/reset_password/presentation/new_password_screen.dart';
 import '../../features/auth/signin/presentation/sign_in_screen.dart';
 import '../../features/Mission_accept/presentation/condition_affret.dart';
 import '../../features/Mission_accept/presentation/after_preuve_screen.dart';
@@ -18,7 +20,7 @@ import '../../features/Mission_accept/presentation/mis_accept_screen.dart';
 import '../../features/Mission_accept/presentation/mis_termin.dart';
 import '../../features/Mission_accept/presentation/mission_accept_screen.dart';
 import '../../features/Mission_accept/presentation/preuve_screen.dart';
-import '../../features/auth/verify_otp/presentation/verify_otp_screen.dart';
+import '../../features/auth/reset_password/presentation/verify_otp_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
 import '../../features/home/presentation/home_veiw.dart';
@@ -40,7 +42,7 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 
 class RouteConfig {
   static GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.notificationScreen,
 
     routes: [
       GoRoute(
@@ -262,6 +264,7 @@ class RouteConfig {
           );
         },
       ),
+
       GoRoute(
         name: RouteName.verifyOtpScreen,
         path: RouteName.verifyOtpScreen,
@@ -274,7 +277,18 @@ class RouteConfig {
           );
         },
       ),
-
+      GoRoute(
+        name: RouteName.newPasswordScreen,
+        path: RouteName.newPasswordScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: NewPasswordScreen(),
+          );
+        },
+      ),
       GoRoute(
         name: RouteName.missionScreen,
         path: RouteName.missionScreen,
@@ -308,6 +322,18 @@ class RouteConfig {
             context: context,
             state: state,
             child: QrScannerScreen(),
+          );
+        },
+      ),
+      GoRoute(
+        name: RouteName.notificationScreen,
+        path: RouteName.notificationScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: NotificationScreen(),
           );
         },
       ),

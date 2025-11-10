@@ -1,34 +1,39 @@
 import 'dart:developer';
-
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-
 import '../../../../core/constants/icons.dart';
 import '../../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../../../core/utils/utils.dart';
 import '../../../widgets/primery_button.dart';
 
-class VerifyOtpScreen extends StatefulWidget {
-  const VerifyOtpScreen({super.key});
+class NewPasswordScreen extends StatefulWidget {
+  const NewPasswordScreen({super.key});
 
   @override
-  State<VerifyOtpScreen> createState() => _VerifyOtpScreenState();
+  State<NewPasswordScreen> createState() => _NewPasswordScreenState();
 }
 
-class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
+class _NewPasswordScreenState extends State<NewPasswordScreen> {
+  final TextEditingController _newPasswordTEController =
+      TextEditingController();
+  final TextEditingController _confirmPasswordTEController =
+      TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _otpTEController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _newPasswordTEController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
-
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -37,9 +42,11 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // SizedBox(height: 20.h),
                 GestureDetector(
                   onTap: () {
                     if (context.canPop()) {
+                      // ref.read(alreadyHaveAccountProvider.notifier).state = 0;
                       context.pop();
                     }
                   },
@@ -68,7 +75,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                       ),
                       SizedBox(height: 10.h),
                       Text(
-                        'Vérification',
+                        'Créer un nouveau mot de passe',
                         style: style.headlineSmall?.copyWith(
                           color: AppColors.blackColor,
                           fontWeight: FontWeight.w500,
@@ -81,87 +88,65 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                 Divider(thickness: 1, color: AppColors.borderColor6),
                 SizedBox(height: 20.h),
 
-                Center(
-                  child: Text(
-                    textAlign: TextAlign.center,
-                    "Nous vous avons envoyé un code à\nrandom3321@gmail.com",
-                    style: style.bodyMedium?.copyWith(
-                      color: AppColors.blackColor,
-                      fontWeight: FontWeight.w400,
-                    ),
+                Text(
+                  "Entrez un nouveau mot de passe et essayez de ne pas l'oublier.",
+                  style: style.bodyMedium?.copyWith(
+                    color: AppColors.boxColor2,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
                 SizedBox(height: 20.h),
 
-                PinCodeTextField(
-                  appContext: context,
-                  controller: _otpTEController,
-                  length: 6,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  animationType: AnimationType.slide,
-                  backgroundColor: AppColors.whiteColor,
-                  enableActiveFill: true,
-                  showCursor: false,
+                TextFormField(
+                  controller: _newPasswordTEController,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  obscureText: true,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(hintText: 'Nouveau mot de passe'),
                   validator: (value) {
-                    if (value == null || value.length < 6) {
-                      return 'Veuillez entrer un code à 6 chiffres';
+                    if (value == null || value.isEmpty) {
+                      return 'Veuillez entrer un mot de passe';
+                    } else if (value.length < 6) {
+                      return 'Le mot de passe doit contenir au moins 6 caractères';
                     }
                     return null;
                   },
-                  pinTheme: PinTheme(
-                    activeColor: AppColors.greenText,
-                    selectedFillColor: AppColors.whiteColor,
-
-                    inactiveColor: AppColors.grayText,
-                    inactiveFillColor: Colors.white,
-                    errorBorderColor: Colors.red,
-                    shape: PinCodeFieldShape.box,
-                    borderRadius: BorderRadius.circular(5),
-                    fieldHeight: 50,
-                    fieldWidth: 40,
-                    activeFillColor: AppColors.whiteColor,
+                ),
+                SizedBox(height: 8.h),
+                TextFormField(
+                  controller: _confirmPasswordTEController,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  obscureText: true,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(
+                    hintText: 'Entrez à nouveau le nouveau mot de passe',
                   ),
-                  animationDuration: const Duration(milliseconds: 300),
-                  onCompleted: (v) {
-                    if (_formKey.currentState!.validate()) {
-                      debugPrint("OTP: $v");
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Veuillez confirmer le mot de passe';
+                    } else if (value != _newPasswordTEController.text) {
+                      return 'Les mots de passe ne correspondent pas';
                     }
+                    return null;
                   },
                 ),
+
                 SizedBox(height: 20.h),
 
                 PrimaryButton(
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 16.h),
                   containerColor: AppColors.boxColor,
-                  title: 'Vérifier',
+                  title: 'Confirmer',
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
-                      log(_otpTEController.text);
-                      context.push(RouteName.signInScreen);
+                      log(_newPasswordTEController.text);
+                      log(_confirmPasswordTEController.text);
+                      context.push(RouteName.verifyOtpScreen);
                     }
                   },
                 ),
                 SizedBox(height: 20.h),
-
-                Center(
-                  child: Column(
-                    children: [
-                      Text('Vous n’avez rien reçu ?',style: style.bodyMedium?.copyWith(
-                        color: AppColors.boxColor2,
-                        fontWeight: FontWeight.w400,
-                      ),),
-                      GestureDetector(
-                        onTap: (){},
-                        child: Text('Renvoyer le code',style: style.bodyMedium?.copyWith(
-                          color: AppColors.blackColor,
-                          fontWeight: FontWeight.w400,
-                        ),),
-                      )
-                    ],
-                  ),
-                )
               ],
             ),
           ),

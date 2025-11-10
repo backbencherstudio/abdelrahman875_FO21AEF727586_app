@@ -13,7 +13,8 @@ class CustomListTile extends StatelessWidget {
     required this.date,
     this.color,
     this.dot,
-    this.textStyle, this.showBorder,
+    this.textStyle,
+    this.showBorder,
   });
 
   final String title;
@@ -29,11 +30,11 @@ class CustomListTile extends StatelessWidget {
     final style = Theme.of(context).textTheme;
     return Container(
       decoration: BoxDecoration(
-          border:showBorder==true? Border.all(color: AppColors.transparentColor): Border.all(
-            color: AppColors.borderColor3,
-          ),
-          borderRadius: BorderRadius.circular(12.r),
-          color: AppColors.whiteColor
+        border: showBorder == true
+            ? Border.all(color: AppColors.transparentColor)
+            : Border.all(color: AppColors.borderColor3),
+        borderRadius: BorderRadius.circular(12.r),
+        color: AppColors.containerColor15,
       ),
       child: ListTile(
         leading: Container(
@@ -53,21 +54,23 @@ class CustomListTile extends StatelessWidget {
         title: Text(
           title,
           style: style.bodyLarge?.copyWith(
-                color: AppColors.textColor1,
-                fontWeight: FontWeight.w500,
-              ),
+            color: AppColors.textColor1,
+            fontWeight: FontWeight.w500,
+          ),
         ),
         subtitle: Padding(
-          padding:  EdgeInsets.only(top: 8.0),
+          padding: EdgeInsets.only(top: 8.0),
           child: Row(
             // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
                 subtitle,
-                style: textStyle ?? style.bodySmall?.copyWith(
-                  color: AppColors.greenText,
-                  fontWeight: FontWeight.w500,
-                ),
+                style:
+                    textStyle ??
+                    style.bodySmall?.copyWith(
+                      color: AppColors.greenText,
+                      fontWeight: FontWeight.w500,
+                    ),
               ),
               SizedBox(width: 8.w),
               Text(

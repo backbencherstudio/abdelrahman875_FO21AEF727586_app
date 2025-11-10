@@ -7,7 +7,6 @@ import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/pr
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../widgets/primery_button.dart';
 import '../riverpod/selected_index_provider.dart';
