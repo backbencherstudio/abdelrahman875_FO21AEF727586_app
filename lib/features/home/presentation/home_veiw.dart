@@ -31,13 +31,16 @@ class _HomeViewState extends State<HomeView> {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        'Prêt à expédier ?',
-                        style: style.headlineSmall?.copyWith(
-                          color: AppColors.grayText2,
-                          fontWeight: FontWeight.w600,
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          'Prêt à expédier ?',
+                          style: style.headlineSmall?.copyWith(
+                            color: AppColors.grayText2,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                       SizedBox(height: 18.h),
@@ -92,8 +95,6 @@ class _HomeViewState extends State<HomeView> {
                       //     ),
                       //   ),
                       // ),
-
-
                       GridSection(),
                       SizedBox(height: 18.h),
                       ImageBoxSection(),
@@ -101,21 +102,19 @@ class _HomeViewState extends State<HomeView> {
                       CustomTitleHeader(title: 'Livraisons en cours'),
                       SizedBox(height: 18.h),
 
-                      Column(
-                        children: List.generate(2, (index) {
+                     ...List.generate(2, (index) {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 12.h),
                             child: ProgressContainer(),
                           );
                         }),
-                      ),
+                     
 
                       SizedBox(height: 18.h),
                       CustomTitleHeader(title: 'Livraisons récentes'),
 
                       SizedBox(height: 18.h),
-                      Column(
-                        children: List.generate(6, (index) {
+                      ...List.generate(6, (index) {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 12.h),
                             child: CustomListTile(
@@ -129,7 +128,7 @@ class _HomeViewState extends State<HomeView> {
                             ),
                           );
                         }),
-                      ),
+                      
                     ],
                   ),
                 ),

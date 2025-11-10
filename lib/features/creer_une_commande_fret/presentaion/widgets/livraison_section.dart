@@ -267,7 +267,7 @@ class _LivraisonSectionState extends State<LivraisonSection> {
           TextFormField(
             autovalidateMode: AutovalidateMode.onUserInteraction,
             controller: _nomTEController,
-            textInputAction: TextInputAction.done,
+            textInputAction: TextInputAction.next,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
               filled: true,
@@ -293,7 +293,7 @@ class _LivraisonSectionState extends State<LivraisonSection> {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             controller: _messageTEController,
             maxLines: 2,
-            textInputAction: TextInputAction.done,
+            textInputAction: TextInputAction.next,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
               filled: true,

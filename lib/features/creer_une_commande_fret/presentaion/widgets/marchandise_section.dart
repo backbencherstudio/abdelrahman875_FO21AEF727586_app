@@ -391,11 +391,11 @@ class _MarchandiseSectionState extends ConsumerState<MarchandiseSection> {
                       color: AppColors.grayText4,
                       fontWeight: FontWeight.w400,
                     ),
-                    suffixIcon: Icon(
-                      Icons.keyboard_arrow_down_sharp,
-                      size: 24.r,
-                      color: AppColors.grayText4,
-                    ),
+                    // suffixIcon: Icon(
+                    //   Icons.keyboard_arrow_down_sharp,
+                    //   size: 24.r,
+                    //   color: AppColors.grayText4,
+                    // ),
                   ),
                     validator: (value){
                       if(value == null || value.isEmpty){

@@ -1,6 +1,7 @@
 import 'package:abdelrahman875_fo21aef727586/core/routes/build_page_with_transition.dart';
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/features/espaces/espaces_screen.dart';
+import 'package:abdelrahman875_fo21aef727586/features/notifications/presentation/notification_screen.dart';
 import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/parents_screen.dart';
 import 'package:abdelrahman875_fo21aef727586/features/qr_code/qr_code_scaner_screen.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 
 class RouteConfig {
   static GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.notificationScreen,
 
     routes: [
       GoRoute(
@@ -321,6 +322,18 @@ class RouteConfig {
             context: context,
             state: state,
             child: QrScannerScreen(),
+          );
+        },
+      ),
+      GoRoute(
+        name: RouteName.notificationScreen,
+        path: RouteName.notificationScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: NotificationScreen(),
           );
         },
       ),

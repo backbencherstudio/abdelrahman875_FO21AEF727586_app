@@ -24,7 +24,7 @@ class Velocity extends ConsumerWidget {
           IconButton(
             icon: const Icon(Icons.remove, color: AppColors.secondaryColor),
             onPressed: () {
-              if (velocity > 0) {
+               if (velocity > 75) {
                 ref.read(velocityProvider.notifier).state = velocity - 1;
               }
             },
