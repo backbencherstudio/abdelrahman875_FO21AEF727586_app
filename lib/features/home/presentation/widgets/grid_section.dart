@@ -1,5 +1,7 @@
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/theme/src/theme_extension/color_pallete.dart';
 
@@ -41,22 +43,29 @@ class GridSection extends StatelessWidget {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              height: 60.h,
-              width: 60.w,
-              decoration: BoxDecoration(
-                color: AppColors.containerColor2,
-                borderRadius: BorderRadius.circular(30.r),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(30.r),
-                child: Padding(
-                  padding: EdgeInsets.all(14.r),
-                  child: Image.asset(
-                    item.imagePath,
-                    height: 40.h,
-                    width: 40.w,
-                    fit: BoxFit.cover,
+            GestureDetector(
+              onTap: (){
+                if(index == 3){
+                  context.push(RouteName.documentScreen);
+                }
+              },
+              child: Container(
+                height: 60.h,
+                width: 60.w,
+                decoration: BoxDecoration(
+                  color: AppColors.containerColor2,
+                  borderRadius: BorderRadius.circular(30.r),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30.r),
+                  child: Padding(
+                    padding: EdgeInsets.all(14.r),
+                    child: Image.asset(
+                      item.imagePath,
+                      height: 40.h,
+                      width: 40.w,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),

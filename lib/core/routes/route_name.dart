@@ -38,4 +38,5 @@ class RouteName {
   static const String newPasswordScreen = '/NewPasswordScreen';
   static const String verifyOtpScreen = '/VerifyOtpScreen';
   static const String notificationScreen = '/NotificationScreen';
+  static const String documentScreen = '/DocumentScreen';
 }
