@@ -27,7 +27,7 @@ class SignInScreen extends ConsumerStatefulWidget {
 }
 
 class _SignInScreenState extends ConsumerState<SignInScreen> {
- // bool _obscurePassword = true;
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
@@ -35,10 +35,8 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     final selectedIndex = ref.watch(userSelectProvider);
-   // final isSelected = selectedIndex == 0;
-    final haveAccount = ref.watch(alreadyHaveAccountProvider);
     final obscureText = ref.watch(obscureTextProvider);
-   // final checkBox = ref.watch(checkBoxProvider);
+    // final checkBox = ref.watch(checkBoxProvider);
     final style = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -51,7 +49,6 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // SizedBox(height: 20.h),
                   GestureDetector(
                     onTap: () {
                       if (context.canPop()) {
@@ -84,7 +81,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                         ),
                         SizedBox(height: 10.h),
                         Text(
-                          haveAccount == 0 ? 'S’inscrire' : 'Se connecter',
+                          'Se connecter',
                           style: style.headlineSmall?.copyWith(
                             color: AppColors.blackColor,
                             fontWeight: FontWeight.w500,
@@ -95,15 +92,18 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   ),
                   SizedBox(height: 20.h),
                   Divider(thickness: 1, color: AppColors.borderColor6),
-                  if (haveAccount == 1) SizedBox(height: 20.h),
+                  SizedBox(height: 20.h),
 
-                  if (haveAccount == 1) Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
                         child: PrimaryButton(
                           title: 'Donneur d’ordre',
-                          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16.w,
+                            vertical: 8.h,
+                          ),
                           containerColor: selectedIndex == 0
                               ? AppColors.blackColor
                               : AppColors.whiteColor,
@@ -116,7 +116,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                           onTap: () {
                             // Select this one and deselect the other
                             ref.read(userSelectProvider.notifier).state =
-                            selectedIndex == 0 ? null : 0;
+                                selectedIndex == 0 ? null : 0;
                           },
                         ),
                       ),
@@ -124,7 +124,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       Expanded(
                         child: PrimaryButton(
                           title: 'Transporteur',
-                          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16.w,
+                            vertical: 8.h,
+                          ),
                           containerColor: selectedIndex == 1
                               ? AppColors.blackColor
                               : AppColors.whiteColor,
@@ -136,15 +139,15 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                           ),
                           onTap: () {
                             ref.read(userSelectProvider.notifier).state =
-                            selectedIndex == 1 ? null : 1;
+                                selectedIndex == 1 ? null : 1;
                           },
                         ),
                       ),
                     ],
                   ),
                   SizedBox(height: 20.h),
-                  // Email Field
 
+                  // Email Field
                   InputLabel(title: 'Email '),
                   SizedBox(height: 8.h),
                   TextFormField(
@@ -175,11 +178,13 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       hintText: 'aweue!2',
                       suffixIcon: IconButton(
                         onPressed: () {
-                          ref.read(obscureTextProvider.notifier).state =
-                          !ref.read(obscureTextProvider);
+                          ref.read(obscureTextProvider.notifier).state = !ref
+                              .read(obscureTextProvider);
                         },
                         icon: Icon(
-                          obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                          obscureText
+                              ? Icons.visibility_off_outlined
+                              : Icons.visibility_outlined,
                           size: Utils.isTablet(context) ? 34.h : 24.h,
                           color: AppColors.grayText,
                         ),
@@ -194,38 +199,31 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     },
                   ),
 
-                  if (haveAccount == 1) SizedBox(height: 10.h),
+                  SizedBox(height: 10.h),
 
-                  // Forgot password
-                  if (haveAccount == 1) Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            onPressed: () {
-                              context.push(RouteName.forgotPasswordScreen);
-                            },
-                            child: Text(
-                              "Mot de passe oublié ?",
-                              style: style.bodyMedium?.copyWith(
-                                color: AppColors.boxColor,
-                                fontWeight: FontWeight.w500,
-                              )
-
-                              // TextStyle(
-                              //   color: AppColors.boxColor,
-                              //   fontSize: 14.sp,
-                              // ),
-                            ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {
+                          context.push(RouteName.forgotPasswordScreen);
+                        },
+                        child: Text(
+                          "Mot de passe oublié ?",
+                          style: style.bodyMedium?.copyWith(
+                            color: AppColors.boxColor,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
-                  // if (selectedIndex == 0)
-                  SizedBox(height: 20.h),
+                      ),
+                    ),
+                  SizedBox(height: 10.h),
 
                   // Sign In Button
                   PrimaryButton(
                     width: double.infinity,
                     padding: EdgeInsets.symmetric(vertical: 16.h),
                     containerColor: AppColors.boxColor,
-                    title: haveAccount == 0 ? 'S’inscrire' : 'Se connecter',
+                    title: 'Se connecter',
                     onTap: () {
                       if (selectedIndex == 0) {
                         context.push(RouteName.donneur);
@@ -246,35 +244,13 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   ),
                   SizedBox(height: 24.h),
 
-                  if (haveAccount == 0)
-                    Row(
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Checkbox(
-                          value: ref.watch(checkBoxProvider),
-                          onChanged: (value) {
-                            ref.read(checkBoxProvider.notifier).state = value ?? false;
-                          },
-                        ),
-                        // SizedBox(width: 4.w,),
-                        Text(
-                          'J’accepte les conditions générales d’utilisation',
-                          style: style.bodySmall?.copyWith(
-                            color: AppColors.grayText7,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ),
+
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        haveAccount == 0
-                            ? 'Vous avez déjà compte ?'
-                            : 'Vous n’avez pas de compte?',
+                      'Vous n’avez pas de compte?',
                         style: style.bodyMedium?.copyWith(
                           color: AppColors.boxColor2,
                           fontWeight: FontWeight.w500,
@@ -283,27 +259,29 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       SizedBox(width: 4.w),
                       GestureDetector(
                         onTap: () {
-                          if (haveAccount == 0) {
-                            // User is on Sign Up screen → go to Sign In
-                            ref.read(alreadyHaveAccountProvider.notifier).state = 1;
-                          } else {
-                            // User is on Sign In screen → go to Sign Up
-                            ref.read(alreadyHaveAccountProvider.notifier).state = 0;
-                          }
+                          // if (haveAccount == 0) {
+                          //   // User is on Sign Up screen → go to Sign In
+                          //   ref
+                          //           .read(alreadyHaveAccountProvider.notifier)
+                          //           .state =
+                          //       1;
+                          // } else {
+                          //   // User is on Sign In screen → go to Sign Up
+                          //   ref
+                          //           .read(alreadyHaveAccountProvider.notifier)
+                          //           .state =
+                          //       0;
+                          // }
 
                           context.push(RouteName.espacesScreen);
                         },
-                        child: Text(
-                          haveAccount == 0
-                              ? ' Se connecter'
-                              : 'Créer un compte',
+                        child: Text('Créer un compte',
                           style: style.bodyMedium?.copyWith(
                             color: AppColors.blackColor,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
-
                     ],
                   ),
 
@@ -316,10 +294,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 8.w),
-                        child: Text(
-                          haveAccount == 0
-                              ? 'S’inscrire avec'
-                              : "Se connecter avec",
+                        child: Text("Se connecter avec",
                           style: style.bodyMedium?.copyWith(
                             color: AppColors.textColor,
                             fontWeight: FontWeight.w400,

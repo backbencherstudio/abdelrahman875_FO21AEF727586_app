@@ -12,6 +12,7 @@ import '../../features/Command/presentation/command_vaid_screen.dart';
 import '../../features/Command/presentation/votre_command.dart';
 import '../../features/auth/reset_password/presentation/forgot_password_screen.dart';
 import '../../features/auth/reset_password/presentation/new_password_screen.dart';
+import '../../features/auth/sign_up/view/sign_up_screen.dart';
 import '../../features/auth/signin/presentation/sign_in_screen.dart';
 import '../../features/Mission_accept/presentation/condition_affret.dart';
 import '../../features/Mission_accept/presentation/after_preuve_screen.dart';
@@ -43,7 +44,7 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 
 class RouteConfig {
   static GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.espacesScreen,
 
     routes: [
       GoRoute(
@@ -348,6 +349,18 @@ class RouteConfig {
             context: context,
             state: state,
             child: DocumentScreen(),
+          );
+        },
+      ),
+      GoRoute(
+        name: RouteName.signUpScreen,
+        path: RouteName.signUpScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: SignUpScreen(),
           );
         },
       ),
