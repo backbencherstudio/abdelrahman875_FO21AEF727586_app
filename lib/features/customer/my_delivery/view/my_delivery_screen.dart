@@ -18,10 +18,15 @@ class MyDeliveryScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
-                Icons.arrow_back_outlined,
-                size: 24.h,
-                color: AppColors.grayText,
+              GestureDetector(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.arrow_back_outlined,
+                  size: 24.h,
+                  color: AppColors.grayText,
+                ),
               ),
               SizedBox(height: 12.h),
               Text(
