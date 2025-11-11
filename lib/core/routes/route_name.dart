@@ -40,4 +40,5 @@ class RouteName {
   static const String verifyOtpScreen = '/VerifyOtpScreen';
   static const String notificationScreen = '/NotificationScreen';
   static const String documentScreen = '/DocumentScreen';
+  static const String myDeliveryScreen = '/MyDeliveryScreen';
 }
