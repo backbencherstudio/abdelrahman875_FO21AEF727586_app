@@ -3,9 +3,9 @@ import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import '../../../core/constants/images.dart';
-import '../../../core/routes/route_name.dart';
-import '../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../core/constants/images.dart';
+import '../../core/routes/route_name.dart';
+import '../../core/theme/src/theme_extension/color_pallete.dart';
 
 class Command extends StatefulWidget {
   const Command({super.key});
@@ -102,7 +102,7 @@ class _CommandState extends State<Command> with SingleTickerProviderStateMixin {
                 fontWeight: FontWeight.w600,
               ),
               onTap: () {
-                context.push(RouteName.parentsScreen);
+                context.push(RouteName.customerBottomNavScreen);
               },
             ),
             Spacer(),

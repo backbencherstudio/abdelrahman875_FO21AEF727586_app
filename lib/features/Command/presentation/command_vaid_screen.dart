@@ -48,7 +48,7 @@ class CommandScreen extends StatelessWidget {
           ),
           SizedBox(height: 102.h),
           PrimaryButton(
-            width:239.w,
+            width: 239.w,
             padding: EdgeInsets.symmetric(vertical: 16.h),
             containerColor: AppColors.blackColor,
             title: 'QR CODE',
@@ -61,15 +61,14 @@ class CommandScreen extends StatelessWidget {
             width: 239.w,
             padding: EdgeInsets.symmetric(vertical: 16.h),
             containerColor: AppColors.transparentColor,
-border: Border.all(color: AppColors.blackColor),
+            border: Border.all(color: AppColors.blackColor),
             textStyle: style.bodyLarge?.copyWith(
               color: AppColors.blackText,
               fontWeight: FontWeight.w600,
-
             ),
             title: 'Accueil',
             onTap: () {
-              context.push(RouteName.parentsScreen);
+              context.push(RouteName.customerBottomNavScreen);
             },
           ),
         ],

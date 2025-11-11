@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../../../../core/theme/src/theme_extension/color_pallete.dart';
 
 class CustomCircularContainer extends ConsumerWidget {
   const CustomCircularContainer({

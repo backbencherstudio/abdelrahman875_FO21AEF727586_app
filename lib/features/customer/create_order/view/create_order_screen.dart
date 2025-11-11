@@ -1,16 +1,16 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
-import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/presentaion/widgets/charement_section.dart';
-import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/presentaion/widgets/custom_circular_container.dart';
-import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/presentaion/widgets/livraison_section.dart';
-import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/presentaion/widgets/marchandise_section.dart';
+import 'package:abdelrahman875_fo21aef727586/features/customer/create_order/view/widgets/charement_section.dart';
+import 'package:abdelrahman875_fo21aef727586/features/customer/create_order/view/widgets/custom_circular_container.dart';
+import 'package:abdelrahman875_fo21aef727586/features/customer/create_order/view/widgets/livraison_section.dart';
+import 'package:abdelrahman875_fo21aef727586/features/customer/create_order/view/widgets/marchandise_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../widgets/primery_button.dart';
-import '../riverpod/selected_index_provider.dart';
-import '../riverpod/toggle_freight_express_provider.dart';
+import '../../../widgets/primery_button.dart';
+import '../viewmodel/selected_index_provider.dart';
+import '../viewmodel/toggle_freight_express_provider.dart';
 
 class CreerUneCommandeScreen extends StatefulWidget {
   const CreerUneCommandeScreen({super.key});
