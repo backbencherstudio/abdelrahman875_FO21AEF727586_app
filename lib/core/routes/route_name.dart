@@ -7,6 +7,7 @@ class RouteName {
 
   static const String homeView = "/HomeView";
   static const String signInScreen = "/SignInScreen";
+  static const String signUpScreen = "/SignUpScreen";
   static const String inscriptionScreen = "/Inscription";
   static const String transVehicule = "/Trans_Vehicule";
   static const String inscriptionDoc = "/InscriptionDoc";

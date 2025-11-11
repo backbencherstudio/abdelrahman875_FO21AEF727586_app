@@ -84,6 +84,7 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                               ),
                         ),
                         SizedBox(height: 30.h),
+
                         /// Option 1
                         GestureDetector(
                           onTap: () {
@@ -113,29 +114,24 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                           ),
                         ),
 
-                        Padding(
-                          padding: EdgeInsets.only(
-                            top: 40.h,
-                            left: 17.w,
-                            right: 17.w,
-                            bottom: 40.h,
+                        SizedBox(height: 20.h),
+                        PrimaryButton(
+                          onTap: () {
+                            if (selectedIndex == 0 || selectedIndex == 1) {
+                              context.push(RouteName.signUpScreen);
+                            } else {
+                              showSelectUserTypeDialog(context);
+                            }
+                          },
+                          title: "S’inscrire",
+                          padding: EdgeInsets.all(
+                            Utils.isTablet(context) ? 20 : 16.h,
                           ),
-                          child: PrimaryButton(
-                            onTap: () {
-                              if (selectedIndex == 0 || selectedIndex == 1) {
-                                context.push(RouteName.signInScreen);
-                              } else {
-                                showSelectUserTypeDialog(context);
-                              }
-                            },
-                            title: "S’inscrire",
-                            padding: EdgeInsets.all(
-                              Utils.isTablet(context) ? 20 : 16.h,
-                            ),
-                            width: double.infinity,
-                            containerColor: AppColors.blackColor,
-                          ),
+                          width: double.infinity,
+                          containerColor: AppColors.blackColor,
                         ),
+                        SizedBox(height: 16.h),
+
                         RichText(
                           text: TextSpan(
                             children: [
@@ -158,7 +154,8 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                                   ..onTap = () {
                                     ref
                                             .read(
-                                              alreadyHaveAccountProvider.notifier,
+                                              alreadyHaveAccountProvider
+                                                  .notifier,
                                             )
                                             .state =
                                         1;
