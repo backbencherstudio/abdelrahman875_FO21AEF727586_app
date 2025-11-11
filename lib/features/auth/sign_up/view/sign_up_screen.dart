@@ -4,7 +4,7 @@ import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/auth/signin/presentation/widgets/icon_button_container.dart';
 import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/presentaion/widgets/input_label.dart';
-import 'package:abdelrahman875_fo21aef727586/features/espaces/riverpod/already_have_account_provider.dart';
+
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class _SignInScreenState extends ConsumerState<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final selectedIndex = ref.watch(userSelectProvider);
+    final selectedUser = ref.watch(userSelectProvider);
     // final haveAccount = ref.watch(alreadyHaveAccountProvider);
     final obscureText = ref.watch(obscureTextProvider);
    // final checkBox = ref.watch(checkBoxProvider);
@@ -54,7 +54,7 @@ class _SignInScreenState extends ConsumerState<SignUpScreen> {
                   GestureDetector(
                     onTap: () {
                       if (context.canPop()) {
-                        ref.read(alreadyHaveAccountProvider.notifier).state = 0;
+                     
                         context.pop();
                       }
                     },
@@ -155,7 +155,7 @@ class _SignInScreenState extends ConsumerState<SignUpScreen> {
                     containerColor: AppColors.boxColor,
                     title:'S’inscrire',
                     onTap: () {
-                      if (selectedIndex == 0) {
+                      if (selectedUser == 'customer') {
                         context.push(RouteName.donneur);
                       } else {
                         context.push(RouteName.inscriptionScreen);
@@ -164,7 +164,7 @@ class _SignInScreenState extends ConsumerState<SignUpScreen> {
                       if (formKey.currentState!.validate()) {
                         log(emailController.text);
                         log(passwordController.text);
-                        if (selectedIndex == 0) {
+                        if (selectedUser == 'customer') {
                           context.push(RouteName.donneur);
                         } else {
                           context.push(RouteName.inscriptionScreen);
