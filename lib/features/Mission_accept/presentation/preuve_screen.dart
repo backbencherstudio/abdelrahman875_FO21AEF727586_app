@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/constants/images.dart';
 import '../../../core/theme/src/theme_extension/color_pallete.dart';
-import '../../creer_une_commande_fret/presentaion/widgets/input_label.dart';
+
+import '../../common_widgets/input_label.dart';
 import '../../widgets/primery_button.dart';
 
 class PreuveScreen extends StatefulWidget {

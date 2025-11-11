@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../core/theme/src/theme_extension/color_pallete.dart';
 
 class InputLabel extends StatelessWidget {
   const InputLabel({super.key, required this.title});

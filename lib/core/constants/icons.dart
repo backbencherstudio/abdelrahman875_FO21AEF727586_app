@@ -1,4 +1,4 @@
-class AppIcons{
+class AppIcons {
   static const String iconPath = "assets/icons";
 
   static const String profileImg = "$iconPath/profilePng.png";
@@ -6,8 +6,6 @@ class AppIcons{
   static const String carPng = "$iconPath/car_png.png";
   static const String growthPng = "$iconPath/growth.png";
   static const String notePng = "$iconPath/note_png.png";
-
-
 
   static const String notification = "$iconPath/notification.svg";
   static const String locationSearchingSvg = "$iconPath/location_searching.svg";
@@ -41,7 +39,6 @@ class AppIcons{
   static const String whiteArrowBackPng = "$iconPath/whiteArrowBack.png";
   static const String trackPng = "$iconPath/track.png";
 
-
   static const String gmailLogoPng = "$iconPath/GmailLogo.png";
   static const String fileIcon = "$iconPath/file_icon.png";
   static const String increasePng = "$iconPath/Increase.png";
@@ -51,11 +48,12 @@ class AppIcons{
   static const String paperPng = "$iconPath/Paper.png";
   static const String pastePng = "$iconPath/Paste.png";
   static const String starHalfEmptyPng = "$iconPath/StarHalfEmpty.png";
-  static const String termsandConditionsPng = "$iconPath/TermsandConditions.png";
+  static const String termsandConditionsPng =
+      "$iconPath/TermsandConditions.png";
   static const String testResultsPng = "$iconPath/TestResults.png";
   static const String transporteuresPng = "$iconPath/transporteures.png";
   static const String routePng = "$iconPath/route.png";
   static const String splashCar = "$iconPath/splashCar.svg";
   static const String coolBoxPng = "$iconPath/path4765.png";
-
+  static const String customerPlus = "$iconPath/cutomer_plus.svg";
 }

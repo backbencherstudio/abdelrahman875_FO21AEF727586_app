@@ -2,14 +2,14 @@ import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/theme/src/theme_extension/color_pallete.dart';
-import '../../../widgets/primery_button.dart';
-import '../../riverpod/select_container_provider.dart';
-import '../../riverpod/selected_index_provider.dart';
-import 'input_label.dart';
+import '../../../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../../../widgets/primery_button.dart';
+import '../../viewmodel/select_container_provider.dart';
+import '../../viewmodel/selected_index_provider.dart';
+import '../../../../common_widgets/input_label.dart';
 
 class MarchandiseSection extends ConsumerStatefulWidget {
-  MarchandiseSection({super.key});
+  const MarchandiseSection({super.key});
 
   @override
   ConsumerState<MarchandiseSection> createState() => _MarchandiseSectionState();
@@ -66,7 +66,7 @@ class _MarchandiseSectionState extends ConsumerState<MarchandiseSection> {
           SizedBox(height: 12.h),
           DropdownButtonFormField<String>(
             autovalidateMode: AutovalidateMode.onUserInteraction,
-            value: selectedValue,
+            initialValue: selectedValue,
             decoration: const InputDecoration(),
             hint: Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),

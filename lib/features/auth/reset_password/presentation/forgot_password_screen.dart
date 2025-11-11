@@ -10,7 +10,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../../../core/utils/utils.dart';
-import '../../../creer_une_commande_fret/presentaion/widgets/input_label.dart';
+import '../../../common_widgets/input_label.dart';
 import '../../../widgets/primery_button.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {

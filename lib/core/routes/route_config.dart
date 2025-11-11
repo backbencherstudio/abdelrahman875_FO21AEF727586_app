@@ -22,7 +22,7 @@ import '../../features/Mission_accept/presentation/mis_termin.dart';
 import '../../features/Mission_accept/presentation/mission_accept_screen.dart';
 import '../../features/Mission_accept/presentation/preuve_screen.dart';
 import '../../features/auth/reset_password/presentation/verify_otp_screen.dart';
-import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
+import '../../features/customer/create_order/view/create_order_screen.dart';
 import '../../features/customer/Inscription_Donneur/donneur_screen.dart';
 import '../../features/customer/Inscription_Donneur/inscription_doc.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
@@ -31,7 +31,7 @@ import '../../features/customer/home/view/home_veiw.dart';
 import '../../features/driver/Inscription/inscription_transporteur.dart';
 
 import '../../features/driver/Inscription/transporteur_vehicule.dart';
-import '../../features/driver/Inscription/commande.dart';
+import '../../features/common_widgets/commande.dart';
 import '../../features/driver/Inscription/inscription_doc.dart';
 import '../../features/driver/home_transporteur/view/home_transpoteur_screen.dart';
 import '../../features/driver/home_transporteur/view/transporteur_missions.dart';
@@ -44,7 +44,7 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 
 class RouteConfig {
   static GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.espacesScreen,
+    initialLocation: RouteName.customerBottomNavScreen,
 
     routes: [
       GoRoute(
@@ -255,14 +255,14 @@ class RouteConfig {
       ),
 
       GoRoute(
-        name: RouteName.parentsScreen,
-        path: RouteName.parentsScreen,
+        name: RouteName.customerBottomNavScreen,
+        path: RouteName.customerBottomNavScreen,
         pageBuilder: (context, state) {
           return buildPageWithTransition(
             transitionType: PageTransitionType.slideRightToLeft,
             context: context,
             state: state,
-            child: ParentsScreen(),
+            child: CustomerBottomNavScreen(),
           );
         },
       ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/notifications/presentation/widgets/custom_notification_card.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +58,7 @@ class NotificationScreen extends StatelessWidget {
                     showButton: true,
                     buttonText: 'Continuer',
                     onButtonTap: () {
-                      print('Button pressed!');
+                      log('Button pressed!');
                     },
                   );
                 })

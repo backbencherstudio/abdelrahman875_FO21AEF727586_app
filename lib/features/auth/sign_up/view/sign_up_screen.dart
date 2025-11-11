@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/auth/signin/presentation/widgets/icon_button_container.dart';
-import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/presentaion/widgets/input_label.dart';
+import 'package:abdelrahman875_fo21aef727586/features/common_widgets/input_label.dart';
 
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:email_validator/email_validator.dart';
