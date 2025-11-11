@@ -25,6 +25,7 @@ import '../../features/auth/reset_password/presentation/verify_otp_screen.dart';
 import '../../features/customer/create_order/view/create_order_screen.dart';
 import '../../features/customer/Inscription_Donneur/donneur_screen.dart';
 import '../../features/customer/Inscription_Donneur/inscription_doc.dart';
+import '../../features/customer/my_delivery/view/my_delivery_screen.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
 import '../../features/documents/presentation/document_screen.dart';
 import '../../features/customer/home/view/home_veiw.dart';
@@ -44,6 +45,7 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 
 class RouteConfig {
   static GoRouter goRouter = GoRouter(
+
     initialLocation: RouteName.customerBottomNavScreen,
 
     routes: [
@@ -361,6 +363,19 @@ class RouteConfig {
             context: context,
             state: state,
             child: SignUpScreen(),
+          );
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.myDeliveryScreen,
+        path: RouteName.myDeliveryScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: MyDeliveryScreen(),
           );
         },
       ),
