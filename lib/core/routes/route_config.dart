@@ -2,7 +2,7 @@ import 'package:abdelrahman875_fo21aef727586/core/routes/build_page_with_transit
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/features/espaces/espaces_screen.dart';
 import 'package:abdelrahman875_fo21aef727586/features/notifications/presentation/notification_screen.dart';
-import 'package:abdelrahman875_fo21aef727586/features/parents/presentation/parents_screen.dart';
+import 'package:abdelrahman875_fo21aef727586/features/customer/bottom_nav/view/bottom_nav_screen.dart';
 import 'package:abdelrahman875_fo21aef727586/features/qr_code/qr_code_scaner_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -22,18 +22,18 @@ import '../../features/Mission_accept/presentation/mission_accept_screen.dart';
 import '../../features/Mission_accept/presentation/preuve_screen.dart';
 import '../../features/auth/reset_password/presentation/verify_otp_screen.dart';
 import '../../features/creer_une_commande_fret/presentaion/creer_une_commande_screen.dart';
+import '../../features/customer/Inscription_Donneur/donneur_screen.dart';
+import '../../features/customer/Inscription_Donneur/inscription_doc.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
 import '../../features/documents/presentation/document_screen.dart';
-import '../../features/home/presentation/home_veiw.dart';
-import '../../features/Inscription/inscription_transporteur.dart';
+import '../../features/customer/home/view/home_veiw.dart';
+import '../../features/driver/Inscription/inscription_transporteur.dart';
 
-import '../../features/Inscription/transporteur_vehicule.dart';
-import '../../features/Inscription/commande.dart';
-import '../../features/Inscription/inscription_doc.dart';
-import '../../features/Inscription_Donneur/donneur_screen.dart';
-import '../../features/Inscription_Donneur/inscription_doc.dart';
-import '../../features/home_transporteur/presentation/home_transpoteur_screen.dart';
-import '../../features/home_transporteur/presentation/transporteur_missions.dart';
+import '../../features/driver/Inscription/transporteur_vehicule.dart';
+import '../../features/driver/Inscription/commande.dart';
+import '../../features/driver/Inscription/inscription_doc.dart';
+import '../../features/driver/home_transporteur/view/home_transpoteur_screen.dart';
+import '../../features/driver/home_transporteur/view/transporteur_missions.dart';
 import '../../features/mission_screen/presentation/mission_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
 import '../../features/paiement_screen/presentation/paiement_screen.dart';
@@ -43,7 +43,7 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 
 class RouteConfig {
   static GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.parentsScreen,
+    initialLocation: RouteName.splashScreen,
 
     routes: [
       GoRoute(
