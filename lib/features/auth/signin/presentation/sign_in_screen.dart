@@ -3,8 +3,7 @@ import 'dart:developer';
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/auth/signin/presentation/widgets/icon_button_container.dart';
-import 'package:abdelrahman875_fo21aef727586/features/creer_une_commande_fret/presentaion/widgets/input_label.dart';
-import 'package:abdelrahman875_fo21aef727586/features/espaces/riverpod/already_have_account_provider.dart';
+import 'package:abdelrahman875_fo21aef727586/features/common_widgets/input_label.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +33,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final selectedIndex = ref.watch(userSelectProvider);
+    final selectedUser = ref.watch(userSelectProvider);
     final obscureText = ref.watch(obscureTextProvider);
     // final checkBox = ref.watch(checkBoxProvider);
     final style = Theme.of(context).textTheme;
@@ -52,7 +51,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   GestureDetector(
                     onTap: () {
                       if (context.canPop()) {
-                        ref.read(alreadyHaveAccountProvider.notifier).state = 0;
+                     
                         context.pop();
                       }
                     },
@@ -104,11 +103,11 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                             horizontal: 16.w,
                             vertical: 8.h,
                           ),
-                          containerColor: selectedIndex == 0
+                          containerColor: selectedUser == 'customer'
                               ? AppColors.blackColor
                               : AppColors.whiteColor,
                           textStyle: style.bodyLarge?.copyWith(
-                            color: selectedIndex == 0
+                            color: selectedUser =='customer'
                                 ? AppColors.whiteColor
                                 : AppColors.blackColor,
                             fontWeight: FontWeight.w500,
@@ -116,7 +115,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                           onTap: () {
                             // Select this one and deselect the other
                             ref.read(userSelectProvider.notifier).state =
-                                selectedIndex == 0 ? null : 0;
+                                selectedUser == 'customer'? null :'customer';
                           },
                         ),
                       ),
@@ -128,18 +127,18 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                             horizontal: 16.w,
                             vertical: 8.h,
                           ),
-                          containerColor: selectedIndex == 1
+                          containerColor: selectedUser == 'driver'
                               ? AppColors.blackColor
                               : AppColors.whiteColor,
                           textStyle: style.bodyLarge?.copyWith(
-                            color: selectedIndex == 1
+                            color: selectedUser == 'driver'
                                 ? AppColors.whiteColor
                                 : AppColors.blackColor,
                             fontWeight: FontWeight.w500,
                           ),
                           onTap: () {
                             ref.read(userSelectProvider.notifier).state =
-                                selectedIndex == 1 ? null : 1;
+                                selectedUser == 'driver'? null : 'driver';
                           },
                         ),
                       ),
@@ -225,7 +224,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     containerColor: AppColors.boxColor,
                     title: 'Se connecter',
                     onTap: () {
-                      if (selectedIndex == 0) {
+                      if (selectedUser == 'customer') {
                         context.push(RouteName.donneur);
                       } else {
                         context.push(RouteName.inscriptionScreen);
@@ -234,7 +233,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       if (formKey.currentState!.validate()) {
                         log(emailController.text);
                         log(passwordController.text);
-                        if (selectedIndex == 0) {
+                        if (selectedUser == 'customer') {
                           context.push(RouteName.donneur);
                         } else {
                           context.push(RouteName.inscriptionScreen);

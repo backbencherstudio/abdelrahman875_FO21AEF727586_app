@@ -1,5 +1,5 @@
 import 'package:abdelrahman875_fo21aef727586/core/utils/utils.dart';
-import 'package:abdelrahman875_fo21aef727586/features/espaces/riverpod/already_have_account_provider.dart';
+
 import 'package:abdelrahman875_fo21aef727586/features/espaces/riverpod/user_select_provider.dart';
 import 'package:abdelrahman875_fo21aef727586/features/espaces/widgets/common_cart.dart';
 import 'package:abdelrahman875_fo21aef727586/features/espaces/widgets/select_type_dialog.dart';
@@ -24,7 +24,7 @@ class EspacesScreen extends ConsumerStatefulWidget {
 class _SignInScreenState extends ConsumerState<EspacesScreen> {
   @override
   Widget build(BuildContext context) {
-    final selectedIndex = ref.watch(userSelectProvider);
+    final selectedUser = ref.watch(userSelectProvider);
     // final haveAccount = ref.watch(alreadyHaveAccountProvider);
     final style = Theme.of(context).textTheme;
     return Scaffold(
@@ -88,7 +88,7 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                         /// Option 1
                         GestureDetector(
                           onTap: () {
-                            ref.read(userSelectProvider.notifier).state = 0;
+                            ref.read(userSelectProvider.notifier).state = 'customer';
                           },
                           child: CommonCartStack(
                             title: "Donneur d’ordre",
@@ -96,7 +96,7 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                                 ? "Je cherche un transporteur pour mes livraisons."
                                 : "Je cherche un transporteur pour\nmes livraisons.",
                             iconPth: AppIcons.verification,
-                            isSelected: selectedIndex == 0,
+                            isSelected: selectedUser ==  'customer',
                           ),
                         ),
                         SizedBox(height: 16.h),
@@ -104,20 +104,20 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                         /// Option 2
                         GestureDetector(
                           onTap: () {
-                            ref.read(userSelectProvider.notifier).state = 1;
+                            ref.read(userSelectProvider.notifier).state = 'driver';
                           },
                           child: CommonCartStack(
                             title: "Transporteur",
                             subTitle: "Je cherche des livraisons à réaliser.",
                             iconPth: AppIcons.camion,
-                            isSelected: selectedIndex == 1,
+                            isSelected: selectedUser == 'driver',
                           ),
                         ),
 
                         SizedBox(height: 20.h),
                         PrimaryButton(
                           onTap: () {
-                            if (selectedIndex == 0 || selectedIndex == 1) {
+                            if (selectedUser !=null) {
                               context.push(RouteName.signUpScreen);
                             } else {
                               showSelectUserTypeDialog(context);
@@ -152,13 +152,7 @@ class _SignInScreenState extends ConsumerState<EspacesScreen> {
                                     ),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    ref
-                                            .read(
-                                              alreadyHaveAccountProvider
-                                                  .notifier,
-                                            )
-                                            .state =
-                                        1;
+                                  
                                     context.push(RouteName.signInScreen);
                                   },
                               ),

@@ -10,7 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/routes/route_name.dart';
-import '../../creer_une_commande_fret/presentaion/widgets/input_label.dart';
+
+import '../../common_widgets/input_label.dart';
 import '../../widgets/primery_button.dart';
 
 class TransVehicule extends StatefulWidget {
