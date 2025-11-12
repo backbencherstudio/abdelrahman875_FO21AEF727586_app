@@ -1,9 +1,11 @@
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/constants/icons.dart';
 import '../../../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../../bottom_nav/viewmodel/bottom_nav_bar_viewmodel.dart';
 
 // Model Class for Grid Item
 class GridItem {
@@ -21,11 +23,11 @@ final List<GridItem> gridItems = [
   GridItem(title: 'Documents', imagePath: AppIcons.notePng),
 ];
 
-class GridSection extends StatelessWidget {
+class GridSection extends ConsumerWidget {
   const GridSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     final style = Theme.of(context).textTheme;
     return GridView.builder(
       shrinkWrap: true,
@@ -47,6 +49,11 @@ class GridSection extends StatelessWidget {
               onTap: (){
                 if(index == 3){
                   context.push(RouteName.documentScreen);
+                } else if(index == 1){
+                  ref
+                      .read(customerNavBarProvider.notifier)
+                      .onTabIndex(3);
+                //  context.push(RouteName.packageTrackingScreen);
                 }
               },
               child: Container(

@@ -9,14 +9,16 @@ class AppIcons {
 
   static const String notification = "$iconPath/notification.svg";
   static const String locationSearchingSvg = "$iconPath/location_searching.svg";
+
+
   static const String qrCodeScannerSvg = "$iconPath/qr_code_scanner.svg";
-  static const String settingSvg = "$iconPath/setting.svg";
-  static const String home = "$iconPath/home.svg";
+  static const String homePng = "$iconPath/home.png";
   static const String scanerIcon = "$iconPath/scaner.svg";
-  static const String settingIcon = "$iconPath/settings.svg";
-  static const String boxDotIcon = "$iconPath/box_dot.svg";
-  static const String squireBoxIcon = "$iconPath/squire.svg";
+  static const String settingIcon = "$iconPath/setting.png";
+  static const String suiviPng = "$iconPath/suivi.png";
+  static const String navBoxPng = "$iconPath/navbox.png";
   static const String boxShapeSvg = "$iconPath/box_shape.svg";
+
   static const String forwardSvg = "$iconPath/forward.svg";
   static const String alimentsSvg = "$iconPath/aliments.png";
   static const String shipPng = "$iconPath/ship.png";
@@ -55,5 +57,6 @@ class AppIcons {
   static const String routePng = "$iconPath/route.png";
   static const String splashCar = "$iconPath/splashCar.svg";
   static const String coolBoxPng = "$iconPath/path4765.png";
+  static const String whiteRoute = "$iconPath/white_route.png";
   static const String customerPlus = "$iconPath/cutomer_plus.svg";
 }
