@@ -5,12 +5,12 @@ import 'package:abdelrahman875_fo21aef727586/features/customer/home/view/home_ve
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/constants/icons.dart';
 import '../../../details_commande/presentation/details_commande_screen.dart';
-import '../../../qr_code/qr_code_scaner_screen.dart';
 import '../../../setting_screen/presentation/profile_setting_screen.dart';
 import '../../create_order/view/create_order_screen.dart';
+import '../../my_delivery/view/my_delivery_screen.dart';
+import '../../track_delivery/view/package_tracking_screen.dart';
 
 class CustomerBottomNavScreen extends ConsumerStatefulWidget {
   const CustomerBottomNavScreen({super.key});
@@ -24,17 +24,17 @@ class _CustomerBottomNavScreenState
     extends ConsumerState<CustomerBottomNavScreen> {
   final List<Widget> _pageList = const [
     HomeView(),
-    QrScannerScreen(),
+    MyDeliveryScreen(),
     CreerUneCommandeScreen(),
-    DetailsCommandeScreen(),
+    PackageTrackingScreen(),
     ProfileSettingScreen(),
   ];
   final List<Widget> _bottomList = const [
-    BottomNavItem(title: "Home", icon: AppIcons.paperPng),
-    BottomNavItem(title: "Livrasons", icon: AppIcons.paperPng),
+    BottomNavItem(title: "Home", icon: AppIcons.homePng),
+    BottomNavItem(title: "Livrasons", icon: AppIcons.navBoxPng),
     BottomNavItem(title: "creer", icon: AppIcons.plusPng),
-    BottomNavItem(title: "SuiVi", icon: AppIcons.paperPng),
-    BottomNavItem(title: "PAra", icon: AppIcons.paperPng),
+    BottomNavItem(title: "SuiVi", icon: AppIcons.suiviPng),
+    BottomNavItem(title: "PAra", icon: AppIcons.settingIcon),
   ];
 
   @override
@@ -73,7 +73,7 @@ class _CustomerBottomNavScreenState
                   // For middle item (floating effect)
                   if (index == 2) {
                     return Transform.translate(
-                      offset: const Offset(0, -10), // lift it up
+                      offset: const Offset(-5, -10), // lift it up
                       child: GestureDetector(
                         onTap: () {
                           ref

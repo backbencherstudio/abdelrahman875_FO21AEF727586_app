@@ -1,15 +1,17 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../bottom_nav/viewmodel/bottom_nav_bar_viewmodel.dart';
 import '../../home/view/widgets/custom_progress_container.dart';
 
-class MyDeliveryScreen extends StatelessWidget {
+class MyDeliveryScreen extends ConsumerWidget {
   const MyDeliveryScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final style = Theme.of(context).textTheme;
     return Scaffold(
       body: SafeArea(
@@ -19,8 +21,8 @@ class MyDeliveryScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
-                onTap: (){
-                  Navigator.pop(context);
+                onTap: () {
+                  ref.read(customerNavBarProvider.notifier).onTabIndex(0);
                 },
                 child: Icon(
                   Icons.arrow_back_outlined,
@@ -83,19 +85,29 @@ class MyDeliveryScreen extends StatelessWidget {
                           Container(
                             decoration: BoxDecoration(
                               color: AppColors.containerColor2,
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(5.r), bottomLeft: Radius.circular(5.r))
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(5.r),
+                                bottomLeft: Radius.circular(5.r),
+                              ),
                             ),
                             child: Padding(
                               padding: EdgeInsets.all(8.h),
                               child: Row(
                                 children: [
-                                  SvgPicture.asset(AppIcons.carSvg,height: 24.h,width: 24.h,),
-                                  SizedBox(width: 4.w,),
-                                  Text('Expédier',style: style.bodySmall?.copyWith(
-                                    color: AppColors.blackText,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 12.sp,
-                                  ),),
+                                  SvgPicture.asset(
+                                    AppIcons.carSvg,
+                                    height: 24.h,
+                                    width: 24.h,
+                                  ),
+                                  SizedBox(width: 4.w),
+                                  Text(
+                                    'Expédier',
+                                    style: style.bodySmall?.copyWith(
+                                      color: AppColors.blackText,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12.sp,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -103,13 +115,20 @@ class MyDeliveryScreen extends StatelessWidget {
                           Container(
                             decoration: BoxDecoration(
                               color: AppColors.containerColor7,
-                              borderRadius: BorderRadius.only(topRight: Radius.circular(5.r), bottomRight: Radius.circular(5.r)),
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(5.r),
+                                bottomRight: Radius.circular(5.r),
+                              ),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Icon(Icons.add_circle_outline_rounded,size: 24.h,color: AppColors.whiteColor,),
+                              child: Icon(
+                                Icons.add_circle_outline_rounded,
+                                size: 24.h,
+                                color: AppColors.whiteColor,
+                              ),
                             ),
-                          )
+                          ),
                         ],
                       ),
 
@@ -120,8 +139,6 @@ class MyDeliveryScreen extends StatelessWidget {
                           child: ProgressContainer(),
                         );
                       }),
-
-
                     ],
                   ),
                 ),
