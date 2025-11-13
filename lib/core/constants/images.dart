@@ -29,4 +29,5 @@ class AppImages {
   static const String timer = "$base/path421.png";
   static const String docsPng = "$base/docs.png";
   static const String mapPinPng = "$base/map_pin.png";
+  static const String mapPng = "$base/map.png";
 }

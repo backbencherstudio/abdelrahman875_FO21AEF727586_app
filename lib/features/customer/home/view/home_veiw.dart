@@ -1,3 +1,4 @@
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/customer/home/view/widgets/custom_list_tile.dart';
 import 'package:abdelrahman875_fo21aef727586/features/customer/home/view/widgets/custom_progress_container.dart';
@@ -7,6 +8,7 @@ import 'package:abdelrahman875_fo21aef727586/features/customer/home/view/widgets
 import 'package:abdelrahman875_fo21aef727586/features/customer/home/view/widgets/image_box_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -105,7 +107,11 @@ class _HomeViewState extends State<HomeView> {
                      ...List.generate(2, (index) {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 12.h),
-                            child: ProgressContainer(),
+                            child: GestureDetector(
+                                onTap: (){
+                                  context.push(RouteName.trackDeliveryMapScreen);
+                                },
+                                child: ProgressContainer()),
                           );
                         }),
                      
