@@ -59,4 +59,10 @@ class AppIcons {
   static const String coolBoxPng = "$iconPath/path4765.png";
   static const String whiteRoute = "$iconPath/white_route.png";
   static const String customerPlus = "$iconPath/cutomer_plus.svg";
+  static const String shareIconPng = "$iconPath/share.png";
+  static const String manIconPng = "$iconPath/manIcon.png";
+  static const String timerLoadPng = "$iconPath/timerLoad.png";
+  static const String thikPng = "$iconPath/thik.png";
+  static const String alertPng = "$iconPath/alert.png";
+  static const String phonePng = "$iconPath/phone.png";
 }

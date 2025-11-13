@@ -42,4 +42,5 @@ class RouteName {
   static const String documentScreen = '/DocumentScreen';
   static const String myDeliveryScreen = '/MyDeliveryScreen';
   static const String packageTrackingScreen = '/PackageTrackingScreen';
+  static const String trackDeliveryMapScreen = '/TrackDeliveryMapScreen';
 }

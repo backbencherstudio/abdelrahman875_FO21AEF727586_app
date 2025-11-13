@@ -1,9 +1,11 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import '../../bottom_nav/viewmodel/bottom_nav_bar_viewmodel.dart';
 import '../../home/view/widgets/custom_progress_container.dart';
 
@@ -136,7 +138,11 @@ class MyDeliveryScreen extends ConsumerWidget {
                       ...List.generate(5, (index) {
                         return Padding(
                           padding: EdgeInsets.only(bottom: 12.h),
-                          child: ProgressContainer(),
+                          child: GestureDetector(
+                              onTap: (){
+                                context.push(RouteName.trackDeliveryMapScreen);
+                              },
+                              child: ProgressContainer()),
                         );
                       }),
                     ],
