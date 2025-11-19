@@ -1,14 +1,14 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/images.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/customer/home/view/widgets/header_section.dart';
-import 'package:abdelrahman875_fo21aef727586/features/mission_screen/presentation/widgets/custom_subtitle.dart';
-import 'package:abdelrahman875_fo21aef727586/features/mission_screen/presentation/widgets/location_search_section.dart';
-import 'package:abdelrahman875_fo21aef727586/features/mission_screen/presentation/widgets/on_accept_dialog.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constants/icons.dart';
+import '../../../widgets/custom_subtitle.dart';
+import '../../../customer/select_carrier_view_reviews/view/widgets/location_search_section.dart';
+import '../../../customer/select_carrier_view_reviews/view/widgets/on_accept_dialog.dart';
 
 class TransporteurMissionScreen extends StatefulWidget {
   const TransporteurMissionScreen({super.key});

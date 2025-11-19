@@ -10,8 +10,8 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
-import '../../../mission_screen/presentation/widgets/custom_subtitle.dart';
-import '../../../mission_screen/presentation/widgets/on_accept_dialog.dart';
+import '../../../widgets/custom_subtitle.dart';
+import '../../../customer/select_carrier_view_reviews/view/widgets/on_accept_dialog.dart';
 import '../../../widgets/primery_button.dart';
 
 class HomeTransporteur extends StatefulWidget {

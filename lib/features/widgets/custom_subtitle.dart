@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/theme/src/theme_extension/color_pallete.dart';
+
+import '../../core/theme/src/theme_extension/color_pallete.dart';
 
 class CustomSubTitle extends StatelessWidget {
   const CustomSubTitle({super.key, required this.imagePath, required this.info});
@@ -12,7 +13,7 @@ final String info;
     final style = Theme.of(context).textTheme;
     return Row(
       children: [
-        Image.asset(imagePath, height: 12.h, width: 12.w),
+        Image.asset(imagePath, height: 18.h, width: 18.w),
         SizedBox(width: 6.w),
         Text(
          info,
@@ -21,6 +22,7 @@ final String info;
           style: style.bodySmall?.copyWith(
             color: AppColors.textColor1,
             fontWeight: FontWeight.w400,
+            fontSize: 13.sp,
           ),
         ),
       ],
