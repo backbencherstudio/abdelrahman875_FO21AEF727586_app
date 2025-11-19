@@ -1,4 +1,4 @@
-import '../../../core/constants/icons.dart';
+import '../../../../core/constants/icons.dart';
 
 class IconTextModel {
   final String iconPath;

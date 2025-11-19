@@ -65,4 +65,6 @@ class AppIcons {
   static const String thikPng = "$iconPath/thik.png";
   static const String alertPng = "$iconPath/alert.png";
   static const String phonePng = "$iconPath/phone.png";
+  static const String starPng = "$iconPath/Star.png";
+  static const String reviewPng = "$iconPath/review.png";
 }

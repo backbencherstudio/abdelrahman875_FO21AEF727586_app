@@ -54,6 +54,8 @@ class GridSection extends ConsumerWidget {
                       .read(customerNavBarProvider.notifier)
                       .onTabIndex(3);
                 //  context.push(RouteName.packageTrackingScreen);
+                }else if(index == 2){
+                  context.push(RouteName.missionScreen);
                 }
               },
               child: Container(

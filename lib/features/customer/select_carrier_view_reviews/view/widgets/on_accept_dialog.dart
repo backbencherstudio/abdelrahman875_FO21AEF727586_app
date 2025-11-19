@@ -7,8 +7,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rating_and_feedback_collector/rating_and_feedback_collector.dart';
+import '../../viewmodel/ratting_provider.dart';
 
-import '../../riverpod/ratting_provider.dart';
 
 void onAcceptTap(BuildContext context) {
   showDialog(
@@ -30,7 +30,7 @@ void onAcceptTap(BuildContext context) {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset(AppIcons.carShipPng, width: 50.w, height: 50.h),
+                  Image.asset(AppIcons.truckPng, width: 50.w, height: 50.h),
                   SizedBox(height: 8.h),
                   Text(
                     textAlign: TextAlign.center,
@@ -41,19 +41,78 @@ void onAcceptTap(BuildContext context) {
                     ),
                   ),
                   SizedBox(height: 8.h),
-                  Image.asset(AppIcons.profileImg, width: 100.w, height: 100.h),
+                  Image.asset(AppIcons.profileImg, width: 64.w, height: 64.h),
                   SizedBox(height: 8.h),
-                  RatingBar(
-                    iconSize: 40,
-                    allowHalfRating: false,
-                    filledIcon: Icons.star,
-                    emptyIcon: Icons.star_border,
-                    filledColor: Colors.amber,
-                    emptyColor: Colors.grey,
-                    currentRating: rating,
-                    onRatingChanged: (newRating) {
-                      ref.read(ratingProvider.notifier).state = newRating;
-                    },
+             Text('Transporteur 32122',style: TextStyle(
+               fontSize: 16,
+               fontWeight: FontWeight.w700,
+               color: Color(0xff3D3D3D),
+             ),),
+                  SizedBox(height: 8.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.r),
+                          color: AppColors.containerColor15,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8.w,
+                            vertical: 4.h,
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                '35 avis',
+                                style: TextStyle(
+                                  color: AppColors.blackText,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                              SizedBox(width: 8.w),
+                              Image.asset(
+                                AppIcons.reviewPng,
+                                height: 18.h,
+                                width: 18.w,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.r),
+                          color: AppColors.containerColor15,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8.w,
+                            vertical: 4.h,
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                '4.5',
+                                style: TextStyle(
+                                  color: AppColors.blackText,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                              SizedBox(width: 8.w),
+                              Image.asset(
+                                AppIcons.starPng,
+                                height: 18.h,
+                                width: 18.w,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 8.h),
                   Text(
