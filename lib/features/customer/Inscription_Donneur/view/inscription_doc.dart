@@ -2,7 +2,7 @@
 
 import 'dart:developer';
 import 'dart:io';
-import 'package:abdelrahman875_fo21aef727586/features/customer/Inscription_Donneur/riverpod/televersez.dart';
+import 'package:abdelrahman875_fo21aef727586/features/customer/Inscription_Donneur/viewmodel/televersez.dart';
 import 'package:path/path.dart' as p;
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/constants/images.dart';
@@ -12,9 +12,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:file_picker/file_picker.dart';
-import '../../../../core/routes/route_name.dart';
-import '../../widgets/primery_button.dart';
-import 'riverpod/file_provider_inscription_doc.dart';
+import '../../../../../core/routes/route_name.dart';
+import '../../../widgets/primery_button.dart';
+import '../viewmodel/file_provider_inscription_doc.dart';
 
 class InscriptionDocTwo extends ConsumerStatefulWidget {
   const InscriptionDocTwo({super.key});
@@ -98,7 +98,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDocTwo> {
                           'Format: PDF, JPG, PNG',
                         ],
                         onFileUpload: () async {
-                          log("Rib");
+                          // log("Rib");
                           File? file = await onFileUpload();
                           if (file != null) {
                             ref
@@ -109,28 +109,28 @@ class _InscriptionDocState extends ConsumerState<InscriptionDocTwo> {
                           }
                         },
                       ),
-                      SizedBox(height: 8.h),
-                      // RIB Dropdown
-                      _buildDropdownRow(
-                        context,
-                        title: 'RIB',
-                        subtitle: 'Déposer votre relevé d’identité bancaire',
-                        items: const [
-                          'Déposer votre relevé d’identité bancaire',
-                          'Format: PDF, JPG, PNG',
-                        ],
-                        onFileUpload: () async {
-                          log("Rib");
-                          File? file = await onFileUpload();
-                          if (file != null) {
-                            ref
-                                .read(fileProviderInspectionDoc.notifier)
-                                .addFile(key: 'RIB', file: file);
-                            ref.read(fileAutoShowProvide.notifier).state = true;
-                            autoFileShow('RIB');
-                          }
-                        },
-                      ),
+                      // SizedBox(height: 8.h),
+                      // // RIB Dropdown
+                      // _buildDropdownRow(
+                      //   context,
+                      //   title: 'RIB',
+                      //   subtitle: 'Déposer votre relevé d’identité bancaire',
+                      //   items: const [
+                      //     'Déposer votre relevé d’identité bancaire',
+                      //     'Format: PDF, JPG, PNG',
+                      //   ],
+                      //   onFileUpload: () async {
+                      //     log("Rib");
+                      //     File? file = await onFileUpload();
+                      //     if (file != null) {
+                      //       ref
+                      //           .read(fileProviderInspectionDoc.notifier)
+                      //           .addFile(key: 'RIB', file: file);
+                      //       ref.read(fileAutoShowProvide.notifier).state = true;
+                      //       autoFileShow('RIB');
+                      //     }
+                      //   },
+                      // ),
                       SizedBox(height: 8.h),
                       // Carte d’identité Dropdown
                       _buildDropdownRow(
@@ -264,13 +264,13 @@ class _InscriptionDocState extends ConsumerState<InscriptionDocTwo> {
                           horizontal: 16.h,
                         ),
                         containerColor: AppColors.blackColor,
-                        title: 'Créer mon compte',
+                        title: 'Suivant',
                         textStyle: style.bodyMedium?.copyWith(
                           color: AppColors.whiteColor,
                           fontWeight: FontWeight.w600,
                         ),
                         onTap: () {
-                          context.push(RouteName.command);
+                          context.push(RouteName.customerSummaryScreen);
                         },
                       ),
 
@@ -373,7 +373,7 @@ class _InscriptionDocState extends ConsumerState<InscriptionDocTwo> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 12),
-                          child: Image.asset(AppIcons.fileIcon),
+                          child: Image.asset(AppIcons.fileIcon,color: Color(0xff23538F),),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.5,

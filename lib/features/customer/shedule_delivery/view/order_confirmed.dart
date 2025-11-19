@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import '../../../core/constants/images.dart';
-import '../../../core/routes/route_name.dart';
-import '../../../core/theme/src/theme_extension/color_pallete.dart';
-import '../../widgets/primery_button.dart';
+import '../../../../core/constants/images.dart';
+import '../../../../core/routes/route_name.dart';
+import '../../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../../widgets/primery_button.dart';
 
 class CommandScreen extends StatelessWidget {
   const CommandScreen({super.key});
@@ -30,7 +30,7 @@ class CommandScreen extends StatelessWidget {
           SizedBox(height: 16.h),
           Text(
             "Votre commande \n "
-            "#CMD456782 est confirmée !",
+            "#CMD456782 est confirmée!",
             style: style.titleMedium?.copyWith(
               fontWeight: FontWeight.w600,
               color: Colors.black,

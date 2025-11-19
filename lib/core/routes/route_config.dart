@@ -6,10 +6,6 @@ import 'package:abdelrahman875_fo21aef727586/features/customer/bottom_nav/view/b
 import 'package:abdelrahman875_fo21aef727586/features/qr_code/qr_code_scaner_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../features/Command/presentation/command_5.dart';
-import '../../features/Command/presentation/command_vaid_screen.dart';
-import '../../features/Command/presentation/votre_command.dart';
 import '../../features/auth/reset_password/presentation/forgot_password_screen.dart';
 import '../../features/auth/reset_password/presentation/new_password_screen.dart';
 import '../../features/auth/sign_up/view/sign_up_screen.dart';
@@ -22,10 +18,14 @@ import '../../features/Mission_accept/presentation/mis_termin.dart';
 import '../../features/Mission_accept/presentation/mission_accept_screen.dart';
 import '../../features/Mission_accept/presentation/preuve_screen.dart';
 import '../../features/auth/reset_password/presentation/verify_otp_screen.dart';
+import '../../features/customer/Inscription_Donneur/view/customer_summary_screen.dart';
 import '../../features/customer/create_order/view/create_order_screen.dart';
-import '../../features/customer/Inscription_Donneur/donneur_screen.dart';
-import '../../features/customer/Inscription_Donneur/inscription_doc.dart';
+import '../../features/customer/Inscription_Donneur/view/donneur_screen.dart';
+import '../../features/customer/Inscription_Donneur/view/inscription_doc.dart';
 import '../../features/customer/my_delivery/view/my_delivery_screen.dart';
+import '../../features/customer/shedule_delivery/view/order_confirmed.dart';
+import '../../features/customer/shedule_delivery/view/fixed_price_screen.dart';
+import '../../features/customer/shedule_delivery/view/order_confirm_screen.dart';
 import '../../features/customer/track_delivery/view/package_tracking_screen.dart';
 import '../../features/customer/track_delivery_map/view/track_delivery_map_screen.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
@@ -47,7 +47,6 @@ import '../../features/track_home_demandes/presentation/track_home_demandes_scre
 
 class RouteConfig {
   static GoRouter goRouter = GoRouter(
-
     initialLocation: RouteName.customerBottomNavScreen,
 
     routes: [
@@ -66,10 +65,10 @@ class RouteConfig {
         },
       ),
       GoRoute(
-        name: RouteName.votreCommand,
-        path: RouteName.votreCommand,
+        name: RouteName.orderConfirmScreen,
+        path: RouteName.orderConfirmScreen,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: VotreCommand());
+          return const MaterialPage(child: OrderConfirmScreen());
         },
       ),
       GoRoute(
@@ -168,6 +167,7 @@ class RouteConfig {
           return const MaterialPage(child: TrackHomeDemandesScreen());
         },
       ),
+
       GoRoute(
         name: RouteName.inscriptionDocTwo,
         path: RouteName.inscriptionDocTwo,
@@ -205,10 +205,10 @@ class RouteConfig {
         },
       ),
       GoRoute(
-        name: RouteName.command5,
-        path: RouteName.command5,
+        name: RouteName.fixedPrice,
+        path: RouteName.fixedPrice,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: Command5());
+          return const MaterialPage(child: FixedPrice());
         },
       ),
       GoRoute(
@@ -404,6 +404,19 @@ class RouteConfig {
             context: context,
             state: state,
             child: TrackDeliveryMapScreen(),
+          );
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.customerSummaryScreen,
+        path: RouteName.customerSummaryScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: CustomerSummaryScreen(),
           );
         },
       ),
