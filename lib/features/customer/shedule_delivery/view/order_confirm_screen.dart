@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/constants/images.dart';
-import '../../../core/theme/src/theme_extension/color_pallete.dart';
-import '../../widgets/primery_button.dart';
+import '../../../../core/constants/images.dart';
+import '../../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../../widgets/primery_button.dart';
 
-class VotreCommand extends StatefulWidget {
-  const VotreCommand({super.key});
+class OrderConfirmScreen extends StatefulWidget {
+  const OrderConfirmScreen({super.key});
 
   @override
-  State<VotreCommand> createState() => _VotreCommandState();
+  State<OrderConfirmScreen> createState() => _OrderConfirmScreenState();
 }
 
-class _VotreCommandState extends State<VotreCommand> {
+class _OrderConfirmScreenState extends State<OrderConfirmScreen> {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -35,7 +35,7 @@ class _VotreCommandState extends State<VotreCommand> {
           ),
           SizedBox(height: 44.h),
           Text(
-            "Votre commande \n #CMD456782 est validée !",
+            "Votre commande \n #CMD456782 est validée!",
             textAlign: TextAlign.center,
             style: style.headlineSmall?.copyWith(
               color: AppColors.textColor1,
@@ -72,7 +72,7 @@ class _VotreCommandState extends State<VotreCommand> {
             ),
             containerColor: AppColors.blackColor,
             onTap: () {
-              context.push(RouteName.missionScreen);
+              context.push(RouteName.customerBottomNavScreen);
             },
           ),
           Spacer(),

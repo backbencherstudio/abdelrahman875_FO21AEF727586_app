@@ -353,7 +353,7 @@ class _LivraisonSectionState extends State<LivraisonSection> {
                       final a = ref.read(selectedIndexProvider.notifier).state = index + 1;
                       debugPrint(a.toString());
                     }
-                    context.push(RouteName.command5);
+                    context.push(RouteName.fixedPrice);
                   }
                 },
               );

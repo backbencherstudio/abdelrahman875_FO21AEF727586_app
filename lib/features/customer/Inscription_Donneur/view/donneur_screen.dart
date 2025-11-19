@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/constants/icons.dart';
-import '../../../../core/routes/route_name.dart';
+import '../../../../../core/constants/icons.dart';
+import '../../../../../core/routes/route_name.dart';
 
-import '../../widgets/primery_button.dart';
+import '../../../widgets/primery_button.dart';
 
 
 class Donneur extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/colo
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../riverpod/velocity_provider.dart';
+import '../../viewmodel/velocity_provider.dart';
 
 class Velocity extends ConsumerWidget {
   const Velocity({super.key});
@@ -24,7 +24,7 @@ class Velocity extends ConsumerWidget {
           IconButton(
             icon: const Icon(Icons.remove, color: AppColors.secondaryColor),
             onPressed: () {
-               if (velocity > 75) {
+               if (velocity > 67) {
                 ref.read(velocityProvider.notifier).state = velocity - 1;
               }
             },
