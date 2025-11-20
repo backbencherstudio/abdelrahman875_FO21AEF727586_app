@@ -142,6 +142,7 @@ void onAcceptTap(BuildContext context) {
                         title: 'Accepter',
                         onTap: () {
                        context.push(RouteName.paymentScreen);
+                       context.pop();
                         },
                       ),
                       PrimaryButton(

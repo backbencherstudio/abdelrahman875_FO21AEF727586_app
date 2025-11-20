@@ -24,26 +24,18 @@ class _CustomerBottomNavScreenState
   final List<Widget> _pageList = const [
     HomeView(),
     MyDeliveryScreen(),
-    CreerUneCommandeScreen(),
+    CreateOrderScreen(),
     PackageTrackingScreen(),
     ProfileSettingScreen(),
-  ];
-  final List<Widget> _bottomList = const [
-    BottomNavItem(title: "Home", icon: AppIcons.homePng),
-    BottomNavItem(title: "Livrasons", icon: AppIcons.navBoxPng),
-    BottomNavItem(title: "creer", icon: AppIcons.plusPng),
-    BottomNavItem(title: "SuiVi", icon: AppIcons.suiviPng),
-    BottomNavItem(title: "PAra", icon: AppIcons.settingIcon),
   ];
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
-    final isKeyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
+    final currentIndex = ref.watch(customerNavBarProvider);
 
     debugPrint("\n\n rebuilding \n\n");
     return Scaffold(
-      body: _pageList[ref.watch(customerNavBarProvider)],
+      body: _pageList[currentIndex],
       bottomNavigationBar: Container(
         height: 83.h,
         decoration: BoxDecoration(
@@ -68,9 +60,14 @@ class _CustomerBottomNavScreenState
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: List.generate(_bottomList.length, (index) {
+                children: List.generate(_pageList.length, (index) {
                   // For middle item (floating effect)
                   if (index == 2) {
+                    final isSelected = currentIndex == index;
+                    final containerColor = isSelected
+                        ? const Color(0xff2A6DCD) // Selected color
+                        : const Color(0xff777980); // Unselected color
+
                     return Transform.translate(
                       offset: const Offset(-5, -10), // lift it up
                       child: GestureDetector(
@@ -84,7 +81,7 @@ class _CustomerBottomNavScreenState
                             Container(
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: const Color(0xff777980),
+                                color: containerColor,
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.black.withOpacity(0.2),
@@ -107,8 +104,8 @@ class _CustomerBottomNavScreenState
                               "Carrier",
                               style: TextStyle(
                                 fontSize: 11,
-                                color: const Color(0xff777980),
-                                fontWeight: FontWeight.w400,
+                                color: isSelected ? const Color(0xff2A6DCD) : const Color(0xff777980),
+                                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
                               ),
                             ),
                           ],
@@ -124,7 +121,11 @@ class _CustomerBottomNavScreenState
                           .read(customerNavBarProvider.notifier)
                           .onTabIndex(index);
                     },
-                    child: _bottomList[index],
+                    child: BottomNavItem(
+                      title: _getTitle(index),
+                      icon: _getIcon(index),
+                      isSelected: currentIndex == index,
+                    ),
                   );
                 }),
               ),
@@ -134,15 +135,59 @@ class _CustomerBottomNavScreenState
       ),
     );
   }
+
+  String _getTitle(int index) {
+    switch (index) {
+      case 0:
+        return "Home";
+      case 1:
+        return "Livrasons";
+      case 2:
+        return "creer";
+      case 3:
+        return "SuiVi";
+      case 4:
+        return "Paramètres";
+      default:
+        return "";
+    }
+  }
+
+  String _getIcon(int index) {
+    switch (index) {
+      case 0:
+        return AppIcons.homePng;
+      case 1:
+        return AppIcons.navBoxPng;
+      case 2:
+        return AppIcons.plusPng;
+      case 3:
+        return AppIcons.suiviPng;
+      case 4:
+        return AppIcons.settingIcon;
+      default:
+        return AppIcons.homePng;
+    }
+  }
 }
 
 class BottomNavItem extends StatelessWidget {
   final String title;
   final String icon;
-  const BottomNavItem({super.key, required this.title, required this.icon});
+  final bool isSelected;
+
+  const BottomNavItem({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.isSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final selectedColor = const Color(0xff2A6DCD); // Active color
+    final unselectedColor = const Color(0xff777980); // Inactive color
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -151,12 +196,16 @@ class BottomNavItem extends StatelessWidget {
           width: 24,
           height: 24,
           fit: BoxFit.cover,
-          color: const Color(0xff777980),
+          color: isSelected ? selectedColor : unselectedColor,
         ),
         SizedBox(height: 6),
         Text(
           title,
-          style: TextStyle(fontSize: 11, color: const Color(0xff777980)),
+          style: TextStyle(
+            fontSize: 11,
+            color: isSelected ? selectedColor : unselectedColor,
+            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+          ),
         ),
       ],
     );

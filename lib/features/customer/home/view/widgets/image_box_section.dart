@@ -14,7 +14,7 @@ class ImageBoxSection extends StatelessWidget {
     final style = Theme.of(context).textTheme;
     return GestureDetector(
       onTap: (){
-        context.push(RouteName.creerUneCommandeScreen);
+        context.push(RouteName.createOrderScreen);
       },
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(18.r)),

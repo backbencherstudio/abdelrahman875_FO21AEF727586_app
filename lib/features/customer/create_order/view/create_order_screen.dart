@@ -12,16 +12,16 @@ import '../../../widgets/primery_button.dart';
 import '../viewmodel/selected_index_provider.dart';
 import '../viewmodel/toggle_freight_express_provider.dart';
 
-class CreerUneCommandeScreen extends StatefulWidget {
-  const CreerUneCommandeScreen({super.key});
+class CreateOrderScreen extends StatefulWidget {
+  const CreateOrderScreen({super.key});
 
   @override
-  State<CreerUneCommandeScreen> createState() => _CreerUneCommandeScreenState();
+  State<CreateOrderScreen> createState() => _CreateOrderScreenState();
 }
 
 final List<String> titles = ['Chargement', 'Marchandise', 'Livraison'];
 
-class _CreerUneCommandeScreenState extends State<CreerUneCommandeScreen> {
+class _CreateOrderScreenState extends State<CreateOrderScreen> {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;

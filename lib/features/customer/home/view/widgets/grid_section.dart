@@ -29,67 +29,74 @@ class GridSection extends ConsumerWidget {
   @override
   Widget build(BuildContext context,WidgetRef ref) {
     final style = Theme.of(context).textTheme;
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      padding: EdgeInsets.all(8.w),
-      itemCount: gridItems.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
-        crossAxisSpacing: 4.w,
-        mainAxisSpacing: 4.h,
-        childAspectRatio: 0.75,
-      ),
-      itemBuilder: (context, index) {
-        final item = gridItems[index];
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            GestureDetector(
-              onTap: (){
-                if(index == 3){
-                  context.push(RouteName.documentScreen);
-                } else if(index == 1){
-                  ref
-                      .read(customerNavBarProvider.notifier)
-                      .onTabIndex(3);
-                //  context.push(RouteName.packageTrackingScreen);
-                }else if(index == 2){
-                  context.push(RouteName.carrierMissionScreen);
-                }
-              },
-              child: Container(
-                height: 60.h,
-                width: 60.w,
-                decoration: BoxDecoration(
-                  color: AppColors.containerColor2,
-                  borderRadius: BorderRadius.circular(30.r),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.r),
-                  child: Padding(
-                    padding: EdgeInsets.all(14.r),
-                    child: Image.asset(
-                      item.imagePath,
-                      height: 40.h,
-                      width: 40.w,
-                      fit: BoxFit.cover,
+    return SafeArea(
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.all(8.w),
+        itemCount: gridItems.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 4,
+          crossAxisSpacing: 4.w,
+          mainAxisSpacing: 4.h,
+          childAspectRatio: 0.75,
+        ),
+        itemBuilder: (context, index) {
+          final item = gridItems[index];
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  switch (index) {
+                    case 0:
+                      context.push(RouteName.createOrderScreen);
+                      break;
+                    case 1:
+                      ref.read(customerNavBarProvider.notifier).onTabIndex(3);
+                      break;
+                    case 2:
+                      context.push(RouteName.carrierMissionScreen);
+                      break;
+                    case 3:
+                      context.push(RouteName.documentScreen);
+                      break;
+                  }
+                },
+
+                child: Container(
+                  height: 60.h,
+                  width: 60.w,
+                  decoration: BoxDecoration(
+                    color: AppColors.containerColor2,
+                    borderRadius: BorderRadius.circular(30.r),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30.r),
+                    child: Padding(
+                      padding: EdgeInsets.all(14.r),
+                      child: Image.asset(
+                        item.imagePath,
+                        height: 40.h,
+                        width: 40.w,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 8.h),
-            Text(
-              item.title,
-              style: style.labelSmall?.copyWith(
-                color: AppColors.blackText,
-                fontWeight: FontWeight.w600,
+              SizedBox(height: 8.h),
+              Text(
+                item.title,
+                style: style.labelSmall?.copyWith(
+                  color: AppColors.blackText,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-          ],
-        );
-      },
+            ],
+          );
+        },
+      ),
     );
   }
 }
