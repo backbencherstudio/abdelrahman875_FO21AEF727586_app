@@ -29,6 +29,7 @@ import '../../features/customer/shedule_delivery/view/fixed_price_screen.dart';
 import '../../features/customer/shedule_delivery/view/order_confirm_screen.dart';
 import '../../features/customer/select_carrier_view_reviews/view/widgets/order_confirmed.dart';
 import '../../features/customer/track_delivery/view/package_tracking_screen.dart';
+import '../../features/customer/track_delivery_map/view/proof_of_shipment_screen.dart';
 import '../../features/customer/track_delivery_map/view/track_delivery_map_screen.dart';
 import '../../features/details_commande/presentation/details_commande_screen.dart';
 import '../../features/documents/presentation/document_screen.dart';

@@ -26,7 +26,7 @@ class RouteName {
   static const String inscriptionDocTwo = "/InscriptionDocTwo";
   static const String carrierMissionScreen = "/CarrierMissionScreen";
 
-  static const String creerUneCommandeScreen = '/CreerUneCommandeScreen';
+  static const String createOrderScreen = '/CreateOrderScreen';
   static const String qrScannerScreen = '/qrScannerScreen';
   static const String detailsCommandeScreen = '/DetailsCommandeScreen';
   static const String profileSettingScreen = '/ProfileSettingScreen';
@@ -45,4 +45,5 @@ class RouteName {
   static const String trackDeliveryMapScreen = '/TrackDeliveryMapScreen';
   static const String customerSummaryScreen = '/CustomerSummaryScreen';
   static const String carrierReviewScreen = '/CarrierReviewScreen';
+  static const String proofOfShipmentScreen = '/ProofOfShipmentScreen';
 }

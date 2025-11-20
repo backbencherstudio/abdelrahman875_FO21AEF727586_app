@@ -1,9 +1,11 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/images.dart';
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/customer/track_delivery_map/view/widgets/time_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/icons.dart';
 
@@ -27,10 +29,15 @@ class _TrackDeliveryMapScreenState extends State<TrackDeliveryMapScreen> {
             Positioned(
               top: 20.h,
               left: 20.w,
-              child: Icon(
-                Icons.arrow_back_outlined,
-                size: 30.h,
-                color: AppColors.whiteColor,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.arrow_back_outlined,
+                  size: 30.h,
+                  color: AppColors.whiteColor,
+                ),
               ),
             ),
 
@@ -212,7 +219,9 @@ class _TrackDeliveryMapScreenState extends State<TrackDeliveryMapScreen> {
                                   Divider(height: 1.h,color: AppColors.grayText,),
                                   SizedBox(height: 20.h),
                                   GestureDetector(
-                                    onTap: (){},
+                                    onTap: (){
+                                      context.push(RouteName.proofOfShipmentScreen);
+                                    },
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(

@@ -182,10 +182,10 @@ class RouteConfig {
       ),
 
       GoRoute(
-        name: RouteName.creerUneCommandeScreen,
-        path: RouteName.creerUneCommandeScreen,
+        name: RouteName.createOrderScreen,
+        path: RouteName.createOrderScreen,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: CreerUneCommandeScreen());
+          return const MaterialPage(child: CreateOrderScreen());
         },
       ),
 
@@ -385,6 +385,17 @@ class RouteConfig {
             context: context,
             state: state,
             child: CarrierReviewScreen(),
+          );
+        },
+      ),      GoRoute(
+        name: RouteName.proofOfShipmentScreen,
+        path: RouteName.proofOfShipmentScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: ProofOfShipmentScreen(),
           );
         },
       ),
