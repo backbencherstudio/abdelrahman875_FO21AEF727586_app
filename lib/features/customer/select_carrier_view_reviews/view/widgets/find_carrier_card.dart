@@ -7,6 +7,7 @@ import '../../../../../core/theme/src/theme_extension/color_pallete.dart';
 import '../../../../widgets/custom_subtitle.dart';
 import '../../../../widgets/primery_button.dart';
 import 'on_accept_dialog.dart';
+import 'on_overly_review_dialog.dart';
 
 class FindCarrierCard extends StatelessWidget {
   const FindCarrierCard({super.key});
@@ -59,33 +60,38 @@ class FindCarrierCard extends StatelessWidget {
                   ],
                 ),
                 SizedBox(width: 8.w),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.r),
-                    color: AppColors.whiteColor,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 8.w,
-                      vertical: 4.h,
+                GestureDetector(
+                  onTap: (){
+                    onAvisTap(context);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.r),
+                      color: AppColors.whiteColor,
                     ),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Avis',
-                          style: TextStyle(
-                            color: AppColors.blackText,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12.sp,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 8.w,
+                        vertical: 4.h,
+                      ),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Avis',
+                            style: TextStyle(
+                              color: AppColors.blackText,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12.sp,
+                            ),
                           ),
-                        ),
-                        SizedBox(width: 8.w),
-                        Image.asset(
-                          AppIcons.starPng,
-                          height: 18.h,
-                          width: 18.w,
-                        ),
-                      ],
+                          SizedBox(width: 8.w),
+                          Image.asset(
+                            AppIcons.starPng,
+                            height: 18.h,
+                            width: 18.w,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

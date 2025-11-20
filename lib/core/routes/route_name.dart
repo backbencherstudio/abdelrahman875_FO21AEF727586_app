@@ -24,7 +24,7 @@ class RouteName {
   static const String commandScreen = "/CommandScreen";
   static const String orderConfirmScreen = "/VotreCommand";
   static const String inscriptionDocTwo = "/InscriptionDocTwo";
-  static const String missionScreen = "/MissionScreen";
+  static const String carrierMissionScreen = "/CarrierMissionScreen";
 
   static const String creerUneCommandeScreen = '/CreerUneCommandeScreen';
   static const String qrScannerScreen = '/qrScannerScreen';

@@ -38,7 +38,7 @@ import '../../features/common_widgets/commande.dart';
 import '../../features/driver/Inscription/inscription_doc.dart';
 import '../../features/driver/home_transporteur/view/home_transpoteur_screen.dart';
 import '../../features/driver/home_transporteur/view/transporteur_missions.dart';
-import '../../features/customer/select_carrier_view_reviews/view/mission_screen.dart';
+import '../../features/customer/select_carrier_view_reviews/view/carrier_mission_screen.dart';
 import '../../features/onboading/onboad_screen/onboading_screen.dart';
 import '../../features/paiement_screen/presentation/paiement_screen.dart';
 import '../../features/setting_screen/presentation/profile_setting_screen.dart';
@@ -296,14 +296,14 @@ class RouteConfig {
         },
       ),
       GoRoute(
-        name: RouteName.missionScreen,
-        path: RouteName.missionScreen,
+        name: RouteName.carrierMissionScreen,
+        path: RouteName.carrierMissionScreen,
         pageBuilder: (context, state) {
           return buildPageWithTransition(
             transitionType: PageTransitionType.slideRightToLeft,
             context: context,
             state: state,
-            child: MissionScreen(),
+            child: CarrierMissionScreen(),
           );
         },
       ),

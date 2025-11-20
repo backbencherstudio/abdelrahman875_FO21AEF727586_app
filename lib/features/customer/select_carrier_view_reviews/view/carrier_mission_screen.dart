@@ -5,14 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/icons.dart';
 
-class MissionScreen extends StatefulWidget {
-  const MissionScreen({super.key});
+class CarrierMissionScreen extends StatefulWidget {
+  const CarrierMissionScreen({super.key});
 
   @override
-  State<MissionScreen> createState() => _MissionScreenState();
+  State<CarrierMissionScreen> createState() => _CarrierMissionScreenState();
 }
 
-class _MissionScreenState extends State<MissionScreen> {
+class _CarrierMissionScreenState extends State<CarrierMissionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
