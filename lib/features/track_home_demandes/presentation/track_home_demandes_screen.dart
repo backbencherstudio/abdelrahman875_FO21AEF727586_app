@@ -121,7 +121,7 @@ class _TrackHomeDemandesScreenState extends State<TrackHomeDemandesScreen> {
                             padding: EdgeInsets.only(bottom: 12.h),
                             child: GestureDetector(
                               onTap: () {
-                                context.push(RouteName.paiementScreen);
+                                context.push(RouteName.paymentScreen);
                               },
                               child: Container(
                                 decoration: BoxDecoration(

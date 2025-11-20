@@ -1,21 +1,21 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
-import 'package:abdelrahman875_fo21aef727586/features/details_commande/presentation/widgets/custom_divider.dart';
+import 'package:abdelrahman875_fo21aef727586/features/widgets/custom_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import '../../../core/theme/src/theme_extension/color_pallete.dart';
-import '../../widgets/primery_button.dart';
+import '../../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../../widgets/primery_button.dart';
 import '../models/tracking_step_model.dart';
 
-class PaiementScreen extends StatefulWidget {
-  const PaiementScreen({super.key});
+class PaymentScreen extends StatefulWidget {
+  const PaymentScreen({super.key});
 
   @override
-  State<PaiementScreen> createState() => _PaiementScreenState();
+  State<PaymentScreen> createState() => _PaymentScreenState();
 }
 
-class _PaiementScreenState extends State<PaiementScreen> {
+class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -39,7 +39,7 @@ class _PaiementScreenState extends State<PaiementScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 32.h),
+              SizedBox(height: 12.h),
 
               Expanded(
                 child: SingleChildScrollView(
@@ -47,13 +47,13 @@ class _PaiementScreenState extends State<PaiementScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Récapitulatif de la\nCommande ',
+                        'Récapitulatif de la Livraison',
                         style: style.headlineSmall?.copyWith(
                           color: AppColors.blackText,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      SizedBox(height: 32.h),
+                      SizedBox(height: 15.h),
                       RichText(
                         text: TextSpan(
                           children: [
@@ -75,7 +75,7 @@ class _PaiementScreenState extends State<PaiementScreen> {
                         ),
                       ),
 
-                      SizedBox(height: 16.h),
+                      CustomDivider(),
                       ListView.builder(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
@@ -128,7 +128,6 @@ class _PaiementScreenState extends State<PaiementScreen> {
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
-                                    SizedBox(height: 12),
                                   ],
                                 ),
                               ),
@@ -136,83 +135,105 @@ class _PaiementScreenState extends State<PaiementScreen> {
                           );
                         },
                       ),
+                      CustomDivider(),
 
-                      SizedBox(height: 16.h),
-
-                      Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: AppColors.transparentColor,
-                              shape: BoxShape.circle,
-                              border: Border.all(color: AppColors.grayText2),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Image.asset(
-                                AppIcons.shipPng,
-                                height: 24.h,
-                                width: 24.w,
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: 12.w),
-                          Text(
-                            'Livraison Fret',
-                            style: style.bodyMedium?.copyWith(
-                              color: AppColors.blackColor,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 16.h),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: AppColors.transparentColor,
-                              shape: BoxShape.circle,
-                              border: Border.all(color: AppColors.grayText2),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Image.asset(
-                                AppIcons.boitePng,
-                                height: 24.h,
-                                width: 24.w,
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: 12.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                      Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.whiteColor,
+                          borderRadius: BorderRadius.circular(8.r),
+                          border: Border.all(color: AppColors.grayText2),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
                             children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: AppColors.transparentColor,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: AppColors.grayText2,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Image.asset(
+                                    AppIcons.shipPng,
+                                    height: 24.h,
+                                    width: 24.w,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 12.w),
                               Text(
-                                'Colis ',
+                                'Livraison Fret',
                                 style: style.bodyMedium?.copyWith(
                                   color: AppColors.blackColor,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              SizedBox(height: 4.h),
-                              Text(
-                                '*produits frais\n*7 Kg',
-                                style: style.bodyMedium?.copyWith(
-                                  color: AppColors.blackText,
-                                  fontWeight: FontWeight.w400,
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 16.h),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.whiteColor,
+                          borderRadius: BorderRadius.circular(8.r),
+                          border: Border.all(color: AppColors.grayText2),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: AppColors.transparentColor,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: AppColors.grayText2,
+                                  ),
                                 ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Image.asset(
+                                    AppIcons.boitePng,
+                                    height: 24.h,
+                                    width: 24.w,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 12.w),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Colis ',
+                                    style: style.bodyMedium?.copyWith(
+                                      color: AppColors.blackColor,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Text(
+                                    '*produits frais . *7 Kg',
+                                    style: style.bodyMedium?.copyWith(
+                                      color: AppColors.blackText,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                        ],
+                        ),
                       ),
 
                       CustomDivider(),
 
                       Text(
-                        'Sélectionner un moyen\nde paiement',
+                        'Sélectionner un moyen de paiement',
                         style: style.bodyLarge?.copyWith(
                           color: AppColors.blackColor,
                           fontWeight: FontWeight.w600,
@@ -271,7 +292,9 @@ class _PaiementScreenState extends State<PaiementScreen> {
                           decoration: BoxDecoration(
                             color: AppColors.whiteColor,
                             borderRadius: BorderRadius.circular(8.r),
-                            border: Border.all(color: AppColors.containerColor3),
+                            border: Border.all(
+                              color: AppColors.containerColor3,
+                            ),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -279,7 +302,10 @@ class _PaiementScreenState extends State<PaiementScreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(Icons.add, color: AppColors.containerColor3),
+                                Icon(
+                                  Icons.add,
+                                  color: AppColors.containerColor3,
+                                ),
                                 SizedBox(width: 8.w),
                                 Text(
                                   'Ajouter une carte',
@@ -295,13 +321,11 @@ class _PaiementScreenState extends State<PaiementScreen> {
                       ),
 
                       CustomDivider(),
-                      Center(
-                        child: Text(
-                          'Activer un code promo',
-                          style: style.bodyMedium?.copyWith(
-                            color: AppColors.blackColor,
-                            fontWeight: FontWeight.w600,
-                          ),
+                      Text(
+                        'Activer un code promo',
+                        style: style.bodyMedium?.copyWith(
+                          color: AppColors.blackColor,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       SizedBox(height: 16.h),
@@ -350,6 +374,7 @@ class _PaiementScreenState extends State<PaiementScreen> {
                                     onPressed: () {},
                                     style: OutlinedButton.styleFrom(
                                       side: BorderSide(color: Colors.black54),
+                                      backgroundColor: AppColors.blackColor,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(8),
                                       ),
@@ -357,7 +382,7 @@ class _PaiementScreenState extends State<PaiementScreen> {
                                     child: Text(
                                       'Utiliser',
                                       style: TextStyle(
-                                        color: Colors.black54,
+                                        color: AppColors.whiteColor,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 14,
                                       ),
@@ -412,15 +437,33 @@ class _PaiementScreenState extends State<PaiementScreen> {
                           ),
                         ],
                       ),
-                      
+
                       SizedBox(height: 16.h),
                       PrimaryButton(
-                          width: double.infinity,
-                          padding: EdgeInsets.all(16.r),
-                          containerColor: AppColors.blackColor,
-                          title: 'Payer', onTap: (){
-                            context.push(RouteName.commandScreen);
-                      }),
+                        width: double.infinity,
+                        padding: EdgeInsets.all(16.r),
+                        containerColor: AppColors.blackColor,
+                        title: 'Payer',
+                        onTap: () {
+                          context.push(RouteName.orderConfirmedScreen);
+                        },
+                      ),
+                      SizedBox(height: 16.h),
+                      PrimaryButton(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(16.r),
+                        containerColor: AppColors.whiteColor,
+                        textStyle: TextStyle(
+                          color: AppColors.blackColor,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
+                        border: Border.all(color: AppColors.blackColor,width: 1.5),
+                        title: 'Annuler',
+                        onTap: () {
+                          context.push(RouteName.carrierMissionScreen);
+                        },
+                      ),
 
                       SizedBox(height: 20.h),
                     ],
