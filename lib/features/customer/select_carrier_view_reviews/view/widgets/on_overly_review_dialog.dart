@@ -1,18 +1,14 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
-import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
+import 'custom_reviews.dart';
 
-
-
-void onAcceptTap(BuildContext context) {
+void onAvisTap(BuildContext context) {
   showDialog(
     context: context,
     builder: (_) {
-      final style = Theme.of(context).textTheme;
       return Consumer(
         builder: (context, ref, _) {
           return Dialog(
@@ -27,24 +23,30 @@ void onAcceptTap(BuildContext context) {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset(AppIcons.truckPng, width: 50.w, height: 50.h),
-                  SizedBox(height: 8.h),
-                  Text(
-                    textAlign: TextAlign.center,
-                    'Êtes-vous sûr(e) de\nchoisir ce transporteur ?',
-                    style: style.titleSmall?.copyWith(
-                      color: AppColors.blackColor,
-                      fontWeight: FontWeight.w600,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Icon(
+                        Icons.close,
+                        color: AppColors.blackColor,
+                        size: 20.sp,
+                      ),
                     ),
                   ),
                   SizedBox(height: 8.h),
                   Image.asset(AppIcons.profileImg, width: 64.w, height: 64.h),
                   SizedBox(height: 8.h),
-             Text('Transporteur 32122',style: TextStyle(
-               fontSize: 16,
-               fontWeight: FontWeight.w700,
-               color: Color(0xff3D3D3D),
-             ),),
+                  Text(
+                    'Transporteur 32122',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xff3D3D3D),
+                    ),
+                  ),
                   SizedBox(height: 8.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -114,54 +116,93 @@ void onAcceptTap(BuildContext context) {
                     ],
                   ),
                   SizedBox(height: 8.h),
-                  Text(
-                    textAlign: TextAlign.center,
-                    'Le transporteur est prêt à prendre en\ncharge votre commande.\n\nConfirmez dès maintenant pour lancer la mission.',
-                    style: style.bodyMedium?.copyWith(
-                      color: AppColors.grayText5,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                  Divider(color: Color(0xffE9E9E9)),
                   SizedBox(height: 8.h),
+
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      PrimaryButton(
-                        width: 115.w,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 16.w,
-                          vertical: 12.h,
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.r),
+                          color: AppColors.blackColor,
                         ),
-                        borderRadius: 12,
-                        containerColor: AppColors.greenText2,
-                        textStyle: style.bodyMedium?.copyWith(
-                          color: AppColors.whiteColor,
-                          fontWeight: FontWeight.w600,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8.w,
+                            vertical: 4.w,
+                          ),
+                          child: Text(
+                            'Récents',
+                            style: TextStyle(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.whiteColor,
+                            ),
+                          ),
                         ),
-                        title: 'Accepter',
-                        onTap: () {
-                        context.pop();
-                        },
                       ),
-                      PrimaryButton(
-                        width: 115.w,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 16.w,
-                          vertical: 12.h,
+                      SizedBox(width: 12.w),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.r),
+                          color: AppColors.containerColor15,
                         ),
-                        borderRadius: 12,
-                        border: Border.all(color: AppColors.containerColor9),
-                        containerColor: AppColors.transparentColor,
-                        textStyle: style.bodyMedium?.copyWith(
-                          color: AppColors.containerColor9,
-                          fontWeight: FontWeight.w600,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8.w,
+                            vertical: 4.w,
+                          ),
+                          child: Text(
+                            'les plus favorables',
+                            style: TextStyle(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.grayText5,
+                            ),
+                          ),
                         ),
-                        title: 'Annuler',
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
                       ),
                     ],
+                  ),
+                  SizedBox(height: 15.h),
+                  CustomReviews(
+                    image: AppIcons.profileImg,
+                    name: 'Alban.u',
+                    rating: '4.5',
+                    review:
+                        'La livraison avec ce transporteur s’est déroulé de la meilleure façon possible. Je recommande formtement.',
+                  ),
+
+                  SizedBox(height: 15.h),
+                  CustomReviews(
+                    image: AppIcons.profileImg,
+                    name: 'Laurine.M',
+                    rating: '4.5',
+                    review:
+                        'Merci pour votre réactivité et professionnalisme. Je recommande ce transporteur à tous.',
+                  ),
+
+                  SizedBox(height: 15.h),
+                  CustomReviews(
+                    image: AppIcons.profileImg,
+                    name: 'Marc.T',
+                    rating: '4.5',
+                    review:
+                        'Le service était excellent et le colis est arrivé dans les temps. Très satisfait!',
+                  ),
+
+                  Center(
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Voir plus',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.blackColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

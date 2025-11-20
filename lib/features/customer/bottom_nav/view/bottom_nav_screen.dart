@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/icons.dart';
-import '../../../details_commande/presentation/details_commande_screen.dart';
 import '../../../setting_screen/presentation/profile_setting_screen.dart';
 import '../../create_order/view/create_order_screen.dart';
 import '../../my_delivery/view/my_delivery_screen.dart';
