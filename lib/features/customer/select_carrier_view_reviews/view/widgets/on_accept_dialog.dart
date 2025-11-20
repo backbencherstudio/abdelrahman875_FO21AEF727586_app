@@ -1,4 +1,5 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:flutter/material.dart';
@@ -140,7 +141,7 @@ void onAcceptTap(BuildContext context) {
                         ),
                         title: 'Accepter',
                         onTap: () {
-                        context.pop();
+                       context.push(RouteName.paymentScreen);
                         },
                       ),
                       PrimaryButton(

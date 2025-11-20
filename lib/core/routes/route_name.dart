@@ -21,7 +21,7 @@ class RouteName {
   static const String conditionScreen = "/condition_screen";
   static const String missionScreenOne = "/missionScreen_One";
   static const String misAccepteScreen = "/mis_accepteScreen";
-  static const String commandScreen = "/CommandScreen";
+  static const String orderConfirmedScreen = "/OrderConfirmedScreen";
   static const String orderConfirmScreen = "/VotreCommand";
   static const String inscriptionDocTwo = "/InscriptionDocTwo";
   static const String carrierMissionScreen = "/CarrierMissionScreen";
@@ -31,7 +31,7 @@ class RouteName {
   static const String detailsCommandeScreen = '/DetailsCommandeScreen';
   static const String profileSettingScreen = '/ProfileSettingScreen';
   static const String trackHomeDemandesScreen = '/TrackHomeDemandesScreen';
-  static const String paiementScreen = '/PaiementScreen';
+  static const String paymentScreen = '/PaymentScreen';
 
   static const String homeTransporteur = '/HomeTransporteur';
   static const String transporteurMissionScreen = '/TransporteurMissionScreen';
@@ -44,4 +44,5 @@ class RouteName {
   static const String packageTrackingScreen = '/PackageTrackingScreen';
   static const String trackDeliveryMapScreen = '/TrackDeliveryMapScreen';
   static const String customerSummaryScreen = '/CustomerSummaryScreen';
+  static const String carrierReviewScreen = '/CarrierReviewScreen';
 }

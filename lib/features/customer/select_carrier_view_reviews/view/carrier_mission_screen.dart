@@ -1,18 +1,20 @@
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/customer/select_carrier_view_reviews/view/widgets/find_carrier_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/icons.dart';
 
-class CarrierMissionScreen extends StatefulWidget {
+class CarrierMissionScreen extends ConsumerStatefulWidget {
   const CarrierMissionScreen({super.key});
 
   @override
-  State<CarrierMissionScreen> createState() => _CarrierMissionScreenState();
+  ConsumerState<CarrierMissionScreen> createState() => _CarrierMissionScreenState();
 }
 
-class _CarrierMissionScreenState extends State<CarrierMissionScreen> {
+class _CarrierMissionScreenState extends ConsumerState<CarrierMissionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +31,7 @@ class _CarrierMissionScreenState extends State<CarrierMissionScreen> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          context.pop();
+                         context.push(RouteName.customerBottomNavScreen);
                         },
                         child: Container(
                           decoration: BoxDecoration(

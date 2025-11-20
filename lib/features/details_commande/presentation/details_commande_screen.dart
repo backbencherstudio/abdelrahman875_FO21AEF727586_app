@@ -1,4 +1,4 @@
-import 'package:abdelrahman875_fo21aef727586/features/details_commande/presentation/widgets/custom_divider.dart';
+import 'package:abdelrahman875_fo21aef727586/features/widgets/custom_divider.dart';
 import 'package:abdelrahman875_fo21aef727586/features/details_commande/presentation/widgets/custom_row_tracting.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:flutter/material.dart';

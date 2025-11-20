@@ -1,8 +1,10 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'custom_reviews.dart';
 
 void onAvisTap(BuildContext context) {
@@ -193,7 +195,9 @@ void onAvisTap(BuildContext context) {
 
                   Center(
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.push(RouteName.carrierReviewScreen);
+                      },
                       child: Text(
                         'Voir plus',
                         style: TextStyle(

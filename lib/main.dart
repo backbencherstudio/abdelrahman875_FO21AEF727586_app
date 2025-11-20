@@ -1,10 +1,11 @@
 import 'package:abdelrahman875_fo21aef727586/bootstrap.dart';
-import 'package:abdelrahman875_fo21aef727586/core/routes/route_config.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'core/routes/route_import_part.dart';
 
 void main() async{
   bootstrap();
