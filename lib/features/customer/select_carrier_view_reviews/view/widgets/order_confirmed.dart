@@ -29,11 +29,10 @@ class OrderConfirmedScreen extends StatelessWidget {
           ),
           SizedBox(height: 16.h),
           Text(
-            "Votre commande \n "
-            "#CMD456782 est confirmée!",
+            "Votre commande #CMD456782\nest confirmée!",
             style: style.titleMedium?.copyWith(
               fontWeight: FontWeight.w600,
-              color: Colors.black,
+              color: Color(0xff353535),
             ),
             textAlign: TextAlign.center,
           ),
@@ -43,27 +42,18 @@ class OrderConfirmedScreen extends StatelessWidget {
             style: style.titleSmall?.copyWith(
               fontWeight: FontWeight.w400,
               color: AppColors.grayText2,
+              fontSize: 18.sp
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 102.h),
+          SizedBox(height: 50.h),
           PrimaryButton(
             width: 239.w,
             padding: EdgeInsets.symmetric(vertical: 16.h),
             containerColor: AppColors.blackColor,
-            title: 'QR CODE',
-            onTap: () {
-              context.push(RouteName.qrScannerScreen);
-            },
-          ),
-          SizedBox(height: 20.h),
-          PrimaryButton(
-            width: 239.w,
-            padding: EdgeInsets.symmetric(vertical: 16.h),
-            containerColor: AppColors.transparentColor,
             border: Border.all(color: AppColors.blackColor),
             textStyle: style.bodyLarge?.copyWith(
-              color: AppColors.blackText,
+              color: AppColors.whiteColor,
               fontWeight: FontWeight.w600,
             ),
             title: 'Accueil',
