@@ -8,6 +8,8 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import '../../../widgets/custom_header_title.dart';
+
 class ProofOfShipmentScreen extends StatefulWidget {
   const ProofOfShipmentScreen({super.key});
 
@@ -217,50 +219,9 @@ class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.h),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: 16.h),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Icon(
-                        Icons.arrow_back_outlined,
-                        size: 24.w,
-                        color: AppColors.blackColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xffF3F3F3),
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 8.h,
-                    horizontal: 16.w,
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset(AppIcons.tickPng, width: 24.w, height: 24.h),
-                      SizedBox(width: 10.w),
-                      Text(
-                        'Preuve d\'expédition',
-                        style: TextStyle(
-                          fontSize: 24.sp,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff353535),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              CustomHeaderTitle(title: 'Preuve d\'expédition',),
               SizedBox(height: 16.h),
               Expanded(
                 child: SingleChildScrollView(

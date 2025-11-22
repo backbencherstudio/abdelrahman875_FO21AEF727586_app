@@ -18,5 +18,5 @@ final List<SettingItemModel> itemsSetting = [
   SettingItemModel(title: 'Cookies', iconPath: AppIcons.termsandConditionsPng),
   SettingItemModel(title: 'Assistance', iconPath: AppIcons.gmailLogoPng),
   SettingItemModel(title: 'Avis', iconPath: AppIcons.starHalfEmptyPng),
-  SettingItemModel(title: 'Logout', iconPath: AppIcons.logoutPng),
+  SettingItemModel(title: 'Déconnexion', iconPath: AppIcons.logoutPng),
 ];

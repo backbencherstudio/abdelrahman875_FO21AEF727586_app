@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theme/src/theme_extension/color_pallete.dart';
-import '../../riverpod/notification_toggle_provider.dart';
+import '../../viewmodel/notification_toggle_provider.dart';
 
 class CustomSettingItem extends ConsumerWidget {
   final String title;
