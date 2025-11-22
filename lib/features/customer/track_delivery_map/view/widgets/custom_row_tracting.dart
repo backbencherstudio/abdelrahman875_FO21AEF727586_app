@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/src/theme_extension/color_pallete.dart';
+import '../../../../../core/theme/src/theme_extension/color_pallete.dart';
 
 class CustomRowTracking extends StatelessWidget {
   const CustomRowTracking({

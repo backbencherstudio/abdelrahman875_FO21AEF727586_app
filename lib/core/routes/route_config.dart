@@ -167,10 +167,10 @@ class RouteConfig {
         },
       ),
       GoRoute(
-        name: RouteName.detailsCommandeScreen,
-        path: RouteName.detailsCommandeScreen,
+        name: RouteName.deliveryDetailsScreen,
+        path: RouteName.deliveryDetailsScreen,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: DetailsCommandeScreen());
+          return const MaterialPage(child: DeliveryDetailsScreen());
         },
       ),
       GoRoute(
@@ -387,7 +387,8 @@ class RouteConfig {
             child: CarrierReviewScreen(),
           );
         },
-      ),      GoRoute(
+      ),
+      GoRoute(
         name: RouteName.proofOfShipmentScreen,
         path: RouteName.proofOfShipmentScreen,
         pageBuilder: (context, state) {
@@ -396,6 +397,18 @@ class RouteConfig {
             context: context,
             state: state,
             child: ProofOfShipmentScreen(),
+          );
+        },
+      ),
+      GoRoute(
+        name: RouteName.deliveriesCompletedScreen,
+        path: RouteName.deliveriesCompletedScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: DeliveriesCompletedScreen(),
           );
         },
       ),
