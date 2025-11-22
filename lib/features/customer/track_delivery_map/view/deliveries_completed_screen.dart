@@ -1,4 +1,5 @@
 import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
+import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/custom_divider.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
@@ -8,14 +9,14 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
-class ProofOfShipmentScreen extends StatefulWidget {
-  const ProofOfShipmentScreen({super.key});
+class DeliveriesCompletedScreen extends StatefulWidget {
+  const DeliveriesCompletedScreen({super.key});
 
   @override
-  State<ProofOfShipmentScreen> createState() => _ProofOfShipmentScreenState();
+  State<DeliveriesCompletedScreen> createState() => _DeliveriesCompletedScreenState();
 }
 
-class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
+class _DeliveriesCompletedScreenState extends State<DeliveriesCompletedScreen> {
   final ImagePicker _imagePicker = ImagePicker();
 
   File? _packagePhoto;
@@ -59,9 +60,9 @@ class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
   }
 
   Future<void> _pickImage(
-    ImageSource source,
-    Function(File) onImageSelected,
-  ) async {
+      ImageSource source,
+      Function(File) onImageSelected,
+      ) async {
     try {
       final XFile? pickedFile = await _imagePicker.pickImage(
         source: source,
@@ -126,21 +127,21 @@ class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
         GestureDetector(
           onTap: imageFile == null
               ? () => _showImageSourceDialog((file) {
-                  switch (sectionKey) {
-                    case 'package':
-                      _packagePhoto = file;
-                      break;
-                    case 'sender':
-                      _senderSignature = file;
-                      break;
-                    case 'transporter':
-                      _transporterSignature = file;
-                      break;
-                    case 'loading':
-                      _loadingNotePhoto = file;
-                      break;
-                  }
-                })
+            switch (sectionKey) {
+              case 'package':
+                _packagePhoto = file;
+                break;
+              case 'sender':
+                _senderSignature = file;
+                break;
+              case 'transporter':
+                _transporterSignature = file;
+                break;
+              case 'loading':
+                _loadingNotePhoto = file;
+                break;
+            }
+          })
               : null,
           child: Container(
             height: 140.h,
@@ -152,57 +153,57 @@ class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
             ),
             child: imageFile == null
                 ? Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        placeholderIcon ?? Icons.add_photo_alternate_outlined,
-                        size: 40.w,
-                        color: Color(0xff696767),
-                      ),
-                      SizedBox(height: 8.h),
-                      Text(
-                        placeholderText,
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          color: Color(0xff696767),
-                          fontWeight: FontWeight.w500,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  )
-                : Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.r),
-                        child: Image.file(
-                          imageFile,
-                          width: double.infinity,
-                          height: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Positioned(
-                        top: 8.w,
-                        right: 8.w,
-                        child: GestureDetector(
-                          onTap: () => _removeImage(sectionKey),
-                          child: Container(
-                            padding: EdgeInsets.all(4.w),
-                            decoration: BoxDecoration(
-                              color: Colors.black54,
-                              shape: BoxShape.circle,
-                            ),
-                            child: Icon(
-                              Icons.close,
-                              size: 18.w,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  placeholderIcon ?? Icons.add_photo_alternate_outlined,
+                  size: 40.w,
+                  color: Color(0xff696767),
+                ),
+                SizedBox(height: 8.h),
+                Text(
+                  placeholderText,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Color(0xff696767),
+                    fontWeight: FontWeight.w500,
                   ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            )
+                : Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.r),
+                  child: Image.file(
+                    imageFile,
+                    width: double.infinity,
+                    height: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(
+                  top: 8.w,
+                  right: 8.w,
+                  child: GestureDetector(
+                    onTap: () => _removeImage(sectionKey),
+                    child: Container(
+                      padding: EdgeInsets.all(4.w),
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.close,
+                        size: 18.w,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         SizedBox(height: 16.h),
@@ -250,7 +251,7 @@ class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
                       Image.asset(AppIcons.tickPng, width: 24.w, height: 24.h),
                       SizedBox(width: 10.w),
                       Text(
-                        'Preuve d\'expédition',
+                        'Preuve de livraison',
                         style: TextStyle(
                           fontSize: 24.sp,
                           fontWeight: FontWeight.w500,
@@ -371,7 +372,7 @@ class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
 
                       // Package Photos Section
                       _buildImagePickerSection(
-                        title: 'Photos du colis avant départ',
+                        title: 'Photos du colis à la livraison',
                         sectionKey: 'package',
                         imageFile: _packagePhoto,
                         placeholderText: 'Ajouter une photo du colis',
@@ -380,11 +381,11 @@ class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
 
                       // Sender Signature Section
                       _buildImagePickerSection(
-                        title: 'Signature Expéditeur',
+                        title: 'Signature Destinataire',
                         sectionKey: 'sender',
                         imageFile: _senderSignature,
                         placeholderText:
-                            'Ajouter la signature de l\'expéditeur',
+                        'Ajouter la signature du destinataire',
                         placeholderIcon: Icons.draw_outlined,
                       ),
 
@@ -400,7 +401,7 @@ class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
                           ),
                           Expanded(
                             child: Text(
-                              'J’atteste de la vérification et de la conformité du colis avant sa prise en charge.',
+                              'J’ai vérifié le colis livré et accepte sa réception.',
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w500,
@@ -420,35 +421,35 @@ class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
                         placeholderIcon: Icons.assignment_outlined,
                       ),
 
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Checkbox(
-                            value: true,
-                            onChanged: (value) {},
-                            checkColor: AppColors.whiteColor,
-                            activeColor: Color(0xff9E9D9F),
-                          ),
-                          Expanded(
-                            child: Text(
-                              "Je m'engage à respecter les conditions de livraison et à traiter l'envoi conformément aux informations renseignées.",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff9E9D9F),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      // Row(
+                      //   crossAxisAlignment: CrossAxisAlignment.start,
+                      //   mainAxisAlignment: MainAxisAlignment.start,
+                      //   children: [
+                      //     Checkbox(
+                      //       value: true,
+                      //       onChanged: (value) {},
+                      //       checkColor: AppColors.whiteColor,
+                      //       activeColor: Color(0xff9E9D9F),
+                      //     ),
+                      //     Expanded(
+                      //       child: Text(
+                      //         "Je m'engage à respecter les conditions de livraison et à traiter l'envoi conformément aux informations renseignées.",
+                      //         style: TextStyle(
+                      //           fontSize: 14.sp,
+                      //           fontWeight: FontWeight.w500,
+                      //           color: Color(0xff9E9D9F),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
 
                       // Loading Note Section
                       _buildImagePickerSection(
                         title: 'Remarque au chargement',
                         sectionKey: 'loading',
                         imageFile: _loadingNotePhoto,
-                        placeholderText: 'Ajouter une photo de la remarque',
+                        placeholderText: 'Difficulté à trouver l’adresse de livraison.',
                         placeholderIcon: Icons.note_alt_outlined,
                       ),
 
@@ -463,7 +464,8 @@ class _ProofOfShipmentScreenState extends State<ProofOfShipmentScreen> {
                           color: AppColors.whiteColor,
                         ),
                         onTap: () {
-                          context.pop();
+                          // context.pop();
+                          context.push(RouteName.deliveryDetailsScreen);
                         },
                       ),
                       SizedBox(height: 20.h),
