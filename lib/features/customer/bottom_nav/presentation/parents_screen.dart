@@ -1,6 +1,4 @@
 // import 'package:abdelrahman875_fo21aef727586/features/customer/bottom_nav/viewmodel/bottom_nav_bar_viewmodel.dart';
-// import 'package:abdelrahman875_fo21aef727586/features/customer/bottom_nav/presentation/widget/bottomNavbar.dart';
-// import 'package:abdelrahman875_fo21aef727586/features/customer/bottom_nav/presentation/widget/floating_action_buutton.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 

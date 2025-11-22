@@ -45,6 +45,7 @@ class AppColors {
   static const Color greenText = Color(0xff5EB111);
   static const Color greenText2 = Color(0xff488014);
   static const Color greenText3 = Color(0xff3E7807);
+  static const Color greenText4 = Color(0xffFFFFC5);
 
 
   // Container Color

@@ -47,4 +47,5 @@ class RouteName {
   static const String carrierReviewScreen = '/CarrierReviewScreen';
   static const String proofOfShipmentScreen = '/ProofOfShipmentScreen';
   static const String deliveriesCompletedScreen = '/DeliveriesCompletedScreen';
+  static const String statisticsDashboardScreen = '/StatisticsDashboardScreen';
 }

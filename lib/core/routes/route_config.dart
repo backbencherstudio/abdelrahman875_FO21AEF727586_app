@@ -412,6 +412,19 @@ class RouteConfig {
           );
         },
       ),
+
+      GoRoute(
+        name: RouteName.statisticsDashboardScreen,
+        path: RouteName.statisticsDashboardScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            transitionType: PageTransitionType.slideRightToLeft,
+            context: context,
+            state: state,
+            child: StatisticsDashboardScreen(),
+          );
+        },
+      ),
     ],
   );
 }

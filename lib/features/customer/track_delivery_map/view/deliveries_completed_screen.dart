@@ -1,7 +1,7 @@
-import 'package:abdelrahman875_fo21aef727586/core/constants/icons.dart';
 import 'package:abdelrahman875_fo21aef727586/core/routes/route_name.dart';
 import 'package:abdelrahman875_fo21aef727586/core/theme/src/theme_extension/color_pallete.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/custom_divider.dart';
+import 'package:abdelrahman875_fo21aef727586/features/widgets/custom_header_title.dart';
 import 'package:abdelrahman875_fo21aef727586/features/widgets/primery_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -219,49 +219,7 @@ class _DeliveriesCompletedScreenState extends State<DeliveriesCompletedScreen> {
           padding: EdgeInsets.symmetric(horizontal: 16.h),
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: 16.h),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Icon(
-                        Icons.arrow_back_outlined,
-                        size: 24.w,
-                        color: AppColors.blackColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xffF3F3F3),
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 8.h,
-                    horizontal: 16.w,
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset(AppIcons.tickPng, width: 24.w, height: 24.h),
-                      SizedBox(width: 10.w),
-                      Text(
-                        'Preuve de livraison',
-                        style: TextStyle(
-                          fontSize: 24.sp,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff353535),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              CustomHeaderTitle(title: 'Preuve de livraison'),
               SizedBox(height: 16.h),
               Expanded(
                 child: SingleChildScrollView(
